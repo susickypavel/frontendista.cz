@@ -3,5 +3,15 @@
   "description": "Pavel Susicky's blog and portfolio",
   "repository": "https://github.com/Thesoreon/pavelsusicky.com",
   "author": "Pavel Sušický <pavels.sus@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "next -p 8080",
+    "start:prod": "next start -p 9090",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^9.2.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
 }
