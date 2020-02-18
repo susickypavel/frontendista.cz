@@ -1,10 +1,23 @@
 import React from "react"
+import fetch from "isomorphic-unfetch"
+import { NextPage } from "next"
 
-const test = {
-  hello: "s",
-  ds: "h",
+interface Props {
+  stars: number
 }
 
-export default () => <div>Hello World</div>
+const IndexPage: NextPage<Props> = ({ stars }) => {
+  return (
+    <div>
+      <h1>Hello, World! {stars}</h1>
+    </div>
+  )
+}
 
-console.log("test")
+IndexPage.getInitialProps = async ({ req }) => {
+  const res = await fetch("https://api.github.com/repos/zeit/next.js")
+  const json = await res.json()
+  return { stars: json.stargazers_count }
+}
+
+export default IndexPage

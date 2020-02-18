@@ -13,6 +13,7 @@
     "prettier:check": "prettier --check *.js *.jsx *.ts *.tsx *.json"
   },
   "dependencies": {
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^9.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

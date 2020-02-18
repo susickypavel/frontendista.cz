@@ -23,9 +23,11 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
+    "no-unused-vars": "off",
     "quotes": ["error", "double"],
     "semi": ["error", "never"],
     "react/display-name": "off",
+    "react/prop-types": "off",
     "prettier/prettier": "error"
   },
   "settings": {
