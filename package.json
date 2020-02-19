@@ -10,7 +10,9 @@
     "build": "next build",
     "eslint:check": "eslint . --ext js,jsx,ts,tsx,json",
     "eslint:fix": "eslint --fix . --ext js,jsx,ts,tsx,json",
-    "prettier:check": "prettier --check *.js *.jsx *.ts *.tsx *.json"
+    "prettier:check": "prettier --check *.js *.jsx *.ts *.tsx *.json",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
@@ -19,15 +21,20 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@testing-library/react": "^9.4.0",
+    "@types/jest": "^25.1.2",
     "@types/node": "^13.7.1",
     "@types/react": "^16.9.20",
     "@types/react-dom": "^16.9.5",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
+    "babel-jest": "^25.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-jest": "^23.7.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
     "typescript": "^3.7.5"
   }

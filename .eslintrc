@@ -7,7 +7,8 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jest/style"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -21,14 +22,15 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "jest"],
   "rules": {
     "no-unused-vars": "off",
     "quotes": ["error", "double"],
     "semi": ["error", "never"],
     "react/display-name": "off",
     "react/prop-types": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "jest/consistent-test-it": ["error", { "fn": "it" }]
   },
   "settings": {
     "react": {
