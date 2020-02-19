@@ -1,5 +1,19 @@
 import React from "react"
 
+export const GlobalStyles = () => (
+  <style jsx global>
+    {`
+      :root {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Open Sans";
+      }
+    `}
+  </style>
+)
+
 export const CSSReset = () => (
   <style jsx global>
     {`
@@ -88,7 +102,6 @@ export const CSSReset = () => (
         padding: 0;
         border: 0;
         font-size: 100%;
-        font: inherit;
         vertical-align: baseline;
       }
       article,
