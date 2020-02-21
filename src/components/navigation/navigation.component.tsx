@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { TimelineLite } from "gsap"
+import { TimelineLite } from "gsap/dist/gsap"
 
 import { NavigationWrapper, NavigationToggleWrapper } from "./navigation.styles"
 import NavigationToggle from "./navigation-toggle/navigation-toggle.component"

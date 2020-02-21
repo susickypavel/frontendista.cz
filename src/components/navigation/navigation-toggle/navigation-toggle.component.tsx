@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, Dispatch, SetStateAction } from "react"
-import { TimelineLite } from "gsap"
+import { TimelineLite } from "gsap/dist/gsap"
 import { SVGWrapper } from "./navigation-toggle.styles"
 
 interface Props {
