@@ -1,6 +1,10 @@
-import React from "react"
+import React, { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { TimelineLite } from "gsap"
+
+import { NavigationWrapper, NavigationToggleWrapper } from "./navigation.styles"
+import NavigationToggle from "./navigation-toggle/navigation-toggle.component"
 
 interface NavigatonLink {
   name: string
@@ -32,11 +36,38 @@ const links: NavigatonLink[] = [
 ]
 
 const Navigation: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(true)
   const { pathname } = useRouter()
 
+  const navigationTimeline = useRef<TimelineLite>()
+  const navigationListRef = useRef<any>()
+
+  useEffect(() => {
+    navigationTimeline.current = new TimelineLite({
+      paused: true,
+    })
+
+    navigationTimeline.current.to(navigationListRef.current, {
+      height: "100vh",
+      ease: "power4",
+      duration: 0.75,
+    })
+  }, [])
+
+  useEffect(() => {
+    if (collapsed) {
+      navigationTimeline.current?.reverse()
+    } else {
+      navigationTimeline.current?.play()
+    }
+  }, [collapsed])
+
   return (
-    <nav>
-      <ul>
+    <NavigationWrapper>
+      <NavigationToggleWrapper>
+        <NavigationToggle onClick={setCollapsed} />
+      </NavigationToggleWrapper>
+      <ul ref={navigationListRef}>
         {links.map(({ href, name, ariaLabel }) => (
           <li key={name}>
             <Link href={href}>
@@ -50,29 +81,7 @@ const Navigation: React.FC = () => {
           </li>
         ))}
       </ul>
-      <style jsx global>{`
-        nav {
-          height: 65px;
-          border-bottom: 1px solid black;
-        }
-
-        nav ul {
-          display: flex;
-          flex-flow: row wrap;
-          height: 100%;
-          justify-content: center;
-          align-items: center;
-        }
-
-        nav ul li a {
-          text-transform: uppercase;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 2rem;
-          padding: 0.8em;
-        }
-      `}</style>
-    </nav>
+    </NavigationWrapper>
   )
 }
 
