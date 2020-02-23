@@ -8,7 +8,7 @@ const PageLayout: React.FC = ({ children }) => {
     <>
       <GlobalStyles />
       <CSSReset />
-      <Navigation />
+      {/* <Navigation /> */}
       {children}
     </>
   )

@@ -1,11 +1,14 @@
 import React from "react"
 import { NextPage } from "next"
 
+import Logo from "../src/assets/logo.svg"
+import { PageHolder } from "~/components/index-page/index-page.styles"
+
 const IndexPage: NextPage = () => {
   return (
-    <div>
-      <h1>Hello, World!</h1>
-    </div>
+    <PageHolder>
+      <Logo />
+    </PageHolder>
   )
 }
 
