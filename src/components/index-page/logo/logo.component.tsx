@@ -10,12 +10,6 @@ const Logo: React.FC = () => {
     logoTimeline.current = new TimelineLite()
 
     logoTimeline.current
-      .to("#logo", {
-        width: "500px",
-        duration: 2,
-        delay: 0.75,
-        ease: "linear",
-      })
       .to(
         "#logo path:nth-of-type(1)",
         {
@@ -28,6 +22,23 @@ const Logo: React.FC = () => {
       .set("#logo path:nth-of-type(1)", {
         strokeDasharray: 0,
       })
+      .to("#logo path:nth-of-type(2)", {
+        opacity: 1,
+        translateX: 0,
+        duration: 1.75,
+        ease: "power4",
+        delay: 0.25,
+      })
+      .to(
+        "#logo path:nth-of-type(3)",
+        {
+          opacity: 1,
+          translateX: 0,
+          duration: 1.75,
+          ease: "power4",
+        },
+        "-=1"
+      )
   }, [])
 
   return <StyledLogoSVG id="logo" />
