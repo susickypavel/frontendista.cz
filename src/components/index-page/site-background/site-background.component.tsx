@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import { Application, Sprite, Filter, Point, interaction } from "pixi.js"
+import { Application, Sprite, Filter, Point, interaction, Container } from "pixi.js"
 
 import { CanvasHolder } from "./site-background.styles"
 
@@ -9,67 +9,77 @@ const SiteBackground: React.FC = () => {
   useEffect(() => {
     const application = new Application({
       resizeTo: window,
-      backgroundColor: 0x000000,
+      transparent: true,
     })
 
     const uniforms = {
-      coords: { x: 1000, y: 0 },
+      u_time: 0.0,
+      u_resolution: {
+        x: window.innerWidth,
+        y: window.innerHeight,
+      },
     }
 
-    const star = Sprite.from("./star.png")
-
     const customFilter = new Filter(
+      "",
       `
-attribute vec2 aVertexPosition;
-
-uniform mat3 projectionMatrix;
-
-varying vec2 vTextureCoord;
-
-uniform vec4 inputSize;
-uniform vec4 outputFrame;
-
-vec4 filterVertexPosition( void )
-{
-    vec2 position = aVertexPosition * max(outputFrame.zw, vec2(0.)) + outputFrame.xy;
-
-    return vec4((projectionMatrix * vec3(position, 1.0)).xy, 0.0, 1.0);
-}
-
-vec2 filterTextureCoord( void )
-{
-    return aVertexPosition * (outputFrame.zw * inputSize.zw);
-}
-
-void main(void)
-{
-    gl_Position = filterVertexPosition();
-    vTextureCoord = filterTextureCoord();
-}
-      `,
-      `
-precision mediump float;
-
-uniform vec2 coords;
-
-void main() {
-  gl_FragColor = vec4(coords.x / 2000.0, 0.0, 0.0, 1.0);
-}
+      #ifdef GL_ES
+      precision mediump float;
+      #endif
+      
+      uniform float u_time;
+      uniform vec2 u_resolution;
+      
+      float random(vec2 ab)
+      {
+        float f = (cos(dot(ab ,vec2(21.9898,78.233))) * 43758.5453);
+        return fract(f);
+      }
+      
+      float noise(in vec2 xy)
+      {
+        vec2 ij = floor(xy);
+        vec2 uv = xy-ij;
+        uv = uv*uv*(3.0-2.0*uv);
+      
+      
+        float a = random(vec2(ij.x, ij.y ));
+        float b = random(vec2(ij.x+1., ij.y));
+        float c = random(vec2(ij.x, ij.y+1.));
+        float d = random(vec2(ij.x+1., ij.y+1.));
+        float k0 = a;
+        float k1 = b-a;
+        float k2 = c-a;
+        float k3 = a-b-c+d;
+        return (k0 + k1*uv.x + k2*uv.y + k3*uv.x*uv.y);
+      }
+      
+      void main() {
+        vec2 position = (gl_FragCoord.xy+ - 0.5 * u_resolution.xy) / u_resolution.yy;
+      
+        float color = pow(noise(gl_FragCoord.xy), 40.0) * 20.0;
+      
+        float r1 = noise(gl_FragCoord.xy*noise(vec2(sin(u_time*0.01))));
+        float r2 = noise(gl_FragCoord.xy*noise(vec2(cos(u_time*0.01), sin(u_time*0.01))));
+        float r3 = noise(gl_FragCoord.xy*noise(vec2(sin(u_time*0.05), cos(u_time*0.05))));
+      
+        gl_FragColor = vec4(vec3(color*r1, color*r2, color*r3), 1.0);
+      
+      }
+      
     `,
       uniforms
     )
 
-    star.filters = [customFilter]
+    const container = new Container()
 
-    star.position = new Point(700, 500)
+    container.filterArea = application.screen
+    container.filters = [customFilter]
 
-    application.stage.addChild(star)
+    application.stage.addChild(container)
 
-    application.stage.interactive = true
-
-    application.stage.on("mousemove", (e: interaction.InteractionEvent) => {
-      const { x, y } = e.data.global
-      uniforms.coords = { x, y }
+    application.ticker.add(() => {
+      uniforms.u_time += 0.01
     })
 
     canvasHolder.current!.appendChild(application.view)
