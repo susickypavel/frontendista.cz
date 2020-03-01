@@ -13,7 +13,7 @@ const SideBackground = dynamic(
 const IndexPage: NextPage = () => {
   return (
     <PageHolder>
-      <SideBackground />
+      {/* <SideBackground /> */}
       <Logo />
     </PageHolder>
   )

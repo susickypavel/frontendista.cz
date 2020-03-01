@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { TimelineLite } from "gsap/dist/gsap"
+import { TimelineLite, Power1 } from "gsap/dist/gsap"
 
 import { StyledLogoSVG } from "./logo.styles"
 
@@ -10,34 +10,56 @@ const Logo: React.FC = () => {
     logoTimeline.current = new TimelineLite()
 
     logoTimeline.current
-      .to(
-        "#logo path:nth-of-type(1)",
-        {
-          strokeDashoffset: 0,
-          duration: 2,
-          ease: "linear",
-        },
-        "<1"
-      )
-      .set("#logo path:nth-of-type(1)", {
-        strokeDasharray: 0,
+      .set("#logo path:nth-of-type(2)", {
+        transformOrigin: "center center",
+        scale: 1,
+        opacity: 0,
+      })
+      .set("#logo path:nth-of-type(3)", {
+        scale: 1.1,
+        transformOrigin: "center center",
+      })
+      .set("#logo path:nth-of-type(4)", {
+        scale: 1.1,
+        transformOrigin: "center center",
       })
       .to("#logo path:nth-of-type(2)", {
+        delay: 0.5,
+        duration: 3,
+        scale: 1.2,
         opacity: 1,
-        translateX: 0,
-        duration: 1.75,
-        ease: "power4",
-        delay: 0.25,
+        ease: "slow",
+      })
+      .to("#logo path:nth-of-type(2)", {
+        scale: 1,
+        ease: "slow",
+        duration: 0.5,
+      })
+      .to("#logo path:nth-of-type(1)", {
+        strokeDashoffset: 0,
+        ease: Power1.easeIn,
+        duration: 3,
+      })
+      .set("#logo path:nth-of-type(1)", {
+        strokeDasharray: 0,
       })
       .to(
         "#logo path:nth-of-type(3)",
         {
+          scale: 1,
           opacity: 1,
-          translateX: 0,
-          duration: 1.75,
-          ease: "power4",
+          ease: Power1.easeIn,
         },
-        "-=1"
+        "<0.5"
+      )
+      .to(
+        "#logo path:nth-of-type(4)",
+        {
+          scale: 1,
+          opacity: 1,
+          ease: Power1.easeIn,
+        },
+        "<0.5"
       )
   }, [])
 
