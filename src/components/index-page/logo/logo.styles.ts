@@ -11,6 +11,7 @@ export const StyledLogoSVG = styled(LogoSVG)`
 
   & path:nth-of-type(2) {
     stroke-linejoin: bevel;
+    opacity: 0;
   }
 
   & path:nth-of-type(3) {

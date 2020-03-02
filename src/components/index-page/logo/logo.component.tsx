@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { TimelineLite, Power1 } from "gsap/dist/gsap"
+import { TimelineLite, Power1, Bounce } from "gsap/dist/gsap"
 
 import { StyledLogoSVG } from "./logo.styles"
 
@@ -17,10 +17,12 @@ const Logo: React.FC = () => {
       })
       .set("#logo path:nth-of-type(3)", {
         scale: 1.1,
+        opacity: 0,
         transformOrigin: "center center",
       })
       .set("#logo path:nth-of-type(4)", {
         scale: 1.1,
+        opacity: 0,
         transformOrigin: "center center",
       })
       .to("#logo path:nth-of-type(2)", {
@@ -61,6 +63,19 @@ const Logo: React.FC = () => {
         },
         "<0.5"
       )
+      .to("#logo path:nth-of-type(4)", {
+        delay: 1.25,
+        attr: {
+          fill: "#ff26a9",
+        },
+        duration: 0.25,
+        ease: Bounce.easeIn,
+      })
+      .to("#logo path:nth-of-type(4)", {
+        attr: {
+          filter: "url(#C)",
+        },
+      })
   }, [])
 
   return <StyledLogoSVG id="logo" />
