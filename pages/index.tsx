@@ -2,8 +2,9 @@ import React from "react"
 import { NextPage } from "next"
 import dynamic from "next/dynamic"
 
-import { PageHolder } from "~/components/index-page/index-page.styles"
+import { LandingBlock, ContentBox } from "~/components/index-page/index-page.styles"
 import Logo from "~/components/index-page/logo/logo.component"
+import BlogPostListComponent from "~/components/index-page/blog-post-list/blog-post-list.component"
 
 const SideBackground = dynamic(
   () => import("~/components/index-page/site-background/site-background.component"),
@@ -12,10 +13,15 @@ const SideBackground = dynamic(
 
 const IndexPage: NextPage = () => {
   return (
-    <PageHolder>
-      {/* <SideBackground /> */}
-      <Logo />
-    </PageHolder>
+    <div>
+      <LandingBlock>
+        {/* <SideBackground /> */}
+        <Logo />
+      </LandingBlock>
+      <ContentBox>
+        <BlogPostListComponent />
+      </ContentBox>
+    </div>
   )
 }
 
