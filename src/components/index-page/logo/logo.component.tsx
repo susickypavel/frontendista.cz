@@ -5,9 +5,14 @@ import { StyledLogoSVG } from "./logo.styles"
 
 const Logo: React.FC = () => {
   const logoTimeline = useRef<TimelineLite>()
+  const logoNeonFlickering = useRef<TimelineLite>()
 
   useEffect(() => {
     logoTimeline.current = new TimelineLite()
+    logoNeonFlickering.current = new TimelineLite({
+      paused: true,
+      repeat: -1,
+    })
 
     logoTimeline.current
       .set("#logo path:nth-of-type(2)", {
@@ -75,7 +80,48 @@ const Logo: React.FC = () => {
         attr: {
           filter: "url(#C)",
         },
+        onComplete: () => {
+          logoNeonFlickering.current?.play()
+        },
       })
+
+    logoNeonFlickering.current
+      .to("#logo path:nth-of-type(4)", {
+        delay: 3,
+        transition: "none",
+        attr: {
+          fill: "#920058",
+          filter: "",
+        },
+        duration: 0.1,
+      })
+      .to("#logo path:nth-of-type(4)", {
+        transition: "none",
+        attr: {
+          fill: "#C91381",
+        },
+        duration: 0.1,
+      })
+      .to("#logo path:nth-of-type(4)", {
+        transition: "none",
+        attr: {
+          fill: "#920058",
+        },
+        duration: 0.1,
+      })
+      .to("#logo path:nth-of-type(4)", {
+        transition: "none",
+        attr: {
+          fill: "#ff26a9",
+          filter: "url(#C)",
+        },
+        duration: 0.1,
+      })
+
+    return () => {
+      logoTimeline.current!.kill()
+      logoNeonFlickering.current!.kill()
+    }
   }, [])
 
   return <StyledLogoSVG id="logo" />
