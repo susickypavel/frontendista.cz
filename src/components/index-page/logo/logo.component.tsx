@@ -1,11 +1,14 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useContext } from "react"
 import { TimelineLite, Power1, Bounce } from "gsap/dist/gsap"
 
 import { StyledLogoSVG } from "./logo.styles"
+import { GlobalVars } from "~/../pages/_app"
 
 const Logo: React.FC = () => {
   const logoTimeline = useRef<TimelineLite>()
   const logoNeonFlickering = useRef<TimelineLite>()
+
+  const { animated } = useContext(GlobalVars)
 
   useEffect(() => {
     logoTimeline.current = new TimelineLite()
@@ -117,6 +120,10 @@ const Logo: React.FC = () => {
         },
         duration: 0.1,
       })
+
+    if (animated) {
+      logoTimeline.current!.progress(1).pause()
+    }
 
     return () => {
       logoTimeline.current!.kill()
