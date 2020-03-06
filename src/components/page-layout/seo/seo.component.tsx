@@ -38,13 +38,13 @@ const Seo: React.FC<Props> = ({
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
       <meta property="og:url" content="TODO" />
-      <meta property="og:image" content="TODO" />
+      <meta property="og:image" content={`${process.env.NOW_URL}/thumbnail.jpg`} />
       {/* Twitter metadata */}
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:card" content={cardType} />
       <meta property="twitter:creator" content="@thesoreon" />
-      <meta property="twitter:image" content="TODO" />
+      <meta property="twitter:image" content={`${process.env.NOW_URL}/thumbnail.jpg`} />
       <meta property="twitter:image:alt" content="TODO" />
     </Head>
   )
