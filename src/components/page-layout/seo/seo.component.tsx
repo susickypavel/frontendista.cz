@@ -1,25 +1,25 @@
-import React from "react"
-import Head from "next/head"
+import React from "react";
+import Head from "next/head";
 
 interface Props {
-  title?: string
-  description?: string
-  keywords?: string[]
-  pathname: string
-  metaData?: MetaData
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  pathname: string;
+  metaData?: MetaData;
   image?: {
-    path: string
-    alt: string
-  }
+    path: string;
+    alt: string;
+  };
 }
 
 interface MetaData {
   twitter: Partial<{
-    cardType: "summary" | "summary_large_image" | "app" | "player"
-  }>
+    cardType: "summary" | "summary_large_image" | "app" | "player";
+  }>;
   openGraph: Partial<{
-    type: "website" | "article"
-  }>
+    type: "website" | "article";
+  }>;
 }
 
 const Seo: React.FC<Props> = ({
@@ -36,7 +36,7 @@ const Seo: React.FC<Props> = ({
     alt: "Thumbnail photo for portfolio and blog of Pavel Susicky",
   },
 }) => {
-  const composedKeywords = keywords.join(",")
+  const composedKeywords = keywords.join(",");
 
   return (
     <Head>
@@ -60,7 +60,7 @@ const Seo: React.FC<Props> = ({
       />
       <meta property="twitter:image:alt" content={image.alt} />
     </Head>
-  )
-}
+  );
+};
 
-export default Seo
+export default Seo;

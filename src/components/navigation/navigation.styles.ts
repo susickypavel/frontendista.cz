@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
-const TOGGLE_HEIGHT = "80px"
+const TOGGLE_HEIGHT = "80px";
 
 export const NavigationWrapper = styled.nav`
   & ul {
@@ -50,7 +50,7 @@ export const NavigationWrapper = styled.nav`
       }
     }
   }
-`
+`;
 
 export const NavigationToggleWrapper = styled.div`
   display: none;
@@ -63,4 +63,4 @@ export const NavigationToggleWrapper = styled.div`
 
     height: ${TOGGLE_HEIGHT};
   }
-`
+`;

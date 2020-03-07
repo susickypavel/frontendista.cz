@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
-import { CSSReset, GlobalStyles } from "./page-layout.styles"
-import Navigation from "../navigation/navigation.component"
+import { CSSReset, GlobalStyles } from "./page-layout.styles";
+import Navigation from "../navigation/navigation.component";
 
 const PageLayout: React.FC = ({ children }) => {
   return (
@@ -11,7 +11,7 @@ const PageLayout: React.FC = ({ children }) => {
       {/* <Navigation /> */}
       {children}
     </>
-  )
-}
+  );
+};
 
-export default PageLayout
+export default PageLayout;

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export const GlobalStyles = () => (
   <style jsx global>
@@ -12,7 +12,7 @@ export const GlobalStyles = () => (
       }
     `}
   </style>
-)
+);
 
 export const CSSReset = () => (
   <style jsx global>
@@ -141,4 +141,4 @@ export const CSSReset = () => (
       }
     `}
   </style>
-)
+);

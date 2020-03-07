@@ -1,18 +1,18 @@
-import React, { useRef, useEffect, Dispatch, SetStateAction } from "react"
-import { TimelineLite } from "gsap/dist/gsap"
-import { SVGWrapper } from "./navigation-toggle.styles"
+import React, { useRef, useEffect, Dispatch, SetStateAction } from "react";
+import { TimelineLite } from "gsap/dist/gsap";
+import { SVGWrapper } from "./navigation-toggle.styles";
 
 interface Props {
-  onClick: Dispatch<SetStateAction<boolean>>
+  onClick: Dispatch<SetStateAction<boolean>>;
 }
 
 const NavigationToggle: React.FC<Props> = ({ onClick }) => {
-  const toggleTimeline = useRef<TimelineLite>()
+  const toggleTimeline = useRef<TimelineLite>();
 
   useEffect(() => {
     toggleTimeline.current = new TimelineLite({
       paused: true,
-    })
+    });
 
     toggleTimeline.current
       .to("#navigation-toggle line:nth-of-type(2)", {
@@ -32,10 +32,10 @@ const NavigationToggle: React.FC<Props> = ({ onClick }) => {
           duration: 0.25,
           ease: "power4",
           onComplete: () => {
-            onClick(false)
+            onClick(false);
           },
           onReverseComplete: () => {
-            onClick(true)
+            onClick(true);
           },
         },
         "<"
@@ -55,8 +55,8 @@ const NavigationToggle: React.FC<Props> = ({ onClick }) => {
           ease: "power4",
         },
         "<"
-      )
-  }, [])
+      );
+  }, []);
 
   return (
     <SVGWrapper
@@ -67,9 +67,9 @@ const NavigationToggle: React.FC<Props> = ({ onClick }) => {
       xmlns="http://www.w3.org/2000/svg"
       onClick={() => {
         if (toggleTimeline.current?.reversed() || toggleTimeline.current?.paused()) {
-          toggleTimeline.current?.play()
+          toggleTimeline.current?.play();
         } else {
-          toggleTimeline.current?.reverse()
+          toggleTimeline.current?.reverse();
         }
       }}
     >
@@ -77,7 +77,7 @@ const NavigationToggle: React.FC<Props> = ({ onClick }) => {
       <line x1="13" y1="38" x2="63" y2="38" stroke="white" strokeWidth="4" />
       <line x1="13" y1="54" x2="63" y2="54" stroke="white" strokeWidth="4" />
     </SVGWrapper>
-  )
-}
+  );
+};
 
-export default NavigationToggle
+export default NavigationToggle;

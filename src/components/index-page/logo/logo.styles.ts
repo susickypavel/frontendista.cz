@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
-import LogoSVG from "../../../assets/logo.svg"
+import LogoSVG from "../../../assets/logo.svg";
 
 export const StyledLogoSVG = styled(LogoSVG)`
   & path:nth-of-type(1) {
@@ -21,4 +21,4 @@ export const StyledLogoSVG = styled(LogoSVG)`
   & path:nth-of-type(4) {
     opacity: 0;
   }
-`
+`;

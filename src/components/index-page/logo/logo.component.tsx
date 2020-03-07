@@ -1,21 +1,21 @@
-import React, { useRef, useEffect, useContext } from "react"
-import { TimelineLite, Power1, Bounce } from "gsap/dist/gsap"
+import React, { useRef, useEffect, useContext } from "react";
+import { TimelineLite, Power1, Bounce } from "gsap/dist/gsap";
 
-import { StyledLogoSVG } from "./logo.styles"
-import { GlobalVars } from "~/../pages/_app"
+import { StyledLogoSVG } from "./logo.styles";
+import { GlobalVars } from "~/../pages/_app";
 
 const Logo: React.FC = () => {
-  const logoTimeline = useRef<TimelineLite>()
-  const logoNeonFlickering = useRef<TimelineLite>()
+  const logoTimeline = useRef<TimelineLite>();
+  const logoNeonFlickering = useRef<TimelineLite>();
 
-  const { animated } = useContext(GlobalVars)
+  const { animated } = useContext(GlobalVars);
 
   useEffect(() => {
-    logoTimeline.current = new TimelineLite()
+    logoTimeline.current = new TimelineLite();
     logoNeonFlickering.current = new TimelineLite({
       paused: true,
       repeat: -1,
-    })
+    });
 
     logoTimeline.current
       .set("#logo path:nth-of-type(2)", {
@@ -84,9 +84,9 @@ const Logo: React.FC = () => {
           filter: "url(#C)",
         },
         onComplete: () => {
-          logoNeonFlickering.current?.play()
+          logoNeonFlickering.current?.play();
         },
-      })
+      });
 
     logoNeonFlickering.current
       .to("#logo path:nth-of-type(4)", {
@@ -119,19 +119,19 @@ const Logo: React.FC = () => {
           filter: "url(#C)",
         },
         duration: 0.1,
-      })
+      });
 
     if (animated) {
-      logoTimeline.current!.progress(1).pause()
+      logoTimeline.current!.progress(1).pause();
     }
 
     return () => {
-      logoTimeline.current!.kill()
-      logoNeonFlickering.current!.kill()
-    }
-  }, [])
+      logoTimeline.current!.kill();
+      logoNeonFlickering.current!.kill();
+    };
+  }, []);
 
-  return <StyledLogoSVG id="logo" />
-}
+  return <StyledLogoSVG id="logo" />;
+};
 
-export default Logo
+export default Logo;
