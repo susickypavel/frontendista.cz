@@ -5,7 +5,12 @@ interface Props {
   title?: string
   description?: string
   keywords?: string[]
+  pathname: string
   metaData?: MetaData
+  image?: {
+    path: string
+    alt: string
+  }
 }
 
 interface MetaData {
@@ -19,11 +24,16 @@ interface MetaData {
 
 const Seo: React.FC<Props> = ({
   title = "Pavel Susicky Portfolio",
-  description = "Portfolio and Blog of a Frontend developer Pavel Susicky",
+  description = "Portfolio and Blog of a Frontend developer Pavel Susicky from Czech republic",
   keywords = ["Frontend Developer", "React Developer", "Software engineer"],
   metaData: { twitter: { cardType }, openGraph: { type } } = {
     twitter: { cardType: "summary_large_image" },
     openGraph: { type: "website" },
+  },
+  pathname,
+  image = {
+    path: "/thumbnail.jpg",
+    alt: "Thumbnail photo for portfolio and blog of Pavel Susicky",
   },
 }) => {
   const composedKeywords = keywords.join(",")
@@ -37,11 +47,8 @@ const Seo: React.FC<Props> = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={type} />
-      <meta property="og:url" content="TODO" />
-      <meta
-        property="og:image"
-        content={"http://pavelsusicky-com.now.sh/thumbnail.jpg"}
-      />
+      <meta property="og:url" content={`http://pavelsusicky-com.now.sh${pathname}`} />
+      <meta property="og:image" content={`http://pavelsusicky-com.now.sh${image.path}`} />
       {/* Twitter metadata */}
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
@@ -49,9 +56,9 @@ const Seo: React.FC<Props> = ({
       <meta property="twitter:creator" content="@thesoreon" />
       <meta
         property="twitter:image"
-        content={"http://pavelsusicky-com.now.sh/thumbnail.jpg"}
+        content={`http://pavelsusicky-com.now.sh${image.path}`}
       />
-      <meta property="twitter:image:alt" content="TODO" />
+      <meta property="twitter:image:alt" content={image.alt} />
     </Head>
   )
 }
