@@ -30,7 +30,8 @@
     "react/display-name": "off",
     "react/prop-types": "off",
     "prettier/prettier": "error",
-    "jest/consistent-test-it": ["error", { "fn": "it" }]
+    "jest/consistent-test-it": ["error", { "fn": "it" }],
+    "linebreak-style": ["error", "windows"]
   },
   "settings": {
     "react": {
