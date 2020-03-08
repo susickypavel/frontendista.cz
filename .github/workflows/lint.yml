@@ -1,4 +1,4 @@
-name: test
+name: lint
 
 on:
   push:
@@ -21,6 +21,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn
-      - run: yarn test
+      - run: yarn eslint:check
         env:
           CI: true

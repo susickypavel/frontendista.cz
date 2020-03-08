@@ -10,7 +10,7 @@
     "build": "next build",
     "eslint:check": "eslint . --ext js,jsx,ts,tsx",
     "eslint:fix": "eslint --fix . --ext js,jsx,ts,tsx",
-    "prettier:check": "prettier --check *.js *.jsx *.ts *.tsx *.json",
+    "prettier:check": "prettier --check *.js *.jsx *.ts *.tsx",
     "test": "jest",
     "test:watch": "jest --watch",
     "build:analyze": "cross-env ANALYZE=true yarn build"
