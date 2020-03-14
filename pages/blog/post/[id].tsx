@@ -1,15 +1,17 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
+
 import sanityClient from "@sanity/client";
+import BlockContent from "@sanity/block-content-to-react";
 
 interface Props {
-  id: string;
+  post: any;
 }
 
-const BlogPostPage: React.FC<Props> = () => {
+const BlogPostPage: React.FC<Props> = ({ post: { content } }) => {
   return (
     <div>
-      <h1>Blog Post</h1>
+      <BlockContent blocks={content} />
     </div>
   );
 };
@@ -21,7 +23,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     useCdn: false,
   });
 
-  const query = "*[_type == 'post' && _id == $id]";
+  const query = "*[_type == 'post' && _id == $id][0]";
 
   const post = await client.fetch(query, { id: params!.id });
 
