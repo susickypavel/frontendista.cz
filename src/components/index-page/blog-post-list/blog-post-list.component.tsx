@@ -2,13 +2,30 @@ import React from "react";
 
 import Link from "next/link";
 
-const BlogPostListComponent: React.FC = () => {
+interface Props {
+  postPreviews: PostPreview[];
+}
+
+export interface PostPreview {
+  slug: {
+    _type: "slug";
+    current: string;
+  };
+  title: string;
+}
+
+const BlogPostListComponent: React.FC<Props> = ({ postPreviews }) => {
   return (
     <div>
-      <h1>Hello World</h1>
-      <Link href="/about">
-        <a>hello, World</a>
-      </Link>
+      {postPreviews.map(({ title, slug: { current } }) => {
+        return (
+          <div key={title}>
+            <Link href={`/blog/post/${current}`}>
+              <a>{title}</a>
+            </Link>
+          </div>
+        );
+      })}
     </div>
   );
 };

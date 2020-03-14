@@ -23,9 +23,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     useCdn: false,
   });
 
-  const query = "*[_type == 'post' && _id == $id][0]";
+  const query = "*[_type == 'post' && slug.current == $slug][0]";
 
-  const post = await client.fetch(query, { id: params!.id });
+  const post = await client.fetch(query, { slug: params!.slug });
 
   return {
     props: {
@@ -41,11 +41,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
     useCdn: false,
   });
 
-  const query = "*[_type == 'post']{ _id }";
+  const query = "*[_type == 'post'].slug.current";
 
-  const postsId: Array<{ _id: string }> = await client.fetch(query);
+  const postsSlug: string[] = await client.fetch(query);
 
-  const paths = postsId.map(post => ({ params: { id: post._id } }));
+  const paths = postsSlug.map(slug => ({ params: { slug } }));
 
   return {
     paths,

@@ -1,6 +1,8 @@
 import React from "react";
-import { NextPage } from "next";
+import { NextPage, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
+
+import sanityClient from "@sanity/client";
 
 import {
   LandingBlock,
@@ -8,7 +10,9 @@ import {
   PageHolder,
 } from "~/components/index-page/index-page.styles";
 import Logo from "~/components/index-page/logo/logo.component";
-import BlogPostListComponent from "~/components/index-page/blog-post-list/blog-post-list.component";
+import BlogPostList, {
+  PostPreview,
+} from "~/components/index-page/blog-post-list/blog-post-list.component";
 import { useRouter } from "next/router";
 import Seo from "~/components/page-layout/seo/seo.component";
 
@@ -17,7 +21,11 @@ const SideBackground = dynamic(
   { ssr: false }
 );
 
-const IndexPage: NextPage = () => {
+interface Props {
+  postPreviews: PostPreview[];
+}
+
+const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   const { pathname } = useRouter();
 
   return (
@@ -28,10 +36,28 @@ const IndexPage: NextPage = () => {
         <Logo />
       </LandingBlock>
       <ContentBox>
-        <BlogPostListComponent />
+        <BlogPostList postPreviews={postPreviews} />
       </ContentBox>
     </PageHolder>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const client = sanityClient({
+    projectId: "6rrtshi3",
+    dataset: "production",
+    useCdn: false,
+  });
+
+  const query = "*[_type == 'post']{ slug, title }";
+
+  const postPreviews = await client.fetch(query);
+
+  return {
+    props: {
+      postPreviews,
+    },
+  };
 };
 
 export default IndexPage;
