@@ -8,4 +8,7 @@ module.exports = withBundleAnalyzer({
     config.resolve.alias["~"] = path.resolve(__dirname, "src");
     return config;
   },
+  env: {
+    domain: "https://pavelsusicky.com",
+  },
 });
