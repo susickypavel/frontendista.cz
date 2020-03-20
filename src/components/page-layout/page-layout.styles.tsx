@@ -8,7 +8,8 @@ export const GlobalStyles = () => (
       }
 
       body {
-        font-family: "Open Sans";
+        font-family: "Oxanium";
+        min-width: 650px;
       }
 
       ::-webkit-scrollbar {

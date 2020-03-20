@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 import LogoSVG from "../../../assets/logo.svg";
 
 export const StyledLogoSVG = styled(LogoSVG)`
+  height: auto;
+
   & path:nth-of-type(1) {
     stroke-dasharray: 2300;
     stroke-dashoffset: 2300;

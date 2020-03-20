@@ -15,6 +15,7 @@ import BlogPostList, {
 } from "~/components/index-page/blog-post-list/blog-post-list.component";
 import { useRouter } from "next/router";
 import Seo from "~/components/page-layout/seo/seo.component";
+import Description from "~/components/index-page/description/description.component";
 
 const SideBackground = dynamic(
   () => import("~/components/index-page/site-background/site-background.component"),
@@ -32,12 +33,10 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
     <PageHolder>
       <Seo pathname={pathname} />
       <LandingBlock>
-        {/* <SideBackground /> */}
         <Logo />
+        <Description />
       </LandingBlock>
-      <ContentBox>
-        <BlogPostList postPreviews={postPreviews} />
-      </ContentBox>
+      {/* <ContentBox><BlogPostList postPreviews={postPreviews} /></ContentBox> */}
     </PageHolder>
   );
 };
@@ -49,7 +48,8 @@ export const getStaticProps: GetStaticProps = async () => {
     useCdn: false,
   });
 
-  const query = "*[_type == 'post']{ slug, title }";
+  const query =
+    "*[_type == 'post']{ slug, title, \"thumbnailUrl\": thumbnail.asset->url }";
 
   const postPreviews = await client.fetch(query);
 
