@@ -8,6 +8,8 @@ import {
   LandingBlock,
   ContentBox,
   PageHolder,
+  LandingBlockLeft,
+  LandingBlockRight,
 } from "~/components/index-page/index-page.styles";
 import Logo from "~/components/index-page/logo/logo.component";
 import BlogPostList, {
@@ -33,8 +35,12 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
     <PageHolder>
       <Seo pathname={pathname} />
       <LandingBlock>
-        <Logo />
-        <Description />
+        <LandingBlockLeft>
+          <Logo />
+        </LandingBlockLeft>
+        <LandingBlockRight>
+          <Description />
+        </LandingBlockRight>
       </LandingBlock>
       {/* <ContentBox><BlogPostList postPreviews={postPreviews} /></ContentBox> */}
     </PageHolder>

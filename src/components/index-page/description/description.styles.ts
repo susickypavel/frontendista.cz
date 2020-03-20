@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
-export const DescriptionHolder = styled.div``;
+export const DescriptionHolder = styled.div`
+  display: inline-block;
+`;
 
 export const TextDescription = styled.p`
   color: white;

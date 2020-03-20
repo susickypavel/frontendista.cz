@@ -11,12 +11,18 @@ export const LandingBlock = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-
-  @media (max-width: 1400px) {
-    align-items: flex-start;
-  }
 `;
 
 export const ContentBox = styled.div`
   min-height: 100vh;
+`;
+
+export const LandingBlockLeft = styled.div`
+  flex: 1 0 50%;
+`;
+export const LandingBlockRight = styled.div`
+  flex: 1 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
