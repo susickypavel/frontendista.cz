@@ -29,7 +29,6 @@ const SocialIcon: React.FC<Props> = ({ iconProps: { icon, color, href } }) => {
       {React.createElement(icon, {
         color,
         size: "4.8rem",
-        style: { padding: "16px" },
       } as IconBaseProps)}
     </SocialIconHolder>
   );

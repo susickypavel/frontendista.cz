@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 export const PageHolder = styled.div`
-  /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(155, 0, 232, 1) 100%); */
   background: black;
 `;
 
@@ -18,11 +17,20 @@ export const ContentBox = styled.div`
 `;
 
 export const LandingBlockLeft = styled.div`
-  flex: 1 0 50%;
-`;
-export const LandingBlockRight = styled.div`
+  height: 100vh;
   flex: 1 0 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+export const LandingBlockRight = styled.div`
+  height: 100vh;
+  flex: 1 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 550px) {
+    align-self: flex-start;
+  }
 `;

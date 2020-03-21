@@ -4,11 +4,7 @@ export const SocialIconHolder = styled.a`
   display: inline-block;
   padding: 1.2em;
   position: relative;
-  margin-right: auto;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
+  margin: 0 auto;
 `;
 
 export const BorderSVG = styled.svg`
