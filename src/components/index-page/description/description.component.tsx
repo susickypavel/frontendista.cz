@@ -59,7 +59,17 @@ const Description: React.FC = () => {
           </linearGradient>
         </defs>
       </TextDescriptionSVG>
-      <SocialIconsHolder>
+      <SocialIconsHolder
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.33,
+            },
+          },
+        }}
+      >
         {icons.map(icon => (
           <SocialIcon iconProps={icon} key={icon.href} />
         ))}

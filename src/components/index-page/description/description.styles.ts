@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 export const DescriptionHolder = styled.div`
   display: inline-block;
@@ -14,7 +15,7 @@ export const TextDescriptionSVG = styled.svg`
   height: auto;
 `;
 
-export const SocialIconsHolder = styled.div`
+export const SocialIconsHolder = styled(motion.div)`
   display: flex;
 
   margin: 2.4em 0;

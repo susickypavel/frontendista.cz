@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-export const SocialIconHolder = styled.a`
+export const SocialIconHolder = styled(motion.a)`
   display: inline-block;
   padding: 1.2em;
   position: relative;
