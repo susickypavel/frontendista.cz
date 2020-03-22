@@ -20,8 +20,9 @@ const SocialIcon: React.FC<Props> = ({ iconProps: { icon, color, href } }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
+        <path d="M47 47H16.0952L3 33.9048V3H33.9048L47 16.0952V47Z" fill="#212121" />
         <path
-          d="M2 2H34.1716L48 15.8284V48H15.8284L2 34.1716V2Z"
+          d="M2 2H18.7902H34.1716L41.0858 8.91421L48 15.8284V32.5V48H32.5H15.8284L8.91421 41.0858L2 34.1716V17.5V2Z"
           stroke={color}
           strokeWidth="4"
         />

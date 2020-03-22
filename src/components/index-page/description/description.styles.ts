@@ -20,6 +20,8 @@ export const SocialIconsHolder = styled.div`
   margin: 2.4em 0;
 
   & svg:last-of-type {
+    z-index: 5;
+    position: relative;
     padding: 1.6em;
 
     @media (max-width: 550px) {
