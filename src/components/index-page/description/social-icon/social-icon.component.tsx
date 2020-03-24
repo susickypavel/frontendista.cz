@@ -21,7 +21,23 @@ const SocialIcon: React.FC<Props> = ({ iconProps: { icon, color, href } }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M47 47H16.0952L3 33.9048V3H33.9048L47 16.0952V47Z" fill="#212121" />
+        <motion.path
+          d="M47 47H16.0952L3 33.9048V3H33.9048L47 16.0952V47Z"
+          fill="#212121"
+          variants={{
+            hidden: {
+              scale: 0,
+              rotate: 360,
+            },
+            visible: {
+              transition: {
+                duration: 2,
+              },
+              scale: 1,
+              rotate: 0,
+            },
+          }}
+        />
         <motion.path
           variants={{
             hidden: {

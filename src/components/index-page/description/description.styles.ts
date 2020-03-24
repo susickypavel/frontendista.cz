@@ -7,7 +7,7 @@ export const DescriptionHolder = styled.div`
   width: 100%;
 `;
 
-export const TextDescriptionSVG = styled.svg`
+export const TextDescriptionSVG = styled(motion.svg)`
   padding: 0 1.6em;
   box-sizing: border-box;
 
