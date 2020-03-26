@@ -2523,6 +2523,11 @@ babel-types@6.26.0:
     lodash "^4.17.4"
     to-fast-properties "^1.0.3"
 
+baffle@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/baffle/-/baffle-0.3.6.tgz#989d8a6363a19e630da85a3480422883f0bda4d0"
+  integrity sha1-mJ2KY2OhnmMNqFo0gEIog/C9pNA=
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
