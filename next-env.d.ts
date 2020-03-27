@@ -21,3 +21,5 @@ declare module "@sanity/block-content-to-react" {
     imageOptions?: any;
   }> {}
 }
+
+declare module "baffle";

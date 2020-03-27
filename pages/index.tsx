@@ -18,6 +18,7 @@ import BlogPostList, {
 import { useRouter } from "next/router";
 import Seo from "~/components/page-layout/seo/seo.component";
 import Description from "~/components/index-page/description/description.component";
+import DescriptionSplitter from "~/components/index-page/description-splitter";
 
 const SideBackground = dynamic(
   () => import("~/components/index-page/site-background/site-background.component"),
@@ -38,6 +39,7 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
         <LandingBlockLeft>
           <Logo />
         </LandingBlockLeft>
+        <DescriptionSplitter />
         <LandingBlockRight>
           <Description />
         </LandingBlockRight>

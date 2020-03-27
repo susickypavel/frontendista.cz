@@ -6,6 +6,10 @@ export const SocialIconHolder = styled(motion.a)`
   padding: 1.2em;
   position: relative;
   margin: 0 auto;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const BorderSVG = styled.svg`
