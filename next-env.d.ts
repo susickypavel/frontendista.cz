@@ -8,7 +8,7 @@ declare module "@sanity/block-content-to-react" {
   type MarksElements = "";
   export default class BlockContent extends React.Component<{
     blocks: any;
-    serealizers?: Partial<{
+    serializers?: Partial<{
       types: Partial<Record<BlockElements, (props: any) => JSX.Element>>;
       marks: Partial<Record<MarksElements, (props: any) => JSX.Element>>;
       list: any;
