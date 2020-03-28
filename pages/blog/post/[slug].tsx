@@ -1,31 +1,43 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import sanityClient from "@sanity/client";
 import BlockContent from "@sanity/block-content-to-react";
+
+import {
+  BlogPostPageHolder,
+  PostContentHolder,
+  PostTitle,
+} from "~/components/blog/blog-page.styles";
+import container from "~/components/blog/serializers/container";
+
+import { sanityClient } from "~/utils/sanity-client";
+import { urlFor } from "~/utils/sanity-url-builder";
+import paragraph from "~/components/blog/serializers/paragraph";
 
 interface Props {
   post: any;
 }
 
-const BlogPostPage: React.FC<Props> = ({ post: { content } }) => {
+const BlogPostPage: React.FC<Props> = ({ post: { content, ...rest } }) => {
   return (
-    <div>
-      <BlockContent blocks={content} />
-    </div>
+    <BlogPostPageHolder>
+      <PostContentHolder>
+        {/* implement alt attribute */}
+        <img src={urlFor(rest.thumbnail.asset._ref).url()!} alt="" />
+        <PostTitle>{rest.title}</PostTitle>
+        <BlockContent
+          blocks={content}
+          serializers={{ container, types: { block: paragraph } }}
+        />
+      </PostContentHolder>
+    </BlogPostPageHolder>
   );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const client = sanityClient({
-    projectId: "6rrtshi3",
-    dataset: "production",
-    useCdn: false,
-  });
-
   const query = "*[_type == 'post' && slug.current == $slug][0]";
 
-  const post = await client.fetch(query, { slug: params!.slug });
+  const post = await sanityClient.fetch(query, { slug: params!.slug });
 
   return {
     props: {
@@ -35,15 +47,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client = sanityClient({
-    projectId: "6rrtshi3",
-    dataset: "production",
-    useCdn: false,
-  });
-
   const query = "*[_type == 'post'].slug.current";
 
-  const postsSlug: string[] = await client.fetch(query);
+  const postsSlug: string[] = await sanityClient.fetch(query);
 
   const paths = postsSlug.map(slug => ({ params: { slug } }));
 
