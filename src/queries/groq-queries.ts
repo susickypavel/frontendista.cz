@@ -8,6 +8,17 @@ export const GET_POST_USING_SLUG = `*[_type == 'post' && slug.current == $slug][
     },
     "placeholder": metadata.lqip
   },
+  content[] {
+    ...,
+    asset-> {
+      "id": _id,
+      "placeholder": metadata.lqip,
+    	"dimensions": {
+				"height": metadata.dimensions.height,
+      	"width": metadata.dimensions.width,
+  		}
+  	}
+  },
   ...
 }`;
 

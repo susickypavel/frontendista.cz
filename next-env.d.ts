@@ -13,7 +13,8 @@ declare module "@sanity/block-content-to-react" {
     | "h6"
     | "blockquote"
     | "code"
-    | "block";
+    | "block"
+    | "image";
   type MarksElements = "";
   export default class BlockContent extends React.Component<{
     blocks: any;

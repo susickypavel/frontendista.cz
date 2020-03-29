@@ -8,9 +8,7 @@ import {
   PostContentHolder,
   PostTitle,
 } from "~/components/blog/blog-page.styles";
-import container from "~/components/blog/serializers/container";
 
-import paragraph from "~/components/blog/serializers/paragraph";
 import { fetchSanity } from "~/utils/sanity-client";
 
 import {
@@ -20,7 +18,10 @@ import {
   POST_SLUGS,
 } from "~/queries/groq-queries";
 
-import UniversalImage from "~/components/blog/serializers/images";
+/** Serializers */
+import container from "~/components/blog/serializers/container";
+import paragraph from "~/components/blog/serializers/paragraph";
+import UniversalImage, { contentImage } from "~/components/blog/serializers/images";
 
 interface Props {
   post: GetPostUsingSlugQuery;
@@ -32,11 +33,16 @@ const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }
       <PostContentHolder>
         <UniversalImage image={thumbnail} />
         <PostTitle>{rest.title}</PostTitle>
-
-        {/* <BlockContent
+        <BlockContent
           blocks={content}
-          serializers={{ container, types: { block: paragraph } }}
-        /> */}
+          serializers={{
+            container,
+            types: {
+              block: paragraph,
+              image: contentImage,
+            },
+          }}
+        />
       </PostContentHolder>
     </BlogPostPageHolder>
   );

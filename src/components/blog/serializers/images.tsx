@@ -85,4 +85,14 @@ const UniversalImage: React.FC<Props> = ({
   );
 };
 
+interface CIProps {
+  node: {
+    asset: any;
+  };
+}
+
+export const contentImage: React.FC<CIProps> = ({ node: { asset } }) => {
+  return <UniversalImage image={asset} />;
+};
+
 export default UniversalImage;
