@@ -1,5 +1,15 @@
 export const POST_SLUGS = "*[_type == 'post'].slug.current";
-export const GET_POST_USING_SLUG = "*[_type == 'post' && slug.current == $slug][0]";
+export const GET_POST_USING_SLUG = `*[_type == 'post' && slug.current == $slug][0]{
+  "thumbnail": thumbnail.asset-> {
+    "id": _id,
+    "dimensions": {
+    	"height": metadata.dimensions.height,
+      "width": metadata.dimensions.width
+    },
+    "placeholder": metadata.lqip
+  },
+  ...
+}`;
 
 export interface GetPostUsingSlugQuery {
   _id: string;
@@ -13,11 +23,12 @@ export interface GetPostUsingSlugQuery {
     current: string;
   };
   thumbnail: {
-    _type: "image";
-    asset: {
-      _ref: string;
-      _type: "reference";
+    id: string;
+    dimensions: {
+      height: number;
+      width: number;
     };
+    placeholder: string;
   };
   title: string;
 }
