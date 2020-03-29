@@ -1,8 +1,13 @@
 import React from "react";
+
 import { NextPage, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
-import sanityClient from "@sanity/client";
+import Logo from "~/components/index-page/logo/logo.component";
+import Seo from "~/components/page-layout/seo/seo.component";
+import Description from "~/components/index-page/description/description.component";
+import DescriptionSplitter from "~/components/index-page/description-splitter";
 
 import {
   LandingBlock,
@@ -11,14 +16,9 @@ import {
   LandingBlockLeft,
   LandingBlockRight,
 } from "~/components/index-page/index-page.styles";
-import Logo from "~/components/index-page/logo/logo.component";
 import BlogPostList, {
   PostPreview,
 } from "~/components/index-page/blog-post-list/blog-post-list.component";
-import { useRouter } from "next/router";
-import Seo from "~/components/page-layout/seo/seo.component";
-import Description from "~/components/index-page/description/description.component";
-import DescriptionSplitter from "~/components/index-page/description-splitter";
 
 const SideBackground = dynamic(
   () => import("~/components/index-page/site-background/site-background.component"),
@@ -49,23 +49,19 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const client = sanityClient({
-    projectId: "6rrtshi3",
-    dataset: "production",
-    useCdn: false,
-  });
+// export const getStaticProps: GetStaticProps = async () => {
+//   con
 
-  const query =
-    "*[_type == 'post']{ slug, title, \"thumbnailUrl\": thumbnail.asset->url }";
+//   const query =
+//     "*[_type == 'post']{ slug, title, \"thumbnailUrl\": thumbnail.asset->url }";
 
-  const postPreviews = await client.fetch(query);
+//   const postPreviews = await sanityClient.fetch(query);
 
-  return {
-    props: {
-      postPreviews,
-    },
-  };
-};
+//   return {
+//     props: {
+//       postPreviews,
+//     },
+//   };
+// };
 
 export default IndexPage;

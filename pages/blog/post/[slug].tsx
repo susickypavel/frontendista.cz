@@ -10,9 +10,16 @@ import {
 } from "~/components/blog/blog-page.styles";
 import container from "~/components/blog/serializers/container";
 
-import { sanityClient } from "~/utils/sanity-client";
 import { urlFor } from "~/utils/sanity-url-builder";
 import paragraph from "~/components/blog/serializers/paragraph";
+import { fetchSanity } from "~/utils/sanity-client";
+
+import {
+  GET_POST_USING_SLUG,
+  GetPostUsingSlugQuery,
+  GetPostUsingSlugVariables,
+  POST_SLUGS,
+} from "~/queries/groq-queries";
 
 interface Props {
   post: any;
@@ -35,9 +42,12 @@ const BlogPostPage: React.FC<Props> = ({ post: { content, ...rest } }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const query = "*[_type == 'post' && slug.current == $slug][0]";
-
-  const post = await sanityClient.fetch(query, { slug: params!.slug });
+  const post = await fetchSanity<GetPostUsingSlugQuery, GetPostUsingSlugVariables>(
+    GET_POST_USING_SLUG,
+    {
+      slug: params!.slug as string,
+    }
+  );
 
   return {
     props: {
@@ -47,11 +57,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const query = "*[_type == 'post'].slug.current";
+  const postSlugs = await fetchSanity<string[]>(POST_SLUGS);
 
-  const postsSlug: string[] = await sanityClient.fetch(query);
-
-  const paths = postsSlug.map(slug => ({ params: { slug } }));
+  const paths = postSlugs.map(slug => ({ params: { slug } }));
 
   return {
     paths,
