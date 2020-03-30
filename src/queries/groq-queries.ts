@@ -42,6 +42,7 @@ export interface GetPostUsingSlugQuery {
     placeholder: string;
   };
   title: string;
+  subtitle: string;
 }
 
 export interface GetPostUsingSlugVariables {

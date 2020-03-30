@@ -13,9 +13,15 @@ export const PostContentHolder = styled.div`
 `;
 
 export const PostTitle = styled.h1`
-  font-size: 6.4rem;
+  font-size: 4.8rem;
   font-weight: bold;
   color: white;
   padding: 64px;
-  padding-bottom: 16px;
+  padding-bottom: 32px;
+`;
+
+export const SubTitle = styled.span`
+  font-size: 4rem;
+  display: block;
+  line-height: 48px;
 `;

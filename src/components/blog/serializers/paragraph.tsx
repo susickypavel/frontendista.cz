@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const paragraph: React.FC = ({ children }) => {
+const Paragraph: React.FC = ({ children }) => {
   return <StyledParagraph>{children}</StyledParagraph>;
 };
 
 const StyledParagraph = styled.p`
-  font-size: 2.4rem;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 24px;
 `;
 
-export default paragraph;
+export default Paragraph;

@@ -29,7 +29,9 @@ declare module "@sanity/block-content-to-react" {
     className?: string;
     renderContainerOnSingleChild?: boolean;
     imageOptions?: any;
-  }> {}
+  }> {
+    static defaultSerializers: any;
+  }
 }
 
 declare module "baffle";

@@ -9,6 +9,7 @@ import {
   BlogPostPageHolder,
   PostContentHolder,
   PostTitle,
+  SubTitle,
 } from "~/components/blog/blog-page.styles";
 
 import { fetchSanity } from "~/utils/sanity-client";
@@ -22,8 +23,8 @@ import {
 
 /** Serializers */
 import container from "~/components/blog/serializers/container";
-import paragraph from "~/components/blog/serializers/paragraph";
 import UniversalImage, { contentImage } from "~/components/blog/serializers/images";
+import block from "~/components/blog/serializers/block";
 
 interface Props {
   post: GetPostUsingSlugQuery;
@@ -38,13 +39,16 @@ const BlogPostPage: React.FC<Props> = ({
     <BlogPostPageHolder>
       <PostContentHolder>
         <UniversalImage image={thumbnail} scrollPosition={scrollPosition} />
-        <PostTitle>{rest.title}</PostTitle>
+        <PostTitle>
+          <SubTitle>{rest.subtitle}</SubTitle>
+          <span>{rest.title}</span>
+        </PostTitle>
         <BlockContent
           blocks={content}
           serializers={{
             container,
             types: {
-              block: paragraph,
+              block,
               image: contentImage,
             },
           }}
