@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
+import { LazyLoadImage, ScrollPosition } from "react-lazy-load-image-component";
 
 import { motion } from "framer-motion";
 
@@ -14,6 +14,7 @@ interface Props {
     };
     placeholder: string;
   };
+  scrollPosition?: ScrollPosition;
 }
 
 const UniversalImage: React.FC<Props> = ({
@@ -22,6 +23,7 @@ const UniversalImage: React.FC<Props> = ({
     placeholder,
     dimensions: { height, width },
   },
+  scrollPosition,
 }) => {
   const [visible, setVisible] = useState(false);
 
@@ -75,6 +77,7 @@ const UniversalImage: React.FC<Props> = ({
           width: "100%",
           height: "auto",
         }}
+        scrollPosition={scrollPosition}
         srcSet={`${defaultFormat425} 425w, ${defaultFormat768} 768w, ${defaultFormat} 1000w`}
         src={defaultFormat!}
         afterLoad={() => {

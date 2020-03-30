@@ -1,4 +1,6 @@
 import React from "react";
+import { trackWindowScroll, ScrollPosition } from "react-lazy-load-image-component";
+
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import BlockContent from "@sanity/block-content-to-react";
@@ -25,13 +27,17 @@ import UniversalImage, { contentImage } from "~/components/blog/serializers/imag
 
 interface Props {
   post: GetPostUsingSlugQuery;
+  scrollPosition: ScrollPosition;
 }
 
-const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }) => {
+const BlogPostPage: React.FC<Props> = ({
+  post: { content, thumbnail, ...rest },
+  scrollPosition,
+}) => {
   return (
     <BlogPostPageHolder>
       <PostContentHolder>
-        <UniversalImage image={thumbnail} />
+        <UniversalImage image={thumbnail} scrollPosition={scrollPosition} />
         <PostTitle>{rest.title}</PostTitle>
         <BlockContent
           blocks={content}
@@ -74,4 +80,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default BlogPostPage;
+export default trackWindowScroll(BlogPostPage);
