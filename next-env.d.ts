@@ -35,3 +35,21 @@ declare module "@sanity/block-content-to-react" {
 }
 
 declare module "baffle";
+
+declare module "react-lazy-load" {
+  export default class LazyLoad extends React.Component<
+    Partial<{
+      offsetVertical: number | string;
+      offsetHorizontal: number | string;
+      offsetTop: number | string;
+      offsetBottom: number | string;
+      offsetLeft: number | string;
+      offsetRight: number | string;
+      throttle: number | string;
+      debounce: boolean;
+      height: number | string;
+      width: number | string;
+      onContentVisible: Function;
+    }>
+  > {}
+}

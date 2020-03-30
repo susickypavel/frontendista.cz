@@ -6,13 +6,11 @@ export const GET_POST_USING_SLUG = `*[_type == 'post' && slug.current == $slug][
     	"height": metadata.dimensions.height,
       "width": metadata.dimensions.width
     },
-    "placeholder": metadata.lqip
   },
   content[] {
     ...,
     asset-> {
       "id": _id,
-      "placeholder": metadata.lqip,
     	"dimensions": {
 				"height": metadata.dimensions.height,
       	"width": metadata.dimensions.width,
@@ -39,7 +37,6 @@ export interface GetPostUsingSlugQuery {
       height: number;
       width: number;
     };
-    placeholder: string;
   };
   title: string;
   subtitle: string;
