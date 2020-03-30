@@ -15,7 +15,7 @@ declare module "@sanity/block-content-to-react" {
     | "code"
     | "block"
     | "image";
-  type MarksElements = "";
+  type MarksElements = "link";
   export default class BlockContent extends React.Component<{
     blocks: any;
     serializers?: Partial<{

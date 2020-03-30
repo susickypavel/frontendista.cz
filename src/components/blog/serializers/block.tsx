@@ -9,13 +9,21 @@ interface Props {
   node: {
     style: string;
   };
+  slug: string;
 }
 
 const block: React.FC<Props> = props => {
-  const { style } = props.node;
+  const {
+    node: { style },
+    slug,
+  } = props;
 
   if (/^h\d/.test(style)) {
-    return <Header level={style as any}>{props.children}</Header>;
+    return (
+      <Header level={style as any} slug={slug}>
+        {props.children}
+      </Header>
+    );
   }
 
   if (style === "normal") {

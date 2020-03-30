@@ -25,6 +25,7 @@ import UniversalImage, {
   contentImage,
 } from "~/components/blog/serializers/image/image.serializer";
 import block from "~/components/blog/serializers/block";
+import { BlockContentLink } from "~/components/blog/serializers/Paragraph";
 
 interface Props {
   post: GetPostUsingSlugQuery;
@@ -44,8 +45,12 @@ const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }
           serializers={{
             container,
             types: {
-              block,
+              block: (props: any) =>
+                React.createElement(block, { ...props, slug: rest.slug.current }),
               image: contentImage,
+            },
+            marks: {
+              link: BlockContentLink,
             },
           }}
         />
