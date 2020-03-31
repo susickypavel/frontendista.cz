@@ -26,6 +26,9 @@ import UniversalImage, {
 } from "~/components/blog/serializers/image/image.serializer";
 import block from "~/components/blog/serializers/block";
 import { BlockContentLink } from "~/components/blog/serializers/Paragraph";
+import BlockContentList, {
+  BlockContentListItem,
+} from "~/components/blog/serializers/List";
 
 interface Props {
   post: GetPostUsingSlugQuery;
@@ -49,6 +52,9 @@ const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }
                 React.createElement(block, { ...props, slug: rest.slug.current }),
               image: contentImage,
             },
+            // @ts-ignore
+            list: BlockContentList,
+            listItem: BlockContentListItem,
             marks: {
               link: BlockContentLink,
             },
