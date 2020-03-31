@@ -8,9 +8,14 @@ const Paragraph: React.FC = ({ children }) => {
 };
 
 const StyledParagraph = styled.p`
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 18px;
+  line-height: 30px;
   margin-bottom: 24px;
+
+  @media (min-width: 425px) {
+    font-size: 24px;
+    line-height: 36px;
+  }
 `;
 
 interface LinkProps {
@@ -30,10 +35,18 @@ export const BlockContentLink: React.FC<LinkProps> = ({ mark: { href }, children
 };
 
 const StyledLink = styled.span`
-  white-space: nowrap;
-
   & a {
     color: #ff019a;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 500px;
+
+    @media (max-width: 768px) {
+      max-width: 250px;
+    }
   }
 
   & svg {

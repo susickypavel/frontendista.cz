@@ -7,8 +7,16 @@ const container: React.FC = ({ children }) => {
 
 const Container = styled.div`
   color: white;
-  padding: 6.4em;
-  padding-top: 0;
+  padding: 64px;
+  padding-top: 0 !important;
+
+  @media (max-width: 1024px) {
+    padding: 32px;
+  }
+
+  @media (max-width: 425px) {
+    padding: 16px;
+  }
 `;
 
 export default container;

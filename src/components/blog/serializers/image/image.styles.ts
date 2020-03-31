@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const ImageHolder = styled.div<{ aspectRatio: number }>`
   position: relative;
   padding-top: calc(${({ aspectRatio }) => aspectRatio} * 100%);
+  margin-bottom: 32px;
 `;
 
 export const ImageElement = styled.img<{ zIndex: number }>(props => ({

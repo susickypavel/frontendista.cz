@@ -19,8 +19,6 @@ const headerSizes = {
 };
 
 const Header: React.FC<Props> = ({ level, children, slug }) => {
-  console.log(slug);
-
   const StyledHeader = styled(level)`
     font-size: ${headerSizes[level]};
     margin-bottom: 16px;

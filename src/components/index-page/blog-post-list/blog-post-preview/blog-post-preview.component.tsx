@@ -19,8 +19,6 @@ interface Props {
 }
 
 const BlogPostPreview: React.FC<Props> = ({ post: { slug, title, thumbnailUrl } }) => {
-  console.log(thumbnailUrl);
-
   return (
     <Link href={`/blog/post/${slug}`}>
       <BlogPostPreviewHolder>
