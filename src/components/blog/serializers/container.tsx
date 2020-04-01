@@ -7,15 +7,22 @@ const container: React.FC = ({ children }) => {
 
 const Container = styled.div`
   color: white;
-  padding: 64px;
   padding-top: 0 !important;
 
-  @media (max-width: 1024px) {
-    padding: 32px;
+  & > *:not(div) {
+    padding: 0 64px;
+
+    @media (max-width: 1024px) {
+      padding: 0 32px;
+    }
+
+    @media (max-width: 425px) {
+      padding: 0 16px;
+    }
   }
 
-  @media (max-width: 425px) {
-    padding: 16px;
+  & *:last-child {
+    margin-bottom: 0;
   }
 `;
 
