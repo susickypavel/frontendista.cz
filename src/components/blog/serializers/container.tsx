@@ -6,7 +6,7 @@ const container: React.FC = ({ children }) => {
 };
 
 const Container = styled.div`
-  color: white;
+  color: #aaaaaa;
   padding-top: 0 !important;
 
   & > *:not(div) {

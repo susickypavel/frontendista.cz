@@ -6,7 +6,7 @@ export const BlogPostPageHolder = styled.div`
 `;
 
 export const PostContentHolder = styled.div`
-  background: #212121;
+  background: black;
   max-width: 1000px;
   min-height: 100vh;
   margin: 0 auto;

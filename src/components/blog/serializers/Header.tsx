@@ -22,6 +22,7 @@ const Header: React.FC<Props> = ({ level, children, slug }) => {
   const StyledHeader = styled(level)`
     font-size: ${headerSizes[level]};
     margin-bottom: 16px;
+    color: white;
 
     & svg {
       margin-left: 8px;
