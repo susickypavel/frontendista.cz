@@ -52,7 +52,6 @@ const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }
                 React.createElement(block, { ...props, slug: rest.slug.current }),
               image: contentImage,
             },
-            // @ts-ignore
             list: BlockContentList,
             listItem: BlockContentListItem,
             marks: {
