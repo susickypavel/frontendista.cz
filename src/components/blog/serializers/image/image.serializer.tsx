@@ -47,7 +47,7 @@ const UniversalImage: React.FC<Props> = ({
   return (
     <ImageHolder aspectRatio={height / width}>
       <ImageElement src={placeholder!} zIndex={1} />
-      <LazyLoad>
+      <LazyLoad offsetVertical={200}>
         <ImageElement
           zIndex={2}
           src={size1000!}
