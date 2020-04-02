@@ -28,6 +28,12 @@ export const GlobalStyles = () => (
         background: transparent;
         box-shadow: 0px 0px 0px 100000vh black;
       }
+
+      html,
+      body,
+      #__next {
+        height: 100%;
+      }
     `}
   </style>
 );

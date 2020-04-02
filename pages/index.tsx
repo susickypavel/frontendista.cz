@@ -18,6 +18,7 @@ import {
 import BlogPostList, {
   PostPreview,
 } from "~/components/index-page/blog-post-list/blog-post-list.component";
+import LogoV2 from "~/components/index-page/logov2/logov2.component";
 
 interface Props {
   postPreviews: PostPreview[];
@@ -30,13 +31,14 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
     <PageHolder>
       <Seo pathname={pathname} />
       <LandingBlock>
-        <LandingBlockLeft>
+        <LogoV2 />
+        {/* <LandingBlockLeft>
           <Logo />
         </LandingBlockLeft>
         <DescriptionSplitter />
         <LandingBlockRight>
           <Description />
-        </LandingBlockRight>
+        </LandingBlockRight> */}
       </LandingBlock>
       {/* <ContentBox><BlogPostList postPreviews={postPreviews} /></ContentBox> */}
     </PageHolder>
