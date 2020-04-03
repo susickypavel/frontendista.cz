@@ -47,8 +47,6 @@ const LogoV2: React.FC = () => {
   }, 125);
 
   const handleResize = throttle(() => {
-    console.log("CALLED");
-
     const { x, y, width, height } = svgRef.current!.getBoundingClientRect();
 
     const sx = x + width / 2;
