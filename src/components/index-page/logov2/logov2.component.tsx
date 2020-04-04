@@ -47,10 +47,10 @@ const LogoV2: React.FC = () => {
   }, 125);
 
   const handleResize = throttle(() => {
-    const { x, y, width, height } = svgRef.current!.getBoundingClientRect();
+    const { top, left, width, height } = svgRef.current!.getBoundingClientRect();
 
-    const sx = x + width / 2;
-    const sy = y + height / 2;
+    const sx = left + width / 2;
+    const sy = top + height / 2;
 
     svgCoords.current = {
       x: sx,
@@ -82,7 +82,7 @@ const LogoV2: React.FC = () => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <motion.g
-        fill="white"
+        fill="#aaaaaa"
         rotate={rotation}
         style={{ transformOrigin: "center center", rotateZ: `${rotation.get()}deg` }}
       >
