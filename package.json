@@ -23,7 +23,6 @@
     "@sanity/image-url": "^0.140.17",
     "baffle": "^0.3.6",
     "framer-motion": "^1.10.0",
-    "gsap": "^3.1.1",
     "isomorphic-unfetch": "^3.0.0",
     "lodash.throttle": "^4.1.1",
     "next": "^9.3.0",
