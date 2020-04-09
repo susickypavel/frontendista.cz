@@ -2,7 +2,7 @@ import React from "react";
 
 import BlockContent from "@sanity/block-content-to-react";
 
-import Paragraph from "./Paragraph";
+import Paragraph from "./paragraph";
 import Header from "./Header";
 
 interface Props {

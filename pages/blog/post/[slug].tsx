@@ -25,7 +25,7 @@ import UniversalImage, {
   contentImage,
 } from "~/components/blog/serializers/image/image.serializer";
 import block from "~/components/blog/serializers/block";
-import { BlockContentLink } from "~/components/blog/serializers/Paragraph";
+import { BlockContentLink } from "~/components/blog/serializers/paragraph";
 import BlockContentList, {
   BlockContentListItem,
 } from "~/components/blog/serializers/List";
