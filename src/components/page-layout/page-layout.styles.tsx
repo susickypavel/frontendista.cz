@@ -9,7 +9,6 @@ export const GlobalStyles = () => (
 
       body {
         font-family: "Oxanium";
-        min-width: 350px;
       }
 
       ::-webkit-scrollbar {

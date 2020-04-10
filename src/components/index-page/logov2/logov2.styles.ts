@@ -8,7 +8,7 @@ export const LogoHolder = styled.div`
 
 export const StyledLogoSVG = styled(motion.svg)`
   touch-action: none;
-  max-width: 700px;
+  max-width: 800px;
   width: 100%;
   height: auto;
 

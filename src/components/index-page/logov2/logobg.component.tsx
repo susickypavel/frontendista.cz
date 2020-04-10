@@ -6,12 +6,10 @@ import { srcsetGenerator } from "~/utils/srcset-generator";
 
 const initial = {
   opacity: 0,
-  rotate: 125,
 };
 
 const animate = {
   opacity: 1,
-  rotate: 0,
   transition: {
     delay: 0.5,
     duration: 2,
