@@ -1,32 +1,33 @@
 import styled from "@emotion/styled";
 
-import CardSVG from "../../../../assets/card.svg";
-
-export const BlogPostPreviewHolder = styled.div`
-  position: relative;
-`;
-
-export const StyledCardSVG = styled(CardSVG)`
+export const BlogPostPreviewLink = styled.a`
+  color: #aaaaaa;
   width: 100%;
-  height: auto;
-`;
+  max-width: 600px;
+  cursor: pointer;
 
-export const BlogPostPreviewContent = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+  border-right: 5px solid white;
 
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
+  margin-bottom: 16px;
 
-  height: 100%;
-  width: 100%;
-  padding: 10%;
-  box-sizing: border-box;
-`;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
-export const BlogPostPreviewHeader = styled.h2`
-  color: white;
-  font-size: 3rem;
+  & h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+
+    & span {
+      font-size: 18px;
+
+      display: block;
+      margin-bottom: 4px;
+    }
+  }
+
+  & small {
+    font-size: 14px;
+    font-weight: 500;
+  }
 `;

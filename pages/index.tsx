@@ -1,18 +1,19 @@
 import React from "react";
 
-import { NextPage } from "next";
+import { NextPage, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import Seo from "~/components/page-layout/seo/seo.component";
 
 import { LandingBlock, PageHolder } from "~/components/index-page/index-page.styles";
-import BlogPostList, {
-  PostPreview,
-} from "~/components/index-page/blog-post-list/blog-post-list.component";
+import BlogPostList from "~/components/index-page/blog-post-list/blog-post-list.component";
 import LogoV2 from "~/components/index-page/logov2/logov2.component";
 
+import { fetchSanity } from "~/utils/sanity-client";
+import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
+
 interface Props {
-  postPreviews: PostPreview[];
+  postPreviews: PostPreviewsQuery[];
 }
 
 const IndexPage: NextPage<Props> = ({ postPreviews }) => {
@@ -24,8 +25,19 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
       <LandingBlock>
         <LogoV2 />
       </LandingBlock>
+      <BlogPostList postPreviews={postPreviews} />
     </PageHolder>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const postPreviews = await fetchSanity<PostPreviewsQuery[]>(POST_PREVIEWS);
+
+  return {
+    props: {
+      postPreviews,
+    },
+  };
 };
 
 export default IndexPage;

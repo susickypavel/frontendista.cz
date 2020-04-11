@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 
 export const BlogPostListHolder = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  padding: 16px;
+  background: black;
+  min-height: 100%;
 
-  @media (max-width: 800px) {
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 `;

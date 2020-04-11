@@ -45,3 +45,17 @@ export interface GetPostUsingSlugQuery {
 export interface GetPostUsingSlugVariables {
   slug: string;
 }
+
+export const POST_PREVIEWS = `*[_type == 'post'] {
+  subtitle,
+  title,
+  _createdAt,
+  "slug": slug.current
+}`;
+
+export interface PostPreviewsQuery {
+  subtitle: string;
+  title: string;
+  _createdAt: string;
+  slug: string;
+}
