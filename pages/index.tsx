@@ -22,10 +22,36 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   return (
     <PageHolder>
       <Seo pathname={pathname} />
-      <LandingBlock>
+      <div
+        style={{
+          background: "black",
+          display: "grid",
+          minHeight: "100%",
+          gridTemplateColumns: "1fr 50% 1fr",
+          gridTemplateRows: "200px auto 200px",
+        }}
+      >
+        <div
+          style={{
+            gridColumn: "1 / 4",
+            gridRow: "2",
+            borderTop: "1px solid #AAAAAA",
+            borderBottom: "1px solid #AAAAAA",
+          }}
+        />
+        <div
+          style={{
+            borderLeft: "2px solid #AAAAAA",
+            borderRight: "2px solid #AAAAAA",
+            gridColumn: "2",
+            gridRow: "1 / 4",
+          }}
+        />
+      </div>
+      {/* <LandingBlock>
         <LogoV2 />
       </LandingBlock>
-      <BlogPostList postPreviews={postPreviews} />
+      <BlogPostList postPreviews={postPreviews} /> */}
     </PageHolder>
   );
 };
