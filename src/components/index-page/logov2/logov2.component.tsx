@@ -75,7 +75,6 @@ const LogoV2: React.FC = () => {
 
   return (
     <LogoHolder>
-      <LogoBG />
       <StyledLogoSVG
         ref={svgRef}
         width="550"

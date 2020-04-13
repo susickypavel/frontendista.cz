@@ -2,16 +2,16 @@ import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
 export const LogoHolder = styled.div`
-  position: relative;
-  width: auto;
+  grid-area: logo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px;
 `;
 
 export const StyledLogoSVG = styled(motion.svg)`
   touch-action: none;
-  max-width: 800px;
-  width: 100%;
-  height: auto;
-
-  position: relative;
-  z-index: 1;
+  height: 100%;
+  width: auto;
 `;
