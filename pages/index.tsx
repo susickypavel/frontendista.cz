@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import Seo from "~/components/page-layout/seo/seo.component";
 
 import {
-  LandingBlock,
   PageHolder,
   GridContainer,
   HorizontalGridLine,
@@ -14,6 +13,7 @@ import {
 } from "~/components/index-page/index-page.styles";
 import BlogPostList from "~/components/index-page/blog-post-list/blog-post-list.component";
 import LogoV2 from "~/components/index-page/logov2/logov2.component";
+import GridLabel from "~/components/index-page/grid-label.component";
 
 import { fetchSanity } from "~/utils/sanity-client";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
@@ -29,14 +29,36 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
     <PageHolder>
       <Seo pathname={pathname} />
       <GridContainer>
-        <HorizontalGridLine />
-        <VerticalGridLine />
+        <HorizontalGridLine
+          initial={{
+            opacity: 0,
+            scaleX: 0,
+          }}
+          animate={{
+            opacity: 1,
+            scaleX: 1,
+            transition: {
+              duration: 2,
+            },
+          }}
+        />
+        <VerticalGridLine
+          initial={{
+            opacity: 0,
+            scaleY: 0,
+          }}
+          animate={{
+            opacity: 1,
+            scaleY: 1,
+            transition: {
+              duration: 2,
+            },
+          }}
+        />
         <LogoV2 />
+        <GridLabel gridArea="city" position="bottom" text="Czech republic, Prague" />
+        <GridLabel gridArea="name" position="top" text="Pavel Susicky" />
       </GridContainer>
-      {/* <LandingBlock>
-        <LogoV2 />
-      </LandingBlock>
-      <BlogPostList postPreviews={postPreviews} /> */}
     </PageHolder>
   );
 };
