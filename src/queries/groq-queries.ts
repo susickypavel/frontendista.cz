@@ -50,7 +50,8 @@ export const POST_PREVIEWS = `*[_type == 'post'] {
   subtitle,
   title,
   _createdAt,
-  "slug": slug.current
+  "slug": slug.current,
+  "thumbnailRef": thumbnail.asset._ref
 }`;
 
 export interface PostPreviewsQuery {
@@ -58,4 +59,5 @@ export interface PostPreviewsQuery {
   title: string;
   _createdAt: string;
   slug: string;
+  thumbnailRef: string;
 }

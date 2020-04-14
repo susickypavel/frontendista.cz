@@ -22,8 +22,8 @@ export const VerticalGridLine = styled(motion.div)`
 export const GridContainer = styled.div`
   background: black;
   display: grid;
-  min-height: 100%;
-  grid-template-columns: 1fr 2fr 1fr;
+  min-height: 100vh;
+  grid-template-columns: 1fr 50% 1fr;
   grid-template-rows: 1fr 75% 1fr;
   grid-template-areas: "city . ." ". logo ." ". name .";
 

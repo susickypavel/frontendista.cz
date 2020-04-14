@@ -4,19 +4,18 @@ import { NextPage, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import Seo from "~/components/page-layout/seo/seo.component";
-
 import {
   PageHolder,
   GridContainer,
   HorizontalGridLine,
   VerticalGridLine,
 } from "~/components/index-page/index-page.styles";
-import BlogPostList from "~/components/index-page/blog-post-list/blog-post-list.component";
 import LogoV2 from "~/components/index-page/logov2/logov2.component";
 import GridLabel from "~/components/index-page/grid-label.component";
 
 import { fetchSanity } from "~/utils/sanity-client";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
+import BlogPostList from "~/components/index-page/blog-post-list.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -59,6 +58,7 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
         <GridLabel gridArea="city" position="bottom" text="Czech republic, Prague" />
         <GridLabel gridArea="name" position="top" text="Pavel Susicky" />
       </GridContainer>
+      <BlogPostList previews={postPreviews} />
     </PageHolder>
   );
 };

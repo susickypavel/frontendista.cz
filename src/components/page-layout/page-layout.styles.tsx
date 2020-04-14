@@ -31,7 +31,7 @@ export const GlobalStyles = () => (
       html,
       body,
       #__next {
-        height: 100%;
+        min-height: 100%;
       }
     `}
   </style>

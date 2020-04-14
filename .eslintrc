@@ -31,7 +31,8 @@
     "react/prop-types": "off",
     "prettier/prettier": "error",
     "jest/consistent-test-it": ["error", { "fn": "it" }],
-    "linebreak-style": ["error", "windows"]
+    "linebreak-style": ["error", "windows"],
+    "react/react-in-jsx-scope": "off"
   },
   "settings": {
     "react": {
