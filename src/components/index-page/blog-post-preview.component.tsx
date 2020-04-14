@@ -1,16 +1,20 @@
 import React from "react";
 import Link from "next/link";
 import { css } from "@emotion/core";
+import { MotionValue, motion } from "framer-motion";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 import { urlFor } from "~/utils/sanity-url-builder";
+import { formatPostDate } from "~/utils/helpers";
 
 interface Props {
   preview: PostPreviewsQuery;
+  opacity: MotionValue<any>;
 }
 
 const BlogPostPreview: React.FC<Props> = ({
   preview: { title, subtitle, slug, _createdAt, thumbnailRef },
+  opacity,
 }) => {
   const thumbnail = urlFor(thumbnailRef)
     .auto("format")
@@ -20,23 +24,26 @@ const BlogPostPreview: React.FC<Props> = ({
     .height(500)
     .url();
 
+  const formattedPostDate = formatPostDate(_createdAt);
+
   return (
-    <div
+    <motion.div
       css={previewHolder}
       style={{
+        opacity,
         background: `linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.15) 100%), url(${thumbnail}) center center`,
       }}
     >
       <h2 css={header}>{title}</h2>
+      <time dateTime={_createdAt}>{formattedPostDate}</time>
       <Link href={`/blog/post/${slug}`}>
         <a css={readButton}>READ THE ARTICLE</a>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
 const previewHolder = css({
-  background: "#202020",
   color: "white",
   marginBottom: "16px",
   height: "250px",

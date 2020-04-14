@@ -1,6 +1,27 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
+interface Props {
+  position: {
+    [key: string]: number;
+  };
+}
+
+export const DotsHolder = styled.div`
+  grid-area: logo;
+  position: relative;
+`;
+
+export const Dot = styled.div<Props>(props => ({
+  background: "#aaaaaa",
+  position: "absolute",
+  width: "9px",
+  height: "9px",
+  borderRadius: "100%",
+  boxShadow: "0px 0px 0px 15px rgba(0, 0, 0, 1)",
+  ...props.position,
+}));
+
 export const PageHolder = styled.div`
   background: black;
   height: 100%;
@@ -28,11 +49,8 @@ export const GridContainer = styled.div`
   grid-template-areas: "city . ." ". logo ." ". name .";
 
   @media (max-width: 1440px) {
-    grid-template-areas: ". city ." ". logo ." ". name .";
-  }
-
-  @media (max-width: 768px) {
     grid-template-columns: 1fr 75% 1fr;
+    grid-template-areas: ". city ." ". logo ." ". name .";
   }
 
   @media (max-width: 600px) {
@@ -40,6 +58,10 @@ export const GridContainer = styled.div`
     grid-template-areas: "city" "logo" "name";
 
     ${VerticalGridLine} {
+      display: none;
+    }
+
+    ${DotsHolder} {
       display: none;
     }
   }

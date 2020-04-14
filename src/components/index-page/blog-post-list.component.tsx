@@ -12,10 +12,10 @@ interface Props {
 const BlogPostList: React.FC<Props> = ({ previews }) => {
   const { scrollYProgress } = useViewportScroll();
 
-  const _scale = useTransform(scrollYProgress, [0, 1], ["-25%", "100%"]);
+  const _height = useTransform(scrollYProgress, [0, 1], ["-15%", "100%"]);
   const _opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  const scale = useSpring(_scale, {
+  const height = useSpring(_height, {
     damping: 1500,
   });
 
@@ -25,9 +25,9 @@ const BlogPostList: React.FC<Props> = ({ previews }) => {
 
   return (
     <div css={grid}>
-      <motion.div css={previewHolder} style={{ height: scale, opacity }}>
+      <motion.div css={previewHolder} style={{ height }}>
         {previews.map(preview => (
-          <BlogPostPreview preview={preview} key={preview.slug} />
+          <BlogPostPreview preview={preview} key={preview.slug} opacity={opacity} />
         ))}
       </motion.div>
     </div>
@@ -41,7 +41,7 @@ const grid = css({
   gridTemplateColumns: "25% 50% 25%",
   gridTemplateRows: "100%",
   gridTemplateAreas: "'. content .'",
-  "@media (max-width: 768px)": {
+  "@media (max-width: 1440px)": {
     gridTemplateColumns: "1fr 75% 1fr",
   },
   "@media (max-width: 600px)": {
@@ -58,6 +58,9 @@ const previewHolder = css({
   padding: "16px",
   transformOrigin: "top",
   boxSizing: "border-box",
+  "@media (max-width: 600px)": {
+    border: "none",
+  },
 });
 
 export default BlogPostList;

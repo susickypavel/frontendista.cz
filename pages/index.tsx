@@ -9,6 +9,8 @@ import {
   GridContainer,
   HorizontalGridLine,
   VerticalGridLine,
+  Dot,
+  DotsHolder,
 } from "~/components/index-page/index-page.styles";
 import LogoV2 from "~/components/index-page/logov2/logov2.component";
 import GridLabel from "~/components/index-page/grid-label.component";
@@ -57,6 +59,32 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
         <LogoV2 />
         <GridLabel gridArea="city" position="bottom" text="Czech republic, Prague" />
         <GridLabel gridArea="name" position="top" text="Pavel Susicky" />
+        <DotsHolder>
+          <Dot
+            position={{
+              top: -4,
+              left: -4,
+            }}
+          />
+          <Dot
+            position={{
+              bottom: -4,
+              left: -4,
+            }}
+          />
+          <Dot
+            position={{
+              top: -4,
+              right: -4,
+            }}
+          />
+          <Dot
+            position={{
+              bottom: -4,
+              right: -4,
+            }}
+          />
+        </DotsHolder>
       </GridContainer>
       <BlogPostList previews={postPreviews} />
     </PageHolder>

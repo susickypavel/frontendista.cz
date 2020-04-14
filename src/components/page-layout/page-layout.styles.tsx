@@ -11,23 +11,6 @@ export const GlobalStyles = () => (
         font-family: "Oxanium";
       }
 
-      ::-webkit-scrollbar {
-        width: 2px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: linear-gradient(0deg, rgba(255, 0, 0, 1) 0%, rgba(7, 0, 211, 1) 100%);
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: lime;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: transparent;
-        box-shadow: 0px 0px 0px 100000vh black;
-      }
-
       html,
       body,
       #__next {
