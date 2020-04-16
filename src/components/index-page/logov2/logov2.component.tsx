@@ -3,8 +3,8 @@ import { useSpring, motion } from "framer-motion";
 
 import throttle from "lodash.throttle";
 
-import { StyledLogoSVG, LogoHolder } from "./logov2.styles";
 import LogoBG from "./logobg.component";
+import { css } from "@emotion/core";
 
 const LogoV2: React.FC = () => {
   const rotation = useSpring(0, {
@@ -74,8 +74,9 @@ const LogoV2: React.FC = () => {
   }, []);
 
   return (
-    <LogoHolder>
-      <StyledLogoSVG
+    <div css={svgHolder}>
+      <svg
+        css={svg}
         ref={svgRef}
         width="550"
         height="550"
@@ -179,9 +180,20 @@ const LogoV2: React.FC = () => {
           <path d="M291.49 533.479L291.555 534.882L285.981 535.139C285.621 535.156 285.45 535.344 285.467 535.703L285.527 537.016C285.543 537.351 285.702 537.542 286.004 537.588L289.543 538.128C290.994 538.349 291.758 539.281 291.834 540.923L291.88 541.93C291.973 543.944 291.013 544.997 288.999 545.09L284.881 545.28L283.634 544.401L283.569 542.999L288.783 542.758C289.143 542.741 289.314 542.553 289.298 542.193L289.244 541.025C289.228 540.689 289.069 540.498 288.767 540.452L285.228 539.913C283.777 539.691 283.013 538.76 282.937 537.117L282.884 535.967C282.791 533.953 283.751 532.899 285.765 532.806L290.243 532.6L291.49 533.479Z" />
         </motion.g>
         <circle cx="275" cy="275" r="240" stroke="white" strokeWidth="20" />
-      </StyledLogoSVG>
-    </LogoHolder>
+      </svg>
+    </div>
   );
 };
+
+const svgHolder = css({
+  gridArea: "logo",
+  display: "flex",
+  padding: "32px",
+});
+
+const svg = css({
+  width: "100%",
+  height: "auto",
+});
 
 export default LogoV2;

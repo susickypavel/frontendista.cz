@@ -9,9 +9,14 @@ export const GlobalStyles = () => (
 
       body {
         font-family: "Oxanium";
+        background-color: black;
       }
 
-      html,
+      html {
+        height: 100%;
+        overflow: auto;
+      }
+
       body,
       #__next {
         min-height: 100%;
