@@ -13,3 +13,4 @@ yarn-error.log*
 # Configs
 jest.config.js
 next.config.js
+babel.config.js

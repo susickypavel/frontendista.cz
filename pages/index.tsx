@@ -11,6 +11,7 @@ import LogoV2 from "~/components/index-page/logov2/logov2.component";
 
 import { fetchSanity } from "~/utils/sanity-client";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
+import BlogPostList from "~/components/index-page/blog-post-list.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -26,11 +27,11 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
         <motion.div
           initial={{
             opacity: 0,
-            scaleX: 0,
+            width: 0,
           }}
           animate={{
             opacity: 1,
-            scaleX: 1,
+            width: "100%",
             transition: {
               duration: 2,
             },
@@ -40,11 +41,11 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
         <motion.div
           initial={{
             opacity: 0,
-            scaleY: 0,
+            height: 0,
           }}
           animate={{
             opacity: 1,
-            scaleY: 1,
+            height: "100%",
             transition: {
               duration: 2,
             },
@@ -52,16 +53,17 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
           css={verticalLines}
         />
         <div css={dotsHolder}>
-          <div css={dot} style={{ top: -3.5, left: -3.5 }} />
-          <div css={dot} style={{ top: -3.5, right: -3.5 }} />
-          <div css={dot} style={{ bottom: -3.5, left: -3.5 }} />
-          <div css={dot} style={{ bottom: -3.5, right: -3.5 }} />
+          <div css={dot} style={{ top: -4.15, left: -4.15 }} />
+          <div css={dot} style={{ top: -4.15, right: -4.15 }} />
+          <div css={dot} style={{ bottom: -4.15, left: -4.15 }} />
+          <div css={dot} style={{ bottom: -4.15, right: -4.15 }} />
         </div>
         <GridLabel text="Czech republic, Prague" position="bottom" gridArea="location" />
         <GridLabel text="Pavel Susicky" position="top" gridArea="name" />
         <GridLabel text="React, Typescript, Next.js" position="left" gridArea="side" />
         <LogoV2 />
       </div>
+      <BlogPostList previews={postPreviews} />
     </>
   );
 };
@@ -81,8 +83,8 @@ const grid = css({
 
 const horizontalLines = css({
   boxSizing: "border-box",
-  borderBottom: "1px solid #aaaaaa",
-  borderTop: "1px solid #aaaaaa",
+  borderBottom: "1px solid #424242",
+  borderTop: "1px solid #424242",
   gridArea: "logo",
   "@media (min-width: 768px)": {
     gridColumn: "1 / 4",
@@ -97,8 +99,8 @@ const verticalLines = css({
     display: "block",
     gridArea: "logo",
     gridRow: "1 / 4",
-    borderLeft: "1px solid #aaaaaa",
-    borderRight: "1px solid #aaaaaa",
+    borderLeft: "1px solid #424242",
+    borderRight: "1px solid #424242",
   },
 });
 
@@ -113,10 +115,13 @@ const dotsHolder = css({
 
 const dot = css({
   position: "absolute",
-  width: "8px",
-  height: "8px",
+  width: "10px",
+  height: "10px",
   borderRadius: "100%",
-  background: "#aaaaaa",
+  background: "black",
+  boxShadow: "0px 0px 0px 16px black",
+  border: "2px solid white",
+  boxSizing: "border-box",
 });
 
 export const getStaticProps: GetStaticProps = async () => {
