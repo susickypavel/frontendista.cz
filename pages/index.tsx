@@ -12,6 +12,7 @@ import LogoV2 from "~/components/index-page/logov2/logov2.component";
 import { fetchSanity } from "~/utils/sanity-client";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
 import BlogPostList from "~/components/index-page/blog-post-list.component";
+import SocialIcons from "~/components/index-page/social-icons.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -53,17 +54,18 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
           css={verticalLines}
         />
         <div css={dotsHolder}>
-          <div css={dot} style={{ top: -4.15, left: -4.15 }} />
-          <div css={dot} style={{ top: -4.15, right: -4.15 }} />
-          <div css={dot} style={{ bottom: -4.15, left: -4.15 }} />
-          <div css={dot} style={{ bottom: -4.15, right: -4.15 }} />
+          <div css={dot} style={{ top: -4.5, left: -4.5 }} />
+          <div css={dot} style={{ top: -4.5, right: -4.5 }} />
+          <div css={dot} style={{ bottom: -4.5, left: -4.5 }} />
+          <div css={dot} style={{ bottom: -4.5, right: -4.5 }} />
         </div>
         <GridLabel text="Czech republic, Prague" position="bottom" gridArea="location" />
         <GridLabel text="Pavel Susicky" position="top" gridArea="name" />
         <GridLabel text="React, Typescript, Next.js" position="left" gridArea="side" />
         <LogoV2 />
+        <SocialIcons />
       </div>
-      <BlogPostList previews={postPreviews} />
+      {/* <BlogPostList previews={postPreviews} /> */}
     </>
   );
 };
