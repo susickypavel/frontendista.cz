@@ -192,6 +192,10 @@ const svgHolder = css({
   padding: "32px 0",
 });
 
-const svg = css({});
+const svg = css({
+  width: "100%",
+  maxWidth: "550px",
+  height: "auto",
+});
 
 export default LogoV2;

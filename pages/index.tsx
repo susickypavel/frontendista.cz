@@ -4,11 +4,12 @@ import { css } from "@emotion/core";
 import { NextPage, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
-import Seo from "~/components/page-layout/seo/seo.component";
-
 import { fetchSanity } from "~/utils/sanity-client";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
+
+import Seo from "~/components/page-layout/seo/seo.component";
 import LogoV2 from "~/components/index-page/logov2/logov2.component";
+import IntersectionNode from "~/components/index-page/intersection-node.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -22,9 +23,15 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
       <Seo pathname={pathname} />
       <div css={aside()} />
       <main css={main}>
-        <div css={offset} />
+        <div css={offset}>
+          <IntersectionNode top={false} left={true} />
+          <IntersectionNode top={false} left={false} />
+        </div>
         <LogoV2 />
-        <div css={offset(false)} />
+        <div css={offset(false)}>
+          <IntersectionNode top={true} left={true} />
+          <IntersectionNode top={true} left={false} />
+        </div>
       </main>
       <div css={aside(false)} />
     </div>
@@ -37,8 +44,8 @@ const grid = css({
 });
 
 const main = css({
-  maxWidth: "47.5%",
-  width: "100%",
+  flexGrow: 2,
+  maxWidth: "920px",
   borderLeft: "1px solid #aaaaaa",
   borderRight: "1px solid #aaaaaa",
   display: "flex",
@@ -48,7 +55,8 @@ const main = css({
 const offset = (bottom: boolean = true) =>
   css({
     flexGrow: 1,
-    minHeight: "150px",
+    minHeight: "75px",
+    position: "relative",
     [bottom ? "borderBottom" : "borderTop"]: "1px solid #aaaaaa",
   });
 
@@ -58,8 +66,10 @@ const GRADIENT_LEFT = "linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, #000000 100%
 const aside = (left: boolean = true) =>
   css({
     flexGrow: 1,
-    background: `${left ? GRADIENT_LEFT : GRADIENT_RIGHT}, url(/noise.png) no-repeat`,
-    backgroundSize: "cover",
+    background: `${left ? GRADIENT_LEFT : GRADIENT_RIGHT}, url(/noise.png)`,
+    "@media (max-width: 768px)": {
+      display: "none",
+    },
   });
 
 export const getStaticProps: GetStaticProps = async () => {
