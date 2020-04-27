@@ -10,6 +10,7 @@ import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
 import Seo from "~/components/page-layout/seo/seo.component";
 import LogoV2 from "~/components/index-page/logov2/logov2.component";
 import IntersectionNode from "~/components/index-page/intersection-node.component";
+import LineLabel from "~/components/index-page/line-label.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -26,11 +27,13 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
         <div css={offset}>
           <IntersectionNode top={false} left={true} />
           <IntersectionNode top={false} left={false} />
+          <LineLabel position="bottom" text="PAVEL SUSICKY" />
         </div>
         <LogoV2 />
         <div css={offset(false)}>
           <IntersectionNode top={true} left={true} />
           <IntersectionNode top={true} left={false} />
+          <LineLabel position="top" text="SOCIAL LINKS" />
         </div>
       </main>
       <div css={aside(false)} />

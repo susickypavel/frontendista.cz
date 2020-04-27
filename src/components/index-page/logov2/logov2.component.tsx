@@ -189,7 +189,7 @@ const svgHolder = css({
   width: "100%",
   display: "flex",
   justifyContent: "center",
-  padding: "32px 0",
+  padding: "32px 16px",
 });
 
 const svg = css({

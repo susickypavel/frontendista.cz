@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import baffle from "baffle";
 
 interface Props {
-  gridArea: string;
   position: "top" | "bottom" | "left" | "right";
   text: string;
   element?: "small";
@@ -39,13 +38,8 @@ const labelPosition = {
   },
 };
 
-const GridLabel: React.FC<Props> = ({ gridArea, position, text, element = "small" }) => {
+const LineLabel: React.FC<Props> = ({ position, text, element = "small" }) => {
   const labelRef = useRef<HTMLElement>(null);
-
-  const GridLabelHolder = styled.div`
-    position: relative;
-    grid-area: ${gridArea};
-  `;
 
   const LabelElement = styled(element)(() => ({
     fontSize: "24px",
@@ -69,11 +63,7 @@ const GridLabel: React.FC<Props> = ({ gridArea, position, text, element = "small
     baffledLabel.reveal(2500);
   }, [labelRef.current]);
 
-  return (
-    <GridLabelHolder>
-      <LabelElement ref={labelRef}>{text}</LabelElement>
-    </GridLabelHolder>
-  );
+  return <LabelElement ref={labelRef}>{text}</LabelElement>;
 };
 
-export default GridLabel;
+export default LineLabel;
