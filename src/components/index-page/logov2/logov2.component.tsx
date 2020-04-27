@@ -186,14 +186,12 @@ const LogoV2: React.FC = () => {
 };
 
 const svgHolder = css({
-  gridArea: "logo",
+  width: "100%",
   display: "flex",
-  padding: "32px",
+  justifyContent: "center",
+  padding: "32px 0",
 });
 
-const svg = css({
-  width: "100%",
-  height: "auto",
-});
+const svg = css({});
 
 export default LogoV2;
