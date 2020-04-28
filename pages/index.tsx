@@ -11,6 +11,7 @@ import Seo from "~/components/page-layout/seo/seo.component";
 import LogoV2 from "~/components/index-page/logov2/logov2.component";
 import IntersectionNode from "~/components/index-page/intersection-node.component";
 import LineLabel from "~/components/index-page/line-label.component";
+import SocialCarousel from "~/components/index-page/social-carousel.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -34,6 +35,7 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
           <IntersectionNode top={true} left={true} />
           <IntersectionNode top={true} left={false} />
           <LineLabel position="top" text="SOCIAL LINKS" />
+          <SocialCarousel />
         </div>
       </main>
       <div css={aside(false)} />
@@ -52,15 +54,19 @@ const main = css({
   borderLeft: "1px solid #aaaaaa",
   borderRight: "1px solid #aaaaaa",
   display: "flex",
-  flexFlow: "column wrap",
+  flexFlow: "column nowrap",
 });
 
 const offset = (bottom: boolean = true) =>
   css({
+    height: "15%",
     flexGrow: 1,
     minHeight: "75px",
     position: "relative",
     [bottom ? "borderBottom" : "borderTop"]: "1px solid #aaaaaa",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   });
 
 const GRADIENT_RIGHT = "linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 50%)";
