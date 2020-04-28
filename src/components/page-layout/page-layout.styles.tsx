@@ -25,6 +25,33 @@ export const GlobalStyles = () => (
       #__next {
         min-height: 100%;
       }
+
+      ::-webkit-scrollbar {
+        width: 25px;
+        height: 25px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: black;
+      }
+
+      ::-webkit-scrollbar-thumb:vertical {
+        background: #aaaaaa;
+        border: 10px solid black;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      ::-webkit-scrollbar-thumb:horizontal {
+        background: #aaaaaa;
+        border: 10px solid black;
+        border-left: none;
+        border-right: none;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: white;
+      }
     `}
   </style>
 );
