@@ -89,31 +89,6 @@ const SocialCarousel: React.FC = () => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <svg
-        style={{ zIndex: 1, position: "relative" }}
-        width="144"
-        height="137"
-        viewBox="0 0 144 137"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          css={arrow}
-          fill="black"
-          d="M22 51L4.32233 68.6777L22 86.3553"
-          stroke="white"
-          strokeWidth="5"
-          onClick={handleMoveLeft}
-        />
-        <path
-          css={arrow}
-          fill="black"
-          d="M122 86L139.678 68.3223L122 50.6447"
-          stroke="white"
-          strokeWidth="5"
-          onClick={handleMoveRight}
-        />
-      </svg>
       <div css={content}>
         <AnimatePresence custom={direction}>
           {icons.map(({ svg, color, name, href }, index) => {
