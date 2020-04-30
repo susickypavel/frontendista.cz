@@ -55,20 +55,20 @@ const LogoV2: React.FC = () => {
 
     svgCoords.current = {
       x: sx,
-      y: sy,
+      y: sy + window.scrollY,
     };
   }, 1000);
 
   useEffect(() => {
     handleResize();
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchmove", handleTouchMove);
     window.addEventListener("resize", handleResize);
 
     return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
