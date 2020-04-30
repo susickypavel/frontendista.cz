@@ -55,7 +55,7 @@ export const POST_PREVIEWS = `*[_type == 'post'] {
     "id": _id,
     "aspectRatio": metadata.dimensions.height / metadata.dimensions.width
   }
-}`;
+} | order(_createdAt desc)`;
 
 export interface PostPreviewsQuery {
   subtitle: string;

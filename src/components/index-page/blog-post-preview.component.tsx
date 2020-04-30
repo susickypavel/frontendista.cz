@@ -27,7 +27,7 @@ const BlogPostPreview: React.FC<Props> = ({
   const formattedPostDate = formatPostDate(_createdAt);
 
   return (
-    <Link href={`/blog/post/${slug}`}>
+    <Link href={`/blog/post/${slug}`} passHref={true}>
       <a css={postHolder}>
         <img src={thumbnail!} alt={`Thumbnail for ${title}`} css={postThumbnail} />
         <PostContent>
@@ -52,6 +52,10 @@ const postHolder = css({
   "&:last-of-type": {
     margin: "0",
   },
+  "&:focus": {
+    border: "1px solid #aaaaaa",
+  },
+  outline: "none",
   cursor: "pointer",
 });
 
