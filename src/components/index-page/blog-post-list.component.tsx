@@ -30,6 +30,9 @@ const listHolder = css({
   borderBottom: "none",
   padding: "32px",
   position: "relative",
+  "@media (max-width: 768px)": {
+    padding: "32px 16px",
+  },
 });
 
 export default BlogPostList;

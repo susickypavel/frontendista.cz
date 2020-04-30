@@ -1,15 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { css } from "@emotion/core";
+import styled from "@emotion/styled";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 import { urlFor } from "~/utils/sanity-url-builder";
 import { formatPostDate } from "~/utils/helpers";
-
-// TODO:
-// create link to the blog post
-// animate on hover ?
-// mobile responsiveness
 
 interface Props {
   preview: PostPreviewsQuery;
@@ -31,43 +27,32 @@ const BlogPostPreview: React.FC<Props> = ({
   const formattedPostDate = formatPostDate(_createdAt);
 
   return (
-    <div css={postHolder}>
-      <img src={thumbnail!} alt={`Thumbnail for ${title}`} css={postThumbnail} />
-      <div css={postContent}>
-        <h2 css={postHeader}>
-          <span>{subtitle}</span>
-          {title}
-        </h2>
-        <time dateTime={_createdAt} css={postPublishedDate}>
-          {formattedPostDate}
-        </time>
-        {/* <Link href={`/blog/post/${slug}`}>
-          <a>READ THE ARTICLE</a>
-        </Link> */}
-      </div>
-    </div>
+    <Link href={`/blog/post/${slug}`}>
+      <a css={postHolder}>
+        <img src={thumbnail!} alt={`Thumbnail for ${title}`} css={postThumbnail} />
+        <PostContent>
+          <h2 css={postHeader}>
+            <span>{subtitle}</span>
+            {title}
+          </h2>
+          <time dateTime={_createdAt} css={postPublishedDate}>
+            {formattedPostDate}
+          </time>
+        </PostContent>
+      </a>
+    </Link>
   );
 };
 
 const postHolder = css({
+  display: "block",
   position: "relative",
-  border: "0.5px solid rgba(67, 67, 67, 0.5)",
+  border: "1px solid rgba(67, 67, 67, 0.5)",
   marginBottom: "32px",
   "&:last-of-type": {
     margin: "0",
   },
-});
-
-const postContent = css({
-  background: "linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%)",
-  position: "absolute",
-  height: "100%",
-  width: "100%",
-  top: 0,
-  left: 0,
-  color: "white",
-  display: "flex",
-  flexFlow: "column wrap",
+  cursor: "pointer",
 });
 
 const postHeader = css({
@@ -77,7 +62,32 @@ const postHeader = css({
   flexGrow: 1,
   "& span": {
     display: "block",
+    lineHeight: 1.2,
   },
+  "@media (max-width: 768px)": {
+    fontSize: "24px",
+    padding: "20px",
+  },
+  "@media (max-width: 425px)": {
+    fontSize: "20px",
+    padding: "16px",
+  },
+});
+
+const PostContent = styled.div({
+  background: "linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%)",
+  position: "absolute",
+  height: "100%",
+  width: "100%",
+  top: 0,
+  left: 0,
+  color: "white",
+  display: "flex",
+  flexFlow: "column wrap",
+  "&:hover": {
+    background: "black",
+  },
+  transition: "background 0.25s ease-in",
 });
 
 const postPublishedDate = css({
@@ -85,6 +95,14 @@ const postPublishedDate = css({
   padding: "32px",
   fontWeight: "bold",
   textShadow: "4px 4px 0px #000000",
+  "@media (max-width: 768px)": {
+    fontSize: "22px",
+    padding: "24px",
+  },
+  "@media (max-width: 425px)": {
+    fontSize: "18px",
+    padding: "14px",
+  },
 });
 
 const postThumbnail = css({
