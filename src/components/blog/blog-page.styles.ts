@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
-export const BlogPostPageHolder = styled.div`
+export const BlogPostPageHolder = styled(motion.div)`
   background: black;
   min-height: 100vh;
 `;

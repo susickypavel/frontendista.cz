@@ -1,5 +1,6 @@
 import React from "react";
 import { css } from "@emotion/core";
+import { motion } from "framer-motion";
 
 import { NextPage, GetStaticProps } from "next";
 import { useRouter } from "next/router";
@@ -14,6 +15,7 @@ import LineLabel from "~/components/index-page/line-label.component";
 import SocialCarousel from "~/components/index-page/social-carousel.component";
 import BlogPostList from "~/components/index-page/blog-post-list.component";
 import Footer from "~/components/index-page/footer.component";
+import { pageAnimations } from "~/components/page-transition.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -23,7 +25,11 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   const { pathname } = useRouter();
 
   return (
-    <>
+    <motion.div
+      initial={pageAnimations.initial}
+      animate={pageAnimations.animate}
+      exit={pageAnimations.exit}
+    >
       <div css={grid}>
         <Seo pathname={pathname} />
         <div css={aside()} />
@@ -49,7 +55,7 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
         <div css={aside(false)} />
       </div>
       <Footer />
-    </>
+    </motion.div>
   );
 };
 

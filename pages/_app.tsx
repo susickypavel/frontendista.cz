@@ -2,6 +2,8 @@ import React, { useEffect, createContext, useState } from "react";
 import { AppProps } from "next/app";
 
 import PageLayout from "~/components/page-layout/page-layout.component";
+import { useRouter } from "next/router";
+import PageTransition from "~/components/page-transition.component";
 
 export const GlobalVars = createContext({
   animated: false,
@@ -9,6 +11,7 @@ export const GlobalVars = createContext({
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [animated, setAnimated] = useState(false);
+  const { route } = useRouter();
 
   useEffect(() => {
     setAnimated(true);
@@ -20,9 +23,11 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         animated,
       }}
     >
-      <PageLayout>
-        <Component {...pageProps} />
-      </PageLayout>
+      <PageTransition>
+        <PageLayout>
+          <Component {...pageProps} key={route} />
+        </PageLayout>
+      </PageTransition>
     </GlobalVars.Provider>
   );
 };

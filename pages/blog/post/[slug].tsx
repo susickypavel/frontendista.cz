@@ -29,6 +29,7 @@ import { BlockContentLink } from "~/components/blog/serializers/paragraph";
 import BlockContentList, {
   BlockContentListItem,
 } from "~/components/blog/serializers/List";
+import { pageAnimations } from "~/components/page-transition.component";
 
 interface Props {
   post: GetPostUsingSlugQuery;
@@ -36,7 +37,11 @@ interface Props {
 
 const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }) => {
   return (
-    <BlogPostPageHolder>
+    <BlogPostPageHolder
+      initial={pageAnimations.initial}
+      animate={pageAnimations.animate}
+      exit={pageAnimations.exit}
+    >
       <PostContentHolder>
         <UniversalImage image={thumbnail} />
         <PostTitle>
