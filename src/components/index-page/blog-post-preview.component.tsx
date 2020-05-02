@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 import { urlFor } from "~/utils/sanity-url-builder";
 import { formatPostDate } from "~/utils/helpers";
+import { motion } from "framer-motion";
 
 interface Props {
   preview: PostPreviewsQuery;
@@ -28,7 +29,15 @@ const BlogPostPreview: React.FC<Props> = ({
 
   return (
     <Link href={`/blog/post/${slug}`} passHref={true}>
-      <a css={postHolder}>
+      <motion.a
+        whileTap={{
+          scale: 0.98,
+        }}
+        whileHover={{
+          scale: 1.02,
+        }}
+        css={postHolder}
+      >
         <img src={thumbnail!} alt={`Thumbnail for ${title}`} css={postThumbnail} />
         <PostContent>
           <h2 css={postHeader}>
@@ -39,7 +48,7 @@ const BlogPostPreview: React.FC<Props> = ({
             {formattedPostDate}
           </time>
         </PostContent>
-      </a>
+      </motion.a>
     </Link>
   );
 };
