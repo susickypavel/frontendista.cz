@@ -3,7 +3,6 @@ import { useSpring, motion } from "framer-motion";
 
 import throttle from "lodash.throttle";
 
-import LogoBG from "./logobg.component";
 import { css } from "@emotion/core";
 
 const LogoV2: React.FC = () => {
