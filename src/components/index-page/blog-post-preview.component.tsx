@@ -1,12 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
+
+import QRCode from "qrcode.react";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 import { urlFor } from "~/utils/sanity-url-builder";
 import { formatPostDate } from "~/utils/helpers";
-import { motion } from "framer-motion";
 
 interface Props {
   preview: PostPreviewsQuery;
@@ -21,8 +23,18 @@ const BlogPostPreview: React.FC<Props> = ({
     thumbnail: { id, aspectRatio },
   },
 }) => {
-  const thumbnail = urlFor(id)
+  const size1000 = urlFor(id)
     .auto("format")
+    .url();
+
+  const size768 = urlFor(id)
+    .auto("format")
+    .width(768)
+    .url();
+
+  const size425 = urlFor(id)
+    .auto("format")
+    .width(425)
     .url();
 
   const formattedPostDate = formatPostDate(_createdAt);
@@ -38,7 +50,12 @@ const BlogPostPreview: React.FC<Props> = ({
         }}
         css={postHolder}
       >
-        <img src={thumbnail!} alt={`Thumbnail for ${title}`} css={postThumbnail} />
+        <img
+          src={size1000!}
+          srcSet={`${size425} 425w, ${size768} 768w, ${size1000} 1000w`}
+          alt={`Thumbnail for ${title}`}
+          css={postThumbnail}
+        />
         <PostContent>
           <h2 css={postHeader}>
             <span>{subtitle}</span>
