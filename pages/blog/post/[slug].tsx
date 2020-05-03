@@ -30,6 +30,7 @@ import BlockContentList, {
   BlockContentListItem,
 } from "~/components/blog/serializers/List";
 import { pageAnimations } from "~/components/page-transition.component";
+import CodeSnippet from "~/components/blog/serializers/code-snippet";
 
 interface Props {
   post: GetPostUsingSlugQuery;
@@ -56,6 +57,7 @@ const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }
               block: (props: any) =>
                 React.createElement(block, { ...props, slug: rest.slug.current }),
               image: contentImage,
+              codesnippet: CodeSnippet,
             },
             list: BlockContentList,
             listItem: BlockContentListItem,

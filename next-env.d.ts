@@ -14,7 +14,8 @@ declare module "@sanity/block-content-to-react" {
     | "blockquote"
     | "code"
     | "block"
-    | "image";
+    | "image"
+    | "codesnippet";
   type MarksElements = "link";
   export default class BlockContent extends React.Component<{
     blocks: any;

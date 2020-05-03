@@ -12,7 +12,7 @@ interface Props {
 
 const BlogPostList: React.FC<Props> = ({ previews }) => {
   return (
-    <div css={listHolder}>
+    <section css={listHolder}>
       <IntersectionNode top={true} left={true} />
       <IntersectionNode top={true} left={false} />
       <IntersectionNode top={false} left={true} />
@@ -21,7 +21,7 @@ const BlogPostList: React.FC<Props> = ({ previews }) => {
       {previews.map(preview => (
         <BlogPostPreview preview={preview} key={preview.slug} />
       ))}
-    </div>
+    </section>
   );
 };
 
