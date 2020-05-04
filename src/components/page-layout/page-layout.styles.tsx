@@ -14,16 +14,16 @@ export const GlobalStyles = () => (
       body {
         font-family: "Oxanium";
         background-color: black;
+        min-width: 350px;
       }
 
       html {
         min-height: 100%;
-        overflow: auto;
       }
 
       body,
       #__next {
-        min-height: 100%;
+        min-height: 100vh;
       }
 
       ::-webkit-scrollbar {

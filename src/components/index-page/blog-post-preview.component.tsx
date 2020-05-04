@@ -98,7 +98,7 @@ const postHeader = css({
     fontSize: "24px",
     padding: "20px",
   },
-  "@media (max-width: 425px)": {
+  "@media (max-width: 450px)": {
     fontSize: "20px",
     padding: "16px",
   },
@@ -129,7 +129,7 @@ const postPublishedDate = css({
     fontSize: "22px",
     padding: "24px",
   },
-  "@media (max-width: 425px)": {
+  "@media (max-width: 450px)": {
     fontSize: "18px",
     padding: "14px",
   },
