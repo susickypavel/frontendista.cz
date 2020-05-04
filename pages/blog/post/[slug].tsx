@@ -1,15 +1,6 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 
-import BlockContent from "@sanity/block-content-to-react";
-
-import {
-  BlogPostPageHolder,
-  PostContentHolder,
-  PostTitle,
-  SubTitle,
-} from "~/components/blog/blog-page.styles";
-
 import { fetchSanity } from "~/utils/sanity-client";
 
 import {
@@ -19,56 +10,12 @@ import {
   POST_SLUGS,
 } from "~/queries/groq-queries";
 
-/** Serializers */
-import container from "~/components/blog/serializers/container";
-import UniversalImage, {
-  contentImage,
-} from "~/components/blog/serializers/image/image.serializer";
-import block from "~/components/blog/serializers/block";
-import { BlockContentLink } from "~/components/blog/serializers/paragraph";
-import BlockContentList, {
-  BlockContentListItem,
-} from "~/components/blog/serializers/List";
-import { pageAnimations } from "~/components/page-transition.component";
-import CodeSnippet from "~/components/blog/serializers/code-snippet";
-
 interface Props {
   post: GetPostUsingSlugQuery;
 }
 
 const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }) => {
-  return (
-    <BlogPostPageHolder
-      initial={pageAnimations.initial}
-      animate={pageAnimations.animate}
-      exit={pageAnimations.exit}
-    >
-      <PostContentHolder>
-        <UniversalImage image={thumbnail} />
-        <PostTitle>
-          <SubTitle>{rest.subtitle}</SubTitle>
-          <span>{rest.title}</span>
-        </PostTitle>
-        <BlockContent
-          blocks={content}
-          serializers={{
-            container,
-            types: {
-              block: (props: any) =>
-                React.createElement(block, { ...props, slug: rest.slug.current }),
-              image: contentImage,
-              codesnippet: CodeSnippet,
-            },
-            list: BlockContentList,
-            listItem: BlockContentListItem,
-            marks: {
-              link: BlockContentLink,
-            },
-          }}
-        />
-      </PostContentHolder>
-    </BlogPostPageHolder>
-  );
+  return <div>This is gonna be a Blog Post Page</div>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
