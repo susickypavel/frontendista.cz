@@ -13,7 +13,8 @@ class MyDocument extends Document {
         <Head>
           <link
             href="https://fonts.googleapis.com/css?family=Oxanium:400,500,700&display=swap"
-            rel="stylesheet"
+            rel="preload"
+            as="style"
           />
         </Head>
         <body>
