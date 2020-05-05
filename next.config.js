@@ -12,8 +12,4 @@ module.exports = withBundleAnalyzer({
 
     return config;
   },
-  env: {
-    test: process.env,
-    pac: "a pusu",
-  },
 });

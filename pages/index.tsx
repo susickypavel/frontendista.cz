@@ -13,9 +13,7 @@ interface Props {
 const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   const { pathname } = useRouter();
 
-  console.log(process.env);
-
-  return <div>This is gonna be a Index page</div>;
+  return <div>This is gonna be a Index page {process.env.ROOT}</div>;
 };
 
 export const getStaticProps: GetStaticProps = async () => {
