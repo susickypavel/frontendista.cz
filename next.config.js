@@ -12,4 +12,7 @@ module.exports = withBundleAnalyzer({
 
     return config;
   },
+  env: {
+    ROOT: process.env.ROOT,
+  },
 });
