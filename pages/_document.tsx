@@ -33,7 +33,7 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
         </Head>
-        <body style={{ fontFamily: "Oxanium", fontWeight: 500 }}>
+        <body>
           <Main />
           <NextScript />
         </body>
