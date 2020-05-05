@@ -28,3 +28,10 @@ export const fontFaces = css`
     font-display: swap;
   }
 `;
+
+export const globalStyles = css`
+  body {
+    background: black;
+    color: white;
+  }
+`;

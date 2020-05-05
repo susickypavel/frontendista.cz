@@ -1,7 +1,6 @@
 import React from "react";
 
 import { NextPage, GetStaticProps } from "next";
-import { useRouter } from "next/router";
 
 import { fetchSanity } from "~/utils/sanity-client";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
@@ -11,8 +10,6 @@ interface Props {
 }
 
 const IndexPage: NextPage<Props> = ({ postPreviews }) => {
-  const { pathname } = useRouter();
-
   return <div>This is gonna be a Index page {process.env.ROOT}</div>;
 };
 
