@@ -11,6 +11,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://cdn.sanity.io/" />
+          <link rel="dns-prefetch" href="https://cdn.sanity.io/" />
           <link
             rel="preload"
             href="/fonts/oxanium-bold-webfont.woff2"

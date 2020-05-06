@@ -10,15 +10,23 @@ import PageTransitionProvider from "~/components/page-transition.component";
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { route, asPath } = useRouter();
 
+  const canonicalUrl = process.env.ROOT + asPath;
+
   return (
     <PageTransitionProvider>
       <PageLayout key={route}>
         <DefaultSeo
-          openGraph={{}}
-          twitter={{}}
+          openGraph={{
+            type: "website",
+            url: canonicalUrl,
+          }}
+          twitter={{
+            cardType: "summary_large_image",
+            handle: "@Thesoreon",
+          }}
           title="Pavel Susicky - Frontend Developer | Portfolio"
           description="Pavel Susicky is a Frontend React developer from Czech republic"
-          canonical={process.env.ROOT + asPath}
+          canonical={canonicalUrl}
         />
         <Component {...pageProps} />
       </PageLayout>
