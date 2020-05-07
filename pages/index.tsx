@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { fetchSanity } from "~/utils/sanity-client";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
+import BlogPostList from "~/components/blog-post-list/blog-post-list.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -12,10 +13,12 @@ interface Props {
 
 const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   return (
-    <div>
-      This is gonna be a Index page {process.env.ROOT}
-      <Link href="/about">ABOUT</Link>
-    </div>
+    <>
+      <Link href="/about">
+        <a>ABOUT</a>
+      </Link>
+      <BlogPostList postPreviews={postPreviews} />
+    </>
   );
 };
 

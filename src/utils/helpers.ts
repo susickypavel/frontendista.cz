@@ -7,3 +7,7 @@ export function formatPostDate(_date: string) {
     year: "numeric",
   });
 }
+
+export function createBlogPostPathname(slug: string) {
+  return `/blog/post/${slug}`;
+}
