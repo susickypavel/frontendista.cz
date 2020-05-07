@@ -39,6 +39,7 @@ export interface GetPostUsingSlugQuery {
     };
   };
   title: string;
+  description: string;
   subtitle: string;
 }
 

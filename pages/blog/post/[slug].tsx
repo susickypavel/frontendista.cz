@@ -1,5 +1,6 @@
 import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { NextSeo } from "next-seo";
 
 import { fetchSanity } from "~/utils/sanity-client";
 
@@ -9,13 +10,49 @@ import {
   GetPostUsingSlugVariables,
   POST_SLUGS,
 } from "~/queries/groq-queries";
+import { urlFor } from "~/utils/sanity-url-builder";
 
 interface Props {
   post: GetPostUsingSlugQuery;
 }
 
-const BlogPostPage: React.FC<Props> = ({ post: { content, thumbnail, ...rest } }) => {
-  return <div>This is gonna be a Blog Post Page</div>;
+const BlogPostPage: React.FC<Props> = ({ post }) => {
+  const { title, description, thumbnail, _createdAt, _updatedAt } = post;
+  const {
+    dimensions: { width, height },
+    id,
+  } = thumbnail;
+
+  const thumbnailURL = urlFor(id)
+    .format("jpg")
+    .url();
+
+  return (
+    <div>
+      <NextSeo
+        title={`${title} | Pavel Susicky`}
+        description={description}
+        openGraph={{
+          title,
+          description,
+          type: "article",
+          article: {
+            publishedTime: _createdAt,
+            modifiedTime: _updatedAt,
+          },
+          images: [
+            {
+              url: thumbnailURL!,
+              width,
+              height,
+              alt: "Thumbnail ",
+            },
+          ],
+        }}
+      />
+      This is gonna be a Blog Post Page
+    </div>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
