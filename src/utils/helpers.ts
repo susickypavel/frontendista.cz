@@ -8,6 +8,12 @@ export function formatPostDate(_date: string) {
   });
 }
 
-export function createBlogPostPathname(slug: string) {
-  return `/blog/post/${slug}`;
+export function createBlogPostHref(slug: string) {
+  const href = "/blog/post/[slug]";
+  const as = `/blog/post/${slug}`;
+
+  return {
+    href,
+    as,
+  };
 }

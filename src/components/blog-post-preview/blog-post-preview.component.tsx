@@ -2,7 +2,7 @@ import React from "react";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 import { getSanityImageSrcset } from "~/utils/sanity-srcset-builder";
-import { formatPostDate, createBlogPostPathname } from "~/utils/helpers";
+import { formatPostDate, createBlogPostHref } from "~/utils/helpers";
 import Link from "next/link";
 
 interface Props {
@@ -15,7 +15,7 @@ const BlogPostPreview: React.FC<Props> = ({
   const { id } = thumbnail;
 
   const publishedDate = formatPostDate(_createdAt);
-  const blogPostPathname = createBlogPostPathname(slug);
+  const link = createBlogPostHref(slug);
 
   return (
     <article>
@@ -23,7 +23,7 @@ const BlogPostPreview: React.FC<Props> = ({
         {subtitle} {title}
       </h2>
       <time dateTime={_createdAt}>{publishedDate}</time>
-      <Link href="/blog/post/[slug]" as={blogPostPathname}>
+      <Link {...link}>
         <a>Read the article</a>
       </Link>
     </article>
