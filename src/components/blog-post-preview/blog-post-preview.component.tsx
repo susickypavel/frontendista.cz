@@ -1,9 +1,11 @@
 import React from "react";
+import Link from "next/link";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
-import { getSanityImageSrcset } from "~/utils/sanity-srcset-builder";
+
 import { formatPostDate, createBlogPostHref } from "~/utils/helpers";
-import Link from "next/link";
+import { getSanityImageSrcset } from "~/utils/sanity-srcset-builder";
+import { urlFor } from "~/utils/sanity-url-builder";
 
 interface Props {
   preview: PostPreviewsQuery;
@@ -17,15 +19,18 @@ const BlogPostPreview: React.FC<Props> = ({
   const publishedDate = formatPostDate(_createdAt);
   const link = createBlogPostHref(slug);
 
+  const thumbnailURL = urlFor(thumbnail.id).url() as string;
+
   return (
     <article>
-      <h2>
-        {subtitle} {title}
-      </h2>
+      <h3>
+        <Link {...link}>
+          <a>
+            {subtitle} {title}
+          </a>
+        </Link>
+      </h3>
       <time dateTime={_createdAt}>{publishedDate}</time>
-      <Link {...link}>
-        <a>Read the article</a>
-      </Link>
     </article>
   );
 };

@@ -14,9 +14,6 @@ interface Props {
 const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   return (
     <>
-      <Link href="/about">
-        <a>ABOUT</a>
-      </Link>
       <BlogPostList postPreviews={postPreviews} />
     </>
   );
