@@ -40,9 +40,20 @@ export const globalStyles = css`
   }
 
   body {
-    background: black;
+    background: #202020;
     color: white;
     font-family: "Oxanium";
+  }
+
+  body::after {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background: url(/noise.gif);
+    opacity: 0.05;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   * {

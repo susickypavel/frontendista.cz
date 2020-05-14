@@ -12,11 +12,7 @@ interface Props {
 }
 
 const IndexPage: NextPage<Props> = ({ postPreviews }) => {
-  return (
-    <>
-      <BlogPostList postPreviews={postPreviews} />
-    </>
-  );
+  return <></>;
 };
 
 export const getStaticProps: GetStaticProps = async () => {
