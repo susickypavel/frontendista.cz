@@ -6,6 +6,7 @@ import { DefaultSeo } from "next-seo";
 
 import PageLayout from "~/components/page-layout/page-layout.component";
 import PageTransitionProvider from "~/components/page-transition.component";
+import Navigation from "~/components/navigation/navigation.component";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { route, asPath } = useRouter();
@@ -14,6 +15,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <PageTransitionProvider>
+      <Navigation />
       <PageLayout key={route}>
         <DefaultSeo
           openGraph={{

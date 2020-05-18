@@ -52,6 +52,7 @@ export const globalStyles = css`
     background: url(/noise.gif);
     opacity: 0.05;
     position: absolute;
+    z-index: -1;
     top: 0;
     left: 0;
   }
