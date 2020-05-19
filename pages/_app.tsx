@@ -7,6 +7,7 @@ import { DefaultSeo } from "next-seo";
 import PageLayout from "~/components/page-layout/page-layout.component";
 import PageTransitionProvider from "~/components/page-transition.component";
 import Navigation from "~/components/navigation/navigation.component";
+import GlobalVars from "~/providers/global-vars.component";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { route, asPath } = useRouter();
@@ -14,25 +15,27 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const canonicalUrl = process.env.ROOT + asPath;
 
   return (
-    <PageTransitionProvider>
-      <Navigation />
-      <PageLayout key={route}>
-        <DefaultSeo
-          openGraph={{
-            type: "website",
-            url: canonicalUrl,
-          }}
-          twitter={{
-            cardType: "summary_large_image",
-            handle: "@Thesoreon",
-          }}
-          title="Pavel Susicky - Frontend Developer | Portfolio"
-          description="Pavel Susicky is a Frontend React developer from Czech republic"
-          canonical={canonicalUrl}
-        />
-        <Component {...pageProps} />
-      </PageLayout>
-    </PageTransitionProvider>
+    <GlobalVars>
+      <PageTransitionProvider>
+        <Navigation />
+        <PageLayout key={route}>
+          <DefaultSeo
+            openGraph={{
+              type: "website",
+              url: canonicalUrl,
+            }}
+            twitter={{
+              cardType: "summary_large_image",
+              handle: "@Thesoreon",
+            }}
+            title="Pavel Susicky - Frontend Developer | Portfolio"
+            description="Pavel Susicky is a Frontend React developer from Czech republic"
+            canonical={canonicalUrl}
+          />
+          <Component {...pageProps} />
+        </PageLayout>
+      </PageTransitionProvider>
+    </GlobalVars>
   );
 };
 
