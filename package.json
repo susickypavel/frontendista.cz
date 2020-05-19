@@ -32,7 +32,8 @@
     "react-dom": "^16.13.0",
     "react-icons": "^3.9.0",
     "react-lazy-load": "^3.0.13",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "react-tiny-popover": "^4.1.0"
   },
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
