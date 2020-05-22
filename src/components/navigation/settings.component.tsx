@@ -11,10 +11,10 @@ import CheckBox from "~/common/checkbox.component";
 import { GlobalVarsContext } from "~/providers/global-vars.component";
 
 const Settings: React.FC = () => {
-  const [opened, setOpened] = useState(true);
+  const [opened, setOpened] = useState(false);
 
   const {
-    theme: { activeTheme, switchTheme, checked },
+    theme: { switchTheme, checked },
   } = useContext(GlobalVarsContext);
 
   return (
