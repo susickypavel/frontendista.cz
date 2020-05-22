@@ -16,8 +16,8 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <GlobalVars>
+      <Navigation />
       <PageTransitionProvider>
-        <Navigation />
         <PageLayout key={route}>
           <DefaultSeo
             openGraph={{
