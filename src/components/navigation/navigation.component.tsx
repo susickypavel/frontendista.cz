@@ -7,8 +7,6 @@ import { useRouter } from "next/router";
 import NavigationToggle from "./navigation.toggle";
 import Settings from "./settings.component";
 
-import { focusState } from "~/utils/reusable-styles";
-
 const links = [
   {
     name: "Home",
@@ -32,24 +30,31 @@ const Navigation: React.FC = () => {
   const [opened, setOpened] = useState(false);
   const { pathname } = useRouter();
 
-  const handleMouseClick = () => {
+  const toggleNavigation = () => {
     setOpened(prev => !prev);
+  };
+
+  const closeNavigation = () => {
+    setOpened(false);
   };
 
   return (
     <nav css={navigationHolder} aria-label="Site navigation">
       <h1 css={header}>
         <Link href="/" passHref>
-          <a css={focusState}>Pavel Susicky</a>
+          <a>Pavel Susicky</a>
         </Link>
       </h1>
-      <NavigationToggle opened={opened} setOpened={handleMouseClick} />
+      <NavigationToggle opened={opened} setOpened={toggleNavigation} />
       <ul css={navigationListHolder(opened)} aria-hidden={!opened}>
         {links.map(({ href, name }) => {
           return (
             <li css={navigationItem} key={name}>
               <Link href={href} passHref>
-                <a css={focusState} aria-current={pathname === href ? "page" : undefined}>
+                <a
+                  aria-current={pathname === href ? "page" : undefined}
+                  onClick={closeNavigation}
+                >
                   {name}
                 </a>
               </Link>
@@ -93,7 +98,7 @@ const navigationItem = css({
     color: "white",
     textDecoration: "none",
     "&[aria-current=page]": {
-      color: "red",
+      color: "lightblue",
     },
   },
 });

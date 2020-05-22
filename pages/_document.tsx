@@ -1,6 +1,4 @@
-import React from "react";
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
-import CustomCursor from "~/components/cursor/cursor.component";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

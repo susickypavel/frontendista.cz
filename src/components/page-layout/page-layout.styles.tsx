@@ -60,6 +60,14 @@ export const globalStyles = css`
   * {
     box-sizing: border-box;
   }
+
+  :focus {
+    outline: 1px dashed white;
+  }
+
+  body.using-mouse *:focus {
+    outline: none;
+  }
 `;
 
 export const cssReset = css`

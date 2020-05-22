@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AppProps } from "next/app";
 import { useRouter } from "next/router";
 
@@ -13,6 +13,27 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { route, asPath } = useRouter();
 
   const canonicalUrl = process.env.ROOT + asPath;
+
+  const handleMouse = () => {
+    document.body.classList.add("using-mouse");
+    document.body.classList.remove("using-keyboard");
+  };
+  const handleKeyboard = (e: KeyboardEvent) => {
+    if (e.keyCode === 9) {
+      document.body.classList.add("using-keyboard");
+      document.body.classList.remove("using-mouse");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleMouse);
+    document.addEventListener("keydown", handleKeyboard);
+
+    return () => {
+      document.removeEventListener("mousedown", handleMouse);
+      document.removeEventListener("keydown", handleKeyboard);
+    };
+  }, []);
 
   return (
     <GlobalVars>
