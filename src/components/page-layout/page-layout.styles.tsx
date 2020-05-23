@@ -48,7 +48,8 @@ export const globalStyles = css`
   body::after {
     content: " ";
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    height: 200vh;
     background: url(/noise.gif);
     opacity: 0.05;
     position: absolute;

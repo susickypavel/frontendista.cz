@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { css } from "@emotion/core";
+import { css, Global } from "@emotion/core";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 import NavigationToggle from "./navigation.toggle";
 import Settings from "./settings.component";
+
+import { useScrollHide } from "~/hooks/useScrollHide";
 
 const links = [
   {
@@ -28,9 +30,13 @@ const links = [
 
 const Navigation: React.FC = () => {
   const [opened, setOpened] = useState(false);
+
   const { pathname } = useRouter();
 
+  const { hidden, setHidden } = useScrollHide();
+
   const toggleNavigation = () => {
+    setHidden(false);
     setOpened(prev => !prev);
   };
 
@@ -39,13 +45,22 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav css={navigationHolder} aria-label="Site navigation">
+    <nav css={navigationHolder(hidden)} aria-label="Site navigation">
       <h1 css={header}>
         <Link href="/" passHref>
           <a>Pavel Susicky</a>
         </Link>
       </h1>
       <NavigationToggle opened={opened} setOpened={toggleNavigation} />
+      {opened && (
+        <Global
+          styles={css`
+            body {
+              overflow-y: hidden;
+            }
+          `}
+        />
+      )}
       <ul css={navigationListHolder(opened)} aria-hidden={!opened}>
         {links.map(({ href, name }) => {
           return (
@@ -79,15 +94,18 @@ const header = css({
   },
 });
 
-const navigationHolder = css({
-  position: "fixed",
-  background: "#161616",
-  width: "100%",
-  height: "75px",
-  display: "flex",
-  alignItems: "center",
-  padding: "0 32px",
-});
+const navigationHolder = (hidden: boolean) =>
+  css({
+    position: "fixed",
+    background: "#161616",
+    width: "100%",
+    height: "75px",
+    display: "flex",
+    alignItems: "center",
+    padding: "0 32px",
+    transform: `translateY(${hidden ? "-100%" : "0"})`,
+    transition: "transform 0.5s ease-in-out",
+  });
 
 const navigationItem = css({
   fontSize: "20px",
@@ -110,7 +128,7 @@ const navigationListHolder = (opened: boolean) =>
       background: "black",
       top: 0,
       left: 0,
-      height: "100%",
+      height: "100vh",
       width: "100%",
       display: opened ? "flex" : "none",
       flexFlow: "column wrap",
