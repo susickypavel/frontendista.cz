@@ -45,7 +45,7 @@ const Navigation: React.FC = () => {
   };
 
   return (
-    <nav css={navigationHolder(hidden)} aria-label="Site navigation">
+    <nav css={navigationHolder} aria-label="Site navigation">
       <h1 css={header}>
         <Link href="/" passHref>
           <a>Pavel Susicky</a>
@@ -94,18 +94,24 @@ const header = css({
   },
 });
 
-const navigationHolder = (hidden: boolean) =>
-  css({
-    position: "fixed",
-    background: "#161616",
+const navigationHolder = css({
+  position: "absolute",
+  top: 16,
+  left: 16,
+  zIndex: 10,
+  background: "#161616",
+  width: "calc(100% - 32px)",
+  height: "75px",
+  display: "flex",
+  alignItems: "center",
+  padding: "0 32px",
+  "@media (max-width: 768px)": {
+    top: 0,
+    left: 0,
     width: "100%",
-    height: "75px",
-    display: "flex",
-    alignItems: "center",
-    padding: "0 32px",
-    transform: `translateY(${hidden ? "-100%" : "0"})`,
-    transition: "transform 0.5s ease-in-out",
-  });
+    position: "fixed",
+  },
+});
 
 const navigationItem = css({
   fontSize: "20px",

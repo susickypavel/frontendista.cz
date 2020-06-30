@@ -58,8 +58,19 @@ export const globalStyles = css`
     left: 0;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    body::after {
+      background: none;
+    }
+  }
+
   * {
     box-sizing: border-box;
+  }
+
+  #__next {
+    min-height: 100vh;
+    padding-top: 107px;
   }
 
   :focus {

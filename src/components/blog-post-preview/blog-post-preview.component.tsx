@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { css } from "@emotion/core";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 
@@ -22,17 +23,36 @@ const BlogPostPreview: React.FC<Props> = ({
   const thumbnailURL = urlFor(thumbnail.id).url() as string;
 
   return (
-    <article>
-      <h3>
+    <article css={previewHolder}>
+      <h3 css={header}>
         <Link {...link}>
           <a>
             {subtitle} {title}
           </a>
         </Link>
       </h3>
-      <time dateTime={_createdAt}>{publishedDate}</time>
+      <time css={publishDate} dateTime={_createdAt}>
+        {publishedDate}
+      </time>
     </article>
   );
 };
+
+const header = css({
+  fontSize: "24px",
+  marginBottom: "8px",
+  lineHeight: 1.3,
+  "& a": {
+    color: "white",
+  },
+});
+
+const publishDate = css({
+  fontSize: "20px",
+});
+
+const previewHolder = css({
+  marginBottom: "16px",
+});
 
 export default BlogPostPreview;
