@@ -3,6 +3,7 @@ import { css } from "@emotion/core";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 import BlogPostPreview from "../blog-post-preview/blog-post-preview.component";
+import IndexPageBox from "../common/index-page-box.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -10,19 +11,13 @@ interface Props {
 
 const BlogPostList: React.FC<Props> = ({ postPreviews }) => {
   return (
-    <section css={sectionStyles}>
-      <h2 css={headerStyles}>BLOG</h2>
+    <IndexPageBox headerText="BLOG">
       {postPreviews.map(preview => {
         return <BlogPostPreview key={preview.slug} preview={preview} />;
       })}
-    </section>
+    </IndexPageBox>
   );
 };
-
-const headerStyles = css({
-  fontSize: "32px",
-  marginBottom: "16px",
-});
 
 const sectionStyles = css({
   border: "1px dotted white",
