@@ -2,10 +2,21 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 interface DataResponse {
   response: {
-    players: Array<{
-      steamid: string;
-    }>;
+    players: SteamPlayerSummary[];
   };
+}
+
+export interface SteamPlayerSummary {
+  steamid: string;
+  communityvisibilitystate: number;
+  profilestate: number;
+  personaname: string;
+  commentpermission: number;
+  avatarfull: string;
+  avatarhash: string;
+  lastlogoff: number;
+  realname: string;
+  timecreated: string;
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
