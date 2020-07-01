@@ -10,10 +10,7 @@ interface DataResponse {
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const response = await fetch(
-    `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAM_API_KEY}&steamids=${process.env.STEAM_USER_ID}`,
-    {
-      cache: "default",
-    }
+    `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${process.env.STEAM_API_KEY}&steamids=${process.env.STEAM_USER_ID}`
   );
 
   const data: DataResponse = await response.json();
