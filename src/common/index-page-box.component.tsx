@@ -22,7 +22,8 @@ const headerStyles = css({
 const sectionStyles = css({
   border: "1px dotted white",
   padding: "16px",
-  marginBottom: "32px",
+  marginBottom: "16px",
+  background: "#161616",
 });
 
 export default IndexPageBox;

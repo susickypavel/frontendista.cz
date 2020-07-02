@@ -48,8 +48,7 @@ export const globalStyles = css`
   body::after {
     content: " ";
     width: 100%;
-    /* height: 100%; */
-    height: 200vh;
+    height: 100%;
     background: url(/noise.gif);
     opacity: 0.05;
     position: absolute;
@@ -71,6 +70,12 @@ export const globalStyles = css`
   #__next {
     min-height: 100vh;
     padding-top: 107px;
+  }
+
+  @media (max-width: 768px) {
+    #__next {
+      padding-top: 91px;
+    }
   }
 
   :focus {

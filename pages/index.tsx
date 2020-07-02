@@ -23,7 +23,6 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
 const pageContentHolder = css({
   margin: "0 auto",
   width: "calc(100% - 32px)",
-  background: "#161616",
   height: "100%",
 });
 

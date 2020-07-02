@@ -3,7 +3,7 @@ import { css } from "@emotion/core";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 import BlogPostPreview from "../blog-post-preview/blog-post-preview.component";
-import IndexPageBox from "../common/index-page-box.component";
+import IndexPageBox from "../../common/index-page-box.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];

@@ -2,7 +2,7 @@ import React from "react";
 import useSWR from "swr";
 import { css } from "@emotion/core";
 
-import IndexPageBox from "../common/index-page-box.component";
+import IndexPageBox from "../../common/index-page-box.component";
 
 import { SteamPlayerSummary } from "pages/api/steam";
 
