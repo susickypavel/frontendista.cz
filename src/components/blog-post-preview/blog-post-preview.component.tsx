@@ -44,6 +44,12 @@ const header = css({
   lineHeight: 1.3,
   "& a": {
     color: "white",
+    "&:visited": {
+      color: "#977ac4",
+    },
+    "&:hover, &:focus": {
+      color: "#dddddd",
+    },
   },
 });
 

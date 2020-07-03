@@ -8,6 +8,7 @@ import PageLayout from "~/components/page-layout/page-layout.component";
 import PageTransitionProvider from "~/components/page-transition.component";
 import Navigation from "~/components/navigation/navigation.component";
 import GlobalVars from "~/providers/global-vars.component";
+import Footer from "~/components/footer.component";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { route, asPath } = useRouter();
@@ -56,6 +57,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </PageLayout>
       </PageTransitionProvider>
+      <Footer />
     </GlobalVars>
   );
 };
