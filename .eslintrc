@@ -32,7 +32,8 @@
     "prettier/prettier": "error",
     "jest/consistent-test-it": ["error", { "fn": "it" }],
     "linebreak-style": ["error", "windows"],
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off"
   },
   "settings": {
     "react": {

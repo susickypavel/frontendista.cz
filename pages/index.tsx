@@ -6,6 +6,7 @@ import BlogPostList from "~/components/blog-post-list/blog-post-list.component";
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
 import { fetchSanity } from "~/utils/sanity-client";
 import SteamInfo from "~/components/steam-info/steam-info.component";
+import AboutInfo from "~/components/about-info/about-info.component";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -15,6 +16,7 @@ const IndexPage: NextPage<Props> = ({ postPreviews }) => {
   return (
     <div css={pageContentHolder}>
       <BlogPostList postPreviews={postPreviews} />
+      <AboutInfo />
       <SteamInfo />
     </div>
   );
