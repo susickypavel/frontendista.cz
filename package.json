@@ -5,7 +5,7 @@
   "author": "Pavel Sušický <pavels.sus@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "next -p 8080",
+    "start": "vc dev",
     "start:prod": "next start -p 9090",
     "build": "next build",
     "eslint:check": "eslint . --ext js,jsx,ts,tsx",
@@ -25,7 +25,7 @@
     "framer-motion": "^1.10.0",
     "isomorphic-unfetch": "^3.0.0",
     "lodash.throttle": "^4.1.1",
-    "next": "^9.4.2",
+    "next": "^9.4.4",
     "next-seo": "^4.4.0",
     "qrcode.react": "^1.0.0",
     "react": "^16.13.0",
