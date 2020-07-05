@@ -22,7 +22,7 @@ const IndexPage: NextPage<Props> = ({ postPreviews, githubData }) => {
     <div css={pageContentHolder}>
       <BlogPostList postPreviews={postPreviews} />
       <AboutInfo />
-      {/* <GithubInfo githubData={githubData} /> */}
+      <GithubInfo githubData={githubData} />
     </div>
   );
 };
@@ -35,11 +35,9 @@ const pageContentHolder = css({
 
 export const getStaticProps: GetStaticProps = async () => {
   const postPreviews = await fetchSanity<PostPreviewsQuery[]>(POST_PREVIEWS);
-  // const githubData = await fetcher<GithubData>(
-  //   `http://${process.env.VERCEL_URL}/api/github`
-  // );
-
-  const githubData = "";
+  const githubData = await fetcher<GithubData>(
+    `http://${process.env.VERCEL_URL}/api/github`
+  );
 
   return {
     props: {
