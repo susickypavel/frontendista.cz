@@ -35,7 +35,9 @@ const pageContentHolder = css({
 
 export const getStaticProps: GetStaticProps = async () => {
   const postPreviews = await fetchSanity<PostPreviewsQuery[]>(POST_PREVIEWS);
-  const githubData = await fetcher<GithubData>(`${process.env.VERCEL_URL}/api/github`);
+  const githubData = await fetcher<GithubData>(
+    `http://${process.env.VERCEL_URL}/api/github`
+  );
 
   return {
     props: {
