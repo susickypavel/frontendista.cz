@@ -27,18 +27,23 @@ const description = css({
   marginBottom: "16px",
 });
 
-const baseButton = css({
+export const baseButton = css({
   background: "white",
-  padding: "16px",
   fontSize: "20px",
   textTransform: "uppercase",
   fontWeight: "bold",
   fontFamily: "Oxanium",
   border: "none",
   lineHeight: 1,
+  padding: 0,
   "& a": {
+    display: "block",
     textDecoration: "none",
+    padding: "16px 24px",
     color: "black",
+  },
+  "@media (max-width: 768px)": {
+    width: "100%",
   },
 });
 

@@ -4,7 +4,7 @@ import { css } from "@emotion/core";
 
 import { PostPreviewsQuery } from "~/queries/groq-queries";
 
-import { formatPostDate, createBlogPostHref } from "~/utils/helpers";
+import { formatDate, createBlogPostHref } from "~/utils/helpers";
 import { getSanityImageSrcset } from "~/utils/sanity-srcset-builder";
 import { urlFor } from "~/utils/sanity-url-builder";
 
@@ -17,7 +17,7 @@ const BlogPostPreview: React.FC<Props> = ({
 }) => {
   const { id } = thumbnail;
 
-  const publishedDate = formatPostDate(_createdAt);
+  const publishedDate = formatDate(_createdAt);
   const link = createBlogPostHref(slug);
 
   const thumbnailURL = urlFor(thumbnail.id).url() as string;
