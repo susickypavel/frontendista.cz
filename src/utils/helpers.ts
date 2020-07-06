@@ -18,6 +18,13 @@ export function createBlogPostHref(slug: string) {
   };
 }
 
-export function fetcher<T = any>(url: string) {
-  return fetch(url).then(response => response.json() as Promise<T>);
+export async function fetcher(url: string) {
+  const response = await fetch(url);
+
+  if (response.ok) {
+    return response.json();
+  }
+
+  throw new Error(`Last request to '${url}' has failed.
+${response.status} - ${response.statusText}`);
 }

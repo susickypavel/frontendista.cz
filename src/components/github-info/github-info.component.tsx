@@ -2,27 +2,24 @@ import React from "react";
 import useSWR from "swr";
 import { css } from "@emotion/core";
 
-import { GithubData } from "pages/api/github";
 import IndexPageBox from "~/common/index-page-box.component";
 import { fetcher, formatDate } from "~/utils/helpers";
 import { baseButton } from "../about-info/about-info.component";
+import { GithubData } from "~/utils/github/api";
 
 interface Props {
   githubData: GithubData;
 }
 
 const GithubInfo: React.FC<Props> = ({ githubData }) => {
-  const { error, data } = useSWR<GithubData>("/api/github", fetcher, {
+  const { error, data } = useSWR<GithubData, Error>("/api/github", fetcher, {
     initialData: githubData,
   });
 
-  if (error) {
-    return <IndexPageBox headerText="My Github">{error}</IndexPageBox>;
-  }
-
-  if (!data) {
-    return <IndexPageBox headerText="My Github">Loading</IndexPageBox>;
-  }
+  console.log({
+    error,
+    data,
+  });
 
   const {
     viewer: {
@@ -38,7 +35,7 @@ const GithubInfo: React.FC<Props> = ({ githubData }) => {
         createdAt: repositoryCreatedAt,
       },
     },
-  } = data;
+  } = data!;
 
   const formattedAccountCreatedAt = formatDate(accountCreatedAt);
   const formattedRepositoryCreatedAt = formatDate(repositoryCreatedAt);
@@ -46,6 +43,9 @@ const GithubInfo: React.FC<Props> = ({ githubData }) => {
 
   return (
     <IndexPageBox headerText="My Github">
+      {error && (
+        <small css={errorMessage}>Couldn't fetch newer data: {error.message}</small>
+      )}
       {data && (
         <div css={boxHolder}>
           <div css={boxColumn}>
@@ -124,6 +124,11 @@ const boxHolder = css({
   "@media (max-width: 768px)": {
     flexFlow: "column",
   },
+});
+
+const errorMessage = css({
+  marginBottom: "16px",
+  display: "block",
 });
 
 export default GithubInfo;

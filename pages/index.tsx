@@ -2,15 +2,12 @@ import { NextPage, GetStaticProps } from "next";
 import { css } from "@emotion/core";
 
 import BlogPostList from "~/components/blog-post-list/blog-post-list.component";
-import SteamInfo from "~/components/steam-info/steam-info.component";
 import AboutInfo from "~/components/about-info/about-info.component";
 import GithubInfo from "~/components/github-info/github-info.component";
 
-import { GithubData } from "./api/github";
-
 import { POST_PREVIEWS, PostPreviewsQuery } from "~/queries/groq-queries";
 import { fetchSanity } from "~/utils/sanity-client";
-import { fetcher } from "~/utils/helpers";
+import { fetchGithubData, GithubData } from "~/utils/github/api";
 
 interface Props {
   postPreviews: PostPreviewsQuery[];
@@ -35,9 +32,7 @@ const pageContentHolder = css({
 
 export const getStaticProps: GetStaticProps = async () => {
   const postPreviews = await fetchSanity<PostPreviewsQuery[]>(POST_PREVIEWS);
-  const githubData = await fetcher<GithubData>(
-    `http://${process.env.VERCEL_URL}/api/github`
-  );
+  const { data: githubData } = await fetchGithubData<GithubData>();
 
   return {
     props: {
