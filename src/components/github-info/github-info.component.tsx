@@ -3,8 +3,9 @@ import useSWR from "swr";
 import { css } from "@emotion/core";
 
 import IndexPageBox from "~/common/index-page-box.component";
-import { fetcher, formatDate } from "~/utils/helpers";
 import { baseButton } from "../about-info/about-info.component";
+
+import { fetcher, formatDate } from "~/utils/helpers";
 import { GithubData } from "~/utils/github/api";
 
 interface Props {
@@ -14,11 +15,6 @@ interface Props {
 const GithubInfo: React.FC<Props> = ({ githubData }) => {
   const { error, data } = useSWR<GithubData, Error>("/api/github", fetcher, {
     initialData: githubData,
-  });
-
-  console.log({
-    error,
-    data,
   });
 
   const {

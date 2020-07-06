@@ -1,25 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-const defaultQuery = `
-query {
-    viewer {
-      avatarUrl
-      createdAt
-      url
-      repository(name: "pavelsusicky.com") {
-        name
-        createdAt
-        updatedAt
-        isPrivate
-        diskUsage
-        primaryLanguage {
-          name
-          color
-        }
-      }
-    }
-  }
-`;
+import { defaultQuery } from "~/utils/github/api";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -45,7 +26,7 @@ ${response.statusText}`,
     }
   } catch (error) {
     res.json({
-      error: `There was an unexpected error
+      error: `There was an unexpected error.
 ${error}`,
     });
   }

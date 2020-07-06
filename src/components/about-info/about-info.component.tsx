@@ -9,8 +9,19 @@ const AboutInfo: React.FC = () => {
     <IndexPageBox headerText="About me">
       <p css={description}>
         Hi, I'm Frontend developer from Czech republic.
-        <br /> My hobbies are: 👨‍💻 <b>Coding</b>, 💪 <b>Calisthenics / Fitness</b>, 🎮{" "}
-        <b>Games</b>.
+        <br />{" "}
+        <span>
+          My hobbies are: 👨‍💻 <b>Coding</b>
+        </span>
+        {", "}
+        <span>
+          💪 <b>Calisthenics / Fitness</b>
+        </span>
+        {", "}
+        <span>
+          🎮 <b>Games</b>
+        </span>
+        .
       </p>
       <button css={baseButton}>
         <Link href="/about">
@@ -25,6 +36,9 @@ const description = css({
   fontSize: "22px",
   lineHeight: 1.5,
   marginBottom: "16px",
+  "& span": {
+    whiteSpace: "nowrap",
+  },
 });
 
 export const baseButton = css({

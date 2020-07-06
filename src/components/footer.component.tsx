@@ -4,7 +4,9 @@ import { css } from "@emotion/core";
 const Footer: React.FC = () => {
   return (
     <footer css={holder}>
-      <p css={credits}>Made with 💚 by Pavel Susicky</p>
+      <p css={credits}>
+        <b>Coded</b> and <b>Designed</b> with 💚 by <strong>Pavel Susicky</strong>
+      </p>
     </footer>
   );
 };

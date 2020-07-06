@@ -17,7 +17,7 @@ export interface GithubData {
   };
 }
 
-const defaultQuery = `
+export const defaultQuery = `
 query {
     viewer {
       avatarUrl
