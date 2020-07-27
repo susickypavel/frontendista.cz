@@ -13,7 +13,10 @@
     "prettier/babel",
     "prettier/react",
     "plugin:jsx-a11y/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,7 +26,7 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "jsx-a11y"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "jsx-a11y", "import"],
   "rules": {
     "prettier/prettier": "error",
     "@typescript-eslint/explicit-function-return-type": "warn",
@@ -32,6 +35,9 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "typescript": {}
     }
   }
 }
