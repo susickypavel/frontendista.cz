@@ -7,5 +7,20 @@
         "ssr": true
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        [
+          "module-resolver",
+          {
+            "root": ".",
+            "alias": {
+              "src": "./src"
+            }
+          }
+        ]
+      ]
+    }
+  }
 }

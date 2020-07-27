@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import RandomComponent from "./random";
+
+import RandomComponent from "src/components/random";
 
 describe("Random", () => {
   test("", () => {
