@@ -60,3 +60,18 @@ jobs:
 
       - name: Test the code
         run: yarn test
+
+  e2e:
+    name: End-to-End Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v1
+        with:
+          build: yarn build
+          start: yarn start:prod
+          wait-on: http://localhost:3000
