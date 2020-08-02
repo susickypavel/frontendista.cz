@@ -2,8 +2,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     body {
-        background: #202020;
-        color: white;
+        background: radial-gradient(56.25% 100% at 0% 0%, rgba(140, 30, 255, 0.5) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50% 88.89% at 100% 100%, #FF2975 0%, #000000 100%);
+        min-height: 100vh;
         font-family: "Source Sans Pro";
     }
 
