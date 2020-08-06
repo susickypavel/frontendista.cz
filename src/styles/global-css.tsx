@@ -1,15 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    * {
-        box-sizing: border-box;
-    }
+
 
     body {
-        background:radial-gradient(100% 177.78% at 0% 0%, rgba(140, 30, 255, 0.5) 0%, rgba(0, 0, 0, 0) 100%), radial-gradient(50% 126.69% at 100% 100%, #FF2975 0%, rgba(0, 0, 0, 0.5) 100%);
+        background: #202020;
         min-height: 100vh;
         font-family: "Source Sans Pro";
-        border: 1px dashed black;
     }
 
     @font-face {

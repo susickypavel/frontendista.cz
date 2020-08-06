@@ -9,6 +9,7 @@ import { DefaultSeo } from "next-seo";
 
 import { GlobalStyle } from "src/styles/global-css";
 import { CSSReset } from "src/styles/reset-css";
+import { SiteNavigation } from "src/components/navigation/navigation.component";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
@@ -27,6 +28,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           cardType: "summary",
         }}
       />
+      <SiteNavigation />
       <Component {...pageProps} />
     </Fragment>
   );
