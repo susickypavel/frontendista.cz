@@ -17,7 +17,9 @@
     "plugin:react-hooks/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:jest/recommended",
+    "plugin:jest/style"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -27,12 +29,13 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "jsx-a11y", "import"],
+  "plugins": ["react", "@typescript-eslint", "prettier", "jsx-a11y", "import", "jest"],
   "rules": {
     "prettier/prettier": "error",
     "@typescript-eslint/explicit-function-return-type": "warn",
     "react/prop-types": 0,
-    "jsx-a11y/anchor-is-valid": 0
+    "jsx-a11y/anchor-is-valid": 0,
+    "jest/consistent-test-it": ["warn", { "fn": "it" }]
   },
   "settings": {
     "react": {
