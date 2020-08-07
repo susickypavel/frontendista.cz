@@ -13,7 +13,8 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "src/*": ["src/*"]
+      "src/*": ["src/*"],
+      "test/*": ["test/*"]
     },
     "allowJs": false,
     "forceConsistentCasingInFileNames": false

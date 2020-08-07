@@ -45,7 +45,7 @@ const Links = styled.div`
   }
 `;
 
-interface NavigationLinkItem {
+export interface NavigationLinkItem {
   name: string;
   href: string;
 }
@@ -54,7 +54,7 @@ interface LinkProps {
   link: NavigationLinkItem;
 }
 
-const NavigationLink: React.FC<LinkProps> = ({ link: { name, href } }) => {
+export const NavigationLink: React.FC<LinkProps> = ({ link: { name, href } }) => {
   const { asPath } = useRouter();
 
   const isCurrentPage = href === asPath;

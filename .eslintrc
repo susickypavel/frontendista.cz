@@ -32,10 +32,11 @@
   "plugins": ["react", "@typescript-eslint", "prettier", "jsx-a11y", "import", "jest"],
   "rules": {
     "prettier/prettier": "error",
-    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/explicit-function-return-type": 0,
     "react/prop-types": 0,
     "jsx-a11y/anchor-is-valid": 0,
-    "jest/consistent-test-it": ["warn", { "fn": "it" }]
+    "jest/consistent-test-it": ["warn", { "fn": "it" }],
+    "@typescript-eslint/no-empty-function": "warn"
   },
   "settings": {
     "react": {
