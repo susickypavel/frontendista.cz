@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 
 import styled from "styled-components";
 
@@ -17,25 +18,30 @@ const Logo = styled.img`
 `;
 
 const Links = styled.div`
-  border: 1px dashed #dddddd;
   background: black;
-
-  height: 100%;
-  display: flex;
   margin-left: auto;
 
-  & a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
+  & ul {
+    display: flex;
+    height: 100%;
+    border: 1px dashed #dddddd;
+  }
 
+  & li {
     width: 150px;
     height: 100%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 24px;
+    }
   }
 `;
 
@@ -49,10 +55,16 @@ interface LinkProps {
 }
 
 const NavigationLink: React.FC<LinkProps> = ({ link: { name, href } }) => {
+  const { asPath } = useRouter();
+
+  const isCurrentPage = href === asPath;
+
   return (
-    <Link href={href}>
-      <a>{name}</a>
-    </Link>
+    <li>
+      <Link href={href}>
+        <a aria-current={isCurrentPage ? "page" : void 0}>{name}</a>
+      </Link>
+    </li>
   );
 };
 
@@ -75,18 +87,22 @@ const links: NavigationLinkItem[] = [
   },
 ];
 
+// TODO: focus states
+// TODO: Hamburger menu
 export const SiteNavigation: React.FC = () => {
   return (
-    <Navigation>
+    <Navigation aria-label="Site navigation">
       <Link href="/">
         <a>
           <Logo src="/logo.jpg" />
         </a>
       </Link>
       <Links>
-        {links.map(link => (
-          <NavigationLink link={link} key={link.name} />
-        ))}
+        <ul>
+          {links.map(link => (
+            <NavigationLink link={link} key={link.name} />
+          ))}
+        </ul>
       </Links>
     </Navigation>
   );
