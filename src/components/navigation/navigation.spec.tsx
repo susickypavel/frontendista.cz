@@ -1,10 +1,11 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
 import { NextRouter } from "next/router";
 
-import { SiteNavigation, NavigationLink } from "src/components/navigation/navigation.component";
-import type { NavigationLinkItem } from "src/components/navigation/navigation.component";
+import { SiteNavigation } from "src/components/navigation/navigation.component";
+import { NavigationItem } from "src/components/navigation/navigation-item.component";
+import type { NavigationLinkItem } from "src/components/navigation/navigation-item.component";
 
 import { withSpecRouter } from "test/utils/withSpecRouter";
 
@@ -15,7 +16,7 @@ function renderNavigation() {
 }
 
 function renderNavigationLink(link: NavigationLinkItem, router?: Partial<NextRouter>) {
-  const component = withSpecRouter(<NavigationLink link={link} />, router);
+  const component = withSpecRouter(<NavigationItem link={link} />, router);
 
   return render(component);
 }
@@ -25,6 +26,28 @@ describe("Navigation", () => {
     const { getByLabelText } = renderNavigation();
 
     expect(getByLabelText("Site navigation")).toBeDefined();
+  });
+
+  it("should be hidden by default", () => {
+    const { getByLabelText } = renderNavigation();
+
+    const navigationToggle = getByLabelText("Site Navigation Toggle");
+    const navigation = getByLabelText("Site navigation");
+
+    expect(navigationToggle).toHaveAttribute("aria-expanded", "false");
+    expect(navigation).toHaveAttribute("aria-hidden", "true");
+  });
+
+  it("should toggle the navigation", () => {
+    const { getByLabelText } = renderNavigation();
+
+    const navigationToggle = getByLabelText("Site Navigation Toggle");
+    const navigation = getByLabelText("Site navigation");
+
+    fireEvent.click(navigationToggle);
+
+    expect(navigationToggle).toHaveAttribute("aria-expanded", "true");
+    expect(navigation).toHaveAttribute("aria-hidden", "false");
   });
 
   describe("Navigation Link", () => {

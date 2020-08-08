@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         background: #202020;
+        color: white;
         min-height: 100vh;
         font-family: "Source Sans Pro";
     }
