@@ -28,7 +28,9 @@ describe("Navigation", () => {
     expect(getByLabelText("Site navigation")).toBeDefined();
   });
 
-  it("should be hidden by default", () => {
+  it("should be hidden when window is smaller than 768px", () => {
+    global.innerWidth = 700;
+
     const { getByLabelText } = renderNavigation();
 
     const navigationToggle = getByLabelText("Site Navigation Toggle");
@@ -38,7 +40,21 @@ describe("Navigation", () => {
     expect(navigation).toHaveAttribute("aria-hidden", "true");
   });
 
-  it("should toggle the navigation", () => {
+  it("should be visible when window is larger than 768px", () => {
+    global.innerWidth = 1024;
+
+    const { getByLabelText } = renderNavigation();
+
+    const navigationToggle = getByLabelText("Site Navigation Toggle");
+    const navigation = getByLabelText("Site navigation");
+
+    expect(navigationToggle).toHaveAttribute("aria-expanded", "true");
+    expect(navigation).toHaveAttribute("aria-hidden", "false");
+  });
+
+  it("should toggle the navigation when toggle is available", () => {
+    global.innerWidth = 700;
+
     const { getByLabelText } = renderNavigation();
 
     const navigationToggle = getByLabelText("Site Navigation Toggle");

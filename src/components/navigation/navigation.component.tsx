@@ -1,15 +1,17 @@
-import React, { useState, createElement } from "react";
+import React, { useState, createElement, useEffect } from "react";
 
 import styled from "@emotion/styled";
 
 import { FaTimes, FaBars } from "react-icons/fa";
+
+import throttle from "lodash.throttle";
 
 import { NavigationItem } from "./navigation-item.component";
 import type { NavigationLinkItem } from "./navigation-item.component";
 
 const Navigation = styled.nav<{ isVisible: boolean }>``;
 
-const Sidebar = styled.div<{ isVisible: boolean }>``;
+const Sidebar = styled.ul<{ isVisible: boolean }>``;
 
 const NavigationToggle = styled.button``;
 
@@ -39,6 +41,22 @@ export const SiteNavigation: React.FC = () => {
     setVisibility(prev => !prev);
   };
 
+  const handleResize = () => {
+    setVisibility(window.innerWidth > 768);
+  };
+
+  useEffect(() => {
+    handleResize();
+
+    const throttledHandleResize = throttle(handleResize, 1000);
+
+    window.addEventListener("resize", throttledHandleResize);
+
+    return () => {
+      window.removeEventListener("resize", throttledHandleResize);
+    };
+  }, []);
+
   return (
     <>
       <NavigationToggle
@@ -53,11 +71,9 @@ export const SiteNavigation: React.FC = () => {
       </NavigationToggle>
       <Navigation isVisible={isVisible} aria-hidden={!isVisible} aria-label="Site navigation">
         <Sidebar isVisible={isVisible}>
-          <ul>
-            {links.map(link => (
-              <NavigationItem link={link} key={link.name} />
-            ))}
-          </ul>
+          {links.map(link => (
+            <NavigationItem link={link} key={link.name} />
+          ))}
         </Sidebar>
       </Navigation>
     </>
