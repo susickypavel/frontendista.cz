@@ -14,6 +14,7 @@ import {
   MOBILE_BODY_PADDING,
   MOBILE_BODY_PADDING_TOP,
 } from "src/styles/GLOBALS";
+import { ItemFocus } from "src/styles/global-css";
 
 const Navigation = styled.nav<{ isVisible: boolean }>`
   height: 100vh;
@@ -101,22 +102,7 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
         justify-content: center;
         align-items: center;
 
-        &:hover {
-          background: #191919;
-        }
-
-        &:active {
-          background: #303030;
-        }
-
-        &:focus {
-          outline: none;
-
-          border: 2px solid white;
-          background: #333333;
-          transform: scale(1.1);
-          border-radius: 4px;
-        }
+        ${ItemFocus};
       }
     }
   }

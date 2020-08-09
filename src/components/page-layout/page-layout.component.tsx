@@ -25,7 +25,6 @@ const Main = styled.main`
 const Aside = styled.aside`
   width: 320px;
   min-height: 512px;
-  background: black;
 `;
 
 const ContentHolder = styled.div`

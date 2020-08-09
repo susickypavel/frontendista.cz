@@ -2,6 +2,25 @@ import { css } from "@emotion/core";
 
 import { MOBILE_BODY_PADDING, MOBILE_BODY_PADDING_TOP, DESKTOP_BODY_PADDING } from "./GLOBALS";
 
+export const ItemFocus = css`
+  &:hover {
+    background: #191919;
+  }
+
+  &:active {
+    background: #303030;
+  }
+
+  &:focus {
+    outline: none;
+
+    border: 2px solid white;
+    background: #333333;
+    transform: scale(1.1);
+    border-radius: 4px;
+  }
+`;
+
 export const GlobalStyle = css`
   * {
     box-sizing: border-box;

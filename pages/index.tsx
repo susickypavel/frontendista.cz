@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import PageLayout from "src/components/page-layout/page-layout.component";
 import styled from "@emotion/styled";
+import { Social } from "src/components/social/social.component";
 
 const Headshot = styled.img`
   width: 100%;
@@ -15,7 +16,12 @@ const IndexPage: React.FC = () => {
   return (
     <PageLayout
       aside={() => {
-        return <Headshot src="/headshot.png" alt="" />;
+        return (
+          <Fragment>
+            <Headshot src="/headshot.png" alt="" />
+            <Social />
+          </Fragment>
+        );
       }}
     >
       Index Page
