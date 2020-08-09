@@ -92,10 +92,28 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
 
       & a {
         cursor: pointer;
+        font-size: 20px;
 
         display: flex;
         justify-content: center;
         align-items: center;
+
+        &:hover {
+          background: #191919;
+        }
+
+        &:active {
+          background: #303030;
+        }
+
+        &:focus {
+          outline: none;
+
+          border: 2px solid white;
+          background: #333333;
+          transform: scale(1.1);
+          border-radius: 4px;
+        }
       }
     }
   }
