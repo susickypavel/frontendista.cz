@@ -39,6 +39,12 @@ export const GlobalStyle = css`
     }
   }
 
+  body.using-mouse *:focus {
+    border: none !important;
+    transform: none !important;
+    outline: none !important;
+  }
+
   #__next {
     @media (min-width: 768px) {
       max-width: 1536px;
