@@ -48,6 +48,7 @@ const Navigation = styled.nav<{ isVisible: boolean }>`
 const Sidebar = styled.ul<{ isVisible: boolean }>`
   background: black;
   width: 50%;
+  max-width: 512px;
   height: 100%;
   margin-left: auto;
   padding-top: ${MOBILE_BODY_PADDING_TOP}px;
