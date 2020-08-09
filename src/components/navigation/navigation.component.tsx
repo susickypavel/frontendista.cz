@@ -87,6 +87,8 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
 
     border: 1px dashed #dddddd;
 
+    transform: none;
+
     & li {
       width: 128px;
       height: 100%;
