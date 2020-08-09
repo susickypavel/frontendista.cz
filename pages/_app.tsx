@@ -7,6 +7,8 @@ import { AppProps } from "next/app";
 import { useRouter } from "next/dist/client/router";
 import { DefaultSeo } from "next-seo";
 
+import { Global } from "@emotion/core";
+
 import { GlobalStyle } from "src/styles/global-css";
 import { CSSReset } from "src/styles/reset-css";
 import { SiteNavigation } from "src/components/navigation/navigation.component";
@@ -19,8 +21,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <Fragment>
-      <GlobalStyle />
-      <CSSReset />
+      <Global styles={[CSSReset, GlobalStyle]} />
       <DefaultSeo
         canonical={canonical}
         twitter={{

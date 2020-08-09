@@ -1,55 +1,17 @@
 import React, { useState, createElement } from "react";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import { FaTimes, FaBars } from "react-icons/fa";
 
 import { NavigationItem } from "./navigation-item.component";
 import type { NavigationLinkItem } from "./navigation-item.component";
 
-const Navigation = styled.nav<{ isVisible: boolean }>(props => {
-  return {
-    background: `rgba(0, 0, 0, ${props.isVisible ? "0.5" : "0"})`,
-    height: "100vh",
-    width: "100%",
-    position: "fixed",
-    right: 0,
-  };
-});
+const Navigation = styled.nav<{ isVisible: boolean }>``;
 
-const Sidebar = styled.div<{ isVisible: boolean }>`
-  padding-top: 96px;
-  background: black;
-  width: 50%;
-  height: 100vh;
-  margin-left: auto;
-  transform: translateX(${props => (props.isVisible ? "0" : "100%")});
-  transition: transform 0.25s ease-in-out;
+const Sidebar = styled.div<{ isVisible: boolean }>``;
 
-  & ul {
-    padding-right: 32px;
-  }
-`;
-
-const NavigationToggle = styled.button`
-  background: black;
-  padding: 0;
-  margin: 0;
-  outline: none;
-
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  border: 1px dashed #dddddd;
-
-  position: fixed;
-  z-index: 100;
-  right: 32px;
-  top: 32px;
-`;
+const NavigationToggle = styled.button``;
 
 const links: NavigationLinkItem[] = [
   {
