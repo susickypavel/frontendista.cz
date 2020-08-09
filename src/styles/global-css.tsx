@@ -1,8 +1,12 @@
 import { css } from "@emotion/core";
 
-import { MOBILE_BODY_PADDING, MOBILE_BODY_PADDING_TOP } from "./GLOBALS";
+import { MOBILE_BODY_PADDING, MOBILE_BODY_PADDING_TOP, DESKTOP_BODY_PADDING } from "./GLOBALS";
 
 export const GlobalStyle = css`
+  * {
+    box-sizing: border-box;
+  }
+
   body {
     background: #202020;
     color: white;
@@ -10,6 +14,10 @@ export const GlobalStyle = css`
 
     padding: ${MOBILE_BODY_PADDING}px;
     padding-top: ${MOBILE_BODY_PADDING_TOP}px;
+
+    @media (min-width: 768px) {
+      padding: ${DESKTOP_BODY_PADDING}px;
+    }
   }
 
   @font-face {

@@ -24,6 +24,15 @@ const Navigation = styled.nav<{ isVisible: boolean }>`
   z-index: ${props => (props.isVisible ? "5" : "-5")};
   top: 0;
   left: 0;
+
+  @media (min-width: 768px) {
+    background: none;
+    height: 64px;
+    position: static;
+
+    display: flex;
+    margin-bottom: 64px;
+  }
 `;
 
 const Sidebar = styled.ul<{ isVisible: boolean }>`
@@ -42,7 +51,7 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
     margin-bottom: 16px;
 
     & a {
-      cursor: default; /* set it for desktop */
+      cursor: default;
 
       display: inline-block;
       height: 100%;
@@ -54,6 +63,30 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
 
       font-size: 16px;
       font-weight: bold;
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 0;
+
+    height: auto;
+    width: auto;
+
+    display: flex;
+
+    border: 1px dashed #dddddd;
+
+    & li {
+      width: 128px;
+      height: 100%;
+
+      & a {
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
 `;
@@ -73,6 +106,10 @@ const NavigationToggle = styled.button`
 
   width: ${MOBILE_NAVIGATION_TOGGLE_SIZE}px;
   height: ${MOBILE_NAVIGATION_TOGGLE_SIZE}px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const Logo = styled.img`
@@ -84,6 +121,12 @@ const Logo = styled.img`
   left: ${MOBILE_BODY_PADDING}px;
 
   border: 1px dashed #dddddd;
+
+  @media (min-width: 768px) {
+    position: static;
+    width: 64px;
+    height: auto;
+  }
 `;
 
 const links: NavigationLinkItem[] = [
