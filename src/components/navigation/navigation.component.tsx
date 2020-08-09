@@ -30,8 +30,18 @@ const Navigation = styled.nav<{ isVisible: boolean }>`
     height: 64px;
     position: static;
 
+    max-width: 896px;
+
     display: flex;
     margin-bottom: 64px;
+  }
+
+  @media (max-width: 1408px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 1664px) {
+    max-width: 100%;
   }
 `;
 
@@ -88,6 +98,10 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
         align-items: center;
       }
     }
+  }
+
+  @media (min-width: 1664px) {
+    margin-right: 64px;
   }
 `;
 

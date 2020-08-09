@@ -20,6 +20,13 @@ export const GlobalStyle = css`
     }
   }
 
+  #__next {
+    @media (min-width: 768px) {
+      max-width: 1536px;
+      margin-left: auto;
+    }
+  }
+
   @font-face {
     font-family: "Source Sans Pro";
     font-style: normal;
