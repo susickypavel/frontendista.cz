@@ -1,10 +1,15 @@
 import { css } from "@emotion/core";
 
+import { MOBILE_BODY_PADDING, MOBILE_BODY_PADDING_TOP } from "./GLOBALS";
+
 export const GlobalStyle = css`
   body {
     background: #202020;
     color: white;
     font-family: "Source Sans Pro";
+
+    padding: ${MOBILE_BODY_PADDING}px;
+    padding-top: ${MOBILE_BODY_PADDING_TOP}px;
   }
 
   @font-face {
