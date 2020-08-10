@@ -24,7 +24,7 @@ const IndexPage: React.FC = () => {
         );
       }}
     >
-      Index Page
+      <h1>Pavel Susicky</h1>
     </PageLayout>
   );
 };
