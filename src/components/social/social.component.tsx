@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 import { FaDev, FaTwitter, FaLinkedin, FaGithub, FaRss } from "react-icons/fa";
 import { ItemFocus } from "src/styles/global-css";
+import { IconType } from "react-icons/lib";
 
 const SocialPanel = styled.div`
   margin-top: 64px;
@@ -28,7 +29,7 @@ const SocialPanel = styled.div`
   }
 `;
 
-const socialLinks = [
+const socialLinks: SocialLink[] = [
   {
     icon: FaDev,
     name: "Dev.to",
@@ -61,10 +62,20 @@ const socialLinks = [
   },
 ];
 
-export const Social: React.FC = () => {
+type SocialLink = {
+  name: string;
+  href: string;
+  color: string;
+  icon: IconType;
+};
+export interface SocialProps {
+  links?: SocialLink[];
+}
+
+export const Social: React.FC<SocialProps> = ({ links = socialLinks }) => {
   return (
     <SocialPanel>
-      {socialLinks.map(link => {
+      {links.map(link => {
         const { name, href, icon, color } = link;
 
         return (
@@ -82,6 +93,7 @@ export const Social: React.FC = () => {
             {createElement(icon, {
               size: 32,
               color: "#dddddd",
+              title: name,
             })}
           </a>
         );
