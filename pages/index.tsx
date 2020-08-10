@@ -18,7 +18,7 @@ const IndexPage: React.FC = () => {
       aside={() => {
         return (
           <Fragment>
-            <Headshot src="/headshot.png" alt="" />
+            <Headshot src="/headshot.png" alt="Pavel Susicky's headshot photo" />
             <Social />
           </Fragment>
         );
