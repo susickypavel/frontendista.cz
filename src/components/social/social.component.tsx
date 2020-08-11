@@ -95,6 +95,7 @@ export const Social: React.FC<SocialProps> = ({ links = socialLinks }) => {
               color: "#dddddd",
               title: name,
               "aria-label": `Icon for ${name}`,
+              focusable: false,
             })}
           </a>
         );
