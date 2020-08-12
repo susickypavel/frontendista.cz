@@ -1,6 +1,10 @@
 import { css } from "@emotion/core";
 
-import { MOBILE_BODY_PADDING, MOBILE_BODY_PADDING_TOP, DESKTOP_BODY_PADDING } from "./GLOBALS";
+import {
+  MOBILE_BODY_PADDING,
+  MOBILE_BODY_PADDING_TOP,
+  DESKTOP_BODY_PADDING,
+} from "./constants-css";
 
 export const ItemFocus = css`
   &:hover {

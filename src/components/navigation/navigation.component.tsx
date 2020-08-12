@@ -13,7 +13,7 @@ import {
   MOBILE_NAVIGATION_TOGGLE_SIZE,
   MOBILE_BODY_PADDING,
   MOBILE_BODY_PADDING_TOP,
-} from "src/styles/GLOBALS";
+} from "src/styles/constants-css";
 import { ItemFocus } from "src/styles/global-css";
 
 const Navigation = styled.nav<{ isVisible: boolean }>`
