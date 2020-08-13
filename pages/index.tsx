@@ -13,13 +13,13 @@ const Headshot = styled.img`
 `;
 
 const Header = styled.h1`
-  font-size: 64px;
+  font-size: 6.4rem;
   text-transform: uppercase;
   text-decoration: underline;
 `;
 
 const Bio = styled.p`
-  font-size: 32px;
+  font-size: 3.2rem;
   margin: 24px 0;
   color: #dddddd;
 
@@ -33,11 +33,13 @@ const ContentHolder = styled.div`
 
   display: flex;
   flex-flow: column wrap;
+
+  border: 1px dashed #dddddd;
 `;
 
 const HobbyList = styled.ul`
   & li {
-    font-size: 32px;
+    font-size: 3.2rem;
     margin: 16px 0;
     font-weight: bold;
 

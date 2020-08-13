@@ -8,21 +8,21 @@ interface Props {
 }
 
 const Main = styled.main`
-  max-width: 896px;
+  max-width: 89.6rem;
   width: 100%;
 
-  margin-bottom: 64px;
-  margin-right: 64px;
+  margin-bottom: 6.4rem;
+  margin-right: 6.4rem;
 
-  @media (max-width: 1408px) {
+  @media (max-width: 88em) {
     margin-right: 0;
     max-width: 100%;
   }
 `;
 
 const Aside = styled.aside`
-  width: 320px;
-  min-height: 512px;
+  width: 32rem;
+  min-height: 51.2rem;
 `;
 
 const ContentHolder = styled.div`

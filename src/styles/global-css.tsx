@@ -30,16 +30,20 @@ export const GlobalStyle = css`
     box-sizing: border-box;
   }
 
+  :root {
+    font-size: 62.5%;
+  }
+
   body {
     background: #202020;
     color: white;
     font-family: "Source Sans Pro";
 
-    padding: ${MOBILE_BODY_PADDING}px;
-    padding-top: ${MOBILE_BODY_PADDING_TOP}px;
+    padding: ${MOBILE_BODY_PADDING / 10}rem;
+    padding-top: ${MOBILE_BODY_PADDING_TOP / 10}rem;
 
-    @media (min-width: 768px) {
-      padding: ${DESKTOP_BODY_PADDING}px;
+    @media (min-width: 48em) {
+      padding: ${DESKTOP_BODY_PADDING / 10}rem;
     }
   }
 
@@ -50,8 +54,8 @@ export const GlobalStyle = css`
   }
 
   #__next {
-    @media (min-width: 768px) {
-      max-width: 1536px;
+    @media (min-width: 48em) {
+      max-width: 153.6rem;
       margin-left: auto;
     }
   }

@@ -26,22 +26,22 @@ const Navigation = styled.nav<{ isVisible: boolean }>`
   top: 0;
   left: 0;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
     background: none;
-    height: 64px;
+    height: 6.4rem;
     position: static;
 
-    max-width: 896px;
+    max-width: 89.6rem;
 
     display: flex;
-    margin-bottom: 64px;
+    margin-bottom: 6.4rem;
   }
 
-  @media (max-width: 1408px) {
+  @media (max-width: 88em) {
     max-width: 100%;
   }
 
-  @media (min-width: 1664px) {
+  @media (min-width: 104em) {
     max-width: 100%;
   }
 `;
@@ -49,18 +49,18 @@ const Navigation = styled.nav<{ isVisible: boolean }>`
 const Sidebar = styled.ul<{ isVisible: boolean }>`
   background: black;
   width: 50%;
-  max-width: 512px;
+  max-width: 51.2rem;
   height: 100%;
   margin-left: auto;
-  padding-top: ${MOBILE_BODY_PADDING_TOP}px;
-  padding-right: ${MOBILE_BODY_PADDING}px;
+  padding-top: ${MOBILE_BODY_PADDING_TOP / 10}rem;
+  padding-right: ${MOBILE_BODY_PADDING / 10}rem;
 
   transform: translateX(${props => (props.isVisible ? "0" : "100%")});
   transition: transform 0.25s ease-in-out;
 
   & li {
-    height: 32px;
-    margin-bottom: 16px;
+    height: 3.2rem;
+    margin-bottom: 1.6rem;
 
     & a {
       cursor: default;
@@ -73,12 +73,12 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
       text-decoration: none;
       color: white;
 
-      font-size: 16px;
+      font-size: 1.6rem;
       font-weight: bold;
     }
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
     padding: 0;
 
     height: auto;
@@ -91,12 +91,12 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
     transform: none;
 
     & li {
-      width: 128px;
+      width: 12.8rem;
       height: 100%;
 
       & a {
         cursor: pointer;
-        font-size: 20px;
+        font-size: 2rem;
 
         display: flex;
         justify-content: center;
@@ -107,8 +107,8 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
     }
   }
 
-  @media (min-width: 1664px) {
-    margin-right: 64px;
+  @media (min-width: 104em) {
+    margin-right: 6.4rem;
   }
 `;
 
@@ -128,24 +128,24 @@ const NavigationToggle = styled.button`
   width: ${MOBILE_NAVIGATION_TOGGLE_SIZE}px;
   height: ${MOBILE_NAVIGATION_TOGGLE_SIZE}px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
     display: none;
   }
 `;
 
 const Logo = styled.img`
-  height: ${MOBILE_NAVIGATION_TOGGLE_SIZE}px;
-  width: ${MOBILE_NAVIGATION_TOGGLE_SIZE}px;
+  height: ${MOBILE_NAVIGATION_TOGGLE_SIZE / 10}rem;
+  width: ${MOBILE_NAVIGATION_TOGGLE_SIZE / 10}rem;
 
   position: fixed;
-  top: ${MOBILE_BODY_PADDING}px;
-  left: ${MOBILE_BODY_PADDING}px;
+  top: ${MOBILE_BODY_PADDING / 10}rem;
+  left: ${MOBILE_BODY_PADDING / 10}rem;
 
   border: 1px dashed #dddddd;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48em) {
     position: static;
-    width: 64px;
+    width: 6.4rem;
     height: auto;
   }
 `;
