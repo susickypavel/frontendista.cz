@@ -3,8 +3,9 @@ import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 
 import { FaDev, FaTwitter, FaLinkedin, FaGithub, FaRss } from "react-icons/fa";
+import type { IconType } from "react-icons/lib";
+
 import { ItemFocus } from "src/styles/global-css";
-import { IconType } from "react-icons/lib";
 
 const SocialPanel = styled.div`
   margin-top: 64px;
@@ -13,16 +14,17 @@ const SocialPanel = styled.div`
 
   border: 1px dashed #dddddd;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   & a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    display: inline-block;
 
-    width: 100%;
+    & svg {
+      position: absolute;
+      top: calc(50% - 16px);
+      left: calc(50% - 16px);
+    }
+
+    width: 20%;
     height: 100%;
 
     ${ItemFocus};
