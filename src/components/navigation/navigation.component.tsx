@@ -143,7 +143,11 @@ const Logo = styled.img`
 
   border: 1px dashed #dddddd;
 
+  display: none;
+
   @media (min-width: 48em) {
+    display: block;
+
     position: static;
     width: 6.4rem;
     height: auto;

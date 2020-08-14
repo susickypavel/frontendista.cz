@@ -7,15 +7,22 @@ import { Social } from "src/components/social/social.component";
 const Headshot = styled.img`
   width: 100%;
   height: auto;
-  max-height: 512px;
 
   border: 1px dashed #dddddd;
+
+  @media (min-width: 40em) {
+    max-height: 51.2rem;
+  }
 `;
 
 const Header = styled.h1`
   font-size: 6.4rem;
   text-transform: uppercase;
   text-decoration: underline;
+
+  @media (max-width: 40em) {
+    font-size: 3.2rem;
+  }
 `;
 
 const Bio = styled.p`
@@ -24,17 +31,26 @@ const Bio = styled.p`
   color: #dddddd;
 
   flex-grow: 1;
+
+  @media (max-width: 40em) {
+    font-size: 2.4rem;
+  }
 `;
 
 const ContentHolder = styled.div`
-  min-height: 512px;
+  min-height: 51.2rem;
   background: black;
-  padding: 64px;
+  padding: 6.4rem;
 
   display: flex;
   flex-flow: column wrap;
 
   border: 1px dashed #dddddd;
+
+  @media (max-width: 40em) {
+    padding: 3.2rem;
+    min-height: auto;
+  }
 `;
 
 const HobbyList = styled.ul`
@@ -42,6 +58,10 @@ const HobbyList = styled.ul`
     font-size: 3.2rem;
     margin: 16px 0;
     font-weight: bold;
+
+    @media (max-width: 40em) {
+      font-size: 2rem;
+    }
 
     &:nth-of-type(2) {
       margin: 32px 0;

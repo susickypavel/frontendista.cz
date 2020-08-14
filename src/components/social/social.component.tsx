@@ -8,9 +8,9 @@ import type { IconType } from "react-icons/lib";
 import { ItemFocus } from "src/styles/global-css";
 
 const SocialPanel = styled.div`
-  margin-top: 64px;
+  margin-top: 6.4rem;
   background: black;
-  height: 64px;
+  height: 6.4rem;
 
   border: 1px dashed #dddddd;
 
@@ -20,14 +20,18 @@ const SocialPanel = styled.div`
 
     & svg {
       position: absolute;
-      top: calc(50% - 16px);
-      left: calc(50% - 16px);
+      top: calc(50% - 1.6rem);
+      left: calc(50% - 1.6rem);
     }
 
     width: 20%;
     height: 100%;
 
     ${ItemFocus};
+  }
+
+  @media (max-width: 40em) {
+    margin-top: 3.2rem;
   }
 `;
 
@@ -93,7 +97,7 @@ export const Social: React.FC<SocialProps> = ({ links = socialLinks }) => {
             })}
           >
             {createElement(icon, {
-              size: 32,
+              size: "3.2rem",
               color: "#dddddd",
               title: name,
               "aria-label": `Icon for ${name}`,
