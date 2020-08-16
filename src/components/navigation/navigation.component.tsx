@@ -36,6 +36,8 @@ const Navigation = styled.nav<{ isVisible: boolean }>`
 
     display: flex;
     margin-bottom: 6.4rem;
+
+    transform: none;
   }
 
   @media (max-width: 88em) {
