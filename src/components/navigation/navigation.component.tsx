@@ -19,15 +19,16 @@ import { ItemFocus, DashedBorder } from "src/styles/global-css";
 const Navigation = styled.nav<{ isVisible: boolean }>`
   height: 100vh;
   width: 100%;
-  background: rgba(0, 0, 0, 0.5);
 
   position: fixed;
-  z-index: ${props => (props.isVisible ? "5" : "-5")};
+  z-index: 5;
   top: 0;
   left: 0;
 
+  transform: translateX(${props => (props.isVisible ? "0" : "100%")});
+  transition: transform 0.25s ease-in-out;
+
   @media (min-width: 48em) {
-    background: none;
     height: 6.4rem;
     position: static;
 
@@ -54,9 +55,6 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
   margin-left: auto;
   padding-top: ${MOBILE_BODY_PADDING_TOP / 10}rem;
   padding-right: ${MOBILE_BODY_PADDING / 10}rem;
-
-  transform: translateX(${props => (props.isVisible ? "0" : "100%")});
-  transition: transform 0.25s ease-in-out;
 
   & li {
     height: 3.2rem;
@@ -154,6 +152,20 @@ const Logo = styled.img`
   }
 `;
 
+const NavigationBackground = styled.div<{ isVisible: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: ${props => (props.isVisible ? "block" : "none")};
+
+  @media (min-width: 48em) {
+    display: none;
+  }
+`;
+
 const links: NavigationLinkItem[] = [
   {
     name: "Home",
@@ -208,6 +220,7 @@ export const SiteNavigation: React.FC = () => {
           color: "white",
         })}
       </NavigationToggle>
+      <NavigationBackground isVisible={isVisible} />
       <Navigation isVisible={isVisible} aria-hidden={!isVisible} aria-label="Site navigation">
         <Logo src="/logo.jpg" alt="" />
         <Sidebar isVisible={isVisible}>
