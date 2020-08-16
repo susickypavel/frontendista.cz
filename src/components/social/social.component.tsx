@@ -5,14 +5,14 @@ import styled from "@emotion/styled";
 import { FaDev, FaTwitter, FaLinkedin, FaGithub, FaRss } from "react-icons/fa";
 import type { IconType } from "react-icons/lib";
 
-import { ItemFocus } from "src/styles/global-css";
+import { ItemFocus, DashedBorder } from "src/styles/global-css";
 
 const SocialPanel = styled.div`
   margin-top: 6.4rem;
   background: black;
   height: 6.4rem;
 
-  border: 1px dashed #dddddd;
+  ${DashedBorder};
 
   & a {
     position: relative;

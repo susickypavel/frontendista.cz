@@ -14,7 +14,7 @@ import {
   MOBILE_BODY_PADDING,
   MOBILE_BODY_PADDING_TOP,
 } from "src/styles/constants-css";
-import { ItemFocus } from "src/styles/global-css";
+import { ItemFocus, DashedBorder } from "src/styles/global-css";
 
 const Navigation = styled.nav<{ isVisible: boolean }>`
   height: 100vh;
@@ -86,7 +86,7 @@ const Sidebar = styled.ul<{ isVisible: boolean }>`
 
     display: flex;
 
-    border: 1px dashed #dddddd;
+    ${DashedBorder};
 
     transform: none;
 
@@ -116,7 +116,7 @@ const NavigationToggle = styled.button`
   appearance: none;
   background: black;
 
-  border: 1px dashed #dddddd;
+  ${DashedBorder};
   outline: none;
   padding: 0;
 
@@ -141,7 +141,7 @@ const Logo = styled.img`
   top: ${MOBILE_BODY_PADDING / 10}rem;
   left: ${MOBILE_BODY_PADDING / 10}rem;
 
-  border: 1px dashed #dddddd;
+  ${DashedBorder};
 
   display: none;
 

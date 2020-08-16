@@ -3,12 +3,13 @@ import styled from "@emotion/styled";
 
 import PageLayout from "src/components/page-layout/page-layout.component";
 import { Social } from "src/components/social/social.component";
+import { DashedBorder } from "src/styles/global-css";
 
 const Headshot = styled.img`
   width: 100%;
   height: auto;
 
-  border: 1px dashed #dddddd;
+  ${DashedBorder};
 
   @media (min-width: 40em) {
     max-height: 51.2rem;
@@ -45,7 +46,7 @@ const ContentHolder = styled.div`
   display: flex;
   flex-flow: column wrap;
 
-  border: 1px dashed #dddddd;
+  ${DashedBorder};
 
   @media (max-width: 40em) {
     padding: 3.2rem;

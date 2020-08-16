@@ -6,6 +6,12 @@ import {
   DESKTOP_BODY_PADDING,
 } from "./constants-css";
 
+export const DashedBorder = css`
+  border: 1px dashed #dddddd;
+  border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA2SURBVHgB7dKxCQAgEAPAxFWy/0iZRREsFITni+/+ukC6hLYnDknEx915Q2B3B1qF8h2YvcYCkOgdizD6cPUAAAAASUVORK5CYII=")
+    1 round;
+`;
+
 export const ItemFocus = css`
   &:hover {
     background: #191919;
