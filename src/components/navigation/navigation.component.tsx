@@ -9,6 +9,8 @@ import throttle from "lodash.throttle";
 import { NavigationItem } from "./navigation-item.component";
 import type { NavigationLinkItem } from "./navigation-item.component";
 
+import LogoSVG from "./logo.svg";
+
 import {
   MOBILE_NAVIGATION_TOGGLE_SIZE,
   MOBILE_BODY_PADDING,
@@ -133,7 +135,7 @@ const NavigationToggle = styled.button`
   }
 `;
 
-const Logo = styled.img`
+const Logo = styled(LogoSVG)`
   height: ${MOBILE_NAVIGATION_TOGGLE_SIZE / 10}rem;
   width: ${MOBILE_NAVIGATION_TOGGLE_SIZE / 10}rem;
 
@@ -224,7 +226,7 @@ export const SiteNavigation: React.FC = () => {
       </NavigationToggle>
       <NavigationBackground isVisible={isVisible} />
       <Navigation isVisible={isVisible} aria-hidden={!isVisible} aria-label="Site navigation">
-        <Logo src="/logo.jpg" alt="" />
+        <Logo />
         <Sidebar isVisible={isVisible}>
           {links.map(link => (
             <NavigationItem link={link} key={link.name} isVisible={isVisible} />
