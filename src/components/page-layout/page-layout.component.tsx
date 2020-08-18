@@ -39,6 +39,14 @@ const ContentHolder = styled.div`
   flex-flow: row wrap;
 
   align-items: flex-start;
+
+  @media (max-width: 88em) and (min-width: 48em) {
+    flex-wrap: nowrap;
+
+    ${Aside} {
+      margin-left: 6.4rem;
+    }
+  }
 `;
 
 const PageLayout: React.FC<Props> = ({ children, title = "Pavel Susicky", aside }) => {

@@ -33,6 +33,20 @@ const SocialPanel = styled.div`
   @media (max-width: 40em) {
     margin-top: 3.2rem;
   }
+
+  @media (max-width: 88em) and (min-width: 48em) {
+    margin-top: 3.2rem;
+    height: auto;
+
+    & a {
+      width: 100%;
+      height: 6.4rem;
+
+      & svg {
+        position: absolute;
+      }
+    }
+  }
 `;
 
 const socialLinks: SocialLink[] = [
