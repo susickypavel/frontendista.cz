@@ -82,7 +82,11 @@ const IndexPage: React.FC = () => {
       aside={() => {
         return (
           <Fragment>
-            <Headshot src="/headshot.png" alt="Pavel Susicky's headshot photo" />
+            <picture>
+              <source srcSet="/headshot/768.webp 768w, /headshot/512.webp 512w" />
+              <source srcSet="/headshot/768.jpg 768w, /headshot/512.jpg 512w" />
+              <Headshot src="/headshot/768.jpg" alt="Pavel Susicky's headshot photo" />
+            </picture>
             <Social />
           </Fragment>
         );
