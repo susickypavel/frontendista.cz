@@ -227,7 +227,7 @@ export const SiteNavigation: React.FC = () => {
         <Logo src="/logo.jpg" alt="" />
         <Sidebar isVisible={isVisible}>
           {links.map(link => (
-            <NavigationItem link={link} key={link.name} />
+            <NavigationItem link={link} key={link.name} isVisible={isVisible} />
           ))}
         </Sidebar>
       </Navigation>

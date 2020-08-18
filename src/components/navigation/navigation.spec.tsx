@@ -5,7 +5,7 @@ import { NextRouter } from "next/router";
 
 import { SiteNavigation } from "src/components/navigation/navigation.component";
 import { NavigationItem } from "src/components/navigation/navigation-item.component";
-import type { NavigationLinkItem } from "src/components/navigation/navigation-item.component";
+import type { NavigationItemProps } from "src/components/navigation/navigation-item.component";
 
 import { withSpecRouter } from "test/utils/withSpecRouter";
 
@@ -15,8 +15,8 @@ function renderNavigation() {
   return render(component);
 }
 
-function renderNavigationLink(link: NavigationLinkItem, router?: Partial<NextRouter>) {
-  const component = withSpecRouter(<NavigationItem link={link} />, router);
+function renderNavigationLink(props: NavigationItemProps, router?: Partial<NextRouter>) {
+  const component = withSpecRouter(<NavigationItem {...props} />, router);
 
   return render(component);
 }
@@ -68,40 +68,81 @@ describe("Navigation", () => {
 
   describe("Navigation Link", () => {
     it("should render", () => {
-      const props: NavigationLinkItem = {
-        name: "Test Link",
-        href: "/test/5",
+      const props: NavigationItemProps = {
+        link: {
+          name: "Test Link",
+          href: "/test/5",
+        },
+        isVisible: true,
       };
 
       const { getByText } = renderNavigationLink(props);
 
-      expect(getByText(props.name)).toBeDefined();
+      expect(getByText(props.link.name)).toBeDefined();
     });
 
     it("should have an aria-current attribute when active it is active link", () => {
-      const props: NavigationLinkItem = {
-        name: "Test Link",
-        href: "/testing",
+      const props: NavigationItemProps = {
+        link: {
+          name: "Test Link",
+          href: "/testing",
+        },
+        isVisible: true,
       };
 
       const { getByText } = renderNavigationLink(props, {
-        asPath: props.href,
+        asPath: props.link.href,
       });
 
-      expect(getByText(props.name)).toHaveAttribute("aria-current", "page");
+      expect(getByText(props.link.name)).toHaveAttribute("aria-current", "page");
     });
 
     it("should NOT have an aria-current attribute when it is not active link", () => {
-      const props: NavigationLinkItem = {
-        name: "Test Link",
-        href: "/testing",
+      const props: NavigationItemProps = {
+        link: {
+          name: "Test Link",
+          href: "/testing",
+        },
+        isVisible: true,
       };
 
       const { getByText } = renderNavigationLink(props, {
         asPath: "/random",
       });
 
-      expect(getByText(props.name)).not.toHaveAttribute("aria-current", "page");
+      expect(getByText(props.link.name)).not.toHaveAttribute("aria-current", "page");
+    });
+
+    it("should be focusable when visible is true", () => {
+      const props: NavigationItemProps = {
+        link: {
+          name: "Test Link",
+          href: "/testing",
+        },
+        isVisible: true,
+      };
+
+      const { getByText } = renderNavigationLink(props, {
+        asPath: "/random",
+      });
+
+      expect(getByText(props.link.name)).not.toHaveAttribute("tabIndex");
+    });
+
+    it("should NOT be focusable when visible is false", () => {
+      const props: NavigationItemProps = {
+        link: {
+          name: "Test Link",
+          href: "/testing",
+        },
+        isVisible: false,
+      };
+
+      const { getByText } = renderNavigationLink(props, {
+        asPath: "/random",
+      });
+
+      expect(getByText(props.link.name)).toHaveAttribute("tabIndex", "-1");
     });
   });
 });
