@@ -5,9 +5,13 @@ import PageLayout from "src/components/page-layout/page-layout.component";
 import { Social } from "src/components/social/social.component";
 import { DashedBorder } from "src/styles/global-css";
 
-const Headshot = styled.img`
+import { OptimizedHeadshotImage } from "src/components/optimized-headshot-image/optimized-headshot-image.component";
+
+const Headshot = styled(OptimizedHeadshotImage)`
   width: 100%;
   height: auto;
+
+  overflow: hidden;
 
   ${DashedBorder};
 
@@ -82,11 +86,7 @@ const IndexPage: React.FC = () => {
       aside={() => {
         return (
           <Fragment>
-            <picture>
-              <source srcSet="/headshot/768.webp 768w, /headshot/512.webp 512w" />
-              <source srcSet="/headshot/768.jpg 768w, /headshot/512.jpg 512w" />
-              <Headshot src="/headshot/768.jpg" alt="Pavel Susicky's headshot photo" />
-            </picture>
+            <Headshot alt="Pavel Susicky's headshot photo" />
             <Social />
           </Fragment>
         );
