@@ -45,13 +45,6 @@ export const GlobalStyle = css`
     background: #202020;
     color: white;
     font-family: "Source Sans Pro";
-
-    padding: ${MOBILE_BODY_PADDING / 10}rem;
-    padding-top: ${MOBILE_BODY_PADDING_TOP / 10}rem;
-
-    @media (min-width: 48em) {
-      padding: ${DESKTOP_BODY_PADDING / 10}rem;
-    }
   }
 
   body.using-mouse *:focus {
@@ -61,10 +54,6 @@ export const GlobalStyle = css`
   }
 
   #__next {
-    @media (min-width: 48em) {
-      max-width: 153.6rem;
-      margin-left: auto;
-    }
   }
 
   @font-face {
