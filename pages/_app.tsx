@@ -10,7 +10,8 @@ import { DefaultSeo } from "next-seo";
 import { Global } from "@emotion/core";
 
 import { GlobalStyle } from "src/styles/global-css";
-import { CSSReset } from "src/styles/reset-css";
+
+import "normalize.css";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
@@ -40,7 +41,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <Fragment>
-      <Global styles={[CSSReset, GlobalStyle]} />
+      <Global styles={[GlobalStyle]} />
       <DefaultSeo
         canonical={canonical}
         twitter={{
