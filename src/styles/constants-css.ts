@@ -1,5 +1,3 @@
-export const MOBILE_NAVIGATION_TOGGLE_SIZE = 40;
-export const MOBILE_BODY_PADDING = 32;
-export const MOBILE_BODY_PADDING_TOP = MOBILE_BODY_PADDING * 2 + MOBILE_NAVIGATION_TOGGLE_SIZE;
-
-export const DESKTOP_BODY_PADDING = 64;
+/**
+ * All size related constants are defined in REMs
+ */

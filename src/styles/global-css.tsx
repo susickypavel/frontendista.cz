@@ -1,11 +1,5 @@
 import { css } from "@emotion/core";
 
-import {
-  MOBILE_BODY_PADDING,
-  MOBILE_BODY_PADDING_TOP,
-  DESKTOP_BODY_PADDING,
-} from "./constants-css";
-
 export const DashedBorder = css`
   border: 1px dashed #dddddd;
   border-image: var(--custom-border) 1 round;
@@ -13,20 +7,20 @@ export const DashedBorder = css`
 
 export const ItemFocus = css`
   &:hover {
-    background: #191919;
+    /* background: #191919; */
   }
 
   &:active {
-    background: #303030;
+    /* background: #303030; */
   }
 
   &:focus {
-    outline: none;
+    /* outline: none;
 
     border: 2px solid white;
     background: #333333;
     transform: scale(1.1);
-    border-radius: 4px;
+    border-radius: 4px; */
   }
 `;
 
@@ -45,15 +39,6 @@ export const GlobalStyle = css`
     background: #202020;
     color: white;
     font-family: "Source Sans Pro";
-  }
-
-  body.using-mouse *:focus {
-    border: none !important;
-    transform: none !important;
-    outline: none !important;
-  }
-
-  #__next {
   }
 
   @font-face {

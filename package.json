@@ -10,7 +10,7 @@
     "prettier:check": "prettier --check \"./**/*.{ts,tsx}\"",
     "prettier:fix": "prettier --write \"./**/*.{ts,tsx}\"",
     "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "cy:run": "cypress run",
     "test:e2e": "start-server-and-test start http://localhost:3000 cy:run"
