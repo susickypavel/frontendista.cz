@@ -9,6 +9,7 @@ const pageWrapper = css`
   padding: 6.4rem;
   display: "flex";
   flex-flow: column wrap;
+  margin-right: 64rem;
 `;
 
 const mainHeader = css({
@@ -33,6 +34,7 @@ const quickLinkList = css`
 
     & svg {
       width: 3rem;
+      height: 3rem;
       color: rgba(0, 0, 0, 0.25);
     }
 
