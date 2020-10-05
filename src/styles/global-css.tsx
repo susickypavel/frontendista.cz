@@ -1,43 +1,15 @@
 import { css } from "@emotion/core";
 
-export const DashedBorder = css`
-  border: 1px dashed #dddddd;
-  border-image: var(--custom-border) 1 round;
-`;
-
-export const ItemFocus = css`
-  &:hover {
-    /* background: #191919; */
-  }
-
-  &:active {
-    /* background: #303030; */
-  }
-
-  &:focus {
-    /* outline: none;
-
-    border: 2px solid white;
-    background: #333333;
-    transform: scale(1.1);
-    border-radius: 4px; */
-  }
-`;
-
 export const GlobalStyle = css`
   * {
     box-sizing: border-box;
   }
 
   :root {
-    --custom-border: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA2SURBVHgB7dKxCQAgEAPAxFWy/0iZRREsFITni+/+ukC6hLYnDknEx915Q2B3B1qF8h2YvcYCkOgdizD6cPUAAAAASUVORK5CYII=");
-
     font-size: 62.5%;
   }
 
   body {
-    background: #202020;
-    color: white;
     font-family: "Source Sans Pro";
   }
 
