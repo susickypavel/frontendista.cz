@@ -28,23 +28,33 @@ const navigation = css`
   & ul {
     padding: 0;
     margin: 0;
-    margin-top: -128px;
+    margin-top: -${NAVIGATION_HEADER_HEIGHT * 2}rem;
     list-style-type: none;
 
     flex-grow: 1;
     display: flex;
     flex-flow: column wrap;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 
     & li {
       margin-bottom: 3.2rem;
 
       & a {
-        font-size: 2.4rem;
-        font-weight: bold;
+        display: inline-block;
+        font-size: 3.2rem;
+        letter-spacing: 1rem;
+        margin-right: -1rem;
+        text-transform: uppercase;
         text-decoration: none;
-        color: black;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.25);
+
+        position: relative;
+
+        &::first-letter {
+          color: black;
+        }
       }
     }
   }
