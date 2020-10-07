@@ -25,21 +25,21 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/regular/SourceSansPro.woff2"
+            href="/fonts/regular/Oxanium.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/bold/SourceSansPro.woff2"
+            href="/fonts/bold/Oxanium.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/italic/SourceSansPro.woff2"
+            href="/fonts/italic/Oxanium.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
