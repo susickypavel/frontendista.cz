@@ -1,5 +1,13 @@
 import { css } from "@emotion/core";
 
+export const FocusStyles = css`
+  &:focus {
+  }
+
+  &:active {
+  }
+`;
+
 export const GlobalStyle = css`
   * {
     box-sizing: border-box;
