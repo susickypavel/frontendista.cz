@@ -1,9 +1,10 @@
 import React from "react";
 import { css } from "@emotion/core";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { NAVIGATION_HEADER_HEIGHT } from "src/styles/constants-css";
 import { SocialLinks } from "./social-links.component";
+import { NavigationLink } from "./navigation-link.component";
 
 const links = [
   {
@@ -71,6 +72,7 @@ const navigationLinksList = css`
       font-size: 3.2rem;
       letter-spacing: 1rem;
       margin-right: -1rem;
+      padding-left: 1rem;
       text-transform: uppercase;
       text-decoration: none;
       font-weight: bold;
@@ -79,25 +81,25 @@ const navigationLinksList = css`
       &::first-letter {
         color: black;
       }
+
+      &[aria-current="page"] {
+        color: black;
+      }
     }
   }
 `;
 
 export const Navigation: React.FC = () => {
+  const { pathname } = useRouter();
+
   return (
     <nav css={navigation}>
       <h2>pavelsusicky.com</h2>
       <ul css={navigationLinksList}>
         {links.map(link => {
-          const { text, href } = link;
+          const isActive = link.href == pathname;
 
-          return (
-            <li key={href}>
-              <Link href={href}>
-                <a>{text}</a>
-              </Link>
-            </li>
-          );
+          return <NavigationLink link={link} active={isActive} key={link.text} />;
         })}
       </ul>
       <SocialLinks />
