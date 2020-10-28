@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/core";
 import { useRouter } from "next/router";
 
 import { NAVIGATION_HEADER_HEIGHT } from "src/styles/constants-css";
 import { SocialLinks } from "./social-links.component";
 import { NavigationLink } from "./navigation-link.component";
+import { NavigationToggle } from "src/components/navigation/navigation-toggle.component";
 
 const links = [
   {
@@ -26,25 +27,40 @@ const links = [
 ];
 
 const navigation = css`
+  pointer-events: none;
   position: fixed;
   top: 0;
   right: 0;
-  max-width: 64rem;
+  max-width: 33%;
   width: 100%;
   height: 100vh;
-  border-left: 1px solid rgba(0, 0, 0, 0.12);
-
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
 
   & h2 {
     height: ${NAVIGATION_HEADER_HEIGHT}rem;
     font-size: 2.4rem;
     padding: 2rem 0;
-    margin: 0;
-    margin-top: 64px;
+    // TODO: refactor
+    margin: 64px 0 0;
+  }
+
+  @media (max-width: 64em) {
+    max-width: 100%;
+  }
+`;
+
+const navigationContent = (isOpen: boolean) => css`
+  display: flex;
+
+  flex-flow: column wrap;
+  justify-items: center;
+  align-items: center;
+  height: 100%;
+  border-left: 1px solid rgba(0, 0, 0, 0.12);
+
+  @media (max-width: 64em) {
+    display: ${isOpen ? "flex" : "none"};
+    background: white;
+    pointer-events: ${isOpen ? "auto" : "none"} !important;
   }
 `;
 
@@ -64,6 +80,10 @@ const navigationLinksList = css`
     margin-bottom: 3.2rem;
     width: 100%;
     text-align: right;
+
+    @media (max-width: 64em) {
+      text-align: center;
+    }
 
     & a {
       display: inline-block;
@@ -90,19 +110,28 @@ const navigationLinksList = css`
 `;
 
 export const Navigation: React.FC = () => {
+  const [isNavigationOpen, setOpen] = useState(false);
   const { pathname } = useRouter();
 
   return (
     <nav css={navigation}>
-      <h2>pavelsusicky.com</h2>
-      <ul css={navigationLinksList}>
-        {links.map(link => {
-          const isActive = link.href == pathname;
+      <NavigationToggle
+        isNavigationOpen={isNavigationOpen}
+        onClick={() => {
+          setOpen(prev => !prev);
+        }}
+      />
+      <div css={navigationContent(isNavigationOpen)}>
+        <h2>pavelsusicky.com</h2>
+        <ul css={navigationLinksList}>
+          {links.map(link => {
+            const isActive = link.href == pathname;
 
-          return <NavigationLink link={link} active={isActive} key={link.text} />;
-        })}
-      </ul>
-      <SocialLinks />
+            return <NavigationLink link={link} active={isActive} key={link.text} />;
+          })}
+        </ul>
+        <SocialLinks />
+      </div>
     </nav>
   );
 };

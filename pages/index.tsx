@@ -8,9 +8,15 @@ import { FocusStyles } from "src/styles/global-css";
 
 const pageWrapper = css`
   padding: 6.4rem;
-  display: "flex";
-  flex-flow: column wrap;
-  margin-right: 64rem;
+  margin-right: 33%;
+
+  @media (max-width: 64em) {
+    margin-right: 0;
+  }
+
+  @media (max-width: 48em) {
+    padding: 3.2rem;
+  }
 `;
 
 const mainHeader = css({
@@ -18,11 +24,18 @@ const mainHeader = css({
   textShadow: "4px 4px 0px #DDDDDD",
   borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
   display: "inline",
+  "@media (max-width: 36em)": {
+    fontSize: "3.6rem",
+  },
 });
 
 const subHeader = css`
   font-size: 3.6rem;
   font-weight: bold;
+
+  @media (max-width: 36em) {
+    font-size: 2.4rem;
+  }
 `;
 
 const quickLinkList = css`
