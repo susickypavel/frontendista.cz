@@ -26,8 +26,7 @@ const links = [
   },
 ];
 
-const navigation = css`
-  pointer-events: none;
+const navigation = (isOpen: boolean) => css`
   position: fixed;
   top: 0;
   right: 0;
@@ -39,12 +38,12 @@ const navigation = css`
     height: ${NAVIGATION_HEADER_HEIGHT}rem;
     font-size: 2.4rem;
     padding: 2rem 0;
-    // TODO: refactor
     margin: 64px 0 0;
   }
 
   @media (max-width: 64em) {
     max-width: 100%;
+    pointer-events: ${isOpen ? "auto" : "none"} !important;
   }
 `;
 
@@ -60,7 +59,6 @@ const navigationContent = (isOpen: boolean) => css`
   @media (max-width: 64em) {
     display: ${isOpen ? "flex" : "none"};
     background: white;
-    pointer-events: ${isOpen ? "auto" : "none"} !important;
   }
 `;
 
@@ -114,7 +112,7 @@ export const Navigation: React.FC = () => {
   const { pathname } = useRouter();
 
   return (
-    <nav css={navigation}>
+    <nav css={navigation(isNavigationOpen)}>
       <NavigationToggle
         isNavigationOpen={isNavigationOpen}
         onClick={() => {

@@ -83,7 +83,7 @@ const quickLinks = [
 
 const IndexPage: NextPage = () => {
   return (
-    <div css={pageWrapper}>
+    <main css={pageWrapper}>
       <h1 css={mainHeader}>Pavel Susicky</h1>
       <p css={subHeader}>Software engineer based in Prague, Czech republic</p>
       <ul css={quickLinkList}>
@@ -100,7 +100,7 @@ const IndexPage: NextPage = () => {
           );
         })}
       </ul>
-    </div>
+    </main>
   );
 };
 
