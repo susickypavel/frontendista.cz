@@ -1,13 +1,5 @@
 import { css } from "@emotion/core";
 
-export const FocusStyles = css`
-  &:focus {
-  }
-
-  &:active {
-  }
-`;
-
 export const GlobalStyle = css`
   * {
     box-sizing: border-box;
@@ -18,7 +10,12 @@ export const GlobalStyle = css`
   }
 
   body {
-    font-family: "Oxanium";
+    font-family: "Oxanium", sans-serif;
+  }
+
+  body.using-mouse *:focus {
+    outline: none !important;
+    color: inherit !important;
   }
 
   @font-face {

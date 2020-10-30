@@ -95,6 +95,11 @@ const navigationLinksList = css`
       text-decoration: none;
       font-weight: bold;
       color: rgba(0, 0, 0, 0.25);
+      outline-color: transparent;
+
+      &:hover {
+        color: rgba(0, 0, 0, 0.5);
+      }
 
       &::first-letter {
         color: black;

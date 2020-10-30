@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import { css } from "@emotion/core";
 import { ArrowRight } from "src/icons/arrow-right";
-import { FocusStyles } from "src/styles/global-css";
 
 const pageWrapper = css`
   padding: 6.4rem;
@@ -53,7 +52,6 @@ const quickLinkList = css`
     }
 
     & a {
-      ${FocusStyles};
       margin-left: 3.2rem;
       font-size: 2.4rem;
       font-weight: bold;
