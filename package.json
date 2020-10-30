@@ -16,6 +16,7 @@
     "test:e2e": "start-server-and-test start http://localhost:3000 cy:run"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "lodash.throttle": "^4.1.1",
     "next": "^10.0.0",
     "next-seo": "^4.7.3",
@@ -53,9 +54,12 @@
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "jest-svg-transformer": "^1.0.0",
+    "next-compose-plugins": "^2.2.0",
     "prettier": "^2.0.5",
+    "sass": "^1.28.0",
     "start-server-and-test": "^1.11.2",
     "ts-jest": "^26.2.0",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "typescript-plugin-css-modules": "^2.7.0"
   }
 }
