@@ -2,63 +2,14 @@ import React from "react";
 import { NextPage } from "next";
 import Link from "next/link";
 
-import { css } from "@emotion/core";
 import { ArrowRight } from "src/icons/arrow-right";
 
-const pageWrapper = css`
-  padding: 6.4rem;
-  margin-right: 33%;
-
-  @media (max-width: 64em) {
-    margin-right: 0;
-  }
-
-  @media (max-width: 48em) {
-    padding: 3.2rem;
-  }
-`;
-
-const mainHeader = css({
-  fontSize: "12.8rem",
-  textShadow: "4px 4px 0px #DDDDDD",
-  borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
-  display: "inline",
-  "@media (max-width: 36em)": {
-    fontSize: "3.6rem",
-  },
-});
-
-const subHeader = css`
-  font-size: 3.6rem;
-  font-weight: bold;
-
-  @media (max-width: 36em) {
-    font-size: 2.4rem;
-  }
-`;
-
-const quickLinkList = css`
-  list-style-type: none;
-  padding: 0;
-
-  & li {
-    display: flex;
-    margin-bottom: 1rem;
-
-    & svg {
-      width: 3rem;
-      height: 3rem;
-      color: rgba(0, 0, 0, 0.25);
-    }
-
-    & a {
-      margin-left: 3.2rem;
-      font-size: 2.4rem;
-      font-weight: bold;
-      color: black;
-    }
-  }
-`;
+import {
+  pageWrapper,
+  mainHeader,
+  subHeader,
+  quickLinkList,
+} from "src/assets/stylesheets/index-page.module.scss";
 
 const quickLinks = [
   {
@@ -81,10 +32,10 @@ const quickLinks = [
 
 const IndexPage: NextPage = () => {
   return (
-    <main css={pageWrapper}>
-      <h1 css={mainHeader}>Pavel Susicky</h1>
-      <p css={subHeader}>Software engineer based in Prague, Czech republic</p>
-      <ul css={quickLinkList}>
+    <main className={pageWrapper}>
+      <h1 className={mainHeader}>Pavel Susicky</h1>
+      <p className={subHeader}>Software engineer based in Prague, Czech republic</p>
+      <ul className={quickLinkList}>
         {quickLinks.map(link => {
           const { href, text } = link;
 

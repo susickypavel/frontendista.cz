@@ -6,3 +6,9 @@ declare module "*.svg" {
 
   export default testing;
 }
+
+declare module "*.module.scss" {
+  const classes: { [key: string]: string };
+
+  export default classes;
+}
