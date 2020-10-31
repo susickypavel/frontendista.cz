@@ -1,0 +1,25 @@
+{
+  "name": "pavelsusicky.com",
+  "version": "1.0.0",
+  "description": "Pavel Susicky's personal site",
+  "repository": "git@github.com:Thesoreon/pavelsusicky.com.git",
+  "author": "Pavel Sušický <pavels.sus@gmail.com>",
+  "scripts": {
+    "start": "next dev -p 3000",
+    "start:prod": "next start",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^10.0.0",
+    "normalize-scss": "^7.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "typescript": "^4.0.5"
+  },
+  "license": "MIT"
+}
