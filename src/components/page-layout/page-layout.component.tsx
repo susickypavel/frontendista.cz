@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 interface PageLayoutProps {}
 
-export const PageLayout: React.FC<PageLayoutProps> = () => {
-  return <div>Hello, World</div>;
+export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
+  return <Fragment>{children}</Fragment>;
 };

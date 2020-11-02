@@ -8,6 +8,10 @@ const config: Config.InitialOptions = {
       tsconfig: "./test/tsconfig.spec.json",
     },
   },
+  moduleNameMapper: {
+    "src/(.*)": "<rootDir>/src/$1",
+    "pages/(.*)": "<rootDir>/pages/$1",
+  },
 };
 
 export default config;

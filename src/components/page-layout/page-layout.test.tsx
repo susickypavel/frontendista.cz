@@ -8,8 +8,8 @@ describe("PageLayout", function () {
   }
 
   it("should be a very fancy function", function () {
-    const { getByText } = renderComponent();
+    const { container } = renderComponent();
 
-    expect(getByText("Hello, World")).not.toBeNull();
+    expect(container).not.toBeNull();
   });
 });

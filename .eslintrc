@@ -60,5 +60,10 @@
     ],
     "@typescript-eslint/no-empty-function": ["warn"],
     "react/prop-types": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
   }
 }
