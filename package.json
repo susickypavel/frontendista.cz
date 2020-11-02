@@ -12,11 +12,13 @@
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
+    "@emotion/core": "^10.1.1",
     "next": "^10.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.1.0",
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@types/jest": "^26.0.15",
