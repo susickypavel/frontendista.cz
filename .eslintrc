@@ -4,7 +4,8 @@
     "browser": true,
     "es2021": true,
     "commonjs": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
@@ -57,6 +58,7 @@
         "allowSingleExtends": true
       }
     ],
+    "@typescript-eslint/no-empty-function": ["warn"],
     "react/prop-types": "off"
   }
 }
