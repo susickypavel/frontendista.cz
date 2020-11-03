@@ -1,20 +1,7 @@
 {
-  "presets": ["next/babel", "@emotion/babel-preset-css-prop"],
-  "plugins": ["inline-react-svg"],
-  "env": {
-    "test": {
-      "plugins": [
-        [
-          "module-resolver",
-          {
-            "root": ".",
-            "alias": {
-              "src": "./src",
-              "test": "./test"
-            }
-          }
-        ]
-      ]
-    }
-  }
+  "presets": [
+    "next/babel",
+    "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": []
 }

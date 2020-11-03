@@ -1,20 +1,14 @@
 import React, { Fragment } from "react";
-import { NextSeo } from "next-seo";
 
-interface Props {
-  title?: string;
-}
+import { pageLayoutTest } from "src/components/page-layout/page-layout.styles";
 
-const PageLayout: React.FC<Props> = ({ children, title = "Pavel Susicky" }) => {
+interface PageLayoutProps {}
+
+export const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
   return (
     <Fragment>
-      <NextSeo
-        title={title}
-        description="Pavel Susicky is a Frontend Developer from Czech republic"
-      />
+      <h1 css={pageLayoutTest}>Hello, World!</h1>
       {children}
     </Fragment>
   );
 };
-
-export default PageLayout;

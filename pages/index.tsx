@@ -1,107 +1,20 @@
 import React from "react";
-import { NextPage } from "next";
-import Link from "next/link";
 
-import { css } from "@emotion/core";
-import { ArrowRight } from "src/icons/arrow-right";
-import { FocusStyles } from "src/styles/global-css";
+import type { NextPage } from "next";
 
-const pageWrapper = css`
-  padding: 6.4rem;
-  margin-right: 33%;
+import { PageLayout } from "src/components/page-layout/page-layout.component";
 
-  @media (max-width: 64em) {
-    margin-right: 0;
-  }
+interface IndexProps {}
 
-  @media (max-width: 48em) {
-    padding: 3.2rem;
-  }
-`;
-
-const mainHeader = css({
-  fontSize: "12.8rem",
-  textShadow: "4px 4px 0px #DDDDDD",
-  borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
-  display: "inline",
-  "@media (max-width: 36em)": {
-    fontSize: "3.6rem",
-  },
-});
-
-const subHeader = css`
-  font-size: 3.6rem;
-  font-weight: bold;
-
-  @media (max-width: 36em) {
-    font-size: 2.4rem;
-  }
-`;
-
-const quickLinkList = css`
-  list-style-type: none;
-  padding: 0;
-
-  & li {
-    display: flex;
-    margin-bottom: 1rem;
-
-    & svg {
-      width: 3rem;
-      height: 3rem;
-      color: rgba(0, 0, 0, 0.25);
-    }
-
-    & a {
-      ${FocusStyles};
-      margin-left: 3.2rem;
-      font-size: 2.4rem;
-      font-weight: bold;
-      color: black;
-    }
-  }
-`;
-
-const quickLinks = [
-  {
-    text: "What am I building?",
-    href: "todo",
-  },
-  {
-    text: "What is my environment setup?",
-    href: "todo2",
-  },
-  {
-    text: "Which technologies do I use?",
-    href: "todo3",
-  },
-  {
-    text: "Feel free to contact me here",
-    href: "todo4",
-  },
-];
-
-const IndexPage: NextPage = () => {
+const Index: NextPage<IndexProps> = () => {
   return (
-    <main css={pageWrapper}>
-      <h1 css={mainHeader}>Pavel Susicky</h1>
-      <p css={subHeader}>Software engineer based in Prague, Czech republic</p>
-      <ul css={quickLinkList}>
-        {quickLinks.map(link => {
-          const { href, text } = link;
-
-          return (
-            <li key={href}>
-              <ArrowRight />
-              <Link href={href}>
-                <a>{text}</a>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </main>
+    <PageLayout>
+      Hello, World
+      <label htmlFor="test">Test</label>
+      <input id="test" />
+      <button>Hello</button>
+    </PageLayout>
   );
 };
 
-export default IndexPage;
+export default Index;

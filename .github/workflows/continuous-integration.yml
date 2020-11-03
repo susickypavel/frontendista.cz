@@ -32,6 +32,35 @@ jobs:
       - name: Lint the code
         run: yarn lint
 
+  lintstyles:
+    name: CSS styles lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+
+      - name: Install project dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: yarn
+
+      - name: Lint the code
+        run: yarn lint:style
+
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -60,18 +89,18 @@ jobs:
 
       - name: Test the code
         run: yarn test
-
-  e2e:
-    name: End-to-End Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v1
-        with:
-          build: yarn build
-          start: yarn start:prod
-          wait-on: http://localhost:3000
+# TODO: Install and set up Cypress
+#  e2e:
+#    name: End-to-End Tests
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - name: Checkout repository
+#        uses: actions/checkout@v2
+#
+#      - name: Cypress run
+#        uses: cypress-io/github-action@v1
+#        with:
+#          build: yarn build
+#          start: yarn start:prod
+#          wait-on: http://localhost:3000
