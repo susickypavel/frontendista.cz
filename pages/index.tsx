@@ -9,14 +9,7 @@ import "normalize.css";
 interface IndexProps {}
 
 const Index: NextPage<IndexProps> = () => {
-  return (
-    <PageLayout>
-      Hello, World
-      <label htmlFor="test">Test</label>
-      <input id="test" />
-      <button>Hello</button>
-    </PageLayout>
-  );
+  return <PageLayout></PageLayout>;
 };
 
 export default Index;
