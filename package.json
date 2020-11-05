@@ -15,6 +15,7 @@
   "dependencies": {
     "@emotion/core": "^10.1.1",
     "next": "^10.0.0",
+    "next-seo": "^4.15.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
