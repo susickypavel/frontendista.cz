@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import { NextSeo } from "next-seo";
 
-type PageLayoutProps = WritableNextSeoProps;
+export type PageLayoutProps = WritableNextSeoProps;
 
 interface WritableNextSeoProps {
   title?: string;
@@ -17,14 +17,20 @@ interface ImageMeta {
   height?: number;
 }
 
-export const PageLayout: React.FC<PageLayoutProps> = ({
-  children,
-  image = {
+export const SEO_DEFAULTS = {
+  title: "Pavel Susicky",
+  description: "Pavel Susicky is a software engineer from Czech republic",
+  image: {
     url: "https://pavelsusicky.com/temp.jpg",
     alt: "Screenshot of pavelsusicky.com main page",
   },
-  title = "Pavel Susicky",
-  description = "Pavel Susicky is a software engineer from Czech republic",
+};
+
+export const PageLayout: React.FC<PageLayoutProps> = ({
+  children,
+  image = SEO_DEFAULTS.image,
+  title = SEO_DEFAULTS.title,
+  description = SEO_DEFAULTS.description,
 }) => {
   return (
     <Fragment>

@@ -8,6 +8,7 @@ const config: Config.InitialOptions = {
       tsconfig: "./test/tsconfig.spec.json",
     },
   },
+  setupFilesAfterEnv: ["./test/setup.ts"],
   moduleNameMapper: {
     "src/(.*)": "<rootDir>/src/$1",
     "pages/(.*)": "<rootDir>/pages/$1",
