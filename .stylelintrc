@@ -6,6 +6,8 @@
     "stylelint-order"
   ],
   "rules": {
-    "order/properties-alphabetical-order": true
+    "order/properties-alphabetical-order": true,
+    "value-list-comma-newline-after": false,
+    "declaration-colon-newline-after": false
   }
 }

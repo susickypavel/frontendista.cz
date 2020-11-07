@@ -2,9 +2,12 @@ import React, { Fragment } from "react";
 
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
+import { Global } from "@emotion/core";
 
 import type { FC } from "react";
 import type { AppProps } from "next/app";
+
+import { GlobalStyles } from "src/styles/global-styles";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
@@ -27,6 +30,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
           },
         ]}
       />
+      <Global styles={[GlobalStyles]} />
       <Component {...pageProps} />
     </Fragment>
   );
