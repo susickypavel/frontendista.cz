@@ -9,6 +9,8 @@ import type { AppProps } from "next/app";
 
 import { GlobalStyles } from "src/styles/global-styles";
 
+import "normalize.css";
+
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
 

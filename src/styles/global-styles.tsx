@@ -5,8 +5,13 @@ export const GlobalStyles = css`
     box-sizing: border-box;
   }
 
+  :root {
+    font-size: 62.5%;
+  }
+
   body {
     font-family: "ChakraPetch", sans-serif;
+    padding: 6.4rem;
   }
 
   @font-face {

@@ -5,32 +5,49 @@ import Link from "next/link";
 import type { NextPage } from "next";
 
 import { PageLayout } from "src/components/page-layout/page-layout.component";
-
-import "normalize.css";
+import {
+  heading,
+  quick_links_list,
+  sub_heading,
+} from "src/assets/stylesheets/index.styles";
 
 interface IndexProps {}
+
+const quickLinks = [
+  {
+    text: "What am I building?",
+    href: "",
+  },
+  {
+    text: "What is my environment setup?",
+    href: "",
+  },
+  {
+    text: "Which technologies do I use?",
+    href: "",
+  },
+  {
+    text: "Feel free to contact me here",
+    href: "",
+  },
+];
 
 const Index: NextPage<IndexProps> = () => {
   return (
     <PageLayout>
       <header>
-        <h1>Pavel Susicky</h1>
-        <h2>Software engineer from Prague, Czech republic</h2>
+        <h1 css={heading}>PAVEL SUSICKY</h1>
+        <h2 css={sub_heading}>Software engineer from Prague, Czech republic</h2>
       </header>
       <main>
-        <ul>
-          <li>
-            <Link href="todo">What am I building?</Link>
-          </li>
-          <li>
-            <Link href="todo">What is my environment setup?</Link>
-          </li>
-          <li>
-            <Link href="todo">Which technologies do I use?</Link>
-          </li>
-          <li>
-            <Link href="todo">Feel free to contact me here</Link>
-          </li>
+        <ul css={quick_links_list}>
+          {quickLinks.map(({ href, text }) => {
+            return (
+              <li key={text}>
+                <Link href={href}>{text}</Link>
+              </li>
+            );
+          })}
         </ul>
       </main>
     </PageLayout>
