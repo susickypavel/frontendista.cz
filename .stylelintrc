@@ -8,6 +8,7 @@
   "rules": {
     "order/properties-alphabetical-order": true,
     "value-list-comma-newline-after": false,
-    "declaration-colon-newline-after": false
+    "declaration-colon-newline-after": false,
+    "indentation": false
   }
 }

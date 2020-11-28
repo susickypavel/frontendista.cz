@@ -9,7 +9,9 @@ interface IndexProps {}
 const Index: NextPage<IndexProps> = () => {
   return (
     <PageLayout>
-      <p>WIP Index Page</p>
+      <p className="text-red-500 sm:text-yellow-600 transform rotate-180">
+        WIP Index Page
+      </p>
     </PageLayout>
   );
 };
