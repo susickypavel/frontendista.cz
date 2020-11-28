@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts,.tsx",
     "prettier:check": "prettier --check \"./**/*.{ts,tsx}\"",
     "test": "jest --passWithNoTests",
-    "lint:style": "stylelint ./src/**/*.ts",
+    "lint:style": "stylelint ./src/**/*.css",
     "test:watch": "jest --watch --passWithNoTests"
   },
   "dependencies": {
