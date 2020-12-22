@@ -13,11 +13,16 @@ export type BlogFeed =
     };
 
 export interface BlogFeedPhoto {
-  _key: string;
-  _type: "image";
   asset: {
-    _ref: string;
-    _type: "reference";
+    /** ID of the image used for Sanity ImageBuilder */
+    _id: string;
+    metadata: {
+      lqip: string;
+      dimensions: {
+        width: number;
+        height: number;
+      };
+    };
     /** This propery comes from pages/index.tsx - getStaticProps */
     url: string;
   };
