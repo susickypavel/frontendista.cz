@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     };
   } catch (error) {
-    console.error(error);
+    console.error("\x1b[31m", `🟥 ${error}`);
 
     if (process.env.NODE_ENV != "development") {
       process.exit(1);
