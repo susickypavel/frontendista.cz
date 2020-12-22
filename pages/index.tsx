@@ -26,11 +26,22 @@ const Index: NextPage<IndexProps> = ({ blogFeed }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const blogFeedQuery = `*[_type == "gallery" || _type == "post"] {
-      _id,
-      _type,
-      title,
-      photos
-    }`;
+    _id,
+    _type,
+    title,
+    photos[] {
+      asset-> {
+        _id,
+        metadata {
+          lqip,
+          dimensions {
+            height,
+            width,
+          }
+        }
+      }
+    }
+  }`;
 
   try {
     const blogFeed = await sanityClient.fetch<BlogFeed[]>(blogFeedQuery);
@@ -41,7 +52,7 @@ export const getStaticProps: GetStaticProps = async () => {
     blogFeed.forEach(feed => {
       if (feed._type == "gallery") {
         feed.photos.forEach(photo => {
-          const url = imageUrlBuilder.image(photo.asset._ref).url();
+          const url = imageUrlBuilder.image(photo.asset._id).url();
 
           if (!url) throw "Error in imageUrlBuilder, url was Null.";
 

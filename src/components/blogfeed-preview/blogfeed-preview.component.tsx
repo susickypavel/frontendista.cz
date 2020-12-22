@@ -21,7 +21,7 @@ export const BlogFeedPreview: React.FC<BlogFeedPreviewProps> = ({ preview }) => 
           <div>
             {preview.photos.map(photo => {
               return (
-                <img src={photo.asset.url} key={photo._key} width={250} alt="temp" />
+                <img src={photo.asset.url} key={photo.asset._id} width={250} alt="temp" />
               );
             })}
           </div>
