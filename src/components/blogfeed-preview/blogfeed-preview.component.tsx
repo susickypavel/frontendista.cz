@@ -1,5 +1,7 @@
 import React from "react";
 
+import Image from "next/image";
+
 import type { BlogFeed } from "./blogfeed-preview";
 
 interface BlogFeedPreviewProps {
@@ -21,10 +23,18 @@ export const BlogFeedPreview: React.FC<BlogFeedPreviewProps> = ({ preview }) => 
           <div>
             {preview.photos.map(photo => {
               return (
-                <img src={photo.asset.url} key={photo.asset._id} width={250} alt="temp" />
+                <Image
+                  src={photo.asset.url}
+                  key={photo.asset._id}
+                  width={500}
+                  height={500 / photo.asset.metadata.dimensions.aspectRatio}
+                  alt="temp"
+                  className="bg-blue-500"
+                />
               );
             })}
           </div>
+          dsadsadsa
         </div>
       );
     default:

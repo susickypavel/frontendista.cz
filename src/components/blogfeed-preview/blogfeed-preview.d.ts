@@ -19,6 +19,7 @@ export interface BlogFeedPhoto {
     metadata: {
       lqip: string;
       dimensions: {
+        aspectRatio: number;
         width: number;
         height: number;
       };
