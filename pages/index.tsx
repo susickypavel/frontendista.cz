@@ -35,6 +35,7 @@ export const getStaticProps: GetStaticProps = async () => {
         metadata {
           lqip,
           dimensions {
+            aspectRatio,
             height,
             width,
           }
