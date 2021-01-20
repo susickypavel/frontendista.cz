@@ -8,6 +8,8 @@ import { PageLayout } from "src/components/page-layout/page-layout.component";
 import { sanityClient } from "src/utils/data-fetching/sanity-client";
 import { BlogFeedPreview } from "src/components/blogfeed-preview/blogfeed-preview.component";
 
+import { introductionParagraph } from "src/assets/stylesheets/index.module.scss"
+
 interface IndexProps {
   blogFeed: BlogFeed[];
 }
@@ -15,11 +17,20 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ blogFeed }) => {
   return (
     <PageLayout>
-      {blogFeed.map(preview => {
+      <h1 className="text-7xl font-bold">
+        I’m a Software Engineer from Prague, Czech republic.
+      </h1>
+      <p className={introductionParagraph}>
+        Focused on Frontend technologies such as <strong>React</strong>,{" "}
+        <strong>Next.js</strong>, <strong>TypeScript</strong> and other complementary
+        tools for fully-fledged projects.
+      </p>
+
+      {/* {blogFeed.map(preview => {
         const { _id } = preview;
 
         return <BlogFeedPreview key={_id} preview={preview} />;
-      })}
+      })} */}
     </PageLayout>
   );
 };

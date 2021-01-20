@@ -1,0 +1,7 @@
+.introductionParagraph {
+  @apply text-2xl text-gray-500 font-medium;
+
+  strong {
+    @apply text-black;
+  }
+}
