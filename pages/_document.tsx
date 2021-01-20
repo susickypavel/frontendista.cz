@@ -16,21 +16,21 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/ChakraPetch-Bold.woff2"
+            href="/fonts/Inter-Bold.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/ChakraPetch-Medium.woff2"
+            href="/fonts/Inter-Medium.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/ChakraPetch-Regular.woff2"
+            href="/fonts/Inter-Regular.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
