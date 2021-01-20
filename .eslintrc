@@ -61,7 +61,9 @@
     ],
     "@typescript-eslint/no-empty-function": ["warn"],
     "react/prop-types": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    // NOTE: Next.js Link component automatically passes href attribute to inner anchor element
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "settings": {
     "import/resolver": {

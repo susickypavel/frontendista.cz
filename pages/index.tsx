@@ -1,5 +1,6 @@
 import React from "react";
 import ImageUrlBuilder from "@sanity/image-url";
+import Link from "next/link";
 
 import type { GetStaticProps, NextPage } from "next";
 import type { BlogFeed } from "src/components/blogfeed-preview/blogfeed-preview";
@@ -26,6 +27,22 @@ const Index: NextPage<IndexProps> = ({ blogFeed }) => {
           <strong>Next.js</strong>, <strong>TypeScript</strong> and other complementary
           tools for fully-fledged projects.
         </p>
+        <div className="mt-8">
+          <Link href="/contact">
+            <a
+              className={`inline-block bg-blue-500 px-8 py-4 text-white font-bold text-2xl mr-4 ${styles.textShadowBase} ${styles.bevel}`}
+            >
+              Contact me
+            </a>
+          </Link>
+          <Link href="/work">
+            <a
+              className={`inline-block bg-gray-100 px-8 py-4 text-gray-800 font-bold text-2xl ${styles.textShadowBase} ${styles.bevel}`}
+            >
+              View work
+            </a>
+          </Link>
+        </div>
       </main>
 
       {/* {blogFeed.map(preview => {

@@ -5,3 +5,23 @@
     @apply text-black;
   }
 }
+
+.textShadowBase {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bevel {
+  position: relative;
+
+  &::after {
+    background: red;
+    bottom: -1.25rem;
+    content: "";
+    height: 2.5rem;
+    position: absolute;
+    right: -1.25rem;
+    width: 2.5rem;
+
+    @apply transform rotate-45 bg-white;
+  }
+}
