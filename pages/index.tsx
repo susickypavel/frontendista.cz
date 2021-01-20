@@ -17,14 +17,16 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ blogFeed }) => {
   return (
     <PageLayout>
-      <h1 className="text-7xl font-bold">
-        I’m a Software Engineer from Prague, Czech republic.
-      </h1>
-      <p className={styles.introductionParagraph}>
-        Focused on Frontend technologies such as <strong>React</strong>,{" "}
-        <strong>Next.js</strong>, <strong>TypeScript</strong> and other complementary
-        tools for fully-fledged projects.
-      </p>
+      <main className="max-w-main mx-auto">
+        <h1 className="text-7xl font-bold mb-8">
+          I’m a Software Engineer from Prague, Czech republic
+        </h1>
+        <p className={styles.introductionParagraph}>
+          Focused on Frontend technologies such as <strong>React</strong>,{" "}
+          <strong>Next.js</strong>, <strong>TypeScript</strong> and other complementary
+          tools for fully-fledged projects.
+        </p>
+      </main>
 
       {/* {blogFeed.map(preview => {
         const { _id } = preview;

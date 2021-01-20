@@ -9,7 +9,11 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      maxWidth: {
+        main: "67.5rem",
+      },
+    },
   },
   variants: {
     extend: {},
