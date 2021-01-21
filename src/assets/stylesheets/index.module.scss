@@ -43,7 +43,6 @@
   position: relative;
 
   &::after {
-    background: red;
     bottom: -1rem;
     content: "";
     height: 2rem;
@@ -52,5 +51,14 @@
     width: 2rem;
 
     @apply transform rotate-45 bg-white;
+  }
+
+  &:focus {
+    outline: 2px solid black;
+    outline-offset: 0;
+
+    &::after {
+      border-left: 2px solid black;
+    }
   }
 }

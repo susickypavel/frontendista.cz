@@ -55,7 +55,6 @@ const Index: NextPage<IndexProps> = ({ blogFeed }) => {
                 "hover:bg-gray-200",
                 "transition transition-colors ease-linear duration-150",
                 "sm:w-full",
-                styles.textShadowBase,
                 styles.bevel,
               )}
             >
