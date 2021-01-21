@@ -19,51 +19,6 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ blogFeed }) => {
   return (
     <PageLayout>
-      <main className={classNames(styles.main)}>
-        <div className={classNames(styles.logo)}>
-          <img src="/128.jpg" alt="Pavel's headshot" />
-          pavelsusicky.com
-        </div>
-        <h1 className={classNames(styles.mainHeader)}>I’m a Software Engineer from Prague, Czech republic</h1>
-        <p className={classNames(styles.introductionParagraph)}>
-          Focused on Frontend technologies such as <strong>React</strong>, <strong>Next.js</strong>,{" "}
-          <strong>TypeScript</strong> and{" "}
-          <Link href="/about#tools">
-            <a>other complementary tools</a>
-          </Link>{" "}
-          for fully-fledged projects.
-        </p>
-        <div className={classNames(styles.actionButtons)}>
-          <Link href="/contact">
-            <a
-              className={classNames(
-                "inline-block bg-blue-500 px-8 py-4 mr-4 text-white",
-                "hover:bg-blue-600",
-                "transition transition-colors ease-linear duration-150",
-                "sm:w-full mb-2",
-                styles.textShadowBase,
-                styles.bevel,
-              )}
-            >
-              Contact me
-            </a>
-          </Link>
-          <Link href="/work">
-            <a
-              className={classNames(
-                "inline-block bg-gray-100 px-8 py-4 text-gray-800",
-                "hover:bg-gray-200",
-                "transition transition-colors ease-linear duration-150",
-                "sm:w-full",
-                styles.bevel,
-              )}
-            >
-              View work
-            </a>
-          </Link>
-        </div>
-      </main>
-
       {/* {blogFeed.map(preview => {
         const { _id } = preview;
 
