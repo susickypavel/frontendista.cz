@@ -1,9 +1,38 @@
+.main {
+  @apply max-w-main mx-auto h-screen flex justify-center flex-col;
+  @apply xl:p-4;
+  @apply lg:p-8;
+}
+
+.logo {
+  @apply flex h-16 items-center text-2xl font-bold mb-8;
+  @apply sm:text-base;
+
+  img {
+    @apply w-16 h-auto rounded-full mr-8;
+  }
+}
+
+.mainHeader {
+  @apply text-7xl font-bold mb-8 leading-tight;
+  @apply lg:text-5xl;
+}
+
 .introductionParagraph {
   @apply text-2xl text-gray-500 font-medium;
 
   strong {
     @apply text-black;
   }
+
+  a {
+    @apply text-blue-500 underline;
+    @apply hover:text-blue-600;
+  }
+}
+
+.actionButtons {
+  @apply font-bold text-2xl mt-8;
 }
 
 .textShadowBase {
@@ -15,12 +44,12 @@
 
   &::after {
     background: red;
-    bottom: -1.25rem;
+    bottom: -1rem;
     content: "";
-    height: 2.5rem;
+    height: 2rem;
     position: absolute;
-    right: -1.25rem;
-    width: 2.5rem;
+    right: -1rem;
+    width: 2rem;
 
     @apply transform rotate-45 bg-white;
   }
