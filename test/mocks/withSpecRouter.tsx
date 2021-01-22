@@ -2,10 +2,7 @@ import React, { ReactElement } from "react";
 import { NextRouter } from "next/router";
 import { RouterContext } from "next/dist/next-server/lib/router-context";
 
-export function withSpecRouter(
-  tree: ReactElement,
-  customRouter?: Partial<NextRouter>,
-): JSX.Element {
+export function withSpecRouter(tree: ReactElement, customRouter?: Partial<NextRouter>): JSX.Element {
   const _router: NextRouter = {
     asPath: "/",
     basePath: "/",

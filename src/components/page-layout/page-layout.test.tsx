@@ -48,15 +48,9 @@ describe("PageLayout", function () {
     it("should have default meta description", function () {
       const { getByTestId } = renderComponent();
 
-      expect(getByTestId("description")).toHaveAttribute(
-        "content",
-        SEO_DEFAULTS.description,
-      );
+      expect(getByTestId("description")).toHaveAttribute("content", SEO_DEFAULTS.description);
 
-      expect(getByTestId("og:description")).toHaveAttribute(
-        "content",
-        SEO_DEFAULTS.description,
-      );
+      expect(getByTestId("og:description")).toHaveAttribute("content", SEO_DEFAULTS.description);
     });
 
     it("should have meta description from props", function () {
