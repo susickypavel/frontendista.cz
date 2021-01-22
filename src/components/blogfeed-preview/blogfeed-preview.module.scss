@@ -5,3 +5,9 @@
     @apply ml-1;
   }
 }
+
+.contentHolder {
+  &:last-of-type {
+    @apply mb-0;
+  }
+}
