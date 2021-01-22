@@ -17,6 +17,8 @@ export type BlogFeed =
       categories: string[];
     };
 
+export type DocumentTypes = "post" | "gallery";
+
 export interface BlogFeedPhoto {
   asset: {
     /** ID of the image used for Sanity ImageBuilder */

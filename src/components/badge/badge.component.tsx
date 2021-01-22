@@ -5,10 +5,10 @@ interface BadgeProps {
   type: BadgeType;
 }
 
-type BadgeType = "blog" | "gallery" | "new";
+type BadgeType = "post" | "gallery" | "new";
 
 const icons: Record<BadgeType, JSX.Element> = {
-  blog: (
+  post: (
     <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
   ),
   gallery: (
@@ -28,7 +28,7 @@ const icons: Record<BadgeType, JSX.Element> = {
 };
 
 const colors: Record<BadgeType, { bg: string; icon: string }> = {
-  blog: {
+  post: {
     bg: "bg-blue-400",
     icon: "#1D4ED8",
   },
