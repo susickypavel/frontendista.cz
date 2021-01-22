@@ -10,6 +10,8 @@ export type BlogFeed =
       _type: "post";
       _id: string;
       title: string;
+      publishedAt: string;
+      categories: string[];
     };
 
 export interface BlogFeedPhoto {

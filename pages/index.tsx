@@ -1,7 +1,5 @@
 import React from "react";
 import ImageUrlBuilder from "@sanity/image-url";
-import Link from "next/link";
-import classNames from "classnames";
 
 import type { GetStaticProps, NextPage } from "next";
 import type { BlogFeed } from "src/components/blogfeed-preview/blogfeed-preview";
@@ -10,8 +8,6 @@ import { PageLayout } from "src/components/page-layout/page-layout.component";
 import { sanityClient } from "src/utils/data-fetching/sanity-client";
 import { BlogFeedPreview } from "src/components/blogfeed-preview/blogfeed-preview.component";
 
-import styles from "src/assets/stylesheets/index.module.scss";
-
 interface IndexProps {
   blogFeed: BlogFeed[];
 }
@@ -19,11 +15,15 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ blogFeed }) => {
   return (
     <PageLayout>
-      {/* {blogFeed.map(preview => {
-        const { _id } = preview;
+      <main className="max-w-main mx-auto h-screen">
+        <h1 className="text-center text-5xl py-8 underline">2021</h1>
+        {blogFeed.map(preview => {
+          const { _id } = preview;
 
-        return <BlogFeedPreview key={_id} preview={preview} />;
-      })} */}
+          return <BlogFeedPreview preview={preview} key={_id} />;
+        })}
+        <h1 className="text-center text-5xl py-8 underline">2017 - 2020</h1>
+      </main>
     </PageLayout>
   );
 };
@@ -33,6 +33,8 @@ export const getStaticProps: GetStaticProps = async () => {
     _id,
     _type,
     title,
+    publishedAt,
+    "categories": categories[]->title,
     photos[] {
       asset-> {
         _id,
