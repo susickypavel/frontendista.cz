@@ -17,7 +17,7 @@ export const BlogFeedPreview: React.FC<BlogFeedPreviewProps> = ({ preview }) => 
     case "post":
       return (
         <article className={classNames("text-2xl font-bold mb-1", styles.contentHolder)}>
-          <Link href={`/post/${preview._id}`}>
+          <Link href={`/post/${preview.slug}`}>
             <a className="flex hover:underline">
               <h2 className="ml-4 order-3">{preview.title}</h2>
               <time className="order-1" dateTime={preview.publishedAt}>
@@ -33,12 +33,18 @@ export const BlogFeedPreview: React.FC<BlogFeedPreviewProps> = ({ preview }) => 
       );
     case "gallery":
       return (
-        <article className={classNames("flex text-2xl font-bold mb-1", styles.contentHolder)}>
-          <time>TODO</time>
-          <h2 className="ml-4">{preview.title}</h2>
-          <div className={classNames("flex items-center", styles.badgeHolder)}>
-            <Badge type="gallery" />
-          </div>
+        <article className={classNames("text-2xl font-bold mb-1", styles.contentHolder)}>
+          <Link href={`/gallery/${preview.slug}`}>
+            <a className="flex hover:underline">
+              <h2 className="ml-4 order-2">{preview.title}</h2>
+              <time className="order-1" dateTime={preview.publishedAt}>
+                {dateFormat(preview.publishedAt)}
+              </time>
+              <div className={classNames("flex items-center order-3", styles.badgeHolder)}>
+                <Badge type="gallery" />
+              </div>
+            </a>
+          </Link>
         </article>
       );
     default:

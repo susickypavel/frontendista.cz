@@ -35,6 +35,7 @@ export const getStaticProps: GetStaticProps = async () => {
     title,
     publishedAt,
     "categories": categories[]->title,
+    "slug": slug.current,
     photos[] {
       asset-> {
         _id,
@@ -48,7 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
         }
       }
     }
-  }`;
+  } | order(publishedAt desc)`;
 
   try {
     const blogFeed = await sanityClient.fetch<BlogFeed[]>(blogFeedQuery);
