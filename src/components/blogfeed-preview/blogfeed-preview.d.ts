@@ -5,9 +5,14 @@ export interface Post {
   _id: string;
   slug: string;
   title: string;
+  _createdAt: string;
+  _updatedAt: string;
   publishedAt: string;
   categories: string[];
-  // ... Other props
+  body: any;
+  mainImage: {
+    _id: string;
+  };
 }
 
 export type PostPreview = Pick<Post, "_type" | "_id" | "slug" | "title" | "publishedAt" | "categories">;
