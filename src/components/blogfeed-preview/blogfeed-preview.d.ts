@@ -1,5 +1,4 @@
-// TODO: Research better solution then type union.
-export type BlogFeed = Gallery | Post;
+export type BlogFeed = GalleryPreview | PostPreview;
 
 export interface Post {
   _type: "post";
@@ -8,7 +7,10 @@ export interface Post {
   title: string;
   publishedAt: string;
   categories: string[];
+  // ... Other props
 }
+
+export type PostPreview = Pick<Post, "_type" | "_id" | "slug" | "title" | "publishedAt" | "categories">;
 
 export interface Gallery {
   _type: "gallery";
@@ -17,7 +19,10 @@ export interface Gallery {
   title: string;
   publishedAt: string;
   photos: BlogFeedPhoto[];
+  // ... Other props
 }
+
+export type GalleryPreview = Pick<Gallery, "_type" | "_id" | "slug" | "title" | "publishedAt" | "photos">;
 
 export type DocumentTypes = "post" | "gallery";
 

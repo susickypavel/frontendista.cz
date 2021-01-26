@@ -1,8 +1,9 @@
 import React from "react";
 
-import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import { sanityClient } from "src/utils/data-fetching/sanity-client";
-import { Post } from "src/components/blogfeed-preview/blogfeed-preview";
+
+import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import type { Post } from "src/components/blogfeed-preview/blogfeed-preview";
 
 interface PostProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
@@ -30,8 +31,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const postsQuery = `*[_type == "post"] {
     "slug": slug.current
   }`;
-
-  // Refactor types in blogfeed-preview
 
   const posts = await sanityClient.fetch<{ slug: string }[]>(postsQuery);
   const paths = posts.map(post => `/post/${post.slug}`);
