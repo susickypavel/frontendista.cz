@@ -1,16 +1,26 @@
 import React from "react";
+import BlockContent from "@sanity/block-content-to-react";
 
 import { sanityClient } from "src/utils/data-fetching/sanity-client";
 import { createDocumentPath } from "src/utils/post-utils";
 
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import type { Post } from "src/components/blogfeed-preview/blogfeed-preview";
+import type { Serializer } from "@sanity/block-content-to-react";
 
 interface PostProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
+const serializers: Serializer = {
+  types: {
+    image: () => {
+      return <div>TODO: Implement actual image rendering</div>;
+    },
+  },
+};
+
 const PostPage: NextPage<PostProps> = props => {
   return (
-    <div>
+    <main className="max-w-main mx-auto">
       <h1>{props.post.title}</h1>
       <time>{props.post.publishedAt}</time>
       <ul>
@@ -18,7 +28,8 @@ const PostPage: NextPage<PostProps> = props => {
           return <li key={category}>{category}</li>;
         })}
       </ul>
-    </div>
+      <BlockContent blocks={props.post.body} serializers={serializers} renderContainerOnSingleChild={true} />
+    </main>
   );
 };
 
