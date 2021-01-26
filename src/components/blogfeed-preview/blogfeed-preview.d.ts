@@ -1,21 +1,23 @@
 // TODO: Research better solution then type union.
-export type BlogFeed =
-  | {
-      _type: "gallery";
-      _id: string;
-      slug: string;
-      title: string;
-      publishedAt: string;
-      photos: BlogFeedPhoto[];
-    }
-  | {
-      _type: "post";
-      _id: string;
-      slug: string;
-      title: string;
-      publishedAt: string;
-      categories: string[];
-    };
+export type BlogFeed = Gallery | Post;
+
+export interface Post {
+  _type: "post";
+  _id: string;
+  slug: string;
+  title: string;
+  publishedAt: string;
+  categories: string[];
+}
+
+export interface Gallery {
+  _type: "gallery";
+  _id: string;
+  slug: string;
+  title: string;
+  publishedAt: string;
+  photos: BlogFeedPhoto[];
+}
 
 export type DocumentTypes = "post" | "gallery";
 
