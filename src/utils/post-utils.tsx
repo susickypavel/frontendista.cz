@@ -1,5 +1,7 @@
 import React from "react";
 
+import { sanityImageURL } from "./data-fetching/sanity-client";
+
 import type { DocumentTypes } from "src/components/blogfeed-preview/blogfeed-preview";
 import type { Serializer } from "@sanity/block-content-to-react";
 
@@ -17,8 +19,11 @@ export function createDocumentPath(documentType: DocumentTypes, slug: string): s
 
 export const serializers: Serializer = {
   types: {
-    image: () => {
-      return <div>TODO: Implement actual image rendering</div>;
+    image: props => {
+      const url =
+        sanityImageURL(props.node.asset._ref).auto("format").url() ?? "TODO: Image loading failed placeholder";
+
+      return <img src={url} alt="" />;
     },
   },
 };
