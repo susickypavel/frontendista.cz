@@ -2,7 +2,7 @@ import React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 
 import { sanityClient } from "src/utils/data-fetching/sanity-client";
-import { createDocumentPath, serializers } from "src/utils/post-utils";
+import { createDocumentPath, dateFormat, serializers } from "src/utils/post-utils";
 
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import type { Post } from "src/components/blogfeed-preview/blogfeed-preview";
@@ -15,7 +15,7 @@ const PostPage: NextPage<PostProps> = ({ post }) => {
   return (
     <main className="max-w-main mx-auto">
       <h1>{title}</h1>
-      <time>{publishedAt}</time>
+      <time dateTime={publishedAt}>{dateFormat(publishedAt)}</time>
       <ul>
         {categories.map(category => {
           return <li key={category}>{category}</li>;

@@ -21,7 +21,8 @@ export const serializers: Serializer = {
   types: {
     image: props => {
       const url =
-        sanityImageURL(props.node.asset._ref).auto("format").url() ?? "TODO: Image loading failed placeholder";
+        sanityImageURL(props.node.asset._ref).width(1920).auto("format").url() ??
+        "TODO: Image loading failed placeholder";
 
       return <img src={url} alt="" />;
     },
