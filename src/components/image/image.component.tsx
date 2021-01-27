@@ -16,7 +16,7 @@ export interface ImageProps {
   };
 }
 
-const imageLoader: ImageLoader = ({ src, width }) => {
+export const imageLoader: ImageLoader = ({ src, width }) => {
   let url = sanityImageURL(src).width(width).auto("format").url();
 
   if (!url) {
