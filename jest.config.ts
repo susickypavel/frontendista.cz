@@ -12,6 +12,7 @@ const config: Config.InitialOptions = {
   moduleNameMapper: {
     "src/(.*)": "<rootDir>/src/$1",
     "pages/(.*)": "<rootDir>/pages/$1",
+    "\\.(css|sass|scss)$": "identity-obj-proxy",
   },
 };
 
