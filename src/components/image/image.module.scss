@@ -1,0 +1,9 @@
+.imageHidden {
+  opacity: 0 !important;
+  transition: opacity 2s linear;
+}
+
+.imageVisible {
+  opacity: 1 !important;
+  transition: opacity 2s linear;
+}

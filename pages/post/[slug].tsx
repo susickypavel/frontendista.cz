@@ -46,7 +46,13 @@ export const getStaticProps: GetStaticProps<{ post: Post }, StaticProps> = async
     "mainImage": mainImage.asset-> {
       _id,
     },
-    body,
+    body[] {
+      ...,
+      asset-> {
+        _id,
+        "lqip": metadata.lqip
+      }
+    }
   }[0]`;
 
   const post = await sanityClient.fetch<Post>(postQuery, { slug: params.slug });
