@@ -3,18 +3,10 @@ import classNames from "classnames";
 import NextImage from "next/image";
 
 import type { ImageLoader } from "next/image";
+import type { ImageProps } from "./image";
 
 import styles from "./image.module.scss";
 import { sanityImageURL } from "src/utils/data-fetching/sanity-client";
-
-export interface ImageProps {
-  node: {
-    asset: {
-      _id: string;
-      lqip: string;
-    };
-  };
-}
 
 export const imageLoader: ImageLoader = ({ src, width }) => {
   let url = sanityImageURL(src).width(width).auto("format").url();

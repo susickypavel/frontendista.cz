@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Image } from "src/components/image/image.component";
 
 import type { Serializer } from "@sanity/block-content-to-react";
 import type { DocumentTypes } from "src/components/blogfeed-preview/blogfeed-preview";
-import type { ImageProps } from "src/components/image/image.component";
+import type { ImageProps } from "src/components/image/image";
 
 export function dateFormat(date: string): string {
   return new Date(date).toLocaleDateString("cs", {
