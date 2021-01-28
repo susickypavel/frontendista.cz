@@ -18,6 +18,7 @@ export const imageLoader: ImageLoader = ({ src, width }) => {
   return url;
 };
 
+// TODO: accessibility
 export const Image: React.FC<ImageProps> = ({
   node: {
     asset: { _id, lqip },
