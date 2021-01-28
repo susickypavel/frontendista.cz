@@ -17,7 +17,7 @@ export const BlogFeedPreview: React.FC<BlogFeedPreviewProps> = ({ preview }) => 
     case "post":
       return (
         <PreviewBarebone preview={preview}>
-          <span className="ml-4 font-medium text-gray-400 order-2 whitespace-nowrap">
+          <span className="ml-4 font-medium text-gray-600 order-2 whitespace-nowrap">
             [{preview.categories.join(", ")}]
           </span>
         </PreviewBarebone>
