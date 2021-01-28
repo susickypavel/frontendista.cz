@@ -6,13 +6,22 @@ declare module "*.scss" {
 declare module "@sanity/block-content-to-react" {
   export type Serializer = Partial<{
     types: {
-      [P in "image" | "code"]?: (props: any) => JSX.Element;
+      [P in "image" | "block"]?: (props: any) => JSX.Element;
     };
     marks: any;
     list: any;
     listItem: any;
     hardBreak: any;
   }>;
+
+  export type ContentHeadings = "h1" | "h2" | "h3" | "h4";
+
+  export interface BlockProps {
+    children: any[];
+    node: {
+      style: ContentHeadings | "normal" | "blockquote";
+    };
+  }
 
   export interface BlockContentProps {
     blocks: {
@@ -38,7 +47,9 @@ declare module "@sanity/block-content-to-react" {
     dataset?: string;
   }
 
-  let BlockContent: React.FC<BlockContentProps>;
+  class BlockContent extends React.Component<BlockContentProps> {
+    public static defaultSerializers: any;
+  }
 
   export default BlockContent;
 }
