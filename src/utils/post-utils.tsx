@@ -1,13 +1,12 @@
 import React from "react";
 import BlockContent from "@sanity/block-content-to-react";
-import classNames from "classnames";
 
 import { Image } from "src/components/image/image.component";
+import { Header } from "src/components/header/header.component";
 
-import type { Serializer, BlockProps, ContentHeadings } from "@sanity/block-content-to-react";
+import type { Serializer, BlockProps } from "@sanity/block-content-to-react";
 import type { DocumentTypes } from "src/components/blogfeed-preview/blogfeed-preview";
 import type { ImageProps } from "src/components/image/image";
-import { Header } from "src/components/header/header.component";
 
 export function dateFormat(date: string): string {
   return new Date(date).toLocaleDateString("cs", {
@@ -22,7 +21,7 @@ export function createDocumentPath(documentType: DocumentTypes, slug: string): s
 }
 
 export function slugify(input: string): string {
-  return input.toLowerCase().replace(/\s+/g, "-");
+  return input.toLowerCase().trim().replace(/\s+/g, "-");
 }
 
 export const serializers: Serializer = {

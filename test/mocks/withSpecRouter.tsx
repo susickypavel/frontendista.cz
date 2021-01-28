@@ -21,6 +21,7 @@ export function withSpecRouter(tree: ReactElement, customRouter?: Partial<NextRo
     },
     isFallback: false,
     query: {},
+    isReady: false,
   };
 
   const router = Object.assign(_router, customRouter);
