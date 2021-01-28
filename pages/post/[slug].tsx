@@ -7,14 +7,20 @@ import styles from "src/assets/stylesheets/[slug].module.scss";
 
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import type { Post } from "src/components/blogfeed-preview/blogfeed-preview";
+import { Image } from "src/components/image/image.component";
 
 interface PostProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
 const PostPage: NextPage<PostProps> = ({ post }) => {
-  const { title, publishedAt, categories, body } = post;
+  const { title, publishedAt, categories, body, mainImage } = post;
 
   return (
     <main className="max-w-main mx-auto">
+      <Image
+        node={{
+          asset: mainImage,
+        }}
+      />
       <h1>{title}</h1>
       <time dateTime={publishedAt}>{dateFormat(publishedAt)}</time>
       <ul>
@@ -51,6 +57,7 @@ export const getStaticProps: GetStaticProps<{ post: Post }, StaticProps> = async
     title,
     "mainImage": mainImage.asset-> {
       _id,
+      "lqip": metadata.lqip,
     },
     body[] {
       ...,

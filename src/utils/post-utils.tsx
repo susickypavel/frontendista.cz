@@ -41,7 +41,7 @@ export const serializers: Serializer = {
       }
 
       if (style == "blockquote") {
-        return <div className="text-xl mb-8 p-4 bg-blue-500 text-white">{props.children}</div>;
+        return <blockquote className="text-xl mb-8 p-4 bg-blue-500 text-white">{props.children}</blockquote>;
       }
 
       return BlockContent.defaultSerializers.types.block(props);

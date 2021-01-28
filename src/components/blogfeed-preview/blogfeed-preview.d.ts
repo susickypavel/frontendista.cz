@@ -12,6 +12,7 @@ export interface Post {
   body: any;
   mainImage: {
     _id: string;
+    lqip: string;
   };
 }
 
