@@ -1,4 +1,6 @@
 .container {
+  @apply xl:p-4;
+
   ul {
     list-style-type: square;
 

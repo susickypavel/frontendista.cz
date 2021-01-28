@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import classNames from "classnames";
-// import NextImage from "next/image";
-import NextImage from "../test";
+import NextImage from "next/image";
 
 import type { ImageLoader } from "next/image";
 import type { ImageProps } from "./image";
