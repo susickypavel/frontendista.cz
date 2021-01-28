@@ -3,11 +3,11 @@ import BlockContent from "@sanity/block-content-to-react";
 
 import { sanityClient } from "src/utils/data-fetching/sanity-client";
 import { createDocumentPath, dateFormat, serializers } from "src/utils/post-utils";
+import { Image } from "src/components/image/image.component";
 import styles from "src/assets/stylesheets/[slug].module.scss";
 
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import type { Post } from "src/components/blogfeed-preview/blogfeed-preview";
-import { Image } from "src/components/image/image.component";
 
 interface PostProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
@@ -16,24 +16,28 @@ const PostPage: NextPage<PostProps> = ({ post }) => {
 
   return (
     <main className="max-w-main mx-auto">
-      <Image
-        node={{
-          asset: mainImage,
-        }}
-      />
-      <h1>{title}</h1>
-      <time dateTime={publishedAt}>{dateFormat(publishedAt)}</time>
-      <ul>
-        {categories.map(category => {
-          return <li key={category}>{category}</li>;
-        })}
-      </ul>
-      <BlockContent
-        className={styles.container}
-        blocks={body}
-        serializers={serializers}
-        renderContainerOnSingleChild={true}
-      />
+      <article>
+        <header className="mb-8">
+          <Image
+            node={{
+              asset: mainImage,
+            }}
+          />
+          <h1>{title}</h1>
+          <time dateTime={publishedAt}>{dateFormat(publishedAt)}</time>
+          <ul>
+            {categories.map(category => {
+              return <li key={category}>{category}</li>;
+            })}
+          </ul>
+        </header>
+        <BlockContent
+          className={styles.container}
+          blocks={body}
+          serializers={serializers}
+          renderContainerOnSingleChild={true}
+        />
+      </article>
     </main>
   );
 };

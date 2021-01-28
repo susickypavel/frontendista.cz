@@ -2,7 +2,7 @@ import React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 
 import { Image } from "src/components/image/image.component";
-import { Header } from "src/components/header/header.component";
+import { Heading } from "src/components/header/header.component";
 
 import type { Serializer, BlockProps } from "@sanity/block-content-to-react";
 import type { DocumentTypes } from "src/components/blogfeed-preview/blogfeed-preview";
@@ -33,7 +33,7 @@ export const serializers: Serializer = {
       const { style = "normal" } = props.node;
 
       if (/^h\d$/.test(style)) {
-        return <Header {...props} />;
+        return <Heading {...props} />;
       }
 
       if (style === "normal") {
