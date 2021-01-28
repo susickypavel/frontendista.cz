@@ -3,6 +3,7 @@ import BlockContent from "@sanity/block-content-to-react";
 
 import { sanityClient } from "src/utils/data-fetching/sanity-client";
 import { createDocumentPath, dateFormat, serializers } from "src/utils/post-utils";
+import styles from "src/assets/stylesheets/[slug].module.scss";
 
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import type { Post } from "src/components/blogfeed-preview/blogfeed-preview";
@@ -21,7 +22,12 @@ const PostPage: NextPage<PostProps> = ({ post }) => {
           return <li key={category}>{category}</li>;
         })}
       </ul>
-      <BlockContent blocks={body} serializers={serializers} renderContainerOnSingleChild={true} />
+      <BlockContent
+        className={styles.container}
+        blocks={body}
+        serializers={serializers}
+        renderContainerOnSingleChild={true}
+      />
     </main>
   );
 };
