@@ -17,7 +17,9 @@ export const BlogFeedPreview: React.FC<BlogFeedPreviewProps> = ({ preview }) => 
     case "post":
       return (
         <PreviewBarebone preview={preview}>
-          <span className="ml-4 font-medium text-gray-400 order-2">[{preview.categories.join(", ")}]</span>
+          <span className="ml-4 font-medium text-gray-400 order-2 whitespace-nowrap">
+            [{preview.categories.join(", ")}]
+          </span>
         </PreviewBarebone>
       );
     case "gallery":
@@ -31,9 +33,9 @@ const PreviewBarebone: React.FC<BlogFeedPreviewProps> = ({ children, preview }) 
   return (
     <article className={classNames("text-2xl font-bold mb-1", styles.contentHolder)}>
       <Link href={createDocumentPath(preview._type, preview.slug)}>
-        <a className="flex hover:underline">
-          <h2 className="ml-4 order-3">{preview.title}</h2>
-          <time className="order-1" dateTime={preview.publishedAt}>
+        <a className="flex hover:underline xl:flex-col xl:items-center">
+          <h2 className="ml-4 order-3 xl:ml-0 xl:text-center">{preview.title}</h2>
+          <time className="order-1 whitespace-nowrap" dateTime={preview.publishedAt}>
             {dateFormat(preview.publishedAt)}
           </time>
           <div className={classNames("flex items-center order-4", styles.badgeHolder)}>
