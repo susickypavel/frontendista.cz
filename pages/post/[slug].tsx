@@ -23,11 +23,16 @@ const PostPage: NextPage<PostProps> = ({ post }) => {
               asset: mainImage,
             }}
           />
-          <h1>{title}</h1>
-          <time dateTime={publishedAt}>{dateFormat(publishedAt)}</time>
+          <h1 className="text-2xl font-bold">{title}</h1>
+          <time dateTime={publishedAt}>Published on {dateFormat(publishedAt)}</time>
           <ul>
             {categories.map(category => {
-              return <li key={category}>{category}</li>;
+              return (
+                <li className={styles.tag} key={category}>
+                  <span>#</span>
+                  {category}
+                </li>
+              );
             })}
           </ul>
         </header>
