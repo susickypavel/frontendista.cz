@@ -8,20 +8,20 @@ import type { HeaderProps } from "./header.d";
 
 export const headings: Record<ContentHeadings, { textStyles: string; iconStyles: string }> = {
   h1: {
-    textStyles: "text-6xl",
-    iconStyles: "w-12 h-12",
-  },
-  h2: {
-    textStyles: "text-5xl",
-    iconStyles: "w-10 h-10",
-  },
-  h3: {
     textStyles: "text-4xl",
     iconStyles: "w-8 h-8",
   },
-  h4: {
+  h2: {
     textStyles: "text-3xl",
     iconStyles: "w-6 h-6",
+  },
+  h3: {
+    textStyles: "text-2xl",
+    iconStyles: "w-5 h-5",
+  },
+  h4: {
+    textStyles: "text-xl",
+    iconStyles: "w-4 h-4",
   },
 };
 
