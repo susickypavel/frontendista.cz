@@ -45,6 +45,6 @@ describe("Header Component", function () {
 
     const header = getByText(props.children[0]);
 
-    expect(header.classList).toContain(headings[props.node.style as ContentHeadings].textStyles);
+    expect(header.className).toContain(headings[props.node.style as ContentHeadings].textStyles);
   });
 });
