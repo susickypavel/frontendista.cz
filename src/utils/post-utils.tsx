@@ -3,8 +3,9 @@ import BlockContent from "@sanity/block-content-to-react";
 
 import { Image } from "src/components/image/image.component";
 import { Heading } from "src/components/header/header.component";
+import { Link } from "src/components/link/link.component";
 
-import type { Serializer, BlockProps } from "@sanity/block-content-to-react";
+import type { Serializer, BlockProps, ContentLinkProps } from "@sanity/block-content-to-react";
 import type { DocumentTypes } from "src/components/blogfeed-preview/blogfeed-preview";
 import type { ImageProps } from "src/components/image/image";
 
@@ -45,6 +46,11 @@ export const serializers: Serializer = {
       }
 
       return BlockContent.defaultSerializers.types.block(props);
+    },
+  },
+  marks: {
+    link: (props: ContentLinkProps) => {
+      return <Link {...props} />;
     },
   },
 };

@@ -4,11 +4,24 @@ declare module "*.scss" {
 }
 
 declare module "@sanity/block-content-to-react" {
+  export interface ContentLinkProps {
+    children: React.ReactNodeArray;
+    mark: {
+      _key: string;
+      _type: "link";
+      href: string;
+    };
+    markKey: string;
+    _type: "span";
+  }
+
   export type Serializer = Partial<{
     types: {
       [P in "image" | "block"]?: (props: any) => JSX.Element;
     };
-    marks: any;
+    marks: {
+      [P in "link"]?: (props: ContentLinkProps) => JSX.Element;
+    };
     list: any;
     listItem: any;
     hardBreak: any;
