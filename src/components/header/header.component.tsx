@@ -8,20 +8,20 @@ import type { HeaderProps } from "./header.d";
 
 export const headings: Record<ContentHeadings, { textStyles: string; iconStyles: string }> = {
   h1: {
-    textStyles: "text-4xl",
-    iconStyles: "w-8 h-8",
+    textStyles: "text-4xl sm:text-3xl",
+    iconStyles: "w-8 h-8 sm:w-6 h-6",
   },
   h2: {
-    textStyles: "text-3xl",
-    iconStyles: "w-6 h-6",
+    textStyles: "text-3xl sm:text-2xl",
+    iconStyles: "w-6 h-6 sm:w-5 h-5",
   },
   h3: {
-    textStyles: "text-2xl",
-    iconStyles: "w-5 h-5",
+    textStyles: "text-2xl sm:text-xl",
+    iconStyles: "w-5 h-5 sm:w-4 h-4",
   },
   h4: {
-    textStyles: "text-xl",
-    iconStyles: "w-4 h-4",
+    textStyles: "text-xl sm:text-base",
+    iconStyles: "w-4 h-4 sm:w-3 h-3",
   },
 };
 
@@ -32,7 +32,7 @@ export const Heading: React.FC<HeaderProps> = ({ node: { style }, children }) =>
   return (
     <a href={`#${id}`} className="block mb-8">
       <svg
-        className={classNames("inline-block align-middle mr-4", iconStyles)}
+        className={classNames("inline-block align-middle mr-4 sm:mr-3", iconStyles)}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="#000"

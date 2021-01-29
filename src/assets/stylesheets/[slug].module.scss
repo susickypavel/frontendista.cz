@@ -1,5 +1,7 @@
 .container {
-  @apply xl:p-4;
+  & > *:not(.imageContent) {
+    @apply xl:px-4;
+  }
 
   ul {
     list-style-type: square;

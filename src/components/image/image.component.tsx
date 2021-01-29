@@ -27,7 +27,7 @@ export const Image: React.FC<ImageProps> = ({
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className="relative mb-8">
+    <div className="imageContent relative mb-8">
       <img className="h-full w-full absolute top-0 left-0" src={lqip} alt="" />
       <NextImage
         src={_id}

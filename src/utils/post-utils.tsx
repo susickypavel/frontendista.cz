@@ -37,7 +37,7 @@ export const serializers: Serializer = {
       }
 
       if (style === "normal") {
-        return <p className="mb-8 text-xl">{props.children}</p>;
+        return <p className="mb-8 text-xl sm:text-base">{props.children}</p>;
       }
 
       if (style == "blockquote") {
