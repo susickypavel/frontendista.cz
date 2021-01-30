@@ -39,14 +39,6 @@ export const getStaticProps: GetStaticProps = async () => {
     photos[] {
       asset-> {
         _id,
-        metadata {
-          lqip,
-          dimensions {
-            aspectRatio,
-            height,
-            width,
-          }
-        }
       }
     }
   } | order(publishedAt desc)`;
