@@ -8,44 +8,55 @@ import styles from "src/assets/stylesheets/[slug].module.scss";
 
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import type { Post } from "src/components/blogfeed-preview/blogfeed-preview";
+import { PageLayout } from "src/components/page-layout/page-layout.component";
 
 interface PostProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
 const PostPage: NextPage<PostProps> = ({ post }) => {
-  const { title, publishedAt, categories, body, mainImage } = post;
+  const { title, description, publishedAt, categories, body, mainImage } = post;
 
   return (
-    <main className="max-w-main mx-auto">
-      <article>
-        <header className="mb-8">
-          <Image
-            node={{
-              asset: mainImage,
-            }}
+    <PageLayout
+      title={title}
+      description={description}
+      image={{
+        url: mainImage.url,
+        alt: mainImage.alt,
+      }}
+    >
+      <main className="max-w-main mx-auto">
+        <article>
+          <header className="mb-8">
+            <Image
+              node={{
+                alt: mainImage.alt,
+                asset: mainImage.asset,
+              }}
+            />
+            <div className="xl:px-4">
+              <h1 className="text-2xl font-bold">{title}</h1>
+              <time dateTime={publishedAt}>Published on {dateFormat(publishedAt)}</time>
+              <ul>
+                {categories.map(category => {
+                  return (
+                    <li className={styles.tag} key={category}>
+                      <span>#</span>
+                      {category}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </header>
+          <BlockContent
+            className={styles.container}
+            blocks={body}
+            serializers={serializers}
+            renderContainerOnSingleChild={true}
           />
-          <div className="xl:px-4">
-            <h1 className="text-2xl font-bold">{title}</h1>
-            <time dateTime={publishedAt}>Published on {dateFormat(publishedAt)}</time>
-            <ul>
-              {categories.map(category => {
-                return (
-                  <li className={styles.tag} key={category}>
-                    <span>#</span>
-                    {category}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </header>
-        <BlockContent
-          className={styles.container}
-          blocks={body}
-          serializers={serializers}
-          renderContainerOnSingleChild={true}
-        />
-      </article>
-    </main>
+        </article>
+      </main>
+    </PageLayout>
   );
 };
 
@@ -66,9 +77,14 @@ export const getStaticProps: GetStaticProps<{ post: Post }, StaticProps> = async
     "slug": slug.current,
     "categories": categories[]->title,
     title,
-    "mainImage": mainImage.asset-> {
-      _id,
-      "lqip": metadata.lqip,
+    description,
+    "mainImage": {
+      "asset": mainImage.asset-> {
+        _id,
+        "lqip": metadata.lqip,
+      },
+      "alt": mainImage.alt,
+      "url": mainImage.asset->url
     },
     body[] {
       ...,
