@@ -1,5 +1,6 @@
 export interface ImageProps {
   node: {
+    alt: string;
     asset: {
       /**
        * Reference ID of the image

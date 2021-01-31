@@ -5,14 +5,19 @@ export interface Post {
   _id: string;
   slug: string;
   title: string;
+  description: string;
   _createdAt: string;
   _updatedAt: string;
   publishedAt: string;
   categories: string[];
   body: any;
   mainImage: {
-    _id: string;
-    lqip: string;
+    url: string;
+    alt: string;
+    asset: {
+      _id: string;
+      lqip: string;
+    };
   };
 }
 

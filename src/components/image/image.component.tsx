@@ -22,6 +22,7 @@ export const imageLoader: ImageLoader = ({ src, width }) => {
 export const Image: React.FC<ImageProps> = ({
   node: {
     asset: { _id, lqip },
+    alt,
   },
 }) => {
   const [visible, setVisible] = useState(false);
@@ -31,7 +32,7 @@ export const Image: React.FC<ImageProps> = ({
       <img className="h-full w-full absolute top-0 left-0" src={lqip} alt="" />
       <NextImage
         src={_id}
-        alt=""
+        alt={alt}
         className={classNames({
           [styles.imageVisible]: visible,
           [styles.imageHidden]: !visible,
