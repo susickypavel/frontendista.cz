@@ -1,13 +1,27 @@
 import React from "react";
+import { minify } from "terser";
 
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import type { DocumentContext, DocumentInitialProps } from "next/document";
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+import { ThemeLoader } from "src/components/theme/theme-loader/theme-loader.component";
+import { getInitialColorTheme } from "src/utils/initial-theme";
+
+import type { DocumentContext, DocumentInitialProps } from "next/document";
+import type { ThemeLoaderProps } from "src/components/theme/theme-loader/theme-loader";
+
+class MyDocument extends Document<ThemeLoaderProps> {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps & ThemeLoaderProps> {
     const initialProps = await Document.getInitialProps(ctx);
 
-    return { ...initialProps };
+    const codeToMinify = `(${String(getInitialColorTheme)})()`;
+    const { code } = await minify(codeToMinify);
+
+    if (!code) {
+      console.log("Minified code from theme-loader was undefined, killing current process now.");
+      process.exit(1);
+    }
+
+    return { ...initialProps, code };
   }
 
   render(): JSX.Element {
@@ -25,6 +39,7 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         </Head>
         <body>
+          <ThemeLoader code={this.props.code} />
           <Main />
           <NextScript />
         </body>
