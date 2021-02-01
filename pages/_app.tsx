@@ -8,12 +8,14 @@ import type { AppProps } from "next/app";
 
 import "tailwindcss/tailwind.css";
 import "src/styles/global.styles.css";
+import { ThemeToggle } from "src/components/theme/theme-toggle/theme-toggle.component";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
 
   return (
     <Fragment>
+      <ThemeToggle />
       <DefaultSeo
         canonical={"https://pavelsusicky.com" + asPath}
         openGraph={{
