@@ -14,11 +14,11 @@ describe("Initial Theme", function () {
   });
 
   it("should contain theme from localStorage", function () {
-    localStorage.setItem("theme", "custom");
+    localStorage.setItem("theme", "dark");
 
     getInitialColorTheme();
 
-    expect(document.documentElement.classList).toContain("custom");
+    expect(document.documentElement.classList).toContain("dark");
   });
 
   it("should contain theme if matches media query value", function () {

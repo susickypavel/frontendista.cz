@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import dynamic from "next/dynamic";
 
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
@@ -8,7 +9,11 @@ import type { AppProps } from "next/app";
 
 import "tailwindcss/tailwind.css";
 import "src/styles/global.styles.css";
-import { ThemeToggle } from "src/components/theme/theme-toggle/theme-toggle.component";
+
+const ThemeToggle = dynamic<unknown>(
+  () => import("src/components/theme/theme-toggle/theme-toggle.component").then(module => module.ThemeToggle),
+  { ssr: false },
+);
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
