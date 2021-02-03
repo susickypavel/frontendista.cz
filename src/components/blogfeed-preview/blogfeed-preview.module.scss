@@ -1,21 +1,23 @@
 .badgeHolder {
-  @apply ml-auto xl:ml-0 xl:mt-2;
+  @apply ml-auto;
+  @apply lg:ml-0 lg:mt-2;
 
   &:first-child {
-    @apply xl:ml-0;
+    @apply lg:ml-0;
   }
 
   div {
     @apply ml-1;
 
     &:first-of-type {
-      @apply xl:ml-0;
+      @apply lg:ml-0;
     }
   }
 }
 
 .contentHolder {
-  @apply xl:mb-8;
+  @apply text-2xl mb-1;
+  @apply lg:mb-8;
 
   &:last-of-type {
     @apply mb-0;
