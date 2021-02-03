@@ -8,7 +8,7 @@ import type { FC } from "react";
 import type { AppProps } from "next/app";
 
 import "tailwindcss/tailwind.css";
-import "src/styles/global.styles.css";
+import "src/assets/stylesheets/global.styles.css";
 
 const ThemeToggle = dynamic<unknown>(
   () => import("src/components/theme/theme-toggle/theme-toggle.component").then(module => module.ThemeToggle),
