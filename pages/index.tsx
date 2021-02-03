@@ -15,7 +15,7 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ blogFeed }) => {
   return (
     <PageLayout>
-      <main className="max-w-main mx-auto h-screen">
+      <main className="max-w-main mx-auto h-screen px-4 box-content">
         <h1 className="text-center text-5xl py-8 underline">blog</h1>
         {blogFeed.map(preview => {
           const { _id } = preview;

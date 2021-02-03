@@ -31,10 +31,10 @@ export const BlogFeedPreview: React.FC<BlogFeedPreviewProps> = ({ preview }) => 
 
 const PreviewBarebone: React.FC<BlogFeedPreviewProps> = ({ children, preview }) => {
   return (
-    <article className={classNames("text-2xl monospace mb-1", styles.contentHolder)}>
+    <article className={classNames("monospace", styles.contentHolder)}>
       <Link href={createDocumentPath(preview._type, preview.slug)}>
-        <a className="flex hover:underline xl:flex-col xl:items-center">
-          <h2 className="ml-4 order-3 xl:ml-0 xl:text-center">{preview.title}</h2>
+        <a className="flex hover:underline lg:flex-col lg:items-center">
+          <h2 className="ml-4 order-3 lg:ml-0 lg:text-center">{preview.title}</h2>
           <time className="order-1 whitespace-nowrap" dateTime={preview.publishedAt}>
             {dateFormat(preview.publishedAt)}
           </time>
