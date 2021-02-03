@@ -22,6 +22,18 @@
   src: url("/fonts/Inter-Regular.woff2") format("woff2"), url("/fonts/Inter-Regular.woff") format("woff");
 }
 
+@font-face {
+  font-display: swap;
+  font-family: Courier;
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/Courier-Regular.woff2") format("woff2"), url("/fonts/Courier-Regular.woff") format("woff");
+}
+
+.monospace {
+  font-family: Courier, monospace;
+}
+
 body {
   font-family: Inter, sans-serif;
 }

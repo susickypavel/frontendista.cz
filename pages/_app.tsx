@@ -20,7 +20,7 @@ const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <Fragment>
-      <ThemeToggle />
+      {/*<ThemeToggle />*/}
       <DefaultSeo
         canonical={"https://pavelsusicky.com" + asPath}
         openGraph={{
