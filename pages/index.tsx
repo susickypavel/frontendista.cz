@@ -16,13 +16,12 @@ const Index: NextPage<IndexProps> = ({ blogFeed }) => {
   return (
     <PageLayout>
       <main className="max-w-main mx-auto h-screen">
-        <h1 className="text-center text-5xl py-8 underline">2021</h1>
+        <h1 className="text-center text-5xl py-8 underline">blog</h1>
         {blogFeed.map(preview => {
           const { _id } = preview;
 
           return <BlogFeedPreview preview={preview} key={_id} />;
         })}
-        <h1 className="text-center text-5xl py-8 underline">2017 - 2020</h1>
       </main>
     </PageLayout>
   );
