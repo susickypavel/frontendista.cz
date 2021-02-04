@@ -15,7 +15,7 @@ interface IndexProps {
 const Index: NextPage<IndexProps> = ({ blogFeed }) => {
   return (
     <PageLayout>
-      <main className="max-w-main mx-auto h-screen px-4 box-content">
+      <main className="max-w-main mx-auto px-4 box-content">
         <h1 className="text-center text-5xl py-8 underline">blog</h1>
         {blogFeed.map(preview => {
           const { _id } = preview;
@@ -23,6 +23,12 @@ const Index: NextPage<IndexProps> = ({ blogFeed }) => {
           return <BlogFeedPreview preview={preview} key={_id} />;
         })}
       </main>
+      <footer className="max-w-main mx-auto mt-6 flex">
+        <span>
+          <strong>PAVEL SUSICKY</strong> &copy; 2021
+        </span>
+        <span className="flex-grow text-right">Coded with Next.js & Vercel, Sanity.io</span>
+      </footer>
     </PageLayout>
   );
 };
