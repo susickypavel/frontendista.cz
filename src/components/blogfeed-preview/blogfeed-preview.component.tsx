@@ -34,7 +34,7 @@ const PreviewBarebone: React.FC<BlogFeedPreviewProps> = ({ children, preview }) 
     <article className={classNames("monospace", styles.contentHolder)}>
       <Link href={createDocumentPath(preview._type, preview.slug)}>
         <a className="flex hover:underline lg:flex-col lg:items-center">
-          <h2 className="ml-4 order-3 lg:ml-0 lg:text-center">{preview.title}</h2>
+          <h2 className={styles.heading}>{preview.title}</h2>
           <time className="order-1 whitespace-nowrap" dateTime={preview.publishedAt}>
             {dateFormat(preview.publishedAt)}
           </time>

@@ -23,3 +23,15 @@
     @apply mb-0;
   }
 }
+
+.heading {
+  @apply ml-4 order-3;
+  @apply lg:ml-0 lg:text-center;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 40ch;
+
+  @apply lg:w-auto lg:whitespace-normal;
+}
