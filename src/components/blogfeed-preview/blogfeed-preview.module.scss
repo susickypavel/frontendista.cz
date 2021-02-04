@@ -1,37 +1,42 @@
-.badgeHolder {
-  @apply ml-auto;
-  @apply lg:ml-0 lg:mt-2;
+$max-title-width: 50ch;
 
-  &:first-child {
-    @apply lg:ml-0;
+.preview {
+  @apply mb-1;
+  @apply hover:underline;
+  @apply sm:mb-4;
+}
+
+.preview__link {
+  @apply flex text-2xl;
+  @apply sm:flex-col;
+
+  line-height: 2rem;
+
+  h2 {
+    @apply order-2 ml-4;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: $max-title-width;
+
+    @apply sm:ml-0 sm:whitespace-normal sm:w-auto sm:mb-1;
   }
 
-  div {
+  time {
+    @apply order-first whitespace-nowrap text-blue-600;
+  }
+}
+
+.preview__badgeholder {
+  @apply order-3 ml-auto flex;
+  @apply sm:ml-0;
+
+  & > div {
     @apply ml-1;
 
     &:first-of-type {
-      @apply lg:ml-0;
+      @apply ml-0;
     }
   }
-}
-
-.contentHolder {
-  @apply text-2xl mb-1;
-  @apply lg:mb-8;
-
-  &:last-of-type {
-    @apply mb-0;
-  }
-}
-
-.heading {
-  @apply ml-4 order-3;
-  @apply lg:ml-0 lg:text-center;
-
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 40ch;
-
-  @apply lg:w-auto lg:whitespace-normal;
 }
