@@ -23,11 +23,13 @@ const Index: NextPage<IndexProps> = ({ blogFeed }) => {
           return <BlogFeedPreview preview={preview} key={_id} />;
         })}
       </main>
-      <footer className="max-w-main mx-auto mt-6 flex">
+      <footer className="max-w-main mx-auto mt-6 flex xl:px-4">
         <span>
           <strong>PAVEL SUSICKY</strong> &copy; 2021
         </span>
-        <span className="flex-grow text-right">Coded with Next.js & Vercel, Sanity.io</span>
+        <span className="flex-grow text-right">
+          Coded with <b>Next.js</b> & <b>Vercel</b>, <b>Sanity.io</b>
+        </span>
       </footer>
     </PageLayout>
   );
