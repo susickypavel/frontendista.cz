@@ -1,7 +1,9 @@
 .navigation {
-  @apply max-w-main mx-auto pt-8;
+  @apply fixed z-50 bg-white w-full;
+}
 
-  ul {
-    @apply flex;
+.navigation__list {
+  &--hidden {
+    @apply hidden;
   }
 }

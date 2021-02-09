@@ -1,17 +1,3 @@
 .navigationLink {
-  &:not(:first-of-type) {
-    @apply ml-8;
-  }
 
-  a {
-    @apply flex text-2xl;
-
-    svg {
-      @apply mr-2;
-    }
-
-    span {
-      @apply h-6 h-full;
-    }
-  }
 }

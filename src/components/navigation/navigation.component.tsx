@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import classNames from "classnames";
 import dynamic from "next/dynamic";
 
 import styles from "./navigation.module.scss";
 import { NavigationLink } from "src/components/navigation/navigation-link/navigation-link.component";
+import { NavigationToggle } from "./navigation-toggle/navigation-toggle.component";
 
 import type { NavigationLinkItem } from "src/components/navigation/navigation-link/navigation-link";
 import type { NavigationProps } from "./navigation";
@@ -51,9 +52,30 @@ const links: NavigationLinkItem[] = [
 ];
 
 export const Navigation: React.FC<NavigationProps> = ({ fixed = false }) => {
+  const [isHidden, setHidden] = useState(true);
+
+  const handleClick = () => {
+    setHidden(prev => !prev);
+  };
+
   return (
     <nav className={classNames("monospace", styles.navigation)}>
-      <ul>
+      <div className="h-12 flex justify-between">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="48" height="48" fill="none">
+          <path
+            fillRule="evenodd"
+            d="M130.777 204L79 255.777l51.777 51.776v73.224H204l51.777 51.776 51.776-51.776h73.224v-73.224l51.776-51.776L380.777 204v-73.223h-73.224L255.777 79 204 130.777h-73.223V204zm50 20.711v62.132l43.934 43.934h62.132l43.934-43.934v-62.132l-43.934-43.934h-62.132l-43.934 43.934z"
+            fill="#000"
+          />
+        </svg>
+        <NavigationToggle onClick={handleClick} isHidden={isHidden} />
+      </div>
+      <ul
+        className={classNames({
+          [styles["navigation__list"]]: true,
+          [styles["navigation__list--hidden"]]: isHidden,
+        })}
+      >
         {links.map(link => {
           const { text, ...linkProps } = link;
 
