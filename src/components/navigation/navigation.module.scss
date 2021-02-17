@@ -1,9 +1,0 @@
-.navigation {
-  @apply fixed z-50 bg-white w-full;
-}
-
-.navigation__list {
-  &--hidden {
-    @apply hidden;
-  }
-}
