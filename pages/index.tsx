@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
 const IndexPage = () => {
   return (
     <div>
-      <h1>Hello, World from IndexPage</h1>
+      <h1>dsad Hello, World from IndexPage</h1>
     </div>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
