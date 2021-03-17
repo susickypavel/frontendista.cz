@@ -116,3 +116,7 @@ dist
 .pnp.*
 
 .vercel
+
+# Editors & IDEs
+.idea
+.vscode
