@@ -118,5 +118,7 @@ dist
 .vercel
 
 # Editors & IDEs
-.idea
+.idea/*
+!.idea/runConfigurations
+
 .vscode
