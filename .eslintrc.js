@@ -7,7 +7,9 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/typescript"
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -22,22 +24,12 @@ module.exports = {
     "@typescript-eslint"
   ],
   rules: {
-    indent: [
-      "error",
-      2
-    ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
-    quotes: [
-      "error",
-      "double"
-    ],
-    semi: [
-      "error",
-      "always"
-    ]
+    indent: ["error", 2],
+    quotes: ["error", "double"],
+    semi: ["error", "always"],
+    "linebreak-style": ["error", "unix"],
+    "array-bracket-newline": ["error", { "multiline": true }],
+    "import/newline-after-import": ["error", { count: 2 }]
   },
   settings: {
     react: {
