@@ -3,7 +3,7 @@
   "author": "Pavel Sušický <pavels.sus@gmail.com>",
   "repository": "git@github.com:Thesoreon/pavelsusicky.com.git",
   "lint-staged": {
-    "*.{.js,.ts,.tsx}": [
+    "**/*.{js,ts,tsx}": [
       "eslint --fix",
       "git add"
     ]
