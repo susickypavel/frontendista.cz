@@ -29,10 +29,17 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     "array-bracket-newline": ["error", { multiline: true }],
     "import/newline-after-import": ["error", { count: 1 }],
+    "react/prop-types": "off",
+    "@typescript-eslint/no-empty-interface": "warn",
   },
   settings: {
     react: {
       version: "detect",
+    },
+    "import/resolver": {
+      node: {
+        paths: ["."],
+      },
     },
   },
 };
