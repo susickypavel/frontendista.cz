@@ -3,15 +3,15 @@ import Link from "next/link";
 
 import type { NextPage } from "next";
 
-const IndexPage: NextPage = () => {
+const AboutPage: NextPage = () => {
   return (
     <div>
-      <h1>Index Page</h1>
-      <Link href="/about">
-        <a>Go to /about</a>
+      <h1>About Page</h1>
+      <Link href="/">
+        <a>Go to /</a>
       </Link>
     </div>
   );
 };
 
-export default IndexPage;
+export default AboutPage;
