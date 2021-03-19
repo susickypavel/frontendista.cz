@@ -2,6 +2,12 @@
   "name": "pavelsusicky.com",
   "author": "Pavel Sušický <pavels.sus@gmail.com>",
   "repository": "git@github.com:Thesoreon/pavelsusicky.com.git",
+  "lint-staged": {
+    "*.{.js,.ts,.tsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "dev": "next dev -p 80 -H pavelsusicky.com",
     "lint": "eslint .",
@@ -22,6 +28,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.22.0",
     "husky": "^5.1.3",
+    "lint-staged": "^10.5.4",
     "typescript": "^4.2.3"
   },
   "license": "MIT"
