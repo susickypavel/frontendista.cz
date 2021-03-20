@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
     commonjs: true,
+    node: true,
   },
   extends: [
     "eslint:recommended",
@@ -25,7 +26,7 @@ module.exports = {
     indent: ["error", 2],
     quotes: ["error", "double"],
     semi: ["error", "always"],
-    "max-len": ["error", { code: 80 }],
+    "max-len": ["warn", { code: 80 }],
     "linebreak-style": ["error", "unix"],
     "array-bracket-newline": ["error", { multiline: true }],
     "import/newline-after-import": ["error", { count: 1 }],
