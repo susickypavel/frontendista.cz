@@ -1,13 +1,22 @@
-import React, { FunctionComponent } from "react";
-import { PageLayout } from "src/components/page-layout/page-layout.component";
+import React, { Fragment, FunctionComponent } from "react";
+import { DefaultSeo } from "next-seo";
 
 import type { AppProps } from "next/app";
 
-const App: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
+import { createCanonical } from "src/helpers/create-canonical-url";
+
+const App: FunctionComponent<AppProps> = ({
+  Component,
+  pageProps,
+  router: { pathname },
+}) => {
+  const canonical = createCanonical(pathname);
+
   return (
-    <PageLayout>
+    <Fragment>
+      <DefaultSeo titleTemplate="pavelsusicky.com | %s" canonical={canonical} />
       <Component {...pageProps} />
-    </PageLayout>
+    </Fragment>
   );
 };
 
