@@ -1,1 +1,3 @@
-export interface PageLayoutProps {}
+export interface PageLayoutProps {
+  title: string;
+}
