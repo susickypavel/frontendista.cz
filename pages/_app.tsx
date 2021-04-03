@@ -5,6 +5,8 @@ import type { AppProps } from "next/app";
 
 import { createCanonical } from "src/helpers/create-canonical-url";
 
+import "src/stylesheets/global-styles.scss";
+
 const App: FunctionComponent<AppProps> = ({
   Component,
   pageProps,
