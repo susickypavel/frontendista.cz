@@ -14,7 +14,11 @@ const App: FunctionComponent<AppProps> = ({
 
   return (
     <Fragment>
-      <DefaultSeo titleTemplate="pavelsusicky.com | %s" canonical={canonical} />
+      <DefaultSeo
+        titleTemplate="pavelsusicky.com | %s"
+        defaultTitle="pavelsusicky.com"
+        canonical={canonical}
+      />
       <Component {...pageProps} />
     </Fragment>
   );

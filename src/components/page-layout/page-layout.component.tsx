@@ -1,7 +1,7 @@
 import React, { Fragment, FunctionComponent } from "react";
+import { NextSeo } from "next-seo";
 
 import type { PageLayoutProps } from "./page-layout";
-import { NextSeo } from "next-seo";
 
 export const PageLayout: FunctionComponent<PageLayoutProps> = ({
   children,
