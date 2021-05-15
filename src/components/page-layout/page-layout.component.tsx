@@ -16,8 +16,9 @@ export const PageLayout: FunctionComponent<PageLayoutProps> = ({
   );
 
   if (wrapper) {
-    return createElement(wrapper, {
+    return createElement(wrapper.element, {
       children: content,
+      className: wrapper.classes,
     });
   }
 
