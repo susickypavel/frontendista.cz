@@ -1,7 +1,10 @@
-module.exports = (phase, { defaultConfig }) => {
+const withPlugins = require("next-compose-plugins");
+
+const nextConfiguration = (phase, { defaultConfig }) => {
   checkVariables();
 
   return {
+    pageExtensions: ["tsx", "mdx"],
     webpack: (config) => {
       return config;
     },
@@ -14,3 +17,5 @@ function checkVariables() {
     process.exit(1);
   }
 }
+
+module.exports = withPlugins([], nextConfiguration);

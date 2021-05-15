@@ -122,3 +122,5 @@ dist
 !.idea/runConfigurations
 
 .vscode
+
+*.config.js
