@@ -7,7 +7,7 @@ import { PageLayout } from "src/components/page-layout/page-layout.component";
 
 const IndexPage: NextPage = () => {
   return (
-    <PageLayout title="home">
+    <PageLayout title="home" wrapper="main">
       <h1 className="font-bold text-4xl my-4">Index Page</h1>
       <Link href="/about">
         <a>Go to /about</a>
