@@ -8,7 +8,7 @@
     "preview": "next start -p 80 -H pavelsusicky.com",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "lint:style": "stylelint --config stylelint.config.js",
+    "lint:style": "stylelint . --config stylelint.config.js",
     "lint:style:fix": "stylelint --fix --config stylelint.config.js",
     "prettier:fix": "prettier --write",
     "prepare": "husky install"
