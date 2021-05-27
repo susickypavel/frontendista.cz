@@ -12,6 +12,7 @@ import Twitter from "src/assets/icons/twitter.svg";
 import GitHub from "src/assets/icons/github.svg";
 import Discord from "src/assets/icons/discord.svg";
 import { Header } from "src/components/common/components/header/header.component";
+import { VisitIndicator } from "src/components/common/components/visit-indicator/visit-indicator.component";
 
 const IndexPage: NextPage = () => {
   return (
@@ -22,12 +23,17 @@ const IndexPage: NextPage = () => {
         classes: "p-4",
       }}
     >
-      <Header level="h1">Hello, World!</Header>
+      <Header level="h2" className="flex">
+        <VisitIndicator />
+        Hello, World!
+      </Header>
       <Header level="h2">Hello, World!</Header>
       <Header level="h3">Hello, World!</Header>
       <Header level="h4">Hello, World!</Header>
       <Header level="h5">Hello, World!</Header>
       <Header level="h6">Hello, World!</Header>
+
+      <VisitIndicator />
 
       <LinkButton
         href="TODO"
