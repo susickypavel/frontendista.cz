@@ -4,7 +4,6 @@ import type { NextPage } from "next";
 
 import { PageLayout } from "src/components/page-layout/page-layout.component";
 
-import styles from "src/assets/index.module.scss";
 import { LinkButton } from "src/components/common/components/link-button/link-button.component";
 import { FaLinkedin } from "react-icons/fa";
 

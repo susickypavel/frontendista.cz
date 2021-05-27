@@ -5,17 +5,17 @@ $font-weight-map: (
   "Bold": 700,
 );
 
-@function getFontPath($weight) {
+@function get-font-path($weight) {
   @return url("/fonts/Quicksand-" + $weight + ".woff2") format("woff2"),
     url("/fonts/Quicksand-" + $weight + ".woff") format("woff");
 }
 
 @mixin custom-normal-font($weight) {
+  font-display: swap;
   font-family: Quicksand;
   font-style: normal;
-  font-display: swap;
-  src: getFontPath($weight);
   font-weight: map-get($font-weight-map, $weight);
+  src: get-font-path($weight);
 }
 
 @font-face {
