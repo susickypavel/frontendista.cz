@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn lint-staged
+echo "[HUSKY]: Running pre-commit hook."
+
+yarn lint-staged --verbose -c lint-staged.config.js
