@@ -11,18 +11,15 @@ export const LinkButton: FunctionComponent<ButtonProps> = ({
   children,
   className,
   icon,
+  variant = "cta",
 }) => {
   return (
     <a
       href={href}
-      className={classnames(
-        "py-4 px-8 rounded font-bold text-2xl inline-flex items-center transition-colors",
-        "bg-gray-800 text-gray-100",
-        "hover:bg-gray-900 hover:text-indigo-400",
-        "focus:ring-4 ring-indigo-400 outline-none",
-        styles.button,
-        className
-      )}
+      className={classnames(styles.button, className, {
+        [styles.cta]: variant == "cta",
+        [styles.primary]: variant == "primary",
+      })}
     >
       {icon &&
         createElement(icon.component, {

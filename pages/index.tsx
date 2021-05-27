@@ -23,6 +23,7 @@ const IndexPage: NextPage = () => {
     >
       <LinkButton
         href="TODO"
+        variant="primary"
         icon={{
           component: Discord,
           props: {
@@ -34,6 +35,7 @@ const IndexPage: NextPage = () => {
       </LinkButton>
       <LinkButton
         href="https://github.com/Thesoreon"
+        variant="primary"
         icon={{
           component: GitHub,
           props: {
@@ -45,6 +47,7 @@ const IndexPage: NextPage = () => {
       </LinkButton>
       <LinkButton
         href="https://twitter.com/thesoreon"
+        variant="primary"
         icon={{
           component: Twitter,
         }}
@@ -53,6 +56,7 @@ const IndexPage: NextPage = () => {
       </LinkButton>
       <LinkButton
         href="https://www.linkedin.com/in/pavel-susicky/"
+        variant="primary"
         icon={{
           component: LinkedIn,
         }}
