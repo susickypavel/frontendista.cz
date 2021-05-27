@@ -25,7 +25,10 @@ export const LinkButton: FunctionComponent<ButtonProps> = ({
       )}
     >
       {icon &&
-        createElement(icon.component, { className: "mr-3", ...icon.props })}
+        createElement(icon.component, {
+          ...icon.props,
+          className: "mr-3 h-6",
+        })}
       {children}
     </a>
   );
