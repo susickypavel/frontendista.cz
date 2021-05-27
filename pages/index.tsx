@@ -16,7 +16,6 @@ const IndexPage: NextPage = () => {
         classes: "p-4",
       }}
     >
-      <h1>TODO</h1>
       <LinkButton
         href="https://duckduckgo.com"
         icon={{

@@ -26,7 +26,7 @@ module.exports = {
     indent: ["error", 2],
     quotes: ["error", "double"],
     semi: ["error", "always"],
-    "max-len": ["warn", { code: 80 }],
+    "max-len": ["warn", { code: 90 }],
     "linebreak-style": ["error", "unix"],
     "array-bracket-newline": ["error", { multiline: true }],
     "import/newline-after-import": ["error", { count: 1 }],
