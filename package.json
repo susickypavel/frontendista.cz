@@ -4,6 +4,8 @@
   "repository": "git@github.com:Thesoreon/pavelsusicky.com.git",
   "scripts": {
     "dev": "next dev -p 80 -H pavelsusicky.com",
+    "build": "next build",
+    "preview": "next start -p 80 -H pavelsusicky.com",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "prettier:fix": "prettier --write",
