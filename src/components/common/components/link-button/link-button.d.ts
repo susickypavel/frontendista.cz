@@ -1,3 +1,5 @@
+import type { IconBaseProps, IconType } from "react-icons/lib";
+
 type ColorsWithoutVariants = "black" | "white";
 
 type ButtonColors =
@@ -31,5 +33,10 @@ type BackgroundColors =
   | `bg_${ColorsWithoutVariants}`;
 
 export interface ButtonProps {
+  href: string;
   className?: string;
+  icon?: {
+    component: IconType;
+    props?: IconBaseProps;
+  };
 }

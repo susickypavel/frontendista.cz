@@ -5,7 +5,8 @@ import type { NextPage } from "next";
 import { PageLayout } from "src/components/page-layout/page-layout.component";
 
 import styles from "src/assets/index.module.scss";
-import { Button } from "src/components/common/components/button/button.component";
+import { LinkButton } from "src/components/common/components/link-button/link-button.component";
+import { FaLinkedin } from "react-icons/fa";
 
 const IndexPage: NextPage = () => {
   return (
@@ -17,7 +18,15 @@ const IndexPage: NextPage = () => {
       }}
     >
       <h1>TODO</h1>
-      <Button>GitHub</Button>
+      <LinkButton
+        href="https://duckduckgo.com"
+        icon={{
+          component: FaLinkedin,
+          props: { fill: "#0077B5" },
+        }}
+      >
+        GitHub
+      </LinkButton>
     </PageLayout>
   );
 };
