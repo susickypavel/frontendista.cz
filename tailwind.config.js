@@ -3,7 +3,11 @@ module.exports = {
   purge: ["./src/**/*.{ts,tsx}", "./pages/**/*.{ts,tsx}"],
   darkMode: false,
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        "6.5xl": "4rem",
+      },
+    },
   },
   variants: {
     extend: {},

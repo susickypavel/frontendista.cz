@@ -11,6 +11,7 @@ import LinkedIn from "src/assets/icons/linkedin.svg";
 import Twitter from "src/assets/icons/twitter.svg";
 import GitHub from "src/assets/icons/github.svg";
 import Discord from "src/assets/icons/discord.svg";
+import { Header } from "src/components/common/components/header/header.component";
 
 const IndexPage: NextPage = () => {
   return (
@@ -21,6 +22,13 @@ const IndexPage: NextPage = () => {
         classes: "p-4",
       }}
     >
+      <Header level="h1">Hello, World!</Header>
+      <Header level="h2">Hello, World!</Header>
+      <Header level="h3">Hello, World!</Header>
+      <Header level="h4">Hello, World!</Header>
+      <Header level="h5">Hello, World!</Header>
+      <Header level="h6">Hello, World!</Header>
+
       <LinkButton
         href="TODO"
         variant="primary"

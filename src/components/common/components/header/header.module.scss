@@ -1,0 +1,51 @@
+@mixin header-base {
+  @apply font-bold leading-none mb-4;
+}
+
+.h1 {
+  @include header-base();
+
+  text-shadow: 2px 2px 0 #97a6ba;
+
+  @apply text-6.5xl text-purple-700;
+}
+
+.h2 {
+  @include header-base();
+
+  text-shadow: 1.5px 1.5px 0 #97a6ba;
+
+  @apply text-5xl text-purple-600;
+}
+
+.h3 {
+  @include header-base();
+
+  text-shadow: 1.25px 1.25px 0 #97a6ba;
+
+  @apply text-4xl text-purple-600;
+}
+
+.h4 {
+  @include header-base();
+
+  text-shadow: 1px 1px 0 #97a6ba;
+
+  @apply text-3xl text-purple-600;
+}
+
+.h5 {
+  @include header-base();
+
+  text-shadow: 0.75px 0.75px 0 #97a6ba;
+
+  @apply text-2xl text-purple-600;
+}
+
+.h6 {
+  @include header-base();
+
+  text-shadow: 0.5px 0.5px 0 #97a6ba;
+
+  @apply text-xl text-purple-600;
+}
