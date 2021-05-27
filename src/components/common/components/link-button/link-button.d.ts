@@ -1,10 +1,10 @@
-import type { IconBaseProps, IconType } from "react-icons/lib";
+import type { IconProps, IconType } from "next-env";
 
 export interface ButtonProps {
   href: string;
   className?: string;
   icon?: {
     component: IconType;
-    props?: IconBaseProps;
+    props?: IconProps;
   };
 }

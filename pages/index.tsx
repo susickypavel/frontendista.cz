@@ -5,7 +5,6 @@ import type { NextPage } from "next";
 import { PageLayout } from "src/components/page-layout/page-layout.component";
 
 import { LinkButton } from "src/components/common/components/link-button/link-button.component";
-import { FaLinkedin } from "react-icons/fa";
 
 const IndexPage: NextPage = () => {
   return (
@@ -15,17 +14,7 @@ const IndexPage: NextPage = () => {
         element: "main",
         classes: "p-4",
       }}
-    >
-      <LinkButton
-        href="https://duckduckgo.com"
-        icon={{
-          component: FaLinkedin,
-          props: { fill: "#0077B5" },
-        }}
-      >
-        GitHub
-      </LinkButton>
-    </PageLayout>
+    ></PageLayout>
   );
 };
 

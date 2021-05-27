@@ -1,11 +1,13 @@
-const withPlugins = require("next-compose-plugins");
-
-const nextConfiguration = (phase, { defaultConfig }) => {
+module.exports = (phase, { defaultConfig }) => {
   checkVariables();
 
   return {
-    pageExtensions: ["tsx", "mdx"],
     webpack: (config) => {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
+      });
+
       return config;
     },
   };
@@ -17,5 +19,3 @@ function checkVariables() {
     process.exit(1);
   }
 }
-
-module.exports = withPlugins([], nextConfiguration);
