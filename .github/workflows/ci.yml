@@ -1,0 +1,15 @@
+name: "CI"
+
+on: [pull_request]
+
+jobs:
+  bundlewatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: compressed-size-action
+        uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: "./.next/static/chunks/*.js"
+          strip-hash: "\\b-[a-z0-9]{1,}\\b"
