@@ -11,5 +11,5 @@ jobs:
       - name: compressed-size-action
         uses: preactjs/compressed-size-action@v2
         with:
-          pattern: "./.next/static/chunks/*.js"
+          pattern: "./.next/static/chunks/**/*.js"
           strip-hash: "\\b-[a-z0-9]{1,}\\b"
