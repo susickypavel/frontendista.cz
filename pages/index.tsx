@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import { Button } from "@susicky/design-system-react";
 
 import type { NextPage } from "next";
