@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import "@susicky/design-system-react/lib/index.css";
 
 import type { NextPage } from "next";
