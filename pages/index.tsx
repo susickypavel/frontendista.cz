@@ -1,13 +1,25 @@
 import * as React from "react";
 
-import { Button } from "@susicky/design-system-react";
-
 import type { NextPage } from "next";
+
+import { Blob } from "../src/components/blob.component";
 
 const Home: NextPage = () => {
   return (
     <div>
-      Hello, World! <Button>Test</Button>
+      <header>
+        <Blob />
+      </header>
+      <style jsx>{`
+        header {
+          height: 100vh;
+          width: 100vw;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+        }
+      `}</style>
     </div>
   );
 };
