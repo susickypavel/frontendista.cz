@@ -1,7 +1,5 @@
 {
-  "private": true,
-  "name": "test-next-app",
-  "version": "0.1.0",
+  "name": "pavelsusicky.com",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -27,5 +25,10 @@
     "eslint-plugin-react": "^7.24.0",
     "sass": "^1.38.0",
     "typescript": "^4.3.5"
-  }
+  },
+  "repository": {
+    "url": "https://github.com/Thesoreon/pavelsusicky.com/",
+    "type": "git"
+  },
+  "license": "MIT"
 }
