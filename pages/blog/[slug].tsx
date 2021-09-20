@@ -2,16 +2,17 @@ import * as React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 
 import { fetchOrThrow } from "../../src/utils/sanity-client-utils";
+import { Layout } from "../../src/components/layout.component";
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
 const BlogPost: NextPage<any> = (props) => {
   return (
-    <div>
+    <Layout title={`${props.title} - Pavel Susicky`}>
       <h1>{props.title}</h1>
       <p>{props.publishedAt}</p>
       <BlockContent blocks={props.body} serializers={{}} />
-    </div>
+    </Layout>
   );
 };
 
