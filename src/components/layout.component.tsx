@@ -11,7 +11,12 @@ export const Layout: React.FunctionComponent<LayoutProps> = ({
 }) => {
   return (
     <React.Fragment>
-      <NextSeo title={title} />
+      <NextSeo
+        title={title}
+        openGraph={{
+          title,
+        }}
+      />
       {children}
     </React.Fragment>
   );

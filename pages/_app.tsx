@@ -8,9 +8,30 @@ import type { AppProps } from "next/app";
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
 
+  const url = process.env.NEXT_PUBLIC_DOMAIN + asPath;
+
   return (
     <React.Fragment>
-      <DefaultSeo canonical={process.env.NEXT_PUBLIC_DOMAIN + asPath} />
+      <DefaultSeo
+        title="Pavel Susicky"
+        description="Software engineer based in Prague, Czech republic"
+        canonical={url}
+        openGraph={{
+          url,
+          type: "website",
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_DOMAIN}/images/default.jpg`,
+              width: 1920,
+              height: 1080,
+            },
+          ],
+        }}
+        twitter={{
+          handle: "@thesoreon",
+          cardType: "summary_large_image",
+        }}
+      />
       <Component {...pageProps} />
     </React.Fragment>
   );
