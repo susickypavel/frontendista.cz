@@ -35,6 +35,10 @@ const { default: chalk } = require("chalk");
  */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ["cdn.sanity.io"],
+    deviceSizes: [640, 768, 1080, 1440, 1920, 3840],
+  },
 };
 
 module.exports = nextConfig;

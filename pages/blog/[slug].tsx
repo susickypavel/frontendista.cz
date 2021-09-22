@@ -1,17 +1,27 @@
 import * as React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 
+import { imageSerializer } from "../../src/utils/blog-post-utils";
 import { fetchOrThrow } from "../../src/utils/sanity-client-utils";
 import { Layout } from "../../src/components/layout.component";
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 
-const BlogPost: NextPage<any> = (props) => {
+type BlogPostProps = any;
+
+const BlogPost: NextPage<BlogPostProps> = (props) => {
   return (
     <Layout title={`${props.title} - Pavel Susicky`}>
       <h1>{props.title}</h1>
       <p>{props.publishedAt}</p>
-      <BlockContent blocks={props.body} serializers={{}} />
+      <BlockContent
+        blocks={props.body}
+        serializers={{
+          types: {
+            image: imageSerializer,
+          },
+        }}
+      />
     </Layout>
   );
 };
@@ -45,7 +55,15 @@ export const getStaticProps: GetStaticProps<any, { slug: string }> = async (
 ) => {
   try {
     const postQuery = `*[_type == "post" && slug.current == $slug] {
-      ...
+      title,
+      publishedAt,
+      body[] {
+        ...,
+        asset->{
+          ...,
+          "_key": _id
+        }
+      }
     }[0]`;
 
     const result = await fetchOrThrow(postQuery, {
