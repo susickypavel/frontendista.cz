@@ -2,6 +2,12 @@ name: "CI"
 
 on: [pull_request]
 
+env:
+  NEXT_PUBLIC_DOMAIN: http://localhost:3000
+  SANITY_CLIENT_TOKEN: ${{ secrets.SANITY_CLIENT_TOKEN }}
+  SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+  SANITY_DATASET_ID: ${{ secrets.SANITY_DATASET_ID }}
+
 jobs:
   codeclimate:
     runs-on: ubuntu-latest
