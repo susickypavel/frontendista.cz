@@ -5,6 +5,8 @@ import { DefaultSeo } from "next-seo";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
+import "../src/stylesheets/global.scss";
+
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
 
