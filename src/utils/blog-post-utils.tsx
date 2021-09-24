@@ -56,6 +56,22 @@ export function imageSerializer(props: SanityImageProps) {
   );
 }
 
+interface SanityLinkProps {
+  children: any;
+  mark: {
+    href: string;
+  };
+}
+
+export function linkSerializer(props: SanityLinkProps) {
+  return (
+    <a href={props.mark.href}>
+      {props.children}
+      <img src={"/api/favicon?url=" + props.mark.href} />
+    </a>
+  );
+}
+
 export function imageLoader({ src, quality, width }: ImageProps) {
   return `${src}?format=auto&quality=${quality ?? 80}&w=${width}`;
 }
