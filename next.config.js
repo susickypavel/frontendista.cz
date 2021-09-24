@@ -7,6 +7,7 @@ const { default: chalk } = require("chalk");
       "SANITY_PROJECT_ID",
       "SANITY_DATASET_ID",
       "SANITY_CLIENT_TOKEN",
+      "SANITY_GRAPHQL_ENDPOINT",
     ];
 
     let isOkFlag = true;
