@@ -1,7 +1,10 @@
 import * as React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 
-import { imageSerializer } from "../../src/utils/blog-post-utils";
+import {
+  imageSerializer,
+  linkSerializer,
+} from "../../src/utils/blog-post-utils";
 import { fetchOrThrow } from "../../src/utils/sanity-client-utils";
 import { Layout } from "../../src/components/layout.component";
 
@@ -17,6 +20,9 @@ const BlogPost: NextPage<BlogPostProps> = (props) => {
       <BlockContent
         blocks={props.body}
         serializers={{
+          marks: {
+            link: linkSerializer,
+          },
           types: {
             image: imageSerializer,
           },
