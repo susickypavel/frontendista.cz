@@ -12,8 +12,8 @@ module.exports = {
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    // "stylelint-config-prettier",
     "prettier",
-    "stylelint-config-prettier",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
