@@ -1,12 +1,15 @@
 import * as React from "react";
 import BlockContent from "@sanity/block-content-to-react";
+import chalk from "chalk";
 
 import {
   imageSerializer,
   linkSerializer,
 } from "../../src/utils/blog-post-utils";
 import { fetchOrThrow } from "../../src/utils/apollo-client-utils";
+import { fetchOrThrow as sanityFetchOrThrow } from "../../src/utils/sanity-client-utils";
 import { Layout } from "../../src/components/layout.component";
+import { ALL_POSTS, POST_BODY, POST_BY_SLUG } from "../../src/queries/blog";
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import type {
@@ -15,20 +18,17 @@ import type {
   PostsSlugsQuery,
 } from "../../src/generated/graphql";
 
-import chalk from "chalk";
-import { ALL_POSTS, POST_BY_SLUG } from "../../src/queries/blog";
+type BlogPostProps = Omit<PostBySlugQuery["allPost"][0], "__typename"> & {
+  body: any;
+};
 
-type BlogPostProps = PostBySlugQuery["allPost"][0];
-
-const BlogPost: NextPage<BlogPostProps> = (props) => {
-  console.log(props);
-
+const BlogPost: NextPage<BlogPostProps> = ({ title, body, publishedAt }) => {
   return (
-    <Layout title={`${props.title} - Pavel Susicky`}>
-      <h1>{props.title}</h1>
-      <p>{props.publishedAt}</p>
+    <Layout title={`${title} - Pavel Susicky`}>
+      <h1>{title}</h1>
+      <p>{publishedAt}</p>
       <BlockContent
-        blocks={props.bodyRaw}
+        blocks={body}
         serializers={{
           marks: {
             link: linkSerializer,
@@ -95,9 +95,18 @@ export const getStaticProps: GetStaticProps<BlogPostProps, { slug: string }> =
 
       const post = allPost[0];
 
+      const result = await sanityFetchOrThrow<{ body: any }, { slug: string }>(
+        POST_BODY,
+        {
+          slug: ctx.params.slug,
+        }
+      );
+
       return {
         props: {
-          ...post,
+          title: post.title,
+          publishedAt: post.publishedAt,
+          body: result.body,
         },
       };
     } catch (error) {

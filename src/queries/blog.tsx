@@ -1,11 +1,14 @@
 import gql from "graphql-tag";
 
+/**
+ * GraphQL queries
+ */
+
 export const POST_BY_SLUG = gql`
   query PostBySlug($slug: String!) {
     allPost(where: { slug: { current: { eq: $slug } } }) {
       title
       publishedAt
-      bodyRaw
     }
   }
 `;
@@ -19,3 +22,24 @@ export const ALL_POSTS = gql`
     }
   }
 `;
+
+/**
+ * GROQ QUERIES
+ */
+
+export const POST_BODY = `*[_type == "post" && slug.current == $slug] {
+  body[] {
+    ...,
+    asset-> {
+      url,
+      metadata {
+        lqip,
+        dimensions {
+          width,
+          height,
+          aspectRatio
+        }
+      }
+    }
+  }
+}[0]`;
