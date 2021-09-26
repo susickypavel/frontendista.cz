@@ -2,7 +2,7 @@ import * as React from "react";
 
 import type { NextPage } from "next";
 
-import { Blob } from "../src/components/blob.component";
+import { Blob } from "@components/blob.component";
 
 const Home: NextPage = () => {
   return (
