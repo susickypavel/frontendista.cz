@@ -2,21 +2,19 @@ import * as React from "react";
 import BlockContent from "@sanity/block-content-to-react";
 import chalk from "chalk";
 
-import {
-  imageSerializer,
-  linkSerializer,
-} from "../../src/utils/blog-post-utils";
-import { fetchOrThrow } from "../../src/utils/apollo-client-utils";
-import { fetchOrThrow as sanityFetchOrThrow } from "../../src/utils/sanity-client-utils";
-import { Layout } from "../../src/components/layout.component";
-import { ALL_POSTS, POST_BODY, POST_BY_SLUG } from "../../src/queries/blog";
+import { Layout } from "@components/layout.component";
+import { imageSerializer, linkSerializer } from "@utils/blog-post-utils";
+import { fetchOrThrow as apolloFetch } from "@utils/apollo-client-utils";
+import { fetchOrThrow as sanityFetch } from "@utils/sanity-client-utils";
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import type {
   PostBySlugQuery,
   PostBySlugQueryVariables,
   PostsSlugsQuery,
-} from "../../src/generated/graphql";
+} from "@generated/graphql";
+
+import { ALL_POSTS, POST_BODY, POST_BY_SLUG } from "@query/blog";
 
 type BlogPostProps = Omit<PostBySlugQuery["allPost"][0], "__typename"> & {
   body: any;
@@ -44,7 +42,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ title, body, publishedAt }) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const { allPost } = await fetchOrThrow<PostsSlugsQuery>(ALL_POSTS);
+    const { allPost } = await apolloFetch<PostsSlugsQuery>(ALL_POSTS);
 
     if (!Array.isArray(allPost) || !allPost) {
       throw new Error(
@@ -82,7 +80,7 @@ export const getStaticProps: GetStaticProps<BlogPostProps, { slug: string }> =
         throw new Error("Slug is not defined.");
       }
 
-      const { allPost } = await fetchOrThrow<
+      const { allPost } = await apolloFetch<
         PostBySlugQuery,
         PostBySlugQueryVariables
       >(POST_BY_SLUG, {
@@ -95,7 +93,7 @@ export const getStaticProps: GetStaticProps<BlogPostProps, { slug: string }> =
 
       const post = allPost[0];
 
-      const result = await sanityFetchOrThrow<{ body: any }, { slug: string }>(
+      const result = await sanityFetch<{ body: any }, { slug: string }>(
         POST_BODY,
         {
           slug: ctx.params.slug,
