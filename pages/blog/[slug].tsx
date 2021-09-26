@@ -5,20 +5,30 @@ import {
   imageSerializer,
   linkSerializer,
 } from "../../src/utils/blog-post-utils";
-import { fetchOrThrow } from "../../src/utils/sanity-client-utils";
+import { fetchOrThrow } from "../../src/utils/apollo-client-utils";
 import { Layout } from "../../src/components/layout.component";
 
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import type {
+  PostBySlugQuery,
+  PostBySlugQueryVariables,
+  PostsSlugsQuery,
+} from "../../src/generated/graphql";
 
-type BlogPostProps = any;
+import chalk from "chalk";
+import { ALL_POSTS, POST_BY_SLUG } from "../../src/queries/blog";
+
+type BlogPostProps = PostBySlugQuery["allPost"][0];
 
 const BlogPost: NextPage<BlogPostProps> = (props) => {
+  console.log(props);
+
   return (
     <Layout title={`${props.title} - Pavel Susicky`}>
       <h1>{props.title}</h1>
       <p>{props.publishedAt}</p>
       <BlockContent
-        blocks={props.body}
+        blocks={props.bodyRaw}
         serializers={{
           marks: {
             link: linkSerializer,
@@ -34,19 +44,28 @@ const BlogPost: NextPage<BlogPostProps> = (props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const postsQuery = `*[_type == "post"] {
-      "slug": slug.current
-    }`;
+    const { allPost } = await fetchOrThrow<PostsSlugsQuery>(ALL_POSTS);
 
-    const result = await fetchOrThrow<{ slug: string }[]>(postsQuery);
-    const paths = result.map((post) => `/blog/${post.slug}`);
+    if (!Array.isArray(allPost) || !allPost) {
+      throw new Error(
+        "No data were found. Either add new posts or check if ApolloClient has working authorization token."
+      );
+    }
+
+    const paths = allPost.map((post) => {
+      if (!post.slug || !post.slug.current) {
+        throw new Error("Slug is not defined.");
+      }
+
+      return `/blog/${post.slug.current}`;
+    });
 
     return {
       paths,
       fallback: false,
     };
   } catch (error) {
-    console.info(error);
+    console.info(chalk.red(error));
 
     if (process.env.NODE_ENV === "production") {
       process.exit(1);
@@ -56,38 +75,40 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
-export const getStaticProps: GetStaticProps<any, { slug: string }> = async (
-  ctx
-) => {
-  try {
-    const postQuery = `*[_type == "post" && slug.current == $slug] {
-      title,
-      publishedAt,
-      body[] {
-        ...,
-        asset->{
-          ...,
-          "_key": _id
-        }
+export const getStaticProps: GetStaticProps<BlogPostProps, { slug: string }> =
+  async (ctx) => {
+    try {
+      if (!ctx.params?.slug) {
+        throw new Error("Slug is not defined.");
       }
-    }[0]`;
 
-    const result = await fetchOrThrow(postQuery, {
-      slug: ctx.params?.slug,
-    });
+      const { allPost } = await fetchOrThrow<
+        PostBySlugQuery,
+        PostBySlugQueryVariables
+      >(POST_BY_SLUG, {
+        slug: ctx.params.slug,
+      });
 
-    return {
-      props: result,
-    };
-  } catch (error) {
-    console.info(error);
+      if (!allPost || (Array.isArray(allPost) && !allPost.length)) {
+        throw new Error("Post is not defined or was empty.");
+      }
 
-    if (process.env.NODE_ENV === "production") {
-      process.exit(1);
+      const post = allPost[0];
+
+      return {
+        props: {
+          ...post,
+        },
+      };
+    } catch (error) {
+      console.info(chalk.red(error));
+
+      if (process.env.NODE_ENV === "production") {
+        process.exit(1);
+      }
+
+      throw new Error("[SSG][BLOG]: An error occured in getStaticProps.");
     }
-
-    throw new Error("[SSG][BLOG]: An error occured in getStaticProps.");
-  }
-};
+  };
 
 export default BlogPost;
