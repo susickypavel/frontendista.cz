@@ -1,10 +1,16 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import { gql } from "@apollo/client";
+import * as Apollo from "@apollo/client";
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
-const defaultOptions =  {}
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
+const defaultOptions = {};
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -21,21 +27,21 @@ export type Scalars = {
 };
 
 export type Author = Document & {
-  __typename?: 'Author';
+  __typename?: "Author";
   /** Date the document was created */
-  _createdAt?: Maybe<Scalars['DateTime']>;
+  _createdAt?: Maybe<Scalars["DateTime"]>;
   /** Document ID */
-  _id?: Maybe<Scalars['ID']>;
-  _key?: Maybe<Scalars['String']>;
+  _id?: Maybe<Scalars["ID"]>;
+  _key?: Maybe<Scalars["String"]>;
   /** Current document revision */
-  _rev?: Maybe<Scalars['String']>;
+  _rev?: Maybe<Scalars["String"]>;
   /** Document type */
-  _type?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars["String"]>;
   /** Date the document was last modified */
-  _updatedAt?: Maybe<Scalars['DateTime']>;
-  bioRaw?: Maybe<Scalars['JSON']>;
+  _updatedAt?: Maybe<Scalars["DateTime"]>;
+  bioRaw?: Maybe<Scalars["JSON"]>;
   image?: Maybe<Image>;
-  name?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars["String"]>;
   slug?: Maybe<Slug>;
 };
 
@@ -66,38 +72,38 @@ export type AuthorSorting = {
 };
 
 export type Block = {
-  __typename?: 'Block';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
+  __typename?: "Block";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
   children?: Maybe<Array<Maybe<Span>>>;
-  list?: Maybe<Scalars['String']>;
-  style?: Maybe<Scalars['String']>;
+  list?: Maybe<Scalars["String"]>;
+  style?: Maybe<Scalars["String"]>;
 };
 
 export type BlockOrImage = Block | Image;
 
 export type BooleanFilter = {
   /** Checks if the value is equal to the given input. */
-  eq?: Maybe<Scalars['Boolean']>;
+  eq?: Maybe<Scalars["Boolean"]>;
   /** Checks if the value is not equal to the given input. */
-  neq?: Maybe<Scalars['Boolean']>;
+  neq?: Maybe<Scalars["Boolean"]>;
 };
 
 export type Category = Document & {
-  __typename?: 'Category';
+  __typename?: "Category";
   /** Date the document was created */
-  _createdAt?: Maybe<Scalars['DateTime']>;
+  _createdAt?: Maybe<Scalars["DateTime"]>;
   /** Document ID */
-  _id?: Maybe<Scalars['ID']>;
-  _key?: Maybe<Scalars['String']>;
+  _id?: Maybe<Scalars["ID"]>;
+  _key?: Maybe<Scalars["String"]>;
   /** Current document revision */
-  _rev?: Maybe<Scalars['String']>;
+  _rev?: Maybe<Scalars["String"]>;
   /** Document type */
-  _type?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars["String"]>;
   /** Date the document was last modified */
-  _updatedAt?: Maybe<Scalars['DateTime']>;
-  description?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
+  _updatedAt?: Maybe<Scalars["DateTime"]>;
+  description?: Maybe<Scalars["String"]>;
+  title?: Maybe<Scalars["String"]>;
 };
 
 export type CategoryFilter = {
@@ -126,46 +132,46 @@ export type CategorySorting = {
 
 export type DateFilter = {
   /** Checks if the value is equal to the given input. */
-  eq?: Maybe<Scalars['Date']>;
+  eq?: Maybe<Scalars["Date"]>;
   /** Checks if the value is greater than the given input. */
-  gt?: Maybe<Scalars['Date']>;
+  gt?: Maybe<Scalars["Date"]>;
   /** Checks if the value is greater than or equal to the given input. */
-  gte?: Maybe<Scalars['Date']>;
+  gte?: Maybe<Scalars["Date"]>;
   /** Checks if the value is lesser than the given input. */
-  lt?: Maybe<Scalars['Date']>;
+  lt?: Maybe<Scalars["Date"]>;
   /** Checks if the value is lesser than or equal to the given input. */
-  lte?: Maybe<Scalars['Date']>;
+  lte?: Maybe<Scalars["Date"]>;
   /** Checks if the value is not equal to the given input. */
-  neq?: Maybe<Scalars['Date']>;
+  neq?: Maybe<Scalars["Date"]>;
 };
 
 export type DatetimeFilter = {
   /** Checks if the value is equal to the given input. */
-  eq?: Maybe<Scalars['DateTime']>;
+  eq?: Maybe<Scalars["DateTime"]>;
   /** Checks if the value is greater than the given input. */
-  gt?: Maybe<Scalars['DateTime']>;
+  gt?: Maybe<Scalars["DateTime"]>;
   /** Checks if the value is greater than or equal to the given input. */
-  gte?: Maybe<Scalars['DateTime']>;
+  gte?: Maybe<Scalars["DateTime"]>;
   /** Checks if the value is lesser than the given input. */
-  lt?: Maybe<Scalars['DateTime']>;
+  lt?: Maybe<Scalars["DateTime"]>;
   /** Checks if the value is lesser than or equal to the given input. */
-  lte?: Maybe<Scalars['DateTime']>;
+  lte?: Maybe<Scalars["DateTime"]>;
   /** Checks if the value is not equal to the given input. */
-  neq?: Maybe<Scalars['DateTime']>;
+  neq?: Maybe<Scalars["DateTime"]>;
 };
 
 /** A Sanity document */
 export type Document = {
   /** Date the document was created */
-  _createdAt?: Maybe<Scalars['DateTime']>;
+  _createdAt?: Maybe<Scalars["DateTime"]>;
   /** Document ID */
-  _id?: Maybe<Scalars['ID']>;
+  _id?: Maybe<Scalars["ID"]>;
   /** Current document revision */
-  _rev?: Maybe<Scalars['String']>;
+  _rev?: Maybe<Scalars["String"]>;
   /** Document type */
-  _type?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars["String"]>;
   /** Date the document was last modified */
-  _updatedAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt?: Maybe<Scalars["DateTime"]>;
 };
 
 export type DocumentFilter = {
@@ -187,9 +193,9 @@ export type DocumentSorting = {
 };
 
 export type File = {
-  __typename?: 'File';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
+  __typename?: "File";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
   asset?: Maybe<SanityFileAsset>;
 };
 
@@ -206,26 +212,26 @@ export type FileSorting = {
 
 export type FloatFilter = {
   /** Checks if the value is equal to the given input. */
-  eq?: Maybe<Scalars['Float']>;
+  eq?: Maybe<Scalars["Float"]>;
   /** Checks if the value is greater than the given input. */
-  gt?: Maybe<Scalars['Float']>;
+  gt?: Maybe<Scalars["Float"]>;
   /** Checks if the value is greater than or equal to the given input. */
-  gte?: Maybe<Scalars['Float']>;
+  gte?: Maybe<Scalars["Float"]>;
   /** Checks if the value is lesser than the given input. */
-  lt?: Maybe<Scalars['Float']>;
+  lt?: Maybe<Scalars["Float"]>;
   /** Checks if the value is lesser than or equal to the given input. */
-  lte?: Maybe<Scalars['Float']>;
+  lte?: Maybe<Scalars["Float"]>;
   /** Checks if the value is not equal to the given input. */
-  neq?: Maybe<Scalars['Float']>;
+  neq?: Maybe<Scalars["Float"]>;
 };
 
 export type Geopoint = {
-  __typename?: 'Geopoint';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['Float']>;
-  lat?: Maybe<Scalars['Float']>;
-  lng?: Maybe<Scalars['Float']>;
+  __typename?: "Geopoint";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
+  alt?: Maybe<Scalars["Float"]>;
+  lat?: Maybe<Scalars["Float"]>;
+  lng?: Maybe<Scalars["Float"]>;
 };
 
 export type GeopointFilter = {
@@ -246,19 +252,19 @@ export type GeopointSorting = {
 
 export type IdFilter = {
   /** Checks if the value is equal to the given input. */
-  eq?: Maybe<Scalars['ID']>;
-  in?: Maybe<Array<Scalars['ID']>>;
+  eq?: Maybe<Scalars["ID"]>;
+  in?: Maybe<Array<Scalars["ID"]>>;
   /** Checks if the value matches the given word/words. */
-  matches?: Maybe<Scalars['ID']>;
+  matches?: Maybe<Scalars["ID"]>;
   /** Checks if the value is not equal to the given input. */
-  neq?: Maybe<Scalars['ID']>;
-  nin?: Maybe<Array<Scalars['ID']>>;
+  neq?: Maybe<Scalars["ID"]>;
+  nin?: Maybe<Array<Scalars["ID"]>>;
 };
 
 export type Image = {
-  __typename?: 'Image';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
+  __typename?: "Image";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
   asset?: Maybe<SanityImageAsset>;
   crop?: Maybe<SanityImageCrop>;
   hotspot?: Maybe<SanityImageHotspot>;
@@ -281,39 +287,39 @@ export type ImageSorting = {
 
 export type IntFilter = {
   /** Checks if the value is equal to the given input. */
-  eq?: Maybe<Scalars['Int']>;
+  eq?: Maybe<Scalars["Int"]>;
   /** Checks if the value is greater than the given input. */
-  gt?: Maybe<Scalars['Int']>;
+  gt?: Maybe<Scalars["Int"]>;
   /** Checks if the value is greater than or equal to the given input. */
-  gte?: Maybe<Scalars['Int']>;
+  gte?: Maybe<Scalars["Int"]>;
   /** Checks if the value is lesser than the given input. */
-  lt?: Maybe<Scalars['Int']>;
+  lt?: Maybe<Scalars["Int"]>;
   /** Checks if the value is lesser than or equal to the given input. */
-  lte?: Maybe<Scalars['Int']>;
+  lte?: Maybe<Scalars["Int"]>;
   /** Checks if the value is not equal to the given input. */
-  neq?: Maybe<Scalars['Int']>;
+  neq?: Maybe<Scalars["Int"]>;
 };
 
 export type Post = Document & {
-  __typename?: 'Post';
+  __typename?: "Post";
   /** Date the document was created */
-  _createdAt?: Maybe<Scalars['DateTime']>;
+  _createdAt?: Maybe<Scalars["DateTime"]>;
   /** Document ID */
-  _id?: Maybe<Scalars['ID']>;
-  _key?: Maybe<Scalars['String']>;
+  _id?: Maybe<Scalars["ID"]>;
+  _key?: Maybe<Scalars["String"]>;
   /** Current document revision */
-  _rev?: Maybe<Scalars['String']>;
+  _rev?: Maybe<Scalars["String"]>;
   /** Document type */
-  _type?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars["String"]>;
   /** Date the document was last modified */
-  _updatedAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt?: Maybe<Scalars["DateTime"]>;
   author?: Maybe<Author>;
-  bodyRaw?: Maybe<Scalars['JSON']>;
+  bodyRaw?: Maybe<Scalars["JSON"]>;
   categories?: Maybe<Array<Maybe<Category>>>;
   mainImage?: Maybe<Image>;
-  publishedAt?: Maybe<Scalars['DateTime']>;
+  publishedAt?: Maybe<Scalars["DateTime"]>;
   slug?: Maybe<Slug>;
-  title?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars["String"]>;
 };
 
 export type PostFilter = {
@@ -346,7 +352,7 @@ export type PostSorting = {
 };
 
 export type RootQuery = {
-  __typename?: 'RootQuery';
+  __typename?: "RootQuery";
   Author?: Maybe<Author>;
   Category?: Maybe<Category>;
   Document?: Maybe<Document>;
@@ -361,94 +367,82 @@ export type RootQuery = {
   allSanityImageAsset: Array<SanityImageAsset>;
 };
 
-
 export type RootQueryAuthorArgs = {
-  id: Scalars['ID'];
+  id: Scalars["ID"];
 };
-
 
 export type RootQueryCategoryArgs = {
-  id: Scalars['ID'];
+  id: Scalars["ID"];
 };
-
 
 export type RootQueryDocumentArgs = {
-  id: Scalars['ID'];
+  id: Scalars["ID"];
 };
-
 
 export type RootQueryPostArgs = {
-  id: Scalars['ID'];
+  id: Scalars["ID"];
 };
-
 
 export type RootQuerySanityFileAssetArgs = {
-  id: Scalars['ID'];
+  id: Scalars["ID"];
 };
-
 
 export type RootQuerySanityImageAssetArgs = {
-  id: Scalars['ID'];
+  id: Scalars["ID"];
 };
 
-
 export type RootQueryAllAuthorArgs = {
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
   sort?: Maybe<Array<AuthorSorting>>;
   where?: Maybe<AuthorFilter>;
 };
 
-
 export type RootQueryAllCategoryArgs = {
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
   sort?: Maybe<Array<CategorySorting>>;
   where?: Maybe<CategoryFilter>;
 };
 
-
 export type RootQueryAllDocumentArgs = {
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
   sort?: Maybe<Array<DocumentSorting>>;
   where?: Maybe<DocumentFilter>;
 };
 
-
 export type RootQueryAllPostArgs = {
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
   sort?: Maybe<Array<PostSorting>>;
   where?: Maybe<PostFilter>;
 };
 
-
 export type RootQueryAllSanityFileAssetArgs = {
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
   sort?: Maybe<Array<SanityFileAssetSorting>>;
   where?: Maybe<SanityFileAssetFilter>;
 };
 
-
 export type RootQueryAllSanityImageAssetArgs = {
-  limit?: Maybe<Scalars['Int']>;
-  offset?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars["Int"]>;
+  offset?: Maybe<Scalars["Int"]>;
   sort?: Maybe<Array<SanityImageAssetSorting>>;
   where?: Maybe<SanityImageAssetFilter>;
 };
 
 export type SanityAssetSourceData = {
-  __typename?: 'SanityAssetSourceData';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
+  __typename?: "SanityAssetSourceData";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
   /** The unique ID for the asset within the originating source so you can programatically find back to it */
-  id?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars["String"]>;
   /** A canonical name for the source this asset is originating from */
-  name?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars["String"]>;
   /** A URL to find more information about this asset in the originating source */
-  url?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars["String"]>;
 };
 
 export type SanityAssetSourceDataFilter = {
@@ -468,31 +462,31 @@ export type SanityAssetSourceDataSorting = {
 };
 
 export type SanityFileAsset = Document & {
-  __typename?: 'SanityFileAsset';
+  __typename?: "SanityFileAsset";
   /** Date the document was created */
-  _createdAt?: Maybe<Scalars['DateTime']>;
+  _createdAt?: Maybe<Scalars["DateTime"]>;
   /** Document ID */
-  _id?: Maybe<Scalars['ID']>;
-  _key?: Maybe<Scalars['String']>;
+  _id?: Maybe<Scalars["ID"]>;
+  _key?: Maybe<Scalars["String"]>;
   /** Current document revision */
-  _rev?: Maybe<Scalars['String']>;
+  _rev?: Maybe<Scalars["String"]>;
   /** Document type */
-  _type?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars["String"]>;
   /** Date the document was last modified */
-  _updatedAt?: Maybe<Scalars['DateTime']>;
-  altText?: Maybe<Scalars['String']>;
-  assetId?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  extension?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
-  mimeType?: Maybe<Scalars['String']>;
-  originalFilename?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
-  sha1hash?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
+  _updatedAt?: Maybe<Scalars["DateTime"]>;
+  altText?: Maybe<Scalars["String"]>;
+  assetId?: Maybe<Scalars["String"]>;
+  description?: Maybe<Scalars["String"]>;
+  extension?: Maybe<Scalars["String"]>;
+  label?: Maybe<Scalars["String"]>;
+  mimeType?: Maybe<Scalars["String"]>;
+  originalFilename?: Maybe<Scalars["String"]>;
+  path?: Maybe<Scalars["String"]>;
+  sha1hash?: Maybe<Scalars["String"]>;
+  size?: Maybe<Scalars["Float"]>;
   source?: Maybe<SanityAssetSourceData>;
-  title?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars["String"]>;
+  url?: Maybe<Scalars["String"]>;
 };
 
 export type SanityFileAssetFilter = {
@@ -542,32 +536,32 @@ export type SanityFileAssetSorting = {
 };
 
 export type SanityImageAsset = Document & {
-  __typename?: 'SanityImageAsset';
+  __typename?: "SanityImageAsset";
   /** Date the document was created */
-  _createdAt?: Maybe<Scalars['DateTime']>;
+  _createdAt?: Maybe<Scalars["DateTime"]>;
   /** Document ID */
-  _id?: Maybe<Scalars['ID']>;
-  _key?: Maybe<Scalars['String']>;
+  _id?: Maybe<Scalars["ID"]>;
+  _key?: Maybe<Scalars["String"]>;
   /** Current document revision */
-  _rev?: Maybe<Scalars['String']>;
+  _rev?: Maybe<Scalars["String"]>;
   /** Document type */
-  _type?: Maybe<Scalars['String']>;
+  _type?: Maybe<Scalars["String"]>;
   /** Date the document was last modified */
-  _updatedAt?: Maybe<Scalars['DateTime']>;
-  altText?: Maybe<Scalars['String']>;
-  assetId?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  extension?: Maybe<Scalars['String']>;
-  label?: Maybe<Scalars['String']>;
+  _updatedAt?: Maybe<Scalars["DateTime"]>;
+  altText?: Maybe<Scalars["String"]>;
+  assetId?: Maybe<Scalars["String"]>;
+  description?: Maybe<Scalars["String"]>;
+  extension?: Maybe<Scalars["String"]>;
+  label?: Maybe<Scalars["String"]>;
   metadata?: Maybe<SanityImageMetadata>;
-  mimeType?: Maybe<Scalars['String']>;
-  originalFilename?: Maybe<Scalars['String']>;
-  path?: Maybe<Scalars['String']>;
-  sha1hash?: Maybe<Scalars['String']>;
-  size?: Maybe<Scalars['Float']>;
+  mimeType?: Maybe<Scalars["String"]>;
+  originalFilename?: Maybe<Scalars["String"]>;
+  path?: Maybe<Scalars["String"]>;
+  sha1hash?: Maybe<Scalars["String"]>;
+  size?: Maybe<Scalars["Float"]>;
   source?: Maybe<SanityAssetSourceData>;
-  title?: Maybe<Scalars['String']>;
-  url?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars["String"]>;
+  url?: Maybe<Scalars["String"]>;
 };
 
 export type SanityImageAssetFilter = {
@@ -619,13 +613,13 @@ export type SanityImageAssetSorting = {
 };
 
 export type SanityImageCrop = {
-  __typename?: 'SanityImageCrop';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  bottom?: Maybe<Scalars['Float']>;
-  left?: Maybe<Scalars['Float']>;
-  right?: Maybe<Scalars['Float']>;
-  top?: Maybe<Scalars['Float']>;
+  __typename?: "SanityImageCrop";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
+  bottom?: Maybe<Scalars["Float"]>;
+  left?: Maybe<Scalars["Float"]>;
+  right?: Maybe<Scalars["Float"]>;
+  top?: Maybe<Scalars["Float"]>;
 };
 
 export type SanityImageCropFilter = {
@@ -647,12 +641,12 @@ export type SanityImageCropSorting = {
 };
 
 export type SanityImageDimensions = {
-  __typename?: 'SanityImageDimensions';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  aspectRatio?: Maybe<Scalars['Float']>;
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
+  __typename?: "SanityImageDimensions";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
+  aspectRatio?: Maybe<Scalars["Float"]>;
+  height?: Maybe<Scalars["Float"]>;
+  width?: Maybe<Scalars["Float"]>;
 };
 
 export type SanityImageDimensionsFilter = {
@@ -672,13 +666,13 @@ export type SanityImageDimensionsSorting = {
 };
 
 export type SanityImageHotspot = {
-  __typename?: 'SanityImageHotspot';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['Float']>;
-  width?: Maybe<Scalars['Float']>;
-  x?: Maybe<Scalars['Float']>;
-  y?: Maybe<Scalars['Float']>;
+  __typename?: "SanityImageHotspot";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
+  height?: Maybe<Scalars["Float"]>;
+  width?: Maybe<Scalars["Float"]>;
+  x?: Maybe<Scalars["Float"]>;
+  y?: Maybe<Scalars["Float"]>;
 };
 
 export type SanityImageHotspotFilter = {
@@ -700,14 +694,14 @@ export type SanityImageHotspotSorting = {
 };
 
 export type SanityImageMetadata = {
-  __typename?: 'SanityImageMetadata';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
+  __typename?: "SanityImageMetadata";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
   dimensions?: Maybe<SanityImageDimensions>;
-  hasAlpha?: Maybe<Scalars['Boolean']>;
-  isOpaque?: Maybe<Scalars['Boolean']>;
+  hasAlpha?: Maybe<Scalars["Boolean"]>;
+  isOpaque?: Maybe<Scalars["Boolean"]>;
   location?: Maybe<Geopoint>;
-  lqip?: Maybe<Scalars['String']>;
+  lqip?: Maybe<Scalars["String"]>;
   palette?: Maybe<SanityImagePalette>;
 };
 
@@ -734,9 +728,9 @@ export type SanityImageMetadataSorting = {
 };
 
 export type SanityImagePalette = {
-  __typename?: 'SanityImagePalette';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
+  __typename?: "SanityImagePalette";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
   darkMuted?: Maybe<SanityImagePaletteSwatch>;
   darkVibrant?: Maybe<SanityImagePaletteSwatch>;
   dominant?: Maybe<SanityImagePaletteSwatch>;
@@ -771,13 +765,13 @@ export type SanityImagePaletteSorting = {
 };
 
 export type SanityImagePaletteSwatch = {
-  __typename?: 'SanityImagePaletteSwatch';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  background?: Maybe<Scalars['String']>;
-  foreground?: Maybe<Scalars['String']>;
-  population?: Maybe<Scalars['Float']>;
-  title?: Maybe<Scalars['String']>;
+  __typename?: "SanityImagePaletteSwatch";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
+  background?: Maybe<Scalars["String"]>;
+  foreground?: Maybe<Scalars["String"]>;
+  population?: Maybe<Scalars["Float"]>;
+  title?: Maybe<Scalars["String"]>;
 };
 
 export type SanityImagePaletteSwatchFilter = {
@@ -800,16 +794,16 @@ export type SanityImagePaletteSwatchSorting = {
 
 export type Sanity_DocumentFilter = {
   /** All documents that are drafts. */
-  is_draft?: Maybe<Scalars['Boolean']>;
+  is_draft?: Maybe<Scalars["Boolean"]>;
   /** All documents referencing the given document ID. */
-  references?: Maybe<Scalars['ID']>;
+  references?: Maybe<Scalars["ID"]>;
 };
 
 export type Slug = {
-  __typename?: 'Slug';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  current?: Maybe<Scalars['String']>;
+  __typename?: "Slug";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
+  current?: Maybe<Scalars["String"]>;
 };
 
 export type SlugFilter = {
@@ -826,52 +820,61 @@ export type SlugSorting = {
 
 export enum SortOrder {
   /** Sorts on the value in ascending order. */
-  Asc = 'ASC',
+  Asc = "ASC",
   /** Sorts on the value in descending order. */
-  Desc = 'DESC'
+  Desc = "DESC",
 }
 
 export type Span = {
-  __typename?: 'Span';
-  _key?: Maybe<Scalars['String']>;
-  _type?: Maybe<Scalars['String']>;
-  marks?: Maybe<Array<Maybe<Scalars['String']>>>;
-  text?: Maybe<Scalars['String']>;
+  __typename?: "Span";
+  _key?: Maybe<Scalars["String"]>;
+  _type?: Maybe<Scalars["String"]>;
+  marks?: Maybe<Array<Maybe<Scalars["String"]>>>;
+  text?: Maybe<Scalars["String"]>;
 };
 
 export type StringFilter = {
   /** Checks if the value is equal to the given input. */
-  eq?: Maybe<Scalars['String']>;
-  in?: Maybe<Array<Scalars['String']>>;
+  eq?: Maybe<Scalars["String"]>;
+  in?: Maybe<Array<Scalars["String"]>>;
   /** Checks if the value matches the given word/words. */
-  matches?: Maybe<Scalars['String']>;
+  matches?: Maybe<Scalars["String"]>;
   /** Checks if the value is not equal to the given input. */
-  neq?: Maybe<Scalars['String']>;
-  nin?: Maybe<Array<Scalars['String']>>;
+  neq?: Maybe<Scalars["String"]>;
+  nin?: Maybe<Array<Scalars["String"]>>;
 };
 
 export type PostBySlugQueryVariables = Exact<{
-  slug: Scalars['String'];
+  slug: Scalars["String"];
 }>;
 
+export type PostBySlugQuery = {
+  __typename?: "RootQuery";
+  allPost: Array<{
+    __typename?: "Post";
+    title?: Maybe<string>;
+    publishedAt?: Maybe<any>;
+  }>;
+};
 
-export type PostBySlugQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', title?: Maybe<string>, publishedAt?: Maybe<any>, bodyRaw?: Maybe<any> }> };
+export type PostsSlugsQueryVariables = Exact<{ [key: string]: never }>;
 
-export type PostsSlugsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PostsSlugsQuery = { __typename?: 'RootQuery', allPost: Array<{ __typename?: 'Post', slug?: Maybe<{ __typename?: 'Slug', current?: Maybe<string> }> }> };
-
+export type PostsSlugsQuery = {
+  __typename?: "RootQuery";
+  allPost: Array<{
+    __typename?: "Post";
+    slug?: Maybe<{ __typename?: "Slug"; current?: Maybe<string> }>;
+  }>;
+};
 
 export const PostBySlugDocument = gql`
-    query PostBySlug($slug: String!) {
-  allPost(where: {slug: {current: {eq: $slug}}}) {
-    title
-    publishedAt
-    bodyRaw
+  query PostBySlug($slug: String!) {
+    allPost(where: { slug: { current: { eq: $slug } } }) {
+      title
+      publishedAt
+    }
   }
-}
-    `;
+`;
 
 /**
  * __usePostBySlugQuery__
@@ -889,26 +892,47 @@ export const PostBySlugDocument = gql`
  *   },
  * });
  */
-export function usePostBySlugQuery(baseOptions: Apollo.QueryHookOptions<PostBySlugQuery, PostBySlugQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PostBySlugQuery, PostBySlugQueryVariables>(PostBySlugDocument, options);
-      }
-export function usePostBySlugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostBySlugQuery, PostBySlugQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PostBySlugQuery, PostBySlugQueryVariables>(PostBySlugDocument, options);
-        }
+export function usePostBySlugQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    PostBySlugQuery,
+    PostBySlugQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<PostBySlugQuery, PostBySlugQueryVariables>(
+    PostBySlugDocument,
+    options
+  );
+}
+export function usePostBySlugLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    PostBySlugQuery,
+    PostBySlugQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<PostBySlugQuery, PostBySlugQueryVariables>(
+    PostBySlugDocument,
+    options
+  );
+}
 export type PostBySlugQueryHookResult = ReturnType<typeof usePostBySlugQuery>;
-export type PostBySlugLazyQueryHookResult = ReturnType<typeof usePostBySlugLazyQuery>;
-export type PostBySlugQueryResult = Apollo.QueryResult<PostBySlugQuery, PostBySlugQueryVariables>;
+export type PostBySlugLazyQueryHookResult = ReturnType<
+  typeof usePostBySlugLazyQuery
+>;
+export type PostBySlugQueryResult = Apollo.QueryResult<
+  PostBySlugQuery,
+  PostBySlugQueryVariables
+>;
 export const PostsSlugsDocument = gql`
-    query PostsSlugs {
-  allPost {
-    slug {
-      current
+  query PostsSlugs {
+    allPost {
+      slug {
+        current
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __usePostsSlugsQuery__
@@ -925,14 +949,35 @@ export const PostsSlugsDocument = gql`
  *   },
  * });
  */
-export function usePostsSlugsQuery(baseOptions?: Apollo.QueryHookOptions<PostsSlugsQuery, PostsSlugsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PostsSlugsQuery, PostsSlugsQueryVariables>(PostsSlugsDocument, options);
-      }
-export function usePostsSlugsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PostsSlugsQuery, PostsSlugsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PostsSlugsQuery, PostsSlugsQueryVariables>(PostsSlugsDocument, options);
-        }
+export function usePostsSlugsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    PostsSlugsQuery,
+    PostsSlugsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<PostsSlugsQuery, PostsSlugsQueryVariables>(
+    PostsSlugsDocument,
+    options
+  );
+}
+export function usePostsSlugsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    PostsSlugsQuery,
+    PostsSlugsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<PostsSlugsQuery, PostsSlugsQueryVariables>(
+    PostsSlugsDocument,
+    options
+  );
+}
 export type PostsSlugsQueryHookResult = ReturnType<typeof usePostsSlugsQuery>;
-export type PostsSlugsLazyQueryHookResult = ReturnType<typeof usePostsSlugsLazyQuery>;
-export type PostsSlugsQueryResult = Apollo.QueryResult<PostsSlugsQuery, PostsSlugsQueryVariables>;
+export type PostsSlugsLazyQueryHookResult = ReturnType<
+  typeof usePostsSlugsLazyQuery
+>;
+export type PostsSlugsQueryResult = Apollo.QueryResult<
+  PostsSlugsQuery,
+  PostsSlugsQueryVariables
+>;
