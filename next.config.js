@@ -1,5 +1,9 @@
 const { default: chalk } = require("chalk");
 
+const {
+  default: MiniCssExtractPlugin,
+} = require("next/dist/build/webpack/plugins/mini-css-extract-plugin");
+
 (() => {
   function checkEnvironmentVariables() {
     const requiredVariables = [
@@ -43,6 +47,12 @@ const nextConfig = {
   cleanDistDir: true,
   webpack: (config, { isServer }) => {
     if (!isServer && !!Number(process.env.REMOVE_HASH)) {
+      config.plugins.forEach((plugin) => {
+        if (plugin instanceof MiniCssExtractPlugin) {
+          plugin.options.filename = "static/css/[name].css";
+        }
+      });
+
       config.output.filename = "static/chunks/[name].js";
     }
 
