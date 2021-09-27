@@ -40,6 +40,14 @@ const nextConfig = {
     domains: ["cdn.sanity.io"],
     deviceSizes: [640, 768, 1080, 1440, 1920, 3840],
   },
+  cleanDistDir: true,
+  webpack: (config, { isServer }) => {
+    if (!isServer && !!Number(process.env.REMOVE_HASH)) {
+      config.output.filename = "static/chunks/[name].js";
+    }
+
+    return config;
+  },
 };
 
 module.exports = nextConfig;

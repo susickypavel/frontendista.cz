@@ -45,6 +45,8 @@ jobs:
   bundlediff:
     runs-on: ubuntu-latest
     needs: [codeclimate]
+    env:
+      REMOVE_HASH: 1
 
     steps:
       - uses: actions/checkout@v2
