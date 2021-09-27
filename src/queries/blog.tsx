@@ -23,6 +23,18 @@ export const ALL_POSTS = gql`
   }
 `;
 
+export const ALL_POSTS_PREVIEW = gql`
+  query PostsPreview {
+    allPost {
+      title
+      publishedAt
+      slug {
+        current
+      }
+    }
+  }
+`;
+
 /**
  * GROQ QUERIES
  */
