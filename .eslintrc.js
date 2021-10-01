@@ -14,6 +14,9 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     // "stylelint-config-prettier",
     "prettier",
+    "plugin:jest/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -26,5 +29,6 @@ module.exports = {
   plugins: ["react", "@typescript-eslint"],
   rules: {
     "react/prop-types": "off",
+    "jest/consistent-test-it": ["error", { fn: "it" }],
   },
 };
