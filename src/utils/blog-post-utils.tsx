@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image, { ImageProps } from "next/image";
 
@@ -17,7 +18,7 @@ interface SanityImageProps {
   };
 }
 
-export function imageSerializer(props: SanityImageProps) {
+export function ImageSerializer(props: SanityImageProps): JSX.Element {
   const {
     url,
     metadata: {
@@ -26,6 +27,7 @@ export function imageSerializer(props: SanityImageProps) {
     },
   } = props.node.asset;
   const [loaded, setLoaded] = React.useState(false);
+
   return (
     <>
       <Image
@@ -63,7 +65,7 @@ interface SanityLinkProps {
   };
 }
 
-export function linkSerializer(props: SanityLinkProps) {
+export function linkSerializer(props: SanityLinkProps): JSX.Element {
   return (
     <a href={props.mark.href}>
       {props.children}
@@ -72,6 +74,6 @@ export function linkSerializer(props: SanityLinkProps) {
   );
 }
 
-export function imageLoader({ src, quality, width }: ImageProps) {
+export function imageLoader({ src, quality, width }: ImageProps): string {
   return `${src}?format=auto&quality=${quality ?? 80}&w=${width}`;
 }
