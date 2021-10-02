@@ -14,11 +14,11 @@ function getApolloClient() {
   return client;
 }
 
-export async function fetchOrThrow<Q, V = {}>(
+export async function fetchOrThrow<Q, V = Record<string, string>>(
   query: DocumentNode,
   variables?: V,
   client = getApolloClient()
-) {
+): Promise<Q> {
   const { data, error, errors } = await client.query<Q, V>({
     query,
     variables,

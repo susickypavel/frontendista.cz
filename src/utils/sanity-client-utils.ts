@@ -12,7 +12,7 @@ function getSanityClient() {
   return sanityClient;
 }
 
-export async function fetchOrThrow<T = Array<any>, V extends Object = {}>(
+export async function fetchOrThrow<T = Array<any>, V = Record<string, string>>(
   query: string,
   variables?: V
 ): Promise<T> {

@@ -3,7 +3,7 @@ import BlockContent from "@sanity/block-content-to-react";
 import chalk from "chalk";
 
 import { Layout } from "@components/layout.component";
-import { imageSerializer, linkSerializer } from "@utils/blog-post-utils";
+import { ImageSerializer, linkSerializer } from "@utils/blog-post-utils";
 import { fetchOrThrow as apolloFetch } from "@utils/apollo-client-utils";
 import { fetchOrThrow as sanityFetch } from "@utils/sanity-client-utils";
 
@@ -32,7 +32,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ title, body, publishedAt }) => {
             link: linkSerializer,
           },
           types: {
-            image: imageSerializer,
+            image: ImageSerializer,
           },
         }}
       />
