@@ -15,6 +15,7 @@ module.exports = {
     // "stylelint-config-prettier",
     "prettier",
     "plugin:jest/recommended",
+    "plugin:jest/style",
     "plugin:testing-library/react",
     "plugin:jest-dom/recommended",
   ],
