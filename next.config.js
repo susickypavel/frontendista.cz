@@ -1,4 +1,4 @@
-const { default: chalk } = require("chalk");
+const { red } = require("chalk");
 
 const {
   default: MiniCssExtractPlugin,
@@ -19,7 +19,7 @@ const {
     requiredVariables.forEach((variable) => {
       if (!process.env[variable]) {
         console.log(
-          chalk.red(
+          red(
             `'${variable}' is a required environment variable and it's not set.`
           )
         );
