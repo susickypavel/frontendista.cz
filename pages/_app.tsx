@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
+import { Provider, defaultTheme } from "@adobe/react-spectrum";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
@@ -13,7 +14,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   const url = process.env.NEXT_PUBLIC_DOMAIN + asPath;
 
   return (
-    <React.Fragment>
+    <Provider theme={defaultTheme}>
       <DefaultSeo
         title="Pavel Susicky"
         description="Software engineer based in Prague, Czech republic"
@@ -35,7 +36,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
         }}
       />
       <Component {...pageProps} />
-    </React.Fragment>
+    </Provider>
   );
 };
 
