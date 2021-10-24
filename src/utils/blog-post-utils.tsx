@@ -29,7 +29,7 @@ export function ImageSerializer(props: SanityImageProps): JSX.Element {
   const [loaded, setLoaded] = React.useState(false);
 
   return (
-    <>
+    <React.Fragment>
       <Image
         placeholder="blur"
         blurDataURL={lqip}
@@ -54,7 +54,7 @@ export function ImageSerializer(props: SanityImageProps): JSX.Element {
           opacity: 1;
         }
       `}</style>
-    </>
+    </React.Fragment>
   );
 }
 

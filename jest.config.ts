@@ -6,6 +6,11 @@ import { Config } from "@jest/types";
 
 export default {
   preset: "ts-jest",
+  globals: {
+    "ts-jest": {
+      tsconfig: "<rootDir>/test/tsconfig.test.json",
+    },
+  },
   displayName: {
     name: "WEB",
     color: "yellow",
