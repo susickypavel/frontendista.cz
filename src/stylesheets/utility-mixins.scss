@@ -1,24 +1,20 @@
 $font-weights: (
-  Thin: 100,
-  Light: 300,
-  Regular: 400,
-  Medium: 500,
-  Semibold: 600,
-  Bold: 700,
-  Extrabold: 800,
-  Black: 900,
+  thin: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extrabold: 800,
+  black: 900,
 );
 
-// Mixin takes two parameters:
-//
-// $font-family (name of the font, such as Quicksand, Arial or Inter)
-// $font-weight (weight of the font, such as Light, Regular, Medium, Semibold, Bold, Extrabold or Black)
 @mixin font-face($font-family, $font-weight) {
   @font-face {
-    font-family: $font-family;
-    font-weight: map-get($font-weights, $font-weight);
     font-display: swap;
+    font-family: $font-family;
     font-style: normal;
+    font-weight: map-get($font-weights, $font-weight);
     src: url("/fonts/#{$font-family}/#{$font-weight}.woff2") format("woff2"),
       url("/fonts/#{$font-family}/#{$font-weight}.woff") format("woff");
   }
