@@ -1,3 +1,11 @@
+@import "./utility-mixins.scss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@include font-face("Quicksand", "Light");
+@include font-face("Quicksand", "Regular");
+@include font-face("Quicksand", "Medium");
+@include font-face("Quicksand", "SemiBold");
+@include font-face("Quicksand", "Bold");
