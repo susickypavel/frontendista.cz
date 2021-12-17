@@ -1,5 +1,5 @@
 {
-  "name": "pavelsusicky.com",
+  "name": "frontendista.cz",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -57,7 +57,7 @@
     "typescript": "^4.3.5"
   },
   "repository": {
-    "url": "https://github.com/Thesoreon/pavelsusicky.com/",
+    "url": "https://github.com/Thesoreon/frontendista.cz/",
     "type": "git"
   },
   "license": "MIT"
