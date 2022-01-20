@@ -5,6 +5,8 @@ import styles from "./navigation.module.scss";
 
 import { Button } from "@components/common/button";
 
+import { CogIcon } from "@heroicons/react/solid";
+
 export const Navigation: React.FunctionComponent = () => {
   return (
     <div className={styles.navigation}>
@@ -21,12 +23,16 @@ export const Navigation: React.FunctionComponent = () => {
           </li>
         </ul>
       </nav>
+      {/* TODO: Research accessibility of this group of buttons */}
       <aside className={styles.buttonCollection}>
-        <ul>
-          <li>
-            <Button>Ahoj</Button>
-          </li>
-        </ul>
+        <Button icon={CogIcon} />
+        <Button icon={CogIcon} />
+        <Button icon={CogIcon} />
+        <Button icon={CogIcon} />
+        <Button icon={CogIcon} />
+        <Button icon={CogIcon} />
+        <Button icon={CogIcon} />
+        <Button icon={CogIcon} />
       </aside>
     </div>
   );
