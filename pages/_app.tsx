@@ -6,6 +6,7 @@ import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
 import "../src/stylesheets/global.scss";
+import { Navigation } from "@components/navigation/navigation.component";
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   const { asPath } = useRouter();
@@ -34,6 +35,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
           cardType: "summary_large_image",
         }}
       />
+      <Navigation />
       <Component {...pageProps} />
     </React.Fragment>
   );

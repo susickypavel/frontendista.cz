@@ -48,7 +48,7 @@ class MyDocument extends Document {
             crossOrigin=""
           />
         </Head>
-        <body>
+        <body className="m-4">
           <Main />
           <NextScript />
         </body>

@@ -9,3 +9,8 @@
 @include font-face("Quicksand", "Medium");
 @include font-face("Quicksand", "SemiBold");
 @include font-face("Quicksand", "Bold");
+
+body {
+  // TODO: Check if tailwindcss default css reset contains font definition and copy it.
+  font-family: Quicksand, sans-serif;
+}
