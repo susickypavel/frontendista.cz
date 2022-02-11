@@ -6,7 +6,9 @@
   "author": "Pavel Sušický <susicky.pavel@outlook.cz>",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 80 -H local.frontendista.cz",
+    "build": "next build",
+    "start": "next start -p 80 -H local.frontendista.cz",
     "lint:code": "eslint ."
   },
   "dependencies": {
