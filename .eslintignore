@@ -1,0 +1,9 @@
+# Ignore everything.
+**/*.*
+
+# Allowed patterns starts with !
+!src/**/*.ts
+!src/**/*.tsx
+
+!pages/**/*.ts
+!pages/**/*.tsx

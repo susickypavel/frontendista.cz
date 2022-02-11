@@ -20,3 +20,7 @@ yarn install
 # Run development server with HMR
 yarn dev
 ```
+
+### Bonus
+
+1. Install recommended extensions for VSCode (listed in `.vscode/extensions.json`)
