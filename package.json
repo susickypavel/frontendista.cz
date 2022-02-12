@@ -9,7 +9,7 @@
     "dev": "next dev -p 80 -H local.frontendista.cz",
     "build": "next build",
     "start": "next start -p 80 -H local.frontendista.cz",
-    "lint:code": "eslint ."
+    "lint:code": "next lint"
   },
   "dependencies": {
     "next": "^12.0.10",
@@ -24,7 +24,7 @@
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
     "eslint": "^8.8.0",
-    "eslint-plugin-react": "^7.28.0",
+    "eslint-config-next": "12.0.10",
     "typescript": "^4.5.5"
   }
 }
