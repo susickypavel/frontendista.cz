@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev -p 80 -H local.frontendista.cz",
     "build": "next build",
+    "build:clean": "rimraf .next && next build",
     "start": "next start -p 80 -H local.frontendista.cz",
     "lint:code": "next lint",
     "lint:format": "prettier --check ."
@@ -28,6 +29,7 @@
     "eslint-config-next": "12.0.10",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.49.7",
     "typescript": "^4.5.5"
   }
