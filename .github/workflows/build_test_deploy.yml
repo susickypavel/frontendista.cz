@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     
     steps:
@@ -23,6 +24,8 @@ jobs:
       - run: yarn build
       
   lintCode:
+    name: Run ESLint
+    needs: [build]
     runs-on: ubuntu-latest
     
     steps:
@@ -38,6 +41,8 @@ jobs:
       - run: yarn lint:code
       
   lintStyle:
+    name: Run Stylelint
+    needs: [build]
     runs-on: ubuntu-latest
     
     steps:
@@ -53,6 +58,8 @@ jobs:
       - run: yarn lint:style
       
   lintFormat:
+    name: Run Prettier
+    needs: [build]
     runs-on: ubuntu-latest
     
     steps:
@@ -66,4 +73,3 @@ jobs:
       
       - run: yarn install --frozen-lockfile --check-files
       - run: yarn lint:format
-    
