@@ -89,9 +89,17 @@ jobs:
       # - run: yarn install --frozen-lockfile --check-files
       - run: echo TODO
 
+  e2e:
+    name: Run E2E
+    needs: [build, lintCode, lintStyle, lintFormat]
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo TODO
+
   deploy:
     name: Deploy
-    needs: [build, lintCode, lintStyle, lintFormat, test]
+    needs: [build, lintCode, lintStyle, lintFormat, test, e2e]
     runs-on: ubuntu-latest
 
     steps:
