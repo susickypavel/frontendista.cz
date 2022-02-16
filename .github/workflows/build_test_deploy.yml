@@ -1,0 +1,69 @@
+name: Build - Test - Deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+      
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn build
+      
+  lintCode:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+      
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn lint:code
+      
+  lintStyle:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+      
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn lint:style
+      
+  lintFormat:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+      
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn lint:format
+    
