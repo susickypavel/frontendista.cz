@@ -1,0 +1,98 @@
+name: Build - Lint - Test - Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn build
+
+  lintCode:
+    name: Run ESLint
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn lint:code
+
+  lintStyle:
+    name: Run Stylelint
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn lint:style
+
+  lintFormat:
+    name: Run Prettier
+    needs: [build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+
+      - run: yarn install --frozen-lockfile --check-files
+      - run: yarn lint:format
+
+  test:
+    name: Run Tests
+    needs: [build, lintCode, lintStyle, lintFormat]
+    runs-on: ubuntu-latest
+
+    steps:
+      # - uses: actions/checkout@v2
+
+      # - name: Setup node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 14
+      #     cache: "yarn"
+
+      # - run: yarn install --frozen-lockfile --check-files
+      - run: echo TODO
+
+  deploy:
+    name: Deploy
+    needs: [build, lintCode, lintStyle, lintFormat, test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo TODO
