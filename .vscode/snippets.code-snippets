@@ -1,0 +1,14 @@
+{
+  "react-component": {
+    "prefix": "component",
+    "body": [
+      "import * as React from \"react\";",
+      "",
+      "export const ${1:Component}: React.FunctionComponent = () => {",
+      "  return <div>${1:Component}</div>;",
+      "};",
+      ""
+    ],
+    "description": "react-component"
+  }
+}
