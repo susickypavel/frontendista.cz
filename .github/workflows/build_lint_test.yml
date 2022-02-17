@@ -1,6 +1,8 @@
 name: Build - Lint - Test
 
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -87,4 +89,12 @@ jobs:
       #     cache: "yarn"
 
       # - run: yarn install --frozen-lockfile --check-files
+      - run: echo TODO
+
+  e2e:
+    name: Run E2E
+    needs: [build, lintCode, lintStyle, lintFormat]
+    runs-on: ubuntu-latest
+
+    steps:
       - run: echo TODO

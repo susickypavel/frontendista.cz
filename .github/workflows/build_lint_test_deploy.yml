@@ -2,7 +2,7 @@ name: Build - Lint - Test - Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [next]
 
 jobs:
   build:
