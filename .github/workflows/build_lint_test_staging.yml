@@ -1,8 +1,8 @@
-name: Build - Lint - Test - Deploy
+name: Build - Lint - Test - Staging
 
 on:
   push:
-    branches: [next]
+    branches: [staging]
 
 jobs:
   build:
@@ -89,17 +89,17 @@ jobs:
       - run: yarn install --frozen-lockfile --check-files
       - run: yarn test
 
-  e2e:
-    name: Run E2E
-    needs: [lintCode, lintStyle, lintFormat]
+  deploy:
+    name: Deploy
+    needs: [test]
     runs-on: ubuntu-latest
 
     steps:
       - run: echo TODO
 
-  deploy:
-    name: Deploy
-    needs: [test, e2e]
+  e2e:
+    name: Run E2E
+    needs: [deploy]
     runs-on: ubuntu-latest
 
     steps:

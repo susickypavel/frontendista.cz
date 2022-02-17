@@ -1,8 +1,6 @@
 name: Build - Lint - Test
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
 
@@ -76,7 +74,7 @@ jobs:
 
   test:
     name: Run Tests
-    needs: [build, lintCode, lintStyle, lintFormat]
+    needs: [lintCode, lintStyle, lintFormat]
     runs-on: ubuntu-latest
 
     steps:
@@ -93,7 +91,7 @@ jobs:
 
   e2e:
     name: Run E2E
-    needs: [build, lintCode, lintStyle, lintFormat]
+    needs: [lintCode, lintStyle, lintFormat]
     runs-on: ubuntu-latest
 
     steps:
