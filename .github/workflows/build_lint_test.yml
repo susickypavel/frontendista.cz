@@ -74,7 +74,7 @@ jobs:
 
   test:
     name: Run Tests
-    needs: [lintCode, lintStyle, lintFormat]
+    needs: [build]
     runs-on: ubuntu-latest
 
     steps:
@@ -91,7 +91,7 @@ jobs:
 
   e2e:
     name: Run E2E
-    needs: [lintCode, lintStyle, lintFormat]
+    needs: [build]
     runs-on: ubuntu-latest
 
     steps:

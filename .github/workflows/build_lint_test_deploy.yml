@@ -99,8 +99,14 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: [test, e2e]
+    needs: [build]
     runs-on: ubuntu-latest
 
+    env:
+      VERCEL_DEPLOYMENT_TOKEN: ${{ secrets.VERCEL_DEPLOYMENT_TOKEN }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
     steps:
-      - run: echo TODO
+      - uses: actions/checkout@v2
+      - run: vercel --prod -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon
