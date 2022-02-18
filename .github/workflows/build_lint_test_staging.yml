@@ -99,10 +99,15 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
+    outputs:
+      DEPLOYMENT_URL: ${{ steps.step1.outputs.DEPLOYMENT_URL }}
+
     steps:
       - uses: actions/checkout@v2
-      - run: vercel -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon
-      - run: vercel alias set frontendista-thesoreon.vercel.app staging.frontendista.cz -t $VERCEL_DEPLOYMENT_TOKEN
+      - run: echo "DEPLOYMENT_URL=$(vercel -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon)" >> $GITHUB_ENV
+      - run: vercel alias set $DEPLOYMENT_URL staging.frontendista.cz -t $VERCEL_DEPLOYMENT_TOKEN
+      - id: step1
+        run: echo "::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL"
 
   e2e:
     name: Run E2E tests
@@ -110,4 +115,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo TODO
+      - run: |
+          echo "${{ needs.deploy.outputs.DEPLOYMENT_URL }}" \
+          echo ${{ needs.deploy.outputs.DEPLOYMENT_URL }}
