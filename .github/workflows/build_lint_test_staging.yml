@@ -115,6 +115,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
-          echo "${{ needs.deploy.outputs.DEPLOYMENT_URL }}" \
-          echo ${{ needs.deploy.outputs.DEPLOYMENT_URL }}
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: "yarn"
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          config: pageLoadTimeout=10000,baseUrl=${{ needs.deploy.outputs.DEPLOYMENT_URL }}
