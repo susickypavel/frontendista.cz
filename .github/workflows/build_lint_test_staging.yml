@@ -74,7 +74,7 @@ jobs:
 
   test:
     name: Run Unit tests
-    needs: [deploy]
+    needs: [build]
     runs-on: ubuntu-latest
 
     steps:
@@ -128,3 +128,16 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           config: pageLoadTimeout=10000,baseUrl=${{ needs.deploy.outputs.DEPLOYMENT_URL }}
+
+  bundlediff:
+    runs-on: ubuntu-latest
+    needs: [build]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: compressed-size-action
+        uses: preactjs/compressed-size-action@v2
+        with:
+          pattern: "./.next/static/{chunks,css}/**/*.{js,css}"
+          strip-hash: "\\b-[a-z0-9]{1,}\\b"
