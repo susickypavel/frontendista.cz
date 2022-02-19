@@ -31,7 +31,12 @@ module.exports = {
     worker: false,
     serviceworker: false,
   },
-  extends: ["eslint:recommended", "next/core-web-vitals", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:cypress/recommended",
+  ],
   rules: {
     ...codeStyleRules,
   },

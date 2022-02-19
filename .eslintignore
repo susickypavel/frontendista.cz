@@ -7,3 +7,6 @@
 
 !pages/**/*.ts
 !pages/**/*.tsx
+
+!cypress/**/*.ts
+!cypress/**/*.tsx
