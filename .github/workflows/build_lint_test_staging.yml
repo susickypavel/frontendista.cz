@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup node.js
         uses: actions/setup-node@v2
@@ -18,8 +19,11 @@ jobs:
           node-version: 14
           cache: "yarn"
 
-      - run: yarn install --frozen-lockfile --check-files
-      - run: yarn build
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Build
+        run: yarn build
 
   lintCode:
     name: Run ESLint
@@ -27,7 +31,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup node.js
         uses: actions/setup-node@v2
@@ -35,8 +40,11 @@ jobs:
           node-version: 14
           cache: "yarn"
 
-      - run: yarn install --frozen-lockfile --check-files
-      - run: yarn lint:code
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Run ESLint
+        run: yarn lint:code
 
   lintStyle:
     name: Run Stylelint
@@ -44,7 +52,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup node.js
         uses: actions/setup-node@v2
@@ -52,8 +61,11 @@ jobs:
           node-version: 14
           cache: "yarn"
 
-      - run: yarn install --frozen-lockfile --check-files
-      - run: yarn lint:style
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Run Stylelint
+        run: yarn lint:style
 
   lintFormat:
     name: Run Prettier
@@ -61,7 +73,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup node.js
         uses: actions/setup-node@v2
@@ -69,8 +82,11 @@ jobs:
           node-version: 14
           cache: "yarn"
 
-      - run: yarn install --frozen-lockfile --check-files
-      - run: yarn lint:format
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Run Prettier
+        run: yarn lint:format
 
   test:
     name: Run Unit tests
@@ -78,7 +94,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup node.js
         uses: actions/setup-node@v2
@@ -86,8 +103,11 @@ jobs:
           node-version: 14
           cache: "yarn"
 
-      - run: yarn install --frozen-lockfile --check-files
-      - run: yarn test
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Run tests
+        run: yarn test
 
   deploy:
     name: Deploy
@@ -103,10 +123,17 @@ jobs:
       DEPLOYMENT_URL: ${{ steps.step1.outputs.DEPLOYMENT_URL }}
 
     steps:
-      - uses: actions/checkout@v2
-      - run: echo "DEPLOYMENT_URL=$(vercel -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon)" >> $GITHUB_ENV
-      - run: vercel alias set $DEPLOYMENT_URL staging.frontendista.cz -t $VERCEL_DEPLOYMENT_TOKEN
-      - id: step1
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy & Save URL
+        run: echo "DEPLOYMENT_URL=$(vercel -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon)" >> $GITHUB_ENV
+
+      - name: Alias URL to staging URL
+        run: vercel alias set $DEPLOYMENT_URL staging.frontendista.cz -t $VERCEL_DEPLOYMENT_TOKEN
+
+      - name: Save URL to outputs
+        id: step1
         run: echo "::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL"
 
   e2e:
@@ -130,13 +157,15 @@ jobs:
           config: pageLoadTimeout=10000,baseUrl=${{ needs.deploy.outputs.DEPLOYMENT_URL }}
 
   bundlediff:
+    name: Run bundlediff
     runs-on: ubuntu-latest
     needs: [build]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: compressed-size-action
+      - name: Build & Report
         uses: preactjs/compressed-size-action@v2
         with:
           pattern: "./.next/static/{chunks,css}/**/*.{js,css}"
