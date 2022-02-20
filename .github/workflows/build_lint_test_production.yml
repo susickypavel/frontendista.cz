@@ -1,8 +1,8 @@
-name: Build - Lint - Test - Staging
+name: Build - Lint - Test - Production
 
 on:
-  push:
-    branches: [staging]
+  release:
+    types: created
 
 jobs:
   build:
@@ -90,7 +90,7 @@ jobs:
 
   test:
     name: Run Unit tests
-    needs: [build]
+    needs: [lintCode, lintStyle, lintFormat]
     runs-on: ubuntu-latest
 
     steps:
@@ -109,9 +109,25 @@ jobs:
       - name: Run tests
         run: yarn test
 
+  e2e:
+    name: Run E2E tests
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: yarn build
+          start: yarn next start -p 3000
+          config: pageLoadTimeout=10000,baseUrl=http://localhost:3000
+
   deploy:
     name: Deploy
-    needs: [build]
+    needs: [e2e]
     runs-on: ubuntu-latest
 
     env:
@@ -119,39 +135,9 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
-    outputs:
-      DEPLOYMENT_URL: ${{ steps.step1.outputs.DEPLOYMENT_URL }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Deploy & Save URL
-        run: echo "DEPLOYMENT_URL=$(vercel -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon)" >> $GITHUB_ENV
-
-      - name: Alias URL to staging URL
-        run: vercel alias set $DEPLOYMENT_URL staging.frontendista.cz -t $VERCEL_DEPLOYMENT_TOKEN
-
-      - name: Save URL to outputs
-        id: step1
-        run: echo "::set-output name=DEPLOYMENT_URL::$DEPLOYMENT_URL"
-
-  e2e:
-    name: Run E2E tests
-    needs: [deploy]
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 14
-          cache: "yarn"
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          config: pageLoadTimeout=10000,baseUrl=${{ needs.deploy.outputs.DEPLOYMENT_URL }}
+      - name: Deploy
+        run: vercel --prod -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon
