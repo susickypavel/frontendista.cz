@@ -4,6 +4,10 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  SANITY_CLIENT_TOKEN: ${{ secrets.SANITY_CLIENT_TOKEN }}
+  SANITY_GRAPHQL_ENDPOINT: ${{ secrets.SANITY_GRAPHQL_ENDPOINT }}
+
 jobs:
   build:
     name: Build
