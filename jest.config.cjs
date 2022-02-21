@@ -18,6 +18,7 @@ const customJestConfig = {
     "^@components/(.*)$": ["<rootDir>/src/components/$1"],
     "^@utils/(.*)$": ["<rootDir>/src/utils/$1"],
     "^@stylesheets/(.*)$": ["<rootDir>/src/stylesheets/$1"],
+    "^@queries/(.*)$": ["<rootDir>/src/queries/$1"],
   },
 };
 
