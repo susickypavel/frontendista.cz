@@ -12,6 +12,7 @@
     "start": "next start -p 80 -H local.frontendista.cz",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:e2e": "cypress run",
     "lint:code": "next lint",
     "lint:format": "prettier --check .",
     "lint:style": "stylelint src/**/*.scss",
