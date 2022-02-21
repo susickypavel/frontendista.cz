@@ -19,14 +19,31 @@ const BlogIndex: NextPage<BlogIndexPageProps> = ({ allPost }) => {
 };
 
 export const getStaticProps: GetStaticProps<GET_POSTS> = async () => {
-  // TODO: Error handling
-  const data = await GRAPHQL_CLIENT.request<GET_POSTS>(GET_ALL_POSTS_QUERY);
+  try {
+    const data = await GRAPHQL_CLIENT.request<GET_POSTS>(GET_ALL_POSTS_QUERY);
 
-  return {
-    props: {
-      ...data,
-    },
-  };
+    if (!data) {
+      throw new Error("No posts found.");
+    }
+
+    return {
+      props: {
+        ...data,
+      },
+    };
+  } catch (error) {
+    console.error(
+      JSON.stringify(
+        {
+          error,
+        },
+        undefined,
+        2,
+      ),
+    );
+
+    process.exit(1);
+  }
 };
 
 export default BlogIndex;
