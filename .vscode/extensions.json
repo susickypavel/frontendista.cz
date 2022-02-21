@@ -1,4 +1,9 @@
 {
-  "recommendations": ["dbaeumer.vscode-eslint"],
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "GraphQL.vscode-graphql",
+    "stylelint.vscode-stylelint"
+  ],
   "unwantedRecommendations": []
 }
