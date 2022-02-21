@@ -18,7 +18,8 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@utils/*": ["src/utils/*"],
-      "@stylesheets/*": ["src/stylesheets/*"]
+      "@stylesheets/*": ["src/stylesheets/*"],
+      "@queries/*": ["src/queries/*"]
     },
     "types": ["cypress", "@testing-library/cypress"]
   },
