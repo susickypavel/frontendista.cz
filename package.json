@@ -41,7 +41,6 @@
     "rimraf": "^3.0.2",
     "sass": "^1.49.7",
     "stylelint": "^14.5.0",
-    "stylelint-config-idiomatic-order": "^8.1.0",
     "stylelint-config-prettier-scss": "^0.0.1",
     "stylelint-config-recommended-scss": "^5.0.2",
     "stylelint-config-standard-scss": "^3.0.0",

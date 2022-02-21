@@ -6,7 +6,6 @@ const config = {
     "stylelint-config-standard-scss",
     "stylelint-config-prettier-scss",
     "stylelint-config-recommended-scss",
-    "stylelint-config-idiomatic-order",
   ],
   plugins: ["stylelint-order"],
   rules: {
