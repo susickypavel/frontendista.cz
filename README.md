@@ -65,3 +65,4 @@ yarn dev
 | Name                    | Value                                                              | Required |
 | ----------------------- | ------------------------------------------------------------------ | -------- |
 | SANITY_GRAPHQL_ENDPOINT | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
+| SANITY_CLIENT_TOKEN     | _hidden_                                                           | ✅       |
