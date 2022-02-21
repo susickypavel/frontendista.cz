@@ -5,17 +5,6 @@ const codeStyleRules = {
   eqeqeq: "error",
   // https://eslint.org/docs/rules/dot-notation
   "dot-notation": "error",
-  "capitalized-comments": [
-    "error",
-    "always",
-    {
-      line: {},
-      block: {
-        ignoreInlineComments: true,
-        ignoreConsecutiveComments: true,
-      },
-    },
-  ],
 };
 
 /**
