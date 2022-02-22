@@ -10,6 +10,7 @@
 export interface GetPostBySlug_allPost {
   __typename: "Post";
   title: string | null;
+  bodyRaw: any | null;
 }
 
 export interface GetPostBySlug {

@@ -4,6 +4,7 @@ export const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: String) {
     allPost(where: { slug: { current: { eq: $slug } } }) {
       title
+      bodyRaw
     }
   }
 `;
