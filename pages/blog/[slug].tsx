@@ -1,4 +1,5 @@
 import * as React from "react";
+import { PortableText } from "@portabletext/react";
 
 import { GET_ALL_POST_SLUG, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
@@ -23,10 +24,11 @@ interface Params extends ParsedUrlQuery {
   slug: string;
 }
 
-const BlogPostPage: NextPage<BlogPostPageProps> = ({ title }) => {
+const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
   return (
     <div>
       <h1>{title}</h1>
+      <PortableText value={bodyRaw} />
     </div>
   );
 };
