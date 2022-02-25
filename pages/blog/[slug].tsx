@@ -1,5 +1,6 @@
 import * as React from "react";
 import { PortableText } from "@portabletext/react";
+import Youtube from "react-youtube";
 
 import { GET_ALL_POST_SLUG, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
@@ -28,7 +29,16 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
   return (
     <div>
       <h1>{title}</h1>
-      <PortableText value={bodyRaw} />
+      <PortableText
+        value={bodyRaw}
+        components={{
+          types: {
+            youtube: ({ value }) => {
+              return <Youtube videoId={value.videoId} />;
+            },
+          },
+        }}
+      />
     </div>
   );
 };
