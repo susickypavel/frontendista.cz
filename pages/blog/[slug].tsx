@@ -1,6 +1,6 @@
 import * as React from "react";
 import { PortableText } from "@portabletext/react";
-import Youtube from "react-youtube";
+import dynamic from "next/dynamic";
 
 import { GET_ALL_POST_SLUG, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
@@ -19,6 +19,10 @@ import type {
   NextPage,
 } from "next";
 
+const YoutubeEmbed = dynamic(
+  () => import("@components/youtube-embed/youtube-embed.component"),
+);
+
 interface BlogPostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
 interface Params extends ParsedUrlQuery {
@@ -34,7 +38,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
         components={{
           types: {
             youtube: ({ value }) => {
-              return <Youtube videoId={value.videoId} />;
+              return <YoutubeEmbed videoId={value.videoId} />;
             },
           },
         }}
