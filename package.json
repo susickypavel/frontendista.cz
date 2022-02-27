@@ -9,6 +9,7 @@
     "dev": "next dev -p 80 -H local.frontendista.cz",
     "build": "next build",
     "build:clean": "rimraf .next && next build",
+    "build:no:lint": "next build --no-lint",
     "start": "next start -p 80 -H local.frontendista.cz",
     "test": "jest",
     "test:watch": "jest --watch",

@@ -27,7 +27,7 @@ jobs:
         run: yarn install --frozen-lockfile --check-files
 
       - name: Build
-        run: yarn build
+        run: yarn build:no:lint
 
   lintCode:
     name: Run ESLint
