@@ -1,7 +1,6 @@
 import * as React from "react";
 import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
-import LazyLoad from "react-lazyload";
 
 import { GET_ALL_POST_SLUG, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
