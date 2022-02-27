@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
+import LazyLoad from "react-lazyload";
 
 import { GET_ALL_POST_SLUG, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
@@ -31,15 +32,13 @@ interface Params extends ParsedUrlQuery {
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
   return (
-    <div>
+    <div style={{ maxWidth: 640 }}>
       <h1>{title}</h1>
       <PortableText
         value={bodyRaw}
         components={{
           types: {
-            youtube: ({ value }) => {
-              return <YoutubeEmbed videoId={value.videoId} />;
-            },
+            youtube: ({ value }) => <YoutubeEmbed videoId={value.videoId} />,
           },
         }}
       />
