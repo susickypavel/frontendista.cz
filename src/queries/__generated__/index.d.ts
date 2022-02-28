@@ -67,6 +67,46 @@ export interface GetAllPost {
 // @generated
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL query operation: GetImagesById
+// ====================================================
+
+export interface GetImagesById_allSanityImageAsset_metadata_dimensions {
+  __typename: "SanityImageDimensions";
+  height: number | null;
+  width: number | null;
+  aspectRatio: number | null;
+}
+
+export interface GetImagesById_allSanityImageAsset_metadata {
+  __typename: "SanityImageMetadata";
+  lqip: string | null;
+  dimensions: GetImagesById_allSanityImageAsset_metadata_dimensions | null;
+}
+
+export interface GetImagesById_allSanityImageAsset {
+  __typename: "SanityImageAsset";
+  /**
+   * Document ID
+   */
+  _id: string | null;
+  url: string | null;
+  metadata: GetImagesById_allSanityImageAsset_metadata | null;
+}
+
+export interface GetImagesById {
+  allSanityImageAsset: GetImagesById_allSanityImageAsset[];
+}
+
+export interface GetImagesByIdVariables {
+  ids?: string[] | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// @generated
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
