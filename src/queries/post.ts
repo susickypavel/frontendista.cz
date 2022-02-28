@@ -26,3 +26,20 @@ export const GET_ALL_POST = gql`
     }
   }
 `;
+
+export const GET_IMAGES_BY_ID = gql`
+  query GetImagesById($ids: [ID!]) {
+    allSanityImageAsset(where: { _id: { in: $ids } }) {
+      _id
+      url
+      metadata {
+        lqip
+        dimensions {
+          height
+          width
+          aspectRatio
+        }
+      }
+    }
+  }
+`;
