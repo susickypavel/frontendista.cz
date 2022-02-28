@@ -2,11 +2,13 @@ import * as React from "react";
 import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
 
-import { GET_ALL_POST_SLUG, GET_POST_BY_SLUG } from "@queries/post";
+import { GET_ALL_POST_SLUG, GET_IMAGES_BY_ID, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
 
 import {
   GetAllPostSlug,
+  GetImagesById,
+  GetImagesByIdVariables,
   GetPostBySlug,
   GetPostBySlugVariables,
   GetPostBySlug_allPost,
@@ -30,6 +32,8 @@ interface Params extends ParsedUrlQuery {
 }
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
+  console.log(bodyRaw);
+
   return (
     <div style={{ maxWidth: 640 }}>
       <h1>{title}</h1>
@@ -38,6 +42,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
         components={{
           types: {
             youtube: ({ value }) => <YoutubeEmbed videoId={value.videoId} />,
+            image: ({ value }) => <img src={value.url} />,
           },
         }}
       />
@@ -81,6 +86,49 @@ export const getStaticProps: GetStaticProps<GetPostBySlug_allPost, Params> = asy
   }
 
   const post = allPost[0];
+
+  const imageIds = post.bodyRaw
+    .filter((item: any) => item._type === "image")
+    .map((item: any) => item.asset._ref);
+
+  const { allSanityImageAsset } = await GRAPHQL_CLIENT.request<
+    GetImagesById,
+    GetImagesByIdVariables
+  >(GET_IMAGES_BY_ID, {
+    ids: imageIds,
+  });
+
+  const imagesData = allSanityImageAsset.reduce((previous, current) => {
+    const { _id, ...props } = current;
+
+    if (!_id) {
+      throw new Error(
+        `Expected image assets with id, but got: ${JSON.stringify(
+          current,
+          undefined,
+          2,
+        )}`,
+      );
+    }
+
+    previous[_id] = {
+      url: props.url,
+      lqip: props.metadata?.lqip,
+      aspectRatio: props.metadata?.dimensions?.aspectRatio,
+    };
+
+    return previous;
+  }, {} as Record<string, any>);
+
+  post.bodyRaw
+    .filter((item: any) => item._type === "image")
+    .forEach((item: any) => {
+      const data = imagesData[item.asset._ref];
+
+      delete item.asset;
+
+      Object.assign(item, data);
+    });
 
   return {
     props: {
