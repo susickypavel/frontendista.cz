@@ -1,6 +1,7 @@
 import * as React from "react";
 import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 import { GET_ALL_POST_SLUG, GET_IMAGES_BY_ID, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
@@ -32,8 +33,6 @@ interface Params extends ParsedUrlQuery {
 }
 
 const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
-  console.log(bodyRaw);
-
   return (
     <div style={{ maxWidth: 640 }}>
       <h1>{title}</h1>
@@ -42,7 +41,17 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
         components={{
           types: {
             youtube: ({ value }) => <YoutubeEmbed videoId={value.videoId} />,
-            image: ({ value }) => <img src={value.url} />,
+            image: ({ value }) => (
+              <Image
+                placeholder="blur"
+                layout="responsive"
+                height={value.height}
+                width={value.width}
+                src={value.url}
+                blurDataURL={value.lqip}
+                alt="TODO"
+              />
+            ),
           },
         }}
       />
@@ -115,6 +124,8 @@ export const getStaticProps: GetStaticProps<GetPostBySlug_allPost, Params> = asy
       url: props.url,
       lqip: props.metadata?.lqip,
       aspectRatio: props.metadata?.dimensions?.aspectRatio,
+      height: props.metadata?.dimensions?.height,
+      width: props.metadata?.dimensions?.width,
     };
 
     return previous;
