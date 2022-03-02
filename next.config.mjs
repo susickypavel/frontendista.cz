@@ -26,6 +26,12 @@ function validateEnvVars() {
  */
 const config = {
   reactStrictMode: true,
+  images: {
+    deviceSizes: [360, 480, 720, 1280, 1440],
+    imageSizes: [16, 32, 64, 128, 256],
+    domains: ["cdn.sanity.io"],
+    formats: ["image/avif", "image/webp"],
+  },
   webpack: (config, { dev, isServer }) => {
     validateEnvVars();
 
