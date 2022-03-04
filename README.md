@@ -9,6 +9,17 @@
     <img src="https://img.shields.io/badge/MADE%20BY%20Vercel-000000.svg?style=for-the-badge&logo=Vercel&labelColor=000">
   </a>
 </p>
+<p align="center">
+  <a href="https://github.com/Thesoreon/frontendista.cz/actions/workflows/build_lint_test.yml">
+    <img src="https://github.com/thesoreon/frontendista.cz/actions/workflows/build_lint_test.yml/badge.svg" />
+  </a>
+  <a href="https://github.com/Thesoreon/frontendista.cz/actions/workflows/build_lint_test_staging.yml">
+    <img src="https://github.com/thesoreon/frontendista.cz/actions/workflows/build_lint_test_staging.yml/badge.svg" />
+  </a>
+  <a href="https://github.com/Thesoreon/frontendista.cz/actions/workflows/build_lint_test_production.yml">
+    <img src="https://github.com/thesoreon/frontendista.cz/actions/workflows/build_lint_test_production.yml/badge.svg" />
+  </a>
+</p>
 
 ## 1. Installation
 
