@@ -43,7 +43,10 @@ Add line below to your `hosts` file.
 
 ### 1.2 Environment variables
 
-TBD
+| Name                    | Value                                                              | Required |
+| ----------------------- | ------------------------------------------------------------------ | -------- |
+| SANITY_GRAPHQL_ENDPOINT | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
+| SANITY_CLIENT_TOKEN     | _hidden_                                                           | ✅       |
 
 ### 1.3 Development
 
@@ -70,10 +73,3 @@ yarn dev
 | local      |         rapid development         |   [local.frontendista.cz](http://local.frontendista.cz)    |
 | staging    | production-like, testing purposes | [staging.frontendista.cz](https://staging.frontendista.cz) |
 | production |         production (lol)          |         [frontendista.cz](https://frontendista.cz)         |
-
-## 3. Environment variables
-
-| Name                    | Value                                                              | Required |
-| ----------------------- | ------------------------------------------------------------------ | -------- |
-| SANITY_GRAPHQL_ENDPOINT | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
-| SANITY_CLIENT_TOKEN     | _hidden_                                                           | ✅       |
