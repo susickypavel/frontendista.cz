@@ -1,7 +1,6 @@
 import * as React from "react";
 import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 
 import { GET_ALL_POST_SLUG, GET_IMAGES_BY_ID, GET_POST_BY_SLUG } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
@@ -21,6 +20,7 @@ import type {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import { BlogImage } from "@components/blog-image/blog-image.component";
 
 const YoutubeEmbed = dynamic(
   () => import("@components/youtube-embed/youtube-embed.component"),
@@ -41,17 +41,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
         components={{
           types: {
             youtube: ({ value }) => <YoutubeEmbed videoId={value.videoId} />,
-            image: ({ value }) => (
-              <Image
-                placeholder="blur"
-                layout="responsive"
-                height={value.height}
-                width={value.width}
-                src={value.url}
-                blurDataURL={value.lqip}
-                alt="TODO"
-              />
-            ),
+            image: ({ value }) => <BlogImage {...value} />,
           },
         }}
       />
@@ -121,7 +111,7 @@ export const getStaticProps: GetStaticProps<GetPostBySlug_allPost, Params> = asy
     }
 
     previous[_id] = {
-      url: props.url,
+      src: props.url,
       lqip: props.metadata?.lqip,
       aspectRatio: props.metadata?.dimensions?.aspectRatio,
       height: props.metadata?.dimensions?.height,
