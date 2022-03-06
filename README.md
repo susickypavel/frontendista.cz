@@ -10,9 +10,6 @@
   </a>
 </p>
 <p align="center">
-  <a href="https://github.com/Thesoreon/frontendista.cz/actions/workflows/build_lint_test.yml">
-    <img src="https://github.com/thesoreon/frontendista.cz/actions/workflows/build_lint_test.yml/badge.svg" />
-  </a>
   <a href="https://github.com/Thesoreon/frontendista.cz/actions/workflows/build_lint_test_staging.yml">
     <img src="https://github.com/thesoreon/frontendista.cz/actions/workflows/build_lint_test_staging.yml/badge.svg" />
   </a>
