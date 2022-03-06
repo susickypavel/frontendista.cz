@@ -6,10 +6,13 @@ export interface BlogImageProps {
   width: string;
   src: string;
   lqip: string;
+  aspectRatio: number;
 }
 
 export const BlogImage: React.FunctionComponent<BlogImageProps> = ({
   lqip,
+  // eslint-disable-next-line no-unused-vars
+  aspectRatio,
   ...props
 }) => {
   return (
