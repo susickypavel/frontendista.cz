@@ -5,4 +5,5 @@ export const SANITY_CLIENT = new SanityClient({
   dataset: process.env.SANITY_DATASET_ID,
   token: process.env.SANITY_CLIENT_TOKEN,
   useCdn: false,
+  apiVersion: "2022-03-06",
 });
