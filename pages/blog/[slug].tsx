@@ -3,6 +3,7 @@ import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
 
 import { BlogImage } from "@components/blog-image/blog-image.component";
+import { cleanObjectFromFalsyValues } from "@utils/clean-object-from-falsy-values";
 
 import {
   GET_ALL_POST_SLUG,
@@ -94,6 +95,10 @@ export const getStaticProps: GetStaticProps<
   const { body } = await SANITY_CLIENT.fetch<{ body: any[] }>(GET_POST_BODY_BY_SLUG, {
     slug: params!.slug,
   });
+
+  // HACK: This removes falsy values (including []) from the body object as they're not needed and only adds up to bandwidth.
+  // NOTE: This is a hack because I can't come up with a solution which would filter out these fields.
+  body.forEach(cleanObjectFromFalsyValues);
 
   return {
     props: {
