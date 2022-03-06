@@ -2,13 +2,18 @@ import * as React from "react";
 import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
 
-import { GET_ALL_POST_SLUG, GET_IMAGES_BY_ID, GET_POST_BY_SLUG } from "@queries/post";
+import { BlogImage } from "@components/blog-image/blog-image.component";
+
+import {
+  GET_ALL_POST_SLUG,
+  GET_POST_BODY_BY_SLUG,
+  GET_POST_BY_SLUG,
+} from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
+import { SANITY_CLIENT } from "@utils/sanity-client";
 
 import {
   GetAllPostSlug,
-  GetImagesById,
-  GetImagesByIdVariables,
   GetPostBySlug,
   GetPostBySlugVariables,
   GetPostBySlug_allPost,
@@ -20,7 +25,6 @@ import type {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
-import { BlogImage } from "@components/blog-image/blog-image.component";
 
 const YoutubeEmbed = dynamic(
   () => import("@components/youtube-embed/youtube-embed.component"),
@@ -32,16 +36,16 @@ interface Params extends ParsedUrlQuery {
   slug: string;
 }
 
-const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, bodyRaw }) => {
+const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, body }) => {
   return (
     <div style={{ maxWidth: 640 }}>
       <h1>{title}</h1>
       <PortableText
-        value={bodyRaw}
+        value={body}
         components={{
           types: {
             youtube: ({ value }) => <YoutubeEmbed videoId={value.videoId} />,
-            image: ({ value }) => <BlogImage {...value} />,
+            image: ({ value }) => <BlogImage {...value.asset} />,
           },
         }}
       />
@@ -68,9 +72,10 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<GetPostBySlug_allPost, Params> = async ({
-  params,
-}) => {
+export const getStaticProps: GetStaticProps<
+  GetPostBySlug_allPost & { body: any[] },
+  Params
+> = async ({ params }) => {
   const { allPost } = await GRAPHQL_CLIENT.request<GetPostBySlug, GetPostBySlugVariables>(
     GET_POST_BY_SLUG,
     {
@@ -86,54 +91,14 @@ export const getStaticProps: GetStaticProps<GetPostBySlug_allPost, Params> = asy
 
   const post = allPost[0];
 
-  const imageIds = post.bodyRaw
-    .filter((item: any) => item._type === "image")
-    .map((item: any) => item.asset._ref);
-
-  const { allSanityImageAsset } = await GRAPHQL_CLIENT.request<
-    GetImagesById,
-    GetImagesByIdVariables
-  >(GET_IMAGES_BY_ID, {
-    ids: imageIds,
+  const { body } = await SANITY_CLIENT.fetch<{ body: any[] }>(GET_POST_BODY_BY_SLUG, {
+    slug: params!.slug,
   });
-
-  const imagesData = allSanityImageAsset.reduce((previous, current) => {
-    const { _id, ...props } = current;
-
-    if (!_id) {
-      throw new Error(
-        `Expected image assets with id, but got: ${JSON.stringify(
-          current,
-          undefined,
-          2,
-        )}`,
-      );
-    }
-
-    previous[_id] = {
-      src: props.url,
-      lqip: props.metadata?.lqip,
-      aspectRatio: props.metadata?.dimensions?.aspectRatio,
-      height: props.metadata?.dimensions?.height,
-      width: props.metadata?.dimensions?.width,
-    };
-
-    return previous;
-  }, {} as Record<string, any>);
-
-  post.bodyRaw
-    .filter((item: any) => item._type === "image")
-    .forEach((item: any) => {
-      const data = imagesData[item.asset._ref];
-
-      delete item.asset;
-
-      Object.assign(item, data);
-    });
 
   return {
     props: {
       ...post,
+      body,
     },
   };
 };
