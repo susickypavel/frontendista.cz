@@ -4,7 +4,6 @@ export const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: String) {
     allPost(where: { slug: { current: { eq: $slug } } }) {
       title
-      bodyRaw
     }
   }
 `;
@@ -27,19 +26,15 @@ export const GET_ALL_POST = gql`
   }
 `;
 
-export const GET_IMAGES_BY_ID = gql`
-  query GetImagesById($ids: [ID!]) {
-    allSanityImageAsset(where: { _id: { in: $ids } }) {
-      _id
-      url
-      metadata {
-        lqip
-        dimensions {
-          height
-          width
-          aspectRatio
-        }
-      }
+export const GET_POST_BODY_BY_SLUG = `*[_type == "post" && slug.current == $slug] {
+  body[] {
+    ...,
+    asset-> {
+      "src": url,
+      "lqip": metadata.lqip,
+      "height": metadata.dimensions.height,
+      "width": metadata.dimensions.width,
+      "aspectRatio": metadata.dimensions.aspectRatio 
     }
   }
-`;
+}[0]`;
