@@ -20,16 +20,18 @@
     "codegen": "apollo codegen:generate ./src/queries/__generated__/index.d.ts -c apollo.config.js --target=typescript --outputFlat"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.6",
     "@portabletext/react": "^1.0.3",
     "@sanity/client": "^3.2.0",
+    "clsx": "^1.1.1",
     "graphql": "15.8.0",
     "graphql-request": "^4.0.0",
     "next": "^12.1.0",
     "next-seo": "^5.1.0",
     "preact": "^10.6.6",
     "react": "^17.0.2",
+    "react-aria": "^3.13.2",
     "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
     "react-lazyload": "^3.2.0",
     "react-youtube": "^7.14.0"
   },
