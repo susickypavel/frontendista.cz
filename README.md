@@ -63,7 +63,7 @@ yarn dev
 
 ### 1.4 Bonus
 
-1. Install recommended extensions for VSCode (listed in `.vscode/extensions.json`)
+- Install recommended extensions for VSCode (listed in `.vscode/extensions.json`)
 
 ## 2. Environments
 
