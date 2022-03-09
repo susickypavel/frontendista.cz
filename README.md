@@ -14,7 +14,7 @@
     <img src="https://github.com/thesoreon/frontendista.cz/actions/workflows/build_lint_test_staging.yml/badge.svg" />
   </a>
   <a href="https://github.com/Thesoreon/frontendista.cz/actions/workflows/build_lint_test_production.yml">
-    <img src="https://github.com/thesoreon/frontendista.cz/actions/workflows/build_lint_test_production.yml/badge.svg" />
+    <img src="https://github.com/Thesoreon/frontendista.cz/actions/workflows/build_lint_test_production.yml/badge.svg" />
   </a>
 </p>
 
