@@ -1,7 +1,6 @@
 {
   "name": "frontendista.cz",
   "description": "Pavel Susicky's personal website and blog",
-  "version": "0.0.0",
   "repository": "git@github.com:Thesoreon/frontendista.cz.git",
   "author": "Pavel Sušický <susicky.pavel@outlook.cz>",
   "license": "MIT",
