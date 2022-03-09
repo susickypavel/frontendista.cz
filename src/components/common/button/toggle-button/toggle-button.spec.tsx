@@ -1,4 +1,5 @@
 import { fireEvent, render } from "@testing-library/react";
+import { useEffect, useRef } from "react";
 
 import { ToggleButton } from "./toggle-button.component";
 
@@ -124,5 +125,68 @@ describe("ToggleButton", () => {
     fireEvent.click(toggleButton);
 
     expect(onChange).toHaveBeenCalledWith(true);
+  });
+
+  it("should call onHover handelrs when mouse pass by the element", () => {
+    const onHoverStart = jest.fn();
+    const onHoverEnd = jest.fn();
+    const onHoverChange = jest.fn();
+
+    const { getByText } = render(
+      <ToggleButton
+        onHoverStart={onHoverStart}
+        onHoverEnd={onHoverEnd}
+        onHoverChange={onHoverChange}>
+        ToggleButton
+      </ToggleButton>,
+    );
+
+    const toggleButton = getByText("ToggleButton");
+
+    fireEvent.mouseEnter(toggleButton);
+
+    expect(onHoverStart).toHaveBeenCalledTimes(1);
+
+    fireEvent.mouseLeave(toggleButton);
+
+    expect(onHoverEnd).toHaveBeenCalledTimes(1);
+    expect(onHoverChange).toHaveBeenCalledTimes(2);
+  });
+
+  it("should pass ref to a button element", () => {
+    function Test() {
+      const ref = useRef<HTMLButtonElement>(null);
+
+      useEffect(() => {
+        ref.current?.setAttribute("my-attribute", "lol");
+      }, []);
+
+      return <ToggleButton ref={ref}>ToggleButton</ToggleButton>;
+    }
+
+    const { getByText } = render(<Test />);
+
+    const toggleButton = getByText("ToggleButton");
+
+    expect(toggleButton).toHaveAttribute("my-attribute", "lol");
+  });
+
+  it("should pass callback ref to a button element", () => {
+    function Test() {
+      return (
+        <ToggleButton
+          ref={e => {
+            e?.setAttribute("my-attribute", "lol");
+          }}>
+          ToggleButton
+        </ToggleButton>
+      );
+    }
+
+    const { getByText } = render(<Test />);
+
+    const toggleButton = getByText("ToggleButton");
+
+    expect(toggleButton).toHaveAttribute("my-attribute", "lol");
   });
 });

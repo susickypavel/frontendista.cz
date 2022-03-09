@@ -1,3 +1,16 @@
 .isSelected {
   background: blue;
 }
+
+.isHovered {
+  background: black;
+  color: white;
+}
+
+.isPressed {
+  background: gray;
+}
+
+.isFocused {
+  box-shadow: 0 0 0 2px black;
+}
