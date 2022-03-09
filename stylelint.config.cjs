@@ -7,10 +7,16 @@ const config = {
     "stylelint-config-prettier-scss",
     "stylelint-config-recommended-scss",
   ],
-  plugins: ["stylelint-order"],
+  plugins: ["stylelint-order", "stylelint-no-unsupported-browser-features"],
   rules: {
     // CamelCase pattern
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "plugin/no-unsupported-browser-features": [
+      true,
+      {
+        severity: "warning",
+      },
+    ],
   },
 };
 
