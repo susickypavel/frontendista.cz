@@ -1,7 +1,5 @@
 import * as React from "react";
 
-import styles from "@stylesheets/pages/index.module.scss";
-
 import type { NextPage } from "next";
 
 import { ToggleButton } from "@components/common/button/toggle-button/toggle-button.component";
