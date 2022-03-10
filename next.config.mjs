@@ -1,4 +1,9 @@
 import chalk from "chalk";
+import analyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = analyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 function validateEnvVars() {
   const requiredVars = [
@@ -44,4 +49,4 @@ const config = {
   },
 };
 
-export default config;
+export default withBundleAnalyzer(config);
