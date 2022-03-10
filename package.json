@@ -48,6 +48,7 @@
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
     "@types/react-lazyload": "^3.1.1",
+    "@types/tailwindcss": "^3.0.9",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
     "apollo": "^2.33.9",
@@ -69,6 +70,7 @@
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-no-unsupported-browser-features": "^5.0.3",
     "stylelint-order": "^5.0.0",
+    "tailwindcss": "^3.0.23",
     "typescript": "^4.5.5",
     "vercel": "^24.0.0"
   }
