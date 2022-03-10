@@ -14,11 +14,15 @@
   "test-component": {
     "prefix": "test-component",
     "body": [
+      "import { render, screen } from \"@testing-library/react\"",
+      "",
+      "import { ${1:TestComponent} } from \"./${1:TestComponent}.component\"",
+      "",
       "describe(\"${1:TestComponent}\", () => {",
       "  it(\"should render\", () => {",
-      "    const { getByText } = render(<${1:TestComponent}>${1:TestComponent}</${1:TestComponent}>);",
+      "    render(<${1:TestComponent}>${1:TestComponent}</${1:TestComponent}>);",
       "",
-      "    const __TEMPORARY__ = getByText(\"${1:TestComponent}\");",
+      "    const __TEMPORARY__ = screen.getByText(\"${1:TestComponent}\");",
       "",
       "    expect(__TEMPORARY__).toBeInTheDocument();",
       "  })",
@@ -30,9 +34,9 @@
     "prefix": "test-it",
     "body": [
       "it(\"should render\", () => {",
-      "    const { getByText } = render(<${1:TestComponent}>${1:TestComponent}</${1:TestComponent}>);",
+      "    render(<${1:TestComponent}>${1:TestComponent}</${1:TestComponent}>);",
       "",
-      "    const __TEMPORARY__ = getByText(\"${1:TestComponent}\");",
+      "    const __TEMPORARY__ = screen.getByText(\"${1:TestComponent}\");",
       "",
       "    expect(__TEMPORARY__).toBeInTheDocument();",
       "})  "
