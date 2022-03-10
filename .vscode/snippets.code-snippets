@@ -10,5 +10,33 @@
       ""
     ],
     "description": "react-component"
+  },
+  "test-component": {
+    "prefix": "test-component",
+    "body": [
+      "describe(\"${1:TestComponent}\", () => {",
+      "  it(\"should render\", () => {",
+      "    const { getByText } = render(<${1:TestComponent}>${1:TestComponent}</${1:TestComponent}>);",
+      "",
+      "    const __TEMPORARY__ = getByText(\"${1:TestComponent}\");",
+      "",
+      "    expect(__TEMPORARY__).toBeInTheDocument();",
+      "  })",
+      "})"
+    ],
+    "description": "test-component"
+  },
+  "test-it": {
+    "prefix": "test-it",
+    "body": [
+      "it(\"should render\", () => {",
+      "    const { getByText } = render(<${1:TestComponent}>${1:TestComponent}</${1:TestComponent}>);",
+      "",
+      "    const __TEMPORARY__ = getByText(\"${1:TestComponent}\");",
+      "",
+      "    expect(__TEMPORARY__).toBeInTheDocument();",
+      "})  "
+    ],
+    "description": "test-it"
   }
 }
