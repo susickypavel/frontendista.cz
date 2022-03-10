@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import type { IToggleButtonProps } from "@components/common/button/toggle-button/toggle-button.component";
+import type { IToggleButtonProps } from "@components/common/button/toggle-button/toggle-button";
 
 /**
  * NOTE: There is optional React.useMemo for "optimization" for future reference, if there is a performance bottleneck.
