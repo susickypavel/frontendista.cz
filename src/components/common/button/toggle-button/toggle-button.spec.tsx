@@ -1,18 +1,18 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { useEffect, useRef } from "react";
 
 import { ToggleButton } from "./toggle-button.component";
 
 describe("ToggleButton", () => {
   it("should render", () => {
-    const { getByText } = render(<ToggleButton>ToggleButton</ToggleButton>);
-    expect(getByText("ToggleButton")).toBeInTheDocument();
+    render(<ToggleButton>ToggleButton</ToggleButton>);
+    expect(screen.getByText("ToggleButton")).toBeInTheDocument();
   });
 
   it("should be pressed on click", () => {
-    const { getByText } = render(<ToggleButton>ToggleButton</ToggleButton>);
+    render(<ToggleButton>ToggleButton</ToggleButton>);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     fireEvent.click(toggleButton);
 
@@ -20,9 +20,9 @@ describe("ToggleButton", () => {
   });
 
   it("should toggle", () => {
-    const { getByText } = render(<ToggleButton>ToggleButton</ToggleButton>);
+    render(<ToggleButton>ToggleButton</ToggleButton>);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     fireEvent.click(toggleButton);
     fireEvent.click(toggleButton);
@@ -31,9 +31,9 @@ describe("ToggleButton", () => {
   });
 
   it("should not toggle when disabled", () => {
-    const { getByText } = render(<ToggleButton isDisabled>ToggleButton</ToggleButton>);
+    render(<ToggleButton isDisabled>ToggleButton</ToggleButton>);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     const isPressedStart = toggleButton.getAttribute("aria-pressed");
 
@@ -45,33 +45,33 @@ describe("ToggleButton", () => {
   });
 
   it("should have focus on mount", () => {
-    const { getByText } = render(<ToggleButton autoFocus>ToggleButton</ToggleButton>);
+    render(<ToggleButton autoFocus>ToggleButton</ToggleButton>);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
-    expect(document.activeElement).toBe(toggleButton);
+    expect(toggleButton).toHaveFocus();
   });
 
   it("should NOT have focus on mount when disabled", () => {
-    const { getByText } = render(
+    render(
       <ToggleButton autoFocus isDisabled>
         ToggleButton
       </ToggleButton>,
     );
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
-    expect(document.activeElement).not.toBe(toggleButton);
+    expect(toggleButton).not.toHaveFocus();
   });
 
   it("should receive various props", () => {
-    const { getByText } = render(
+    render(
       <ToggleButton type="submit" className="custom-class">
         ToggleButton
       </ToggleButton>,
     );
 
-    const toggleButton = getByText("ToggleButton") as HTMLButtonElement;
+    const toggleButton = screen.getByText("ToggleButton") as HTMLButtonElement;
 
     expect(toggleButton.type).toBe("submit");
     expect(toggleButton).toHaveClass("custom-class");
@@ -83,7 +83,7 @@ describe("ToggleButton", () => {
     const onPressEnd = jest.fn();
     const onPressChange = jest.fn();
 
-    const { getByText } = render(
+    render(
       <ToggleButton
         onPress={onPress}
         onPressStart={onPressStart}
@@ -93,7 +93,7 @@ describe("ToggleButton", () => {
       </ToggleButton>,
     );
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     fireEvent.click(toggleButton);
 
@@ -104,11 +104,9 @@ describe("ToggleButton", () => {
   });
 
   it("should be selected on mount when defaultSelected is passed", () => {
-    const { getByText } = render(
-      <ToggleButton defaultSelected>ToggleButton</ToggleButton>,
-    );
+    render(<ToggleButton defaultSelected>ToggleButton</ToggleButton>);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     expect(toggleButton).toHaveAttribute("aria-pressed", "true");
   });
@@ -116,11 +114,9 @@ describe("ToggleButton", () => {
   it("should call onChange handler when button is toggled", () => {
     const onChange = jest.fn();
 
-    const { getByText } = render(
-      <ToggleButton onChange={onChange}>ToggleButton</ToggleButton>,
-    );
+    render(<ToggleButton onChange={onChange}>ToggleButton</ToggleButton>);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     fireEvent.click(toggleButton);
 
@@ -132,7 +128,7 @@ describe("ToggleButton", () => {
     const onHoverEnd = jest.fn();
     const onHoverChange = jest.fn();
 
-    const { getByText } = render(
+    render(
       <ToggleButton
         onHoverStart={onHoverStart}
         onHoverEnd={onHoverEnd}
@@ -141,7 +137,7 @@ describe("ToggleButton", () => {
       </ToggleButton>,
     );
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     fireEvent.mouseEnter(toggleButton);
 
@@ -164,9 +160,9 @@ describe("ToggleButton", () => {
       return <ToggleButton ref={ref}>ToggleButton</ToggleButton>;
     }
 
-    const { getByText } = render(<Test />);
+    render(<Test />);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     expect(toggleButton).toHaveAttribute("my-attribute", "lol");
   });
@@ -183,9 +179,9 @@ describe("ToggleButton", () => {
       );
     }
 
-    const { getByText } = render(<Test />);
+    render(<Test />);
 
-    const toggleButton = getByText("ToggleButton");
+    const toggleButton = screen.getByText("ToggleButton");
 
     expect(toggleButton).toHaveAttribute("my-attribute", "lol");
   });

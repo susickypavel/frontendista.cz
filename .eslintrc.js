@@ -7,6 +7,10 @@ const codeStyleRules = {
   "dot-notation": "error",
 };
 
+const a11yRules = {
+  "jsx-a11y/no-autofocus": "off",
+};
+
 /**
  * @type {import("eslint").Linter.Config}
  */
@@ -25,8 +29,13 @@ module.exports = {
     "next/core-web-vitals",
     "prettier",
     "plugin:cypress/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
+    "plugin:jsx-a11y/recommended",
   ],
   rules: {
     ...codeStyleRules,
+    ...a11yRules,
   },
 };

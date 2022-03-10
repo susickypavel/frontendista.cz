@@ -1,42 +1,43 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { useEffect, useRef } from "react";
 
 import { Button } from "./button.component";
 
 describe("Button", () => {
   it("should render", () => {
-    const { getByText } = render(<Button>Button</Button>);
-    expect(getByText("Button")).toBeInTheDocument();
+    render(<Button>Button</Button>);
+
+    expect(screen.getByText("Button")).toBeInTheDocument();
   });
 
   it("should have focus on mount", () => {
-    const { getByText } = render(<Button autoFocus>Button</Button>);
+    render(<Button autoFocus>Button</Button>);
 
-    const button = getByText("Button");
+    const button = screen.getByText("Button");
 
-    expect(document.activeElement).toBe(button);
+    expect(button).toHaveFocus();
   });
 
   it("should NOT have focus on mount when disabled", () => {
-    const { getByText } = render(
+    render(
       <Button autoFocus isDisabled>
         Button
       </Button>,
     );
 
-    const button = getByText("Button");
+    const button = screen.getByText("Button");
 
-    expect(document.activeElement).not.toBe(button);
+    expect(button).not.toHaveFocus();
   });
 
   it("should receive various props", () => {
-    const { getByText } = render(
+    render(
       <Button type="submit" className="custom-class">
         Button
       </Button>,
     );
 
-    const button = getByText("Button") as HTMLButtonElement;
+    const button = screen.getByText("Button") as HTMLButtonElement;
 
     expect(button.type).toBe("submit");
     expect(button).toHaveClass("custom-class");
@@ -48,7 +49,7 @@ describe("Button", () => {
     const onPressEnd = jest.fn();
     const onPressChange = jest.fn();
 
-    const { getByText } = render(
+    render(
       <Button
         onPress={onPress}
         onPressStart={onPressStart}
@@ -58,7 +59,7 @@ describe("Button", () => {
       </Button>,
     );
 
-    const button = getByText("Button");
+    const button = screen.getByText("Button");
 
     fireEvent.click(button);
 
@@ -73,7 +74,7 @@ describe("Button", () => {
     const onHoverEnd = jest.fn();
     const onHoverChange = jest.fn();
 
-    const { getByText } = render(
+    render(
       <Button
         onHoverStart={onHoverStart}
         onHoverEnd={onHoverEnd}
@@ -82,7 +83,7 @@ describe("Button", () => {
       </Button>,
     );
 
-    const button = getByText("Button");
+    const button = screen.getByText("Button");
 
     fireEvent.mouseEnter(button);
 
@@ -105,9 +106,9 @@ describe("Button", () => {
       return <Button ref={ref}>Button</Button>;
     }
 
-    const { getByText } = render(<Test />);
+    render(<Test />);
 
-    const button = getByText("Button");
+    const button = screen.getByText("Button");
 
     expect(button).toHaveAttribute("my-attribute", "lol");
   });
@@ -124,9 +125,9 @@ describe("Button", () => {
       );
     }
 
-    const { getByText } = render(<Test />);
+    render(<Test />);
 
-    const button = getByText("Button");
+    const button = screen.getByText("Button");
 
     expect(button).toHaveAttribute("my-attribute", "lol");
   });
