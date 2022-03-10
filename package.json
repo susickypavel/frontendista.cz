@@ -34,6 +34,7 @@
     "react-youtube": "^7.14.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^12.1.0",
     "@testing-library/cypress": "^8.0.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
