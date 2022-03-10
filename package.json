@@ -16,7 +16,6 @@
     "test:e2e": "cypress run",
     "lint:code": "next lint",
     "lint:format": "prettier --check .",
-    "lint:style": "stylelint src/**/*.scss",
     "prepare": "husky install",
     "codegen": "apollo codegen:generate ./src/queries/__generated__/index.d.ts -c apollo.config.js --target=typescript --outputFlat"
   },
@@ -65,13 +64,6 @@
     "postcss-preset-env": "^7.4.2",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
-    "sass": "^1.49.7",
-    "stylelint": "^14.5.0",
-    "stylelint-config-prettier-scss": "^0.0.1",
-    "stylelint-config-recommended-scss": "^5.0.2",
-    "stylelint-config-standard-scss": "^3.0.0",
-    "stylelint-no-unsupported-browser-features": "^5.0.3",
-    "stylelint-order": "^5.0.0",
     "tailwindcss": "^3.0.23",
     "typescript": "^4.5.5",
     "vercel": "^24.0.0"

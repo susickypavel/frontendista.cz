@@ -6,7 +6,7 @@ import { DefaultSeo } from "next-seo";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
-import "@stylesheets/global.scss";
+import "@stylesheets/global.css";
 
 const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
