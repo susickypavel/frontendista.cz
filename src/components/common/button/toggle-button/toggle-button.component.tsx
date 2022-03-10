@@ -3,8 +3,6 @@ import clsx from "clsx";
 import { useToggleState } from "@react-stately/toggle";
 import { mergeProps, useFocusRing, useHover, useToggleButton } from "react-aria";
 
-import styles from "../button-common.module.scss";
-
 import { useInternalRef } from "@utils/hooks/useInternalRef";
 import { useButtonContent } from "@utils/hooks/useButtonContent";
 
@@ -32,10 +30,10 @@ export const ToggleButton = React.forwardRef<HTMLButtonElement, IToggleButtonPro
         disabled={isDisabled}
         className={clsx(
           {
-            [styles.isPressed]: isPressed,
-            [styles.isSelected]: state.isSelected,
-            [styles.isFocused]: isFocused && isFocusVisible,
-            [styles.isHovered]: isHovered,
+            "styles.isPressed": isPressed,
+            "styles.isSelected": state.isSelected,
+            "styles.isFocused": isFocused && isFocusVisible,
+            "styles.isHovered": isHovered,
           },
           className,
         )}

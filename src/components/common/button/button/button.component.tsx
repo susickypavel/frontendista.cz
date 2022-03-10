@@ -2,8 +2,6 @@ import * as React from "react";
 import clsx from "clsx";
 import { mergeProps, useFocusRing, useHover, useButton } from "react-aria";
 
-import styles from "../button-common.module.scss";
-
 import { useInternalRef } from "@utils/hooks/useInternalRef";
 import { useButtonContent } from "@utils/hooks/useButtonContent";
 
@@ -30,9 +28,9 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
         disabled={isDisabled}
         className={clsx(
           {
-            [styles.isPressed]: isPressed,
-            [styles.isFocused]: isFocused && isFocusVisible,
-            [styles.isHovered]: isHovered,
+            "styles.isPressed": isPressed,
+            "styles.isFocused": isFocused && isFocusVisible,
+            "styles.isHovered": isHovered,
           },
           className,
         )}

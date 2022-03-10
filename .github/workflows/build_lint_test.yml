@@ -68,9 +68,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile --check-files
 
-      - name: Run Stylelint
-        run: yarn lint:style
-
   lintFormat:
     name: Run Prettier
     runs-on: ubuntu-latest
