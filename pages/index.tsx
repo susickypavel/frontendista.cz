@@ -9,7 +9,7 @@ import { Button } from "@components/common/button/button/button.component";
 
 const IndexPage: NextPage = () => {
   return (
-    <div className={styles.page}>
+    <div className={"bg-red-500"}>
       <Button>Button</Button>
       <ToggleButton>ToggleButton</ToggleButton>
     </div>
