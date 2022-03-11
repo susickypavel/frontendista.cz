@@ -28,12 +28,12 @@ export function useButtonStyle({
   size,
 }: StyleProps) {
   return clsx(
-    "inline-flex justify-center items-center bg-white text-black rounded-lg w-8 appearance-none outline-none",
+    "inline-flex justify-center items-center bg-white text-black rounded-lg w-8 appearance-none outline-none transition-shadow duration-200",
     buttonSizes[size],
     {
       "bg-red-500": isSelected && !isPressed,
       "bg-slate-500": isPressed,
-      "ring-2 ring-white ring-offset-2 ring-offset-current transition-shadow duration-200":
+      "ring-2 ring-white ring-offset-2 ring-offset-current":
         (isFocused && isFocusVisible) || isHovered,
     },
     className,
