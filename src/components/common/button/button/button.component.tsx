@@ -1,15 +1,23 @@
 import * as React from "react";
-import clsx from "clsx";
 import { mergeProps, useFocusRing, useHover, useButton } from "react-aria";
 
 import { useInternalRef } from "@utils/hooks/useInternalRef";
 import { useButtonContent } from "@utils/hooks/useButtonContent";
+import { useButtonStyle } from "@utils/hooks/useButtonStyle";
 
 import type { IButtonProps } from "./button";
 
 export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
   (props, forwardedRef) => {
-    const { className, children, icons, icon, autoFocus, isDisabled } = props;
+    const {
+      className,
+      children,
+      icons,
+      icon,
+      autoFocus,
+      size = "normal",
+      isDisabled,
+    } = props;
 
     const content = useButtonContent({
       children,
@@ -21,19 +29,21 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
     const { buttonProps, isPressed } = useButton(props, internalRef);
     const { focusProps, isFocused, isFocusVisible } = useFocusRing(props);
 
+    const classes = useButtonStyle({
+      isHovered,
+      isPressed,
+      isFocused,
+      isFocusVisible,
+      className,
+      size,
+    });
+
     return (
       <button
         ref={internalRef}
         autoFocus={autoFocus}
         disabled={isDisabled}
-        className={clsx(
-          {
-            "styles.isPressed": isPressed,
-            "styles.isFocused": isFocused && isFocusVisible,
-            "styles.isHovered": isHovered,
-          },
-          className,
-        )}
+        className={classes}
         {...mergeProps(buttonProps, hoverProps, focusProps)}>
         {content}
       </button>

@@ -8,12 +8,13 @@ import { TopBar } from "@components/top-bar/top-bar.component";
 import { ContextActions } from "@components/context-actions/context-actions.component";
 import { ToggleButton } from "@components/common/button/toggle-button/toggle-button.component";
 
-import { HiCog } from "react-icons/hi";
+import { HiFire, HiCog } from "react-icons/hi";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
 import "@stylesheets/global.css";
+import { Button } from "@components/common/button/button/button.component";
 
 const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -31,6 +32,9 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
       <TopBar>
         <Navigation />
         <ContextActions>
+          <Button icon={HiFire} />
+          <ToggleButton icon={HiCog} />
+          <ToggleButton icon={HiCog} />
           <ToggleButton icon={HiCog} />
           <ToggleButton icon={HiCog} />
           <ToggleButton icon={HiCog} />

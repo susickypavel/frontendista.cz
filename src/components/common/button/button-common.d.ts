@@ -1,6 +1,12 @@
 import type { IconType } from "react-icons";
 
+export type ButtonSize = "small" | "normal" | "large";
+
 export interface IButtonCommonProps {
+  /**
+   * @default "normal"
+   */
+  size?: ButtonSize;
   /**
    * Class to be applied to a button element.
    */
