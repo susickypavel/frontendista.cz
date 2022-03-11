@@ -12,7 +12,7 @@ const Document: NextPage = () => {
           }}
         />
       </Head>
-      <body>
+      <body className="p-4">
         <Main />
         <NextScript />
       </body>
