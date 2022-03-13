@@ -4,13 +4,13 @@
 
 .link-underline {
   background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
-  background-size: 0 2px;
-  background-position: 50% 100%;
+  background-size: 100% 2.5px;
+  background-position: 50% calc(100% + 5px);
   background-repeat: no-repeat;
-  transition: background-size 0.2s linear;
+  transition: background 0.2s ease-in-out;
 }
 
-.link-underline-hovered {
-  background-size: 100% 2px;
+.link-underline-visible {
+  background-size: 100% 2.5px;
   background-position: 50% 100%;
 }
