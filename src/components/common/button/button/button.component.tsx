@@ -36,6 +36,7 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       isFocusVisible,
       className,
       size,
+      isDisabled,
     });
 
     return (

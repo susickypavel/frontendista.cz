@@ -39,6 +39,7 @@ export const ToggleButton = React.forwardRef<HTMLButtonElement, IToggleButtonPro
       isPressed,
       isSelected: state.isSelected,
       size,
+      isDisabled,
     });
 
     return (

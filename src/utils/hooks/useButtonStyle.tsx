@@ -8,6 +8,7 @@ export interface StyleProps {
   isHovered: boolean;
   isFocused: boolean;
   isFocusVisible: boolean;
+  isDisabled?: boolean;
   className?: string;
   isSelected?: boolean;
 }
@@ -26,11 +27,13 @@ export function useButtonStyle({
   className,
   isSelected,
   size,
+  isDisabled,
 }: StyleProps) {
   return clsx(
-    "inline-flex justify-center items-center bg-white text-black rounded-lg w-8 appearance-none outline-none transition-shadow duration-200",
+    "inline-flex justify-center items-center w-8 text-black bg-white rounded-lg outline-none transition-shadow duration-200 appearance-none",
     buttonSizes[size],
     {
+      "opacity-50 cursor-not-allowed": isDisabled,
       "bg-red-500": isSelected && !isPressed,
       "bg-slate-500": isPressed,
       "ring-2 ring-white ring-offset-2 ring-offset-current":
