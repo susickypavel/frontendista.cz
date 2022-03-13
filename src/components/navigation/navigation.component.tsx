@@ -8,7 +8,6 @@ export const Navigation: React.FunctionComponent = () => {
       <ul className="flex gap-8">
         <li>
           <AnchorLink
-            isDisabled
             nextLinkProps={{
               href: "/",
             }}>

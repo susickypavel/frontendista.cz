@@ -13,7 +13,7 @@ import type { FocusRingProps } from "@react-aria/focus";
 
 export interface ILinkProps extends FocusRingProps, HoverProps, AriaLinkOptions {
   className?: string;
-  nextLinkProps: LinkProps;
+  nextLinkProps: Omit<LinkProps, "passHref">;
 }
 
 export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
@@ -24,19 +24,25 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
 }) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
 
-  const { linkProps, isPressed } = useLink(props, ref);
+  const { linkProps, isPressed } = useLink(
+    {
+      ...props,
+      elementType: "span",
+    },
+    ref,
+  );
   const { hoverProps, isHovered } = useHover(props);
   const { focusProps, isFocused, isFocusVisible } = useFocusRing(props);
 
   return (
     <Link {...nextLinkProps}>
-      <a
+      <span
         className={clsx(
           "outline-none link-underline",
           {
-            isPressed: isPressed,
+            "text-slate-500": isPressed,
             "opacity-50 cursor-not-allowed": props.isDisabled,
-            "link-underline-hovered":
+            "link-underline-hovered cursor-pointer":
               isHovered || (isFocused && isFocusVisible && !props.isDisabled),
           },
           className,
@@ -44,7 +50,7 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
         {...mergeProps(focusProps, hoverProps, linkProps)}
         ref={ref}>
         {children}
-      </a>
+      </span>
     </Link>
   );
 };
