@@ -4,7 +4,7 @@ import { AnchorLink } from "@components/common/anchor-link/anchor-link.component
 
 export const Navigation: React.FunctionComponent = () => {
   return (
-    <nav className="flex items-center justify-center grow bg-black p-4 rounded-lg text-white font-bold text-lg">
+    <nav className="flex grow justify-center items-center p-4 text-lg font-bold text-white bg-black rounded-lg">
       <ul className="flex gap-8">
         <li>
           <AnchorLink

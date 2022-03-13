@@ -42,7 +42,7 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
           {
             "text-slate-500": isPressed,
             "opacity-50 cursor-not-allowed": props.isDisabled,
-            "link-underline-hovered cursor-pointer":
+            "cursor-pointer link-underline-hovered":
               isHovered || (isFocused && isFocusVisible && !props.isDisabled),
           },
           className,

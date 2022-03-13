@@ -11,6 +11,10 @@ const a11yRules = {
   "jsx-a11y/no-autofocus": "off",
 };
 
+const tailwindRules = {
+  "tailwindcss/no-custom-classname": "off",
+};
+
 /**
  * @type {import("eslint").Linter.Config}
  */
@@ -33,9 +37,11 @@ module.exports = {
     "plugin:jest-dom/recommended",
     "plugin:testing-library/react",
     "plugin:jsx-a11y/recommended",
+    "plugin:tailwindcss/recommended",
   ],
   rules: {
     ...codeStyleRules,
     ...a11yRules,
+    ...tailwindRules,
   },
 };
