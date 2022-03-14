@@ -40,7 +40,7 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
         className={clsx(
           "inline-block leading-8 outline-none link-underline",
           {
-            "text-slate-500": isPressed,
+            "text-slate-500 link-underline-pressed": isPressed,
             "opacity-50 cursor-not-allowed": props.isDisabled,
             "cursor-pointer link-underline-visible":
               isHovered || (isFocused && isFocusVisible && !props.isDisabled),

@@ -32,10 +32,10 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
       <TopBar>
         <Navigation />
         <ContextActions>
+          <Button icon={HiFire} isDisabled />
           <Button icon={HiFire} />
           <ToggleButton icon={HiCog} />
-          <ToggleButton icon={HiCog} />
-          <ToggleButton icon={HiCog} />
+          <ToggleButton icon={HiCog} isDisabled />
           <ToggleButton icon={HiCog} />
           <ToggleButton icon={HiCog} />
           <ToggleButton icon={HiCog} />
