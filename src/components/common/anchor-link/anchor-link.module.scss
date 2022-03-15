@@ -1,0 +1,30 @@
+$underline-size: 2.5px;
+
+.link {
+  display: inline-flex;
+  line-height: theme("lineHeight.8");
+  outline: none;
+
+  background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+  background-size: 100% $underline-size;
+  background-position: 50% calc(100% + $underline-size * 2);
+  background-repeat: no-repeat;
+  transition: background theme("transitionDuration.200")
+    theme("transitionTimingFunction.DEFAULT");
+}
+
+.isPressed {
+  color: theme("textColor.slate.500");
+  background-image: linear-gradient(#748ba7, #748ba7);
+}
+
+.isFocusedOrHovered {
+  cursor: pointer;
+  background-size: 100% $underline-size;
+  background-position: 50% 100%;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: theme("opacity.50");
+}

@@ -1,0 +1,32 @@
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: theme("width.8");
+  color: theme("textColor.black");
+  background: theme("backgroundColor.white");
+  border-radius: theme("borderRadius.lg");
+  outline: none;
+
+  transition: theme("transitionProperty.shadow") theme("transitionDuration.200")
+    theme("transitionTimingFunction.DEFAULT");
+
+  appearance: none;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: theme("opacity.50");
+}
+
+.isSelected {
+  background: theme("backgroundColor.red.500");
+}
+
+.isPressed {
+  background: theme("backgroundColor.slate.500");
+}
+
+.isHoveredOrFocused {
+  @apply ring-2 ring-white ring-offset-2 ring-offset-current;
+}

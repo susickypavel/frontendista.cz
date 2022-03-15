@@ -6,6 +6,8 @@ import Link from "next/link";
 import { useFocusRing } from "@react-aria/focus";
 import { mergeProps, useHover, useLink } from "react-aria";
 
+import styles from "./anchor-link.module.scss";
+
 import type { LinkProps } from "next/link";
 import type { AriaLinkOptions } from "@react-aria/link";
 import type { HoverProps } from "@react-aria/interactions";
@@ -38,11 +40,11 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
     <Link {...nextLinkProps}>
       <span
         className={clsx(
-          "inline-block leading-8 outline-none link-underline",
+          styles.link,
           {
-            "text-slate-500 link-underline-pressed": isPressed,
-            "opacity-50 cursor-not-allowed": props.isDisabled,
-            "cursor-pointer link-underline-visible":
+            [styles.isPressed]: isPressed,
+            [styles.isDisabled]: props.isDisabled,
+            [styles.isFocusedOrHovered]:
               isHovered || (isFocused && isFocusVisible && !props.isDisabled),
           },
           className,

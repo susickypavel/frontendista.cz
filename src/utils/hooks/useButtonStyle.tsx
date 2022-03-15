@@ -1,5 +1,7 @@
 import clsx from "clsx";
 
+import styles from "@components/common/button/button-common.module.scss";
+
 import type { ButtonSize } from "@components/common/button/button-common";
 
 export interface StyleProps {
@@ -30,14 +32,13 @@ export function useButtonStyle({
   isDisabled,
 }: StyleProps) {
   return clsx(
-    "inline-flex justify-center items-center w-8 text-black bg-white rounded-lg outline-none transition-shadow duration-200 appearance-none",
+    styles.button,
     buttonSizes[size],
     {
-      "opacity-50 cursor-not-allowed": isDisabled,
-      "bg-red-500": isSelected && !isPressed,
-      "bg-slate-500": isPressed,
-      "ring-2 ring-white ring-offset-2 ring-offset-current":
-        (isFocused && isFocusVisible) || isHovered,
+      [styles.isDisabled]: isDisabled,
+      [styles.isSelected]: isSelected && !isPressed,
+      [styles.isPressed]: isPressed,
+      [styles.isHoveredOrFocused]: (isFocused && isFocusVisible) || isHovered,
     },
     className,
   );
