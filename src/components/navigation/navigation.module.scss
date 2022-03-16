@@ -1,0 +1,17 @@
+.navigation {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: theme("padding.4");
+  font-size: theme("fontSize.lg");
+  font-weight: theme("fontWeight.bold");
+  color: theme("textColor.white");
+  background-color: theme("backgroundColor.black");
+  border-radius: theme("borderRadius.lg");
+}
+
+.navigationList {
+  display: flex;
+  gap: theme("gap.8");
+}

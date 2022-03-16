@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import styles from "./top-bar.module.scss";
+
 export const TopBar: React.FunctionComponent = ({ children }) => {
-  return <div className="flex gap-4 h-16">{children}</div>;
+  return <div className={styles.topbar}>{children}</div>;
 };

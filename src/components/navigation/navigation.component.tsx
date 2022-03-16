@@ -1,11 +1,13 @@
 import * as React from "react";
 
+import styles from "./navigation.module.scss";
+
 import { AnchorLink } from "@components/common/anchor-link/anchor-link.component";
 
 export const Navigation: React.FunctionComponent = () => {
   return (
-    <nav className="flex grow justify-center items-center p-4 text-lg font-bold text-white bg-black rounded-lg md:fixed md:bottom-0 md:w-full md:rounded-none">
-      <ul className="flex gap-8">
+    <nav className={styles.navigation}>
+      <ul className={styles.navigationList}>
         <li>
           <AnchorLink
             nextLinkProps={{
