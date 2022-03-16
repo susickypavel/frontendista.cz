@@ -1,30 +1,11 @@
-import chalk from "chalk";
 import analyzer from "@next/bundle-analyzer";
+
+import { validateEnvVars } from "./scripts/validate-env-vars.mjs";
+import { mangleClassName } from "./scripts/mangle-class-name.mjs";
 
 const withBundleAnalyzer = analyzer({
   enabled: process.env.ANALYZE === "true",
 });
-
-function validateEnvVars() {
-  const requiredVars = [
-    "SANITY_GRAPHQL_ENDPOINT",
-    "SANITY_CLIENT_TOKEN",
-    "SANITY_PROJECT_ID",
-    "SANITY_DATASET_ID",
-  ];
-
-  requiredVars.reduce((hasFailed, variable) => {
-    const isMissing = !process.env[variable];
-
-    if (isMissing) {
-      console.error(
-        `${chalk.red`env  `} - ${chalk.bold.redBright`${variable}`} is required`,
-      );
-    }
-
-    return hasFailed || isMissing;
-  }, false) && process.exit(1);
-}
 
 /**
  * @type {import("next").NextConfig}
@@ -38,12 +19,31 @@ const config = {
     formats: ["image/avif", "image/webp"],
   },
   webpack: (config, { dev, isServer }) => {
-    validateEnvVars();
+    validateEnvVars(process.env);
 
     if (!dev && !isServer) {
       config.resolve.alias["react-dom"] = "preact/compat";
       config.resolve.alias["react"] = "preact/compat";
     }
+
+    const rules = config.module.rules
+      .find(rule => typeof rule.oneOf === "object")
+      .oneOf.filter(rule => Array.isArray(rule.use));
+
+    if (!dev)
+      rules.forEach(rule => {
+        rule.use.forEach(moduleLoader => {
+          if (
+            moduleLoader.loader?.includes("css-loader") &&
+            !moduleLoader.loader?.includes("postcss-loader")
+          ) {
+            moduleLoader.options.modules = {
+              ...moduleLoader.options.modules,
+              getLocalIdent: mangleClassName(),
+            };
+          }
+        });
+      });
 
     return config;
   },
