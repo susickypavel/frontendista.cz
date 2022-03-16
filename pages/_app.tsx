@@ -1,20 +1,20 @@
+import "@stylesheets/global.scss";
+
 import * as React from "react";
 
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
-import { Navigation } from "@components/navigation/navigation.component";
+import { Button } from "@components/common/button/button/button.component";
 import { TopBar } from "@components/top-bar/top-bar.component";
-import { ContextActions } from "@components/context-actions/context-actions.component";
+import { Navigation } from "@components/navigation/navigation.component";
 import { ToggleButton } from "@components/common/button/toggle-button/toggle-button.component";
+import { ContextActions } from "@components/context-actions/context-actions.component";
 
 import { HiFire, HiCog } from "react-icons/hi";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-
-import "@stylesheets/global.css";
-import { Button } from "@components/common/button/button/button.component";
 
 const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
