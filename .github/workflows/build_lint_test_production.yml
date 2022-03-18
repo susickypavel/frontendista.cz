@@ -26,7 +26,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --silent --frozen-lockfile --check-files
+        run: yarn install --silent --frozen-lockfile --immutable
 
       - name: Build
         run: yarn build
@@ -47,7 +47,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --silent --frozen-lockfile --check-files
+        run: yarn install --silent --frozen-lockfile --immutable
 
       - name: Run ESLint
         run: yarn lint:code
@@ -68,7 +68,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --silent --frozen-lockfile --check-files
+        run: yarn install --silent --frozen-lockfile --immutable
 
       - name: Run Prettier
         run: yarn lint:format
@@ -89,7 +89,7 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn install --silent --frozen-lockfile --check-files
+        run: yarn install --silent --frozen-lockfile --immutable
 
       - name: Run tests
         run: yarn test
