@@ -1,4 +1,5 @@
-import chalk from "chalk";
+// TODO: add chalk for colors!
+// import chalk from "chalk";
 
 export function validateEnvVars(vars) {
   const requiredVars = [
@@ -12,9 +13,7 @@ export function validateEnvVars(vars) {
     const isMissing = !vars[variable];
 
     if (isMissing) {
-      console.error(
-        `${chalk.red`env  `} - ${chalk.bold.redBright`${variable}`} is required`,
-      );
+      console.error(`${`env  `} - ${`${variable}`} is required`);
     }
 
     return hasFailed || isMissing;
