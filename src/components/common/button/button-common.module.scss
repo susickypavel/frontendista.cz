@@ -7,10 +7,8 @@
   background: theme("backgroundColor.white");
   border-radius: theme("borderRadius.lg");
   outline: none;
-
   transition: theme("transitionProperty.shadow") theme("transitionDuration.200")
     theme("transitionTimingFunction.DEFAULT");
-
   appearance: none;
 }
 

@@ -3,7 +3,8 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "GraphQL.vscode-graphql",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "stylelint.vscode-stylelint"
   ],
   "unwantedRecommendations": []
 }
