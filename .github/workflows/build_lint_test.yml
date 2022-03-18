@@ -19,7 +19,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: Setup pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
         with:
           version: latest
 
@@ -43,7 +44,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: Setup pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
         with:
           version: latest
 
@@ -67,7 +69,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: Setup pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
         with:
           version: latest
 
@@ -92,7 +95,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - uses: Setup pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
         with:
           version: latest
 
@@ -117,9 +121,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          install: false
           build: pnpm build
           start: pnpm next start -p 3000
           config: pageLoadTimeout=10000,baseUrl=http://localhost:3000
@@ -133,8 +146,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
       - name: Build & Report
-        uses: preactjs/compressed-size-action@v2
+        uses: preactjs/compressed-size-action@2.5.0
         with:
           pattern: "./.next/static/{chunks,css}/**/*.{js,css}"
           strip-hash: "\\b-[a-z0-9]{1,}\\b"
