@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useToggleState } from "@react-stately/toggle";
+import { useToggleState } from "react-stately";
 import { mergeProps, useFocusRing, useHover, useToggleButton } from "react-aria";
 
 import { useInternalRef } from "@utils/hooks/useInternalRef";

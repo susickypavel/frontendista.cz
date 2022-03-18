@@ -45,6 +45,7 @@ specifiers:
   react-dom: ^17.0.2
   react-icons: ^4.3.1
   react-lazyload: ^3.2.0
+  react-stately: ^3.12.2
   react-youtube: ^7.14.0
   rimraf: ^3.0.2
   sass: ^1.49.9
@@ -73,6 +74,7 @@ dependencies:
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
   react-lazyload: 3.2.0_react-dom@17.0.2+react@17.0.2
+  react-stately: 3.12.2_react@17.0.2
   react-youtube: 7.14.0_react@17.0.2
 
 devDependencies:
@@ -1903,6 +1905,16 @@ packages:
       '@react-stately/select': 3.1.6_react@17.0.2
       '@react-stately/utils': 3.4.1_react@17.0.2
       '@react-types/combobox': 3.3.0_react@17.0.2
+      '@react-types/shared': 3.11.2_react@17.0.2
+      react: 17.0.2
+    dev: false
+
+  /@react-stately/data/3.4.6_react@17.0.2:
+    resolution: {integrity: sha512-2HHJlGDvP4L9n/7nG4v7FGEGgfgiSK3toCQThxLTCbFFzKgEHpLci8TH02ZhxBEmQK98DKCFuk+MiMRj5j5JMA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1
+    dependencies:
+      '@babel/runtime': 7.17.7
       '@react-types/shared': 3.11.2_react@17.0.2
       react: 17.0.2
     dev: false
@@ -8787,6 +8799,32 @@ packages:
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /react-stately/3.12.2_react@17.0.2:
+    resolution: {integrity: sha512-8OUM9CScXzdY0+bkhyVUmKTpLl9CBwUxrmasCyBDBmokdPyCRPu9oWXOdFX2E7XYCBcqBziD67PzNOXp0WBmcg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1
+    dependencies:
+      '@react-stately/checkbox': 3.0.6_react@17.0.2
+      '@react-stately/collections': 3.3.7_react@17.0.2
+      '@react-stately/combobox': 3.0.4_react@17.0.2
+      '@react-stately/data': 3.4.6_react@17.0.2
+      '@react-stately/list': 3.4.4_react@17.0.2
+      '@react-stately/menu': 3.2.6_react@17.0.2
+      '@react-stately/numberfield': 3.0.5_react@17.0.2
+      '@react-stately/overlays': 3.1.6_react@17.0.2
+      '@react-stately/radio': 3.3.5_react@17.0.2
+      '@react-stately/searchfield': 3.1.6_react@17.0.2
+      '@react-stately/select': 3.1.6_react@17.0.2
+      '@react-stately/selection': 3.9.3_react@17.0.2
+      '@react-stately/slider': 3.0.6_react@17.0.2
+      '@react-stately/table': 3.1.3_react@17.0.2
+      '@react-stately/tabs': 3.0.4_react@17.0.2
+      '@react-stately/toggle': 3.2.6_react@17.0.2
+      '@react-stately/tooltip': 3.0.8_react@17.0.2
+      '@react-stately/tree': 3.2.3_react@17.0.2
+      react: 17.0.2
     dev: false
 
   /react-youtube/7.14.0_react@17.0.2:
