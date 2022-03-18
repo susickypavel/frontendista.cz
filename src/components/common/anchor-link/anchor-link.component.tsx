@@ -3,15 +3,17 @@
 import * as React from "react";
 import clsx from "clsx";
 import Link from "next/link";
-import { useFocusRing } from "@react-aria/focus";
-import { mergeProps, useHover, useLink } from "react-aria";
+import { mergeProps, useHover, useLink, useFocusRing } from "react-aria";
 
 import styles from "./anchor-link.module.scss";
 
 import type { LinkProps } from "next/link";
-import type { AriaLinkOptions } from "@react-aria/link";
-import type { HoverProps } from "@react-aria/interactions";
-import type { FocusRingProps } from "@react-aria/focus";
+
+// NOTE: This is really awkard. However it doesn't seems like the react aria have a single package that exports all types.
+// TODO: Find a better way to do this.
+type HoverProps = Parameters<typeof useHover>[0];
+type AriaLinkOptions = NonNullable<Parameters<typeof useLink>[0]>;
+type FocusRingProps = NonNullable<Parameters<typeof useFocusRing>[0]>;
 
 export interface ILinkProps extends FocusRingProps, HoverProps, AriaLinkOptions {
   className?: string;
