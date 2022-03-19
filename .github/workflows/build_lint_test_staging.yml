@@ -17,6 +17,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
@@ -27,7 +32,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm build
+        run: pnpm build:no:lint
 
   lintCode:
     name: Run ESLint
@@ -37,6 +42,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
 
       - name: Setup node.js
         uses: actions/setup-node@v2
@@ -59,6 +69,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
@@ -79,6 +94,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
 
       - name: Setup node.js
         uses: actions/setup-node@v2
@@ -101,9 +121,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+          install: false
           build: pnpm build
           start: pnpm next start -p 3000
           config: pageLoadTimeout=10000,baseUrl=http://localhost:3000
