@@ -3,6 +3,7 @@ import { format } from "date-fns";
 
 import { GET_ALL_POST } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
+import { BlogImage } from "@components/blog-image/blog-image.component";
 import { AnchorLink } from "@components/common/anchor-link/anchor-link.component";
 
 import type { GetAllPost } from "@queries/__generated__";
@@ -13,10 +14,18 @@ interface BlogIndexPageProps extends InferGetStaticPropsType<typeof getStaticPro
 const BlogIndex: NextPage<BlogIndexPageProps> = ({ allPost }) => {
   return (
     <main>
-      {allPost.map(({ title, slug, publishedAt }) => {
+      {allPost.map(({ title, slug, publishedAt, thumbnail }) => {
+        const { url, metadata } = (thumbnail as any).asset;
+
         return (
           <article key={slug!.current}>
             <header>
+              <BlogImage
+                src={url!}
+                lqip={metadata.lqip}
+                width={metadata.dimensions.width}
+                height={metadata.dimensions.height}
+              />
               <h1>{title}</h1>
               <time dateTime={publishedAt}>
                 {format(new Date(publishedAt), "MMMM do, yyyy")}

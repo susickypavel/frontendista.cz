@@ -22,9 +22,21 @@ export const GET_ALL_POST = gql`
   query GetAllPost {
     allPost {
       title
-      publishedAt
       slug {
         current
+      }
+      publishedAt
+      thumbnail {
+        asset {
+          url
+          metadata {
+            lqip
+            dimensions {
+              width
+              height
+            }
+          }
+        }
       }
     }
   }
