@@ -16,6 +16,7 @@
     "test:e2e": "cypress run",
     "lint:code": "next lint",
     "lint:format": "prettier --check .",
+    "lint:style": "stylelint src/**/*.scss",
     "prepare": "husky install",
     "codegen": "apollo codegen:generate ./src/queries/__generated__/index.d.ts -c apollo.config.js --target=typescript --outputFlat"
   },
