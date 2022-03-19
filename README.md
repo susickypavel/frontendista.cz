@@ -22,8 +22,8 @@
 
 ### 1.1 Prerequisites
 
-- Node runtime
-- Yarn package manager (not exclusive, but preferred)
+- node.js (lts) runtime
+- pnpm package manager (not exclusive, but preferred)
 
 #### 1.1.1 Hosts file configuration
 
@@ -55,10 +55,10 @@ git clone git@github.com:Thesoreon/frontendista.cz.git
 cd frontendista.cz
 
 # Install dependencies
-yarn install
+pnpm install
 
 # Run development server with HMR
-yarn dev
+pnpm dev
 ```
 
 ### 1.4 Bonus
