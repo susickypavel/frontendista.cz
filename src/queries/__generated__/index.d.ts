@@ -57,11 +57,35 @@ export interface GetAllPost_allPost_slug {
   current: string | null;
 }
 
+export interface GetAllPost_allPost_thumbnail_asset_metadata_dimensions {
+  __typename: "SanityImageDimensions";
+  width: number | null;
+  height: number | null;
+}
+
+export interface GetAllPost_allPost_thumbnail_asset_metadata {
+  __typename: "SanityImageMetadata";
+  lqip: string | null;
+  dimensions: GetAllPost_allPost_thumbnail_asset_metadata_dimensions | null;
+}
+
+export interface GetAllPost_allPost_thumbnail_asset {
+  __typename: "SanityImageAsset";
+  url: string | null;
+  metadata: GetAllPost_allPost_thumbnail_asset_metadata | null;
+}
+
+export interface GetAllPost_allPost_thumbnail {
+  __typename: "Image";
+  asset: GetAllPost_allPost_thumbnail_asset | null;
+}
+
 export interface GetAllPost_allPost {
   __typename: "Post";
   title: string | null;
-  publishedAt: any | null;
   slug: GetAllPost_allPost_slug | null;
+  publishedAt: any | null;
+  thumbnail: GetAllPost_allPost_thumbnail | null;
 }
 
 export interface GetAllPost {

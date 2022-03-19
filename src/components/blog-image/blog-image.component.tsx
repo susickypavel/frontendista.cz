@@ -2,11 +2,11 @@ import * as React from "react";
 import Image from "next/image";
 
 export interface BlogImageProps {
-  height: string;
-  width: string;
+  height: string | number;
+  width: string | number;
   src: string;
   lqip: string;
-  aspectRatio: number;
+  aspectRatio?: number;
 }
 
 export const BlogImage: React.FunctionComponent<BlogImageProps> = ({
