@@ -1,7 +1,9 @@
 import * as React from "react";
+import { format } from "date-fns";
 
 import { GET_ALL_POST } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
+import { AnchorLink } from "@components/common/anchor-link/anchor-link.component";
 
 import type { GetAllPost } from "@queries/__generated__";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
@@ -10,11 +12,28 @@ interface BlogIndexPageProps extends InferGetStaticPropsType<typeof getStaticPro
 
 const BlogIndex: NextPage<BlogIndexPageProps> = ({ allPost }) => {
   return (
-    <div>
-      {allPost.map(post => {
-        return <div key={post.title}>{post.title}</div>;
+    <main>
+      {allPost.map(({ title, slug, publishedAt }) => {
+        return (
+          <article key={slug!.current}>
+            <header>
+              <h1>{title}</h1>
+              <time dateTime={publishedAt}>
+                {format(new Date(publishedAt), "MMMM do, yyyy")}
+              </time>
+            </header>
+            <footer>
+              <AnchorLink
+                nextLinkProps={{
+                  href: `/blog/${slug!.current}`,
+                }}>
+                Read
+              </AnchorLink>
+            </footer>
+          </article>
+        );
       })}
-    </div>
+    </main>
   );
 };
 
