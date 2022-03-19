@@ -22,6 +22,10 @@ export const GET_ALL_POST = gql`
   query GetAllPost {
     allPost {
       title
+      publishedAt
+      slug {
+        current
+      }
     }
   }
 `;

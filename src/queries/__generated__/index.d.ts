@@ -52,9 +52,16 @@ export interface GetAllPostSlug {
 // GraphQL query operation: GetAllPost
 // ====================================================
 
+export interface GetAllPost_allPost_slug {
+  __typename: "Slug";
+  current: string | null;
+}
+
 export interface GetAllPost_allPost {
   __typename: "Post";
   title: string | null;
+  publishedAt: any | null;
+  slug: GetAllPost_allPost_slug | null;
 }
 
 export interface GetAllPost {
