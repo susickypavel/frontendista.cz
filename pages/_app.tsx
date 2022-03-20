@@ -5,14 +5,6 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
-import { Button } from "@components/common/button/button/button.component";
-import { TopBar } from "@components/top-bar/top-bar.component";
-import { Navigation } from "@components/navigation/navigation.component";
-import { ToggleButton } from "@components/common/button/toggle-button/toggle-button.component";
-import { ContextActions } from "@components/context-actions/context-actions.component";
-
-import { HiFire, HiCog } from "react-icons/hi";
-
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
@@ -29,18 +21,7 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
         // This may result in confusion for a web crawler.
         canonical={"https://frontendista.cz" + router.asPath.split("?")[0]}
       />
-      <TopBar>
-        <Navigation />
-        <ContextActions>
-          <Button icon={HiFire} isDisabled />
-          <Button icon={HiFire} />
-          <ToggleButton icon={HiCog} />
-          <ToggleButton icon={HiCog} isDisabled />
-          <ToggleButton icon={HiCog} />
-          <ToggleButton icon={HiCog} />
-          <ToggleButton icon={HiCog} />
-        </ContextActions>
-      </TopBar>
+
       <Component {...pageProps} />
     </React.Fragment>
   );
