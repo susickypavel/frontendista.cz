@@ -15,7 +15,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["QS", ...fontFamily.sans],
+        sans: ["PP", ...fontFamily.sans],
       },
     },
   },
