@@ -1,0 +1,11 @@
+.hero {
+  @apply flex flex-col gap-8 justify-center items-center h-[100vh];
+}
+
+.heroTitle {
+  @apply text-5xl font-bold;
+}
+
+.heroSubtitle {
+  @apply text-5xl font-semibold text-zinc-200;
+}
