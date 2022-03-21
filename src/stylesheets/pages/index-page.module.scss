@@ -1,11 +1,21 @@
 .hero {
-  @apply flex flex-col gap-8 justify-center items-center h-[100vh];
+  @apply flex flex-col gap-8 justify-center items-center min-h-[100vh] p-4;
 }
 
 .heroTitle {
-  @apply text-5xl font-bold;
+  @apply text-[4rem] font-bold uppercase leading-none;
+
+  &::selection {
+    background: theme("colors.black");
+    color: theme("colors.white");
+  }
 }
 
 .heroSubtitle {
-  @apply text-5xl font-semibold text-zinc-200;
+  @apply text-5xl font-semibold text-blue-700;
+
+  &::selection {
+    background: theme("colors.blue.700");
+    color: theme("colors.white");
+  }
 }
