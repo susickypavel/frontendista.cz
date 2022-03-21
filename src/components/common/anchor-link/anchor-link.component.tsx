@@ -7,7 +7,10 @@ import { mergeProps, useHover, useLink, useFocusRing } from "react-aria";
 
 import styles from "./anchor-link.module.scss";
 
+import { useButtonContent } from "@utils/hooks/useButtonContent";
+
 import type { LinkProps } from "next/link";
+import type { IButtonCommonProps } from "../button/button-common";
 
 // NOTE: This is really awkard. However it doesn't seems like the react aria have a single package that exports all types.
 // TODO: Find a better way to do this.
@@ -15,7 +18,11 @@ type HoverProps = Parameters<typeof useHover>[0];
 type AriaLinkOptions = NonNullable<Parameters<typeof useLink>[0]>;
 type FocusRingProps = NonNullable<Parameters<typeof useFocusRing>[0]>;
 
-export interface ILinkProps extends FocusRingProps, HoverProps, AriaLinkOptions {
+export interface ILinkProps
+  extends FocusRingProps,
+    HoverProps,
+    AriaLinkOptions,
+    Pick<IButtonCommonProps, "icon" | "icons"> {
   className?: string;
   nextLinkProps: Omit<LinkProps, "passHref">;
 }
@@ -24,6 +31,8 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
   children,
   className,
   nextLinkProps,
+  icon,
+  icons,
   ...props
 }) => {
   const ref = React.useRef<HTMLAnchorElement>(null);
@@ -37,6 +46,11 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
   );
   const { hoverProps, isHovered } = useHover(props);
   const { focusProps, isFocused, isFocusVisible } = useFocusRing(props);
+  const content = useButtonContent({
+    children,
+    icon,
+    icons,
+  });
 
   return (
     <Link {...nextLinkProps}>
@@ -53,7 +67,8 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
         )}
         {...mergeProps(focusProps, hoverProps, linkProps)}
         ref={ref}>
-        {children}
+        {content}
+        <div className={styles.underline} />
       </span>
     </Link>
   );
