@@ -1,7 +1,7 @@
 export function mangleClassName(memoize = true) {
   const entries = new Map();
   let newCharArray = [];
-  let currentClassName = "";
+  let currentClassName = "Z";
 
   function nextLetter(char) {
     return char === "Z" ? "A" : String.fromCharCode(char.charCodeAt(0) + 1);
@@ -26,7 +26,6 @@ export function mangleClassName(memoize = true) {
 
   return ({ resourcePath }, _, localName) => {
     const key = resourcePath + localName;
-
     if (memoize && entries.has(key)) {
       return entries.get(key);
     }

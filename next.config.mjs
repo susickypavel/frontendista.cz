@@ -3,6 +3,8 @@ import analyzer from "@next/bundle-analyzer";
 import { validateEnvVars } from "./scripts/validate-env-vars.mjs";
 import { mangleClassName } from "./scripts/mangle-class-name.mjs";
 
+const getLocalIdent = mangleClassName();
+
 const withBundleAnalyzer = analyzer({
   enabled: process.env.ANALYZE === "true",
 });
@@ -39,7 +41,7 @@ const config = {
           ) {
             moduleLoader.options.modules = {
               ...moduleLoader.options.modules,
-              getLocalIdent: mangleClassName(),
+              getLocalIdent,
             };
           }
         });
