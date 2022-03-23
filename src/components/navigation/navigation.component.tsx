@@ -50,6 +50,9 @@ export const Navigation: React.FunctionComponent = () => {
               nextLinkProps={{
                 href,
               }}
+              onFocus={() => {
+                setContent(dropdown);
+              }}
               onHoverStart={() => {
                 setContent(dropdown);
               }}>
