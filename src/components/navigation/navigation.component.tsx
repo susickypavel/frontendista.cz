@@ -1,59 +1,58 @@
 import * as React from "react";
+import { HiChevronDown } from "react-icons/hi";
 
 import styles from "./navigation.module.scss";
 
 import { AnchorLink } from "@components/common/anchor-link/anchor-link.component";
 
-import { HiChevronDown } from "react-icons/hi";
+const LINKS: Array<{
+  href: string;
+  label: string;
+  dropdown?: JSX.Element;
+}> = [
+  {
+    href: "/",
+    label: "Home",
+  },
+  {
+    href: "/about",
+    label: "About",
+    dropdown: <div />,
+  },
+  {
+    href: "/blog",
+    label: "Blog",
+    dropdown: <div />,
+  },
+  {
+    href: "/contact",
+    label: "Contact",
+    dropdown: <div />,
+  },
+];
 
 export const Navigation: React.FunctionComponent = () => {
+  const [dropdownContent, setContent] = React.useState<JSX.Element | null>(null);
+
   return (
-    <nav className={styles.navigation}>
+    <nav className={styles.navigation} onMouseLeave={() => setContent(null)}>
       <ul className={styles.navigationList}>
-        <li>
-          <AnchorLink
-            icons={{
-              right: HiChevronDown,
-            }}
-            nextLinkProps={{
-              href: "/",
-            }}>
-            Home
-          </AnchorLink>
-        </li>
-        <li>
-          <AnchorLink
-            icons={{
-              right: HiChevronDown,
-            }}
-            nextLinkProps={{
-              href: "/about",
-            }}>
-            About
-          </AnchorLink>
-        </li>
-        <li>
-          <AnchorLink
-            icons={{
-              right: HiChevronDown,
-            }}
-            nextLinkProps={{
-              href: "/blog",
-            }}>
-            Blog
-          </AnchorLink>
-        </li>
-        <li>
-          <AnchorLink
-            icons={{
-              right: HiChevronDown,
-            }}
-            nextLinkProps={{
-              href: "/contact",
-            }}>
-            Contact
-          </AnchorLink>
-        </li>
+        {LINKS.map(({ label, href, dropdown = null }) => (
+          <li key={label}>
+            <AnchorLink
+              icons={{
+                right: dropdown ? HiChevronDown : undefined,
+              }}
+              nextLinkProps={{
+                href,
+              }}
+              onHoverStart={() => {
+                setContent(dropdown);
+              }}>
+              {label}
+            </AnchorLink>
+          </li>
+        ))}
       </ul>
     </nav>
   );
