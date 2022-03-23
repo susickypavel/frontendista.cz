@@ -32,7 +32,7 @@ const LINKS: Array<{
 ];
 
 export const Navigation: React.FunctionComponent = () => {
-  const [dropdownContent, setContent] = React.useState<JSX.Element | null>(null);
+  const [, setContent] = React.useState<JSX.Element | null>(null);
 
   return (
     <nav className={styles.navigation} onMouseLeave={() => setContent(null)}>

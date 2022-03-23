@@ -44,4 +44,12 @@ module.exports = {
     ...a11yRules,
     ...tailwindRules,
   },
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      rules: {
+        "no-undef": "off",
+      },
+    },
+  ],
 };
