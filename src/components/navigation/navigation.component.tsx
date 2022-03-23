@@ -4,6 +4,7 @@ import { HiChevronDown } from "react-icons/hi";
 import styles from "./navigation.module.scss";
 
 import { AnchorLink } from "@components/common/anchor-link/anchor-link.component";
+import { NavigationDropdown } from "./navigation-dropdown/navigation-dropdown.component";
 
 const LINKS: Array<{
   href: string;
@@ -17,22 +18,22 @@ const LINKS: Array<{
   {
     href: "/about",
     label: "About",
-    dropdown: <div />,
+    dropdown: <div>About</div>,
   },
   {
     href: "/blog",
     label: "Blog",
-    dropdown: <div />,
+    dropdown: <div>Blog</div>,
   },
   {
     href: "/contact",
     label: "Contact",
-    dropdown: <div />,
+    dropdown: <div>Contact</div>,
   },
 ];
 
 export const Navigation: React.FunctionComponent = () => {
-  const [, setContent] = React.useState<JSX.Element | null>(null);
+  const [dropdownContent, setContent] = React.useState<JSX.Element | null>(null);
 
   return (
     <nav className={styles.navigation} onMouseLeave={() => setContent(null)}>
@@ -54,6 +55,7 @@ export const Navigation: React.FunctionComponent = () => {
           </li>
         ))}
       </ul>
+      {dropdownContent && <NavigationDropdown>{dropdownContent}</NavigationDropdown>}
     </nav>
   );
 };
