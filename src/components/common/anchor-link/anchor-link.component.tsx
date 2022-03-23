@@ -68,7 +68,12 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
         {...mergeProps(focusProps, hoverProps, linkProps)}
         ref={ref}>
         {content}
-        <div className={styles.underline} />
+        <div
+          className={clsx(styles.underline, {
+            [styles.underlineWithIcon]: icons?.right || icons?.left,
+            [styles.underlineWithBothIcons]: icons?.right && icons?.left,
+          })}
+        />
       </span>
     </Link>
   );

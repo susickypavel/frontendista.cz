@@ -16,11 +16,19 @@
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: calc(100% - 2rem);
+  width: 100%;
   height: 2px;
   background: theme("colors.black");
   transition: theme("transitionProperty.opacity") theme("transitionDuration.200")
     theme("transitionTimingFunction.DEFAULT");
+}
+
+.underlineWithIcon {
+  width: calc(100% - 2rem);
+}
+
+.underlineWithBothIcons {
+  width: calc(100% - 4rem);
 }
 
 .isPressed {
