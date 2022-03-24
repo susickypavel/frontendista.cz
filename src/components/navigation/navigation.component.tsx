@@ -1,5 +1,4 @@
 import * as React from "react";
-import { motion } from "framer-motion";
 import { HiChevronDown } from "react-icons/hi";
 
 import styles from "./navigation.module.scss";
@@ -12,7 +11,7 @@ import { NavigationDropdownAbout } from "./navigation-dropdown/dropdown-content/
 const LINKS: Array<{
   href: string;
   label: string;
-  dropdown?: JSX.Element;
+  dropdown?: any;
 }> = [
   {
     href: "/",
@@ -21,17 +20,17 @@ const LINKS: Array<{
   {
     href: "/about",
     label: "About",
-    dropdown: <NavigationDropdownAbout />,
+    dropdown: NavigationDropdownAbout,
   },
   {
     href: "/blog",
     label: "Blog",
-    dropdown: <motion.div layoutId="lmao">Blog</motion.div>,
+    dropdown: NavigationDropdownAbout,
   },
   {
     href: "/contact",
     label: "Contact",
-    dropdown: <motion.div layoutId="lmao">Contact</motion.div>,
+    dropdown: NavigationDropdownAbout,
   },
 ];
 
