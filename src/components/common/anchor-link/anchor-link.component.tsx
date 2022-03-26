@@ -18,18 +18,24 @@ type HoverProps = Parameters<typeof useHover>[0];
 type AriaLinkOptions = NonNullable<Parameters<typeof useLink>[0]>;
 type FocusRingProps = NonNullable<Parameters<typeof useFocusRing>[0]>;
 
-export interface ILinkProps
+export interface IAnchorLinkProps
   extends FocusRingProps,
     HoverProps,
     AriaLinkOptions,
     Pick<IButtonCommonProps, "icon" | "icons"> {
-  className?: string;
+  /**
+   * @default {}
+   */
+  className?: {
+    root?: string;
+    override?: string;
+  };
   nextLinkProps: Omit<LinkProps, "passHref">;
 }
 
-export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
+export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
   children,
-  className,
+  className = {},
   nextLinkProps,
   icon,
   icons,
@@ -57,13 +63,14 @@ export const AnchorLink: React.FunctionComponent<ILinkProps> = ({
       <span
         className={clsx(
           styles.link,
+          className.root,
           {
             [styles.isPressed]: isPressed,
             [styles.isDisabled]: props.isDisabled,
             [styles.isFocusedOrHovered]:
               isHovered || (isFocused && isFocusVisible && !props.isDisabled),
           },
-          className,
+          className.override,
         )}
         {...mergeProps(focusProps, hoverProps, linkProps)}
         ref={ref}>
