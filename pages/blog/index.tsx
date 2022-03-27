@@ -1,10 +1,10 @@
 import * as React from "react";
+import Link from "next/link";
 import { format } from "date-fns";
 
 import { GET_ALL_POST } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
 import { BlogImage } from "@components/blog-image/blog-image.component";
-import { AnchorLink } from "@components/common/anchor-link/anchor-link.component";
 
 import type { GetAllPost } from "@queries/__generated__";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
@@ -32,12 +32,7 @@ const BlogIndex: NextPage<BlogIndexPageProps> = ({ allPost }) => {
               </time>
             </header>
             <footer>
-              <AnchorLink
-                nextLinkProps={{
-                  href: `/blog/${slug!.current}`,
-                }}>
-                Read
-              </AnchorLink>
+              <Link href={`/blog/${slug!.current}`}>Read</Link>
             </footer>
           </article>
         );
