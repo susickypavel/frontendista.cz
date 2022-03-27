@@ -8,9 +8,32 @@ export interface IButtonCommonProps {
    */
   size?: ButtonSize;
   /**
-   * Class to be applied to a button element.
+   * ClassNames to be applied to a button element.
+   *
+   * @default {}
    */
-  className?: string;
+  className?: {
+    /**
+     * ClassName used for default styling
+     */
+    root?: string;
+    /**
+     * ClassName used when the button is focused via keyboard or hovered.
+     */
+    isHoveredOrFocused?: string;
+    /**
+     * ClassName used when the button is being pressed.
+     */
+    isPressed?: string;
+    /**
+     * ClassNames used for overriding the default styles.
+     */
+    override?: string;
+    /**
+     * ClassName used when button is disabled
+     */
+    isDisabled?: string;
+  };
   /**
    * Icon to be rendered instead of a children.
    */

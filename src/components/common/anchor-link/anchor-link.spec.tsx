@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { AnchorLink } from "./anchor-link.component";
+import { AnchorLink } from "./anchor-link";
 
 describe("AnchorLink", () => {
   it("should render", () => {

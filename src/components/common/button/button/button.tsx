@@ -1,21 +1,21 @@
 import * as React from "react";
-import { useToggleState } from "react-stately";
-import { mergeProps, useFocusRing, useHover, useToggleButton } from "react-aria";
+import { mergeProps, useFocusRing, useHover, useButton } from "react-aria";
 
 import { useInternalRef } from "@utils/hooks/useInternalRef";
 import { useButtonContent } from "@utils/hooks/useButtonContent";
 import { useButtonStyle } from "@utils/hooks/useButtonStyle";
 
-import type { IToggleButtonProps } from "./toggle-button";
+import type { IButtonProps } from "./button.d";
 
-export const ToggleButton = React.forwardRef<HTMLButtonElement, IToggleButtonProps>(
+export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
   (props, forwardedRef) => {
     const {
-      className,
+      className = {},
       children,
       icons,
       icon,
       autoFocus,
+      // eslint-disable-next-line no-unused-vars
       size = "normal",
       isDisabled,
     } = props;
@@ -26,19 +26,16 @@ export const ToggleButton = React.forwardRef<HTMLButtonElement, IToggleButtonPro
       icon,
     });
     const internalRef = useInternalRef(forwardedRef);
-    const state = useToggleState(props);
     const { hoverProps, isHovered } = useHover(props);
-    const { buttonProps, isPressed } = useToggleButton(props, state, internalRef);
+    const { buttonProps, isPressed } = useButton(props, internalRef);
     const { focusProps, isFocused, isFocusVisible } = useFocusRing(props);
 
     const classes = useButtonStyle({
-      className,
-      isFocusVisible,
-      isFocused,
       isHovered,
       isPressed,
-      isSelected: state.isSelected,
-      size,
+      isFocused,
+      isFocusVisible,
+      className,
       isDisabled,
     });
 
@@ -55,4 +52,4 @@ export const ToggleButton = React.forwardRef<HTMLButtonElement, IToggleButtonPro
   },
 );
 
-ToggleButton.displayName = "ToggleButton";
+Button.displayName = "Button";

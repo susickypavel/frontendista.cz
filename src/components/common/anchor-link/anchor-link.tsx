@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-
 import * as React from "react";
 import clsx from "clsx";
 import Link from "next/link";
@@ -9,29 +7,7 @@ import styles from "./anchor-link.module.scss";
 
 import { useButtonContent } from "@utils/hooks/useButtonContent";
 
-import type { LinkProps } from "next/link";
-import type { IButtonCommonProps } from "../button/button-common";
-
-// NOTE: This is really awkard. However it doesn't seems like the react aria have a single package that exports all types.
-// TODO: Find a better way to do this.
-type HoverProps = Parameters<typeof useHover>[0];
-type AriaLinkOptions = NonNullable<Parameters<typeof useLink>[0]>;
-type FocusRingProps = NonNullable<Parameters<typeof useFocusRing>[0]>;
-
-export interface IAnchorLinkProps
-  extends FocusRingProps,
-    HoverProps,
-    AriaLinkOptions,
-    Pick<IButtonCommonProps, "icon" | "icons"> {
-  /**
-   * @default {}
-   */
-  className?: {
-    root?: string;
-    override?: string;
-  };
-  nextLinkProps: Omit<LinkProps, "passHref">;
-}
+import type { IAnchorLinkProps } from "./anchor-link.d";
 
 export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
   children,
@@ -62,12 +38,11 @@ export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
     <Link {...nextLinkProps}>
       <span
         className={clsx(
-          styles.link,
           className.root,
           {
-            [styles.isPressed]: isPressed,
-            [styles.isDisabled]: props.isDisabled,
-            [styles.isFocusedOrHovered]:
+            [className.isPressed || ""]: isPressed,
+            [className.isDisabled || ""]: props.isDisabled,
+            [className.isHoveredOrFocused || ""]:
               isHovered || (isFocused && isFocusVisible && !props.isDisabled),
           },
           className.override,

@@ -1,25 +1,15 @@
 import clsx from "clsx";
 
-import styles from "@components/common/button/button-common.module.scss";
-
-import type { ButtonSize } from "@components/common/button/button-common";
+import type { IButtonCommonProps } from "@components/common/button/button-common";
 
 export interface StyleProps {
-  size: ButtonSize;
   isPressed: boolean;
   isHovered: boolean;
   isFocused: boolean;
   isFocusVisible: boolean;
   isDisabled?: boolean;
-  className?: string;
-  isSelected?: boolean;
+  className: NonNullable<IButtonCommonProps["className"]>;
 }
-
-const buttonSizes: Record<ButtonSize, string> = {
-  small: "",
-  normal: "",
-  large: "",
-};
 
 export function useButtonStyle({
   isPressed,
@@ -27,19 +17,15 @@ export function useButtonStyle({
   isFocused,
   isFocusVisible,
   className,
-  isSelected,
-  size,
   isDisabled,
 }: StyleProps) {
   return clsx(
-    styles.button,
-    buttonSizes[size],
+    className.root,
     {
-      [styles.isDisabled]: isDisabled,
-      [styles.isSelected]: isSelected && !isPressed,
-      [styles.isPressed]: isPressed,
-      [styles.isHoveredOrFocused]: (isFocused && isFocusVisible) || isHovered,
+      [className.isDisabled || ""]: isDisabled,
+      [className.isPressed || ""]: isPressed,
+      [className.isHoveredOrFocused || ""]: (isFocused && isFocusVisible) || isHovered,
     },
-    className,
+    className.override,
   );
 }

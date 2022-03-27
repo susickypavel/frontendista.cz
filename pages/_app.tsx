@@ -1,18 +1,20 @@
 import "@stylesheets/global.scss";
 
 import * as React from "react";
+import { SSRProvider } from "react-aria";
 
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
+import { Navigation } from "@components/navigation/navigation";
 
 const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
 
   return (
-    <React.Fragment>
+    <SSRProvider>
       <DefaultSeo
         defaultTitle="Pavel Susicky - Software engineer"
         description="Front-end developer, aspiring software engineer."
@@ -21,8 +23,9 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
         // This may result in confusion for a web crawler.
         canonical={"https://frontendista.cz" + router.asPath.split("?")[0]}
       />
+      <Navigation />
       <Component {...pageProps} />
-    </React.Fragment>
+    </SSRProvider>
   );
 };
 

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useEffect, useRef } from "react";
 
-import { Button } from "./button.component";
+import { Button } from "./button";
 
 describe("Button", () => {
   it("should render", () => {
