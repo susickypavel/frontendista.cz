@@ -1,0 +1,58 @@
+$container-padding: 2rem;
+
+.container {
+  display: flex;
+  position: absolute;
+  max-width: 48rem;
+  width: 100%;
+  transform: translate(-50%, 0);
+  left: 50%;
+  background: #000;
+  border-radius: 1rem;
+  height: 18.75rem;
+  padding: $container-padding;
+  box-shadow: 0 1.25rem 1.5625rem rgb(0 0 0 / 10%), 0 0.625rem 0.625rem rgb(0 0 0 / 4%);
+}
+
+.sectionHeader {
+  color: theme("textColor.blue.200");
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.sectionContainer {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 0 auto;
+}
+
+.sectionList {
+  color: #fff;
+
+  & > li {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+}
+
+.memojiContainer {
+  width: calc(18.75rem - $container-padding * 2);
+  margin-left: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+
+  & svg {
+    opacity: 0.15;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    box-shadow: inset 0 0 2rem #000;
+    height: 100%;
+    width: 100%;
+  }
+}
