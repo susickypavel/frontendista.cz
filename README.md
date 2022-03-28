@@ -71,4 +71,4 @@ pnpm dev
 | :--------- | :-------------------------------: | :--------------------------------------------------------: |
 | local      |         rapid development         |   [local.frontendista.cz](http://local.frontendista.cz)    |
 | staging    | production-like, testing purposes | [staging.frontendista.cz](https://staging.frontendista.cz) |
-| production |         production          |         [frontendista.cz](https://frontendista.cz)         |
+| production |            production             |         [frontendista.cz](https://frontendista.cz)         |
