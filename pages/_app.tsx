@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
 import { Navigation } from "@components/navigation/navigation.component";
+import { Footer } from "@components/footer/footer";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
@@ -25,6 +26,7 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
       />
       <Navigation />
       <Component {...pageProps} />
+      <Footer />
     </React.Fragment>
   );
 };
