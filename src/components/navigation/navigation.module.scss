@@ -13,6 +13,13 @@
   width: 100%;
   margin: 0 auto;
   height: 100%;
-  font-weight: 600;
-  font-size: 1.25rem;
+
+  button,
+  a {
+    font-weight: 600;
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
 }

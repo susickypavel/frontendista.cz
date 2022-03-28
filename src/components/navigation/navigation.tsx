@@ -1,9 +1,21 @@
 import * as React from "react";
 import Link from "next/link";
+import { HiChevronDown } from "react-icons/hi";
 
 import styles from "./navigation.module.scss";
 
 import { NavigationDropdown } from "./navigation-dropdown";
+
+import memojiSmile from "@assets/images/memoji_smile.png";
+
+const NavigationButton: React.FC = ({ children }) => {
+  return (
+    <button>
+      {children}
+      <HiChevronDown />
+    </button>
+  );
+};
 
 export const Navigation: React.FunctionComponent = () => {
   return (
@@ -13,16 +25,21 @@ export const Navigation: React.FunctionComponent = () => {
           <Link href="/">Home</Link>
         </li>
         <li>
-          <Link href="/about">About</Link>
+          <NavigationButton>About</NavigationButton>
         </li>
         <li>
-          <Link href="/blog">Blog</Link>
+          <NavigationButton>Blog</NavigationButton>
         </li>
         <li>
-          <Link href="/contact">Contact</Link>
+          <NavigationButton>Contact</NavigationButton>
         </li>
       </ul>
-      <NavigationDropdown />
+      <NavigationDropdown
+        memoji={{
+          src: memojiSmile,
+          alt: "Memoji of Pavel with Apple Airpods",
+        }}
+      />
     </nav>
   );
 };
