@@ -60,6 +60,7 @@ specifiers:
   tailwindcss: ^3.0.23
   typescript: ^4.5.5
   typescript-plugin-css-modules: ^3.4.0
+  use-sound: ^4.0.1
   vercel: ^24.0.0
   zod: ^3.14.3
 
@@ -81,6 +82,7 @@ dependencies:
   react-lazyload: 3.2.0_react-dom@17.0.2+react@17.0.2
   react-stately: 3.12.2_react@17.0.2
   react-youtube: 7.14.0_react@17.0.2
+  use-sound: 4.0.1_react@17.0.2
   zod: 3.14.3
 
 devDependencies:
@@ -5909,6 +5911,10 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
+  /howler/2.2.3:
+    resolution: {integrity: sha512-QM0FFkw0LRX1PR8pNzJVAY25JhIWvbKMBFM4gqk+QdV+kPXOhleWGCB6AiAF/goGjIHK2e/nIElplvjQwhr0jg==}
+    dev: false
+
   /html-encoding-sniffer/2.0.1:
     resolution: {integrity: sha512-D5JbOMBIR/TVZkubHT+OyT2705QvogUW4IBn6nHd756OwieSF9aDYFj4dv6HHEVGYbHaLETa3WggZYWWMyy3ZQ==}
     engines: {node: '>=10'}
@@ -10358,6 +10364,15 @@ packages:
     dependencies:
       querystringify: 2.2.0
       requires-port: 1.0.0
+    dev: false
+
+  /use-sound/4.0.1_react@17.0.2:
+    resolution: {integrity: sha512-hykJ86kNcu6y/FzlSHcQxhjSGMslZx2WlfLpZNoPbvueakv4OF3xPxEtGV2YmculrIaH0tPp9LtG4jgy17xMWg==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      howler: 2.2.3
+      react: 17.0.2
     dev: false
 
   /use-subscription/1.5.1_react@17.0.2:
