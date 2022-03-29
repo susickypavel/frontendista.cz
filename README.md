@@ -40,12 +40,13 @@ Add line below to your `hosts` file.
 
 ### 1.2 Environment variables
 
-| Name                    | Value                                                              | Required |
-| ----------------------- | ------------------------------------------------------------------ | -------- |
-| SANITY_GRAPHQL_ENDPOINT | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
-| SANITY_CLIENT_TOKEN     | _hidden_                                                           | ✅       |
-| SANITY_PROJECT_ID       | _hidden_                                                           | ✅       |
-| SANITY_DATASET_ID       | development or production                                          | ✅       |
+| Name                            | Value                                                              | Required |
+| ------------------------------- | ------------------------------------------------------------------ | -------- |
+| SANITY_GRAPHQL_ENDPOINT         | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
+| SANITY_CLIENT_TOKEN             | _hidden_                                                           | ✅       |
+| SANITY_PROJECT_ID               | _hidden_                                                           | ✅       |
+| SANITY_DATASET_ID               | development or production                                          | ✅       |
+| DISCORD_CONTACT_MESSAGE_WEBHOOK | _hidden_                                                           |          |
 
 ### 1.3 Development
 
