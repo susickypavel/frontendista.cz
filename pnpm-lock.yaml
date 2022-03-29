@@ -61,6 +61,7 @@ specifiers:
   typescript: ^4.5.5
   typescript-plugin-css-modules: ^3.4.0
   vercel: ^24.0.0
+  zod: ^3.14.3
 
 dependencies:
   '@portabletext/react': 1.0.4_react@17.0.2
@@ -80,6 +81,7 @@ dependencies:
   react-lazyload: 3.2.0_react-dom@17.0.2+react@17.0.2
   react-stately: 3.12.2_react@17.0.2
   react-youtube: 7.14.0_react@17.0.2
+  zod: 3.14.3
 
 devDependencies:
   '@next/bundle-analyzer': 12.1.0
@@ -10724,3 +10726,7 @@ packages:
   /zen-observable/0.8.15:
     resolution: {integrity: sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==}
     dev: true
+
+  /zod/3.14.3:
+    resolution: {integrity: sha512-OzwRCSXB1+/8F6w6HkYHdbuWysYWnAF4fkRgKDcSFc54CE+Sv0rHXKfeNUReGCrHukm1LNpi6AYeXotznhYJbQ==}
+    dev: false
