@@ -1,5 +1,7 @@
 .hero {
-  @apply flex flex-col gap-8 justify-center items-center min-h-[100vh] py-[6rem];
+  @apply flex flex-col gap-8 justify-center items-center min-h-[100vh];
+
+  margin-top: -5rem;
 }
 
 .heroTitle {
