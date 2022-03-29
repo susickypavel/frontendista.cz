@@ -180,4 +180,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy
-        run: vercel --prod -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon
+        run: vercel --prod -f -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon

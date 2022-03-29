@@ -181,7 +181,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy & Save URL
-        run: echo "DEPLOYMENT_URL=$(vercel -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon)" >> $GITHUB_ENV
+        run: echo "DEPLOYMENT_URL=$(vercel -f -t $VERCEL_DEPLOYMENT_TOKEN -S thesoreon)" >> $GITHUB_ENV
 
       - name: Alias URL to staging URL
         run: vercel alias set $DEPLOYMENT_URL staging.frontendista.cz -t $VERCEL_DEPLOYMENT_TOKEN
