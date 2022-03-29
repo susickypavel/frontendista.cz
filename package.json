@@ -37,7 +37,8 @@
     "react-icons": "^4.3.1",
     "react-lazyload": "^3.2.0",
     "react-stately": "^3.12.2",
-    "react-youtube": "^7.14.0"
+    "react-youtube": "^7.14.0",
+    "zod": "^3.14.3"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.1.0",
