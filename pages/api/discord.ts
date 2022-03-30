@@ -10,7 +10,7 @@ const dataSchema = z.object({
   name: z.string().min(2, "Name is too short").max(255, "Name is too long"),
 });
 
-export default async function favicon(req: NextApiRequest, res: NextApiResponse) {
+export default async function discordMessage(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).end("Method not allowed.");
   }
