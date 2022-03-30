@@ -11,7 +11,7 @@ import type { FocusRingProps } from ".pnpm/@react-aria+focus@3.5.3_react@17.0.2/
 export interface AnchorLinkProps
   extends Omit<AriaLinkOptions, "elementType">,
     HoverProps,
-    FocusRingProps {
+    Omit<FocusRingProps, "isTextInput"> {
   href: string;
   children?: React.ReactNode;
   /**
@@ -45,7 +45,10 @@ export interface UILinkProps extends Partial<AnchorLinkProps> {
 }
 
 const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
-  ({ onClick, onPress, className = {}, ...props }, forwardedRef) => {
+  (
+    { onClick, children, onPress, className = {}, isDisabled, ...props },
+    forwardedRef,
+  ) => {
     const ref = React.useRef<HTMLSpanElement>(null);
     const [blob] = useSound("/audio/blob-compressed.mp3");
 
@@ -71,29 +74,33 @@ const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
           }
         },
         elementType: "span",
+        isDisabled,
         ...props,
       },
       ref,
     );
 
-    const { hoverProps, isHovered } = useHover(props);
+    const { hoverProps, isHovered } = useHover({
+      ...props,
+      isDisabled,
+    });
+
     const { focusProps, isFocusVisible, isFocused } = useFocusRing({
       isTextInput: false,
     });
 
-    props.href = undefined;
-
     return (
       <span
         ref={ref}
-        {...mergeProps(props, linkProps, hoverProps, focusProps)}
+        {...mergeProps(linkProps, hoverProps, focusProps)}
         className={clsx({
           [className.isHovered || ""]: isHovered,
           [className.isFocused || ""]: isFocused && isFocusVisible,
           [className.isPressed || ""]: isPressed,
-          [className.isDisabled || ""]: props.isDisabled,
-        })}
-      />
+          [className.isDisabled || ""]: isDisabled,
+        })}>
+        {children}
+      </span>
     );
   },
 );
