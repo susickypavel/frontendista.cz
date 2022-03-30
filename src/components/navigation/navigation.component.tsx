@@ -12,7 +12,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({ children, href }) => {
   return (
     <AnchorLink
       href={href}
-      className={{
+      classNames={{
         base: styles.navigationItem,
         isPressed: styles.navigationItemIsPressed,
         isFocusedOrHovered: styles.navigationItemIsFocusedOrHovered,

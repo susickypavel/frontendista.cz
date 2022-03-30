@@ -8,7 +8,7 @@ import type { AriaLinkOptions } from ".pnpm/@react-aria+link@3.2.3_react@17.0.2/
 import type { HoverProps } from ".pnpm/@react-aria+interactions@3.8.2_react@17.0.2/node_modules/@react-aria/interactions";
 import type { FocusRingProps } from ".pnpm/@react-aria+focus@3.5.3_react@17.0.2/node_modules/@react-aria/focus";
 
-export interface AnchorLinkProps
+export interface IAnchorLinkProps
   extends Omit<AriaLinkOptions, "elementType">,
     HoverProps,
     Omit<FocusRingProps, "isTextInput"> {
@@ -17,7 +17,7 @@ export interface AnchorLinkProps
   /**
    * @default {}
    */
-  className?: {
+  classNames?: {
     base?: string;
     isHovered?: string;
     isPressed?: string;
@@ -27,7 +27,7 @@ export interface AnchorLinkProps
   };
 }
 
-export const AnchorLink: React.FunctionComponent<AnchorLinkProps> = ({
+export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
   href,
   children,
   ...props
@@ -41,14 +41,14 @@ export const AnchorLink: React.FunctionComponent<AnchorLinkProps> = ({
 
 AnchorLink.displayName = "AnchorLink";
 
-interface UILinkProps extends Partial<AnchorLinkProps> {
+interface ILinkProps extends Partial<IAnchorLinkProps> {
   onClick?: any;
   onMouseEnter?: any;
 }
 
-const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
+const UILink = React.forwardRef<HTMLSpanElement, ILinkProps>(
   (
-    { onClick, children, onPress, className = {}, isDisabled, ...props },
+    { onClick, children, onPress, classNames = {}, isDisabled, ...props },
     forwardedRef,
   ) => {
     const ref = React.useRef<HTMLSpanElement>(null);
@@ -95,13 +95,13 @@ const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
       <span
         ref={ref}
         {...mergeProps(linkProps, hoverProps, focusProps)}
-        className={clsx(className.base, {
-          [className.isPressed || ""]: isPressed,
-          [className.isHovered || ""]: isHovered,
-          [className.isFocused || ""]: isFocused && isFocusVisible,
-          [className.isFocusedOrHovered || ""]:
+        className={clsx(classNames.base, {
+          [classNames.isPressed || ""]: isPressed,
+          [classNames.isHovered || ""]: isHovered,
+          [classNames.isFocused || ""]: isFocused && isFocusVisible,
+          [classNames.isFocusedOrHovered || ""]:
             (isFocused && isFocusVisible) || isHovered,
-          [className.isDisabled || ""]: isDisabled,
+          [classNames.isDisabled || ""]: isDisabled,
         })}>
         {children}
       </span>
