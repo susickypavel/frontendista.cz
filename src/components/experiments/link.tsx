@@ -18,6 +18,7 @@ export interface AnchorLinkProps
    * @default {}
    */
   className?: {
+    base?: string;
     isHovered?: string;
     isPressed?: string;
     isFocused?: string;
@@ -39,7 +40,7 @@ export const AnchorLink: React.FunctionComponent<AnchorLinkProps> = ({
 
 AnchorLink.displayName = "AnchorLink";
 
-export interface UILinkProps extends Partial<AnchorLinkProps> {
+interface UILinkProps extends Partial<AnchorLinkProps> {
   onClick?: any;
   onMouseEnter?: any;
 }
@@ -93,7 +94,7 @@ const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
       <span
         ref={ref}
         {...mergeProps(linkProps, hoverProps, focusProps)}
-        className={clsx({
+        className={clsx(className.base, {
           [className.isHovered || ""]: isHovered,
           [className.isFocused || ""]: isFocused && isFocusVisible,
           [className.isPressed || ""]: isPressed,
