@@ -4,23 +4,45 @@ import styles from "./navigation.module.scss";
 
 import { AnchorLink } from "@components/experiments/link";
 
+interface NavigationItemProps {
+  href: string;
+}
+
+const NavigationItem: React.FC<NavigationItemProps> = ({ children, href }) => {
+  return (
+    <AnchorLink
+      href={href}
+      className={{
+        base: styles.navigationItem,
+        isPressed: styles.navigationItemIsPressed,
+        isFocusedOrHovered: styles.navigationItemIsFocusedOrHovered,
+      }}>
+      {children}
+    </AnchorLink>
+  );
+};
+
+NavigationItem.displayName = "NavigationItem";
+
 export const Navigation: React.FunctionComponent = () => {
   return (
     <nav className={styles.navigation}>
       <ul className={styles.navigationList}>
         <li>
-          <AnchorLink href="/">Home</AnchorLink>
+          <NavigationItem href="/">Home</NavigationItem>
         </li>
         <li>
-          <AnchorLink href="/about">About</AnchorLink>
+          <NavigationItem href="/about">About</NavigationItem>
         </li>
         <li>
-          <AnchorLink href="/blog">Blog</AnchorLink>
+          <NavigationItem href="/blog">Blog</NavigationItem>
         </li>
         <li>
-          <AnchorLink href="/contact">Contact</AnchorLink>
+          <NavigationItem href="/contact">Contact</NavigationItem>
         </li>
       </ul>
     </nav>
   );
 };
+
+Navigation.displayName = "Navigation";

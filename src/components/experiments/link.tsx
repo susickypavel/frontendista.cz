@@ -23,6 +23,7 @@ export interface AnchorLinkProps
     isPressed?: string;
     isFocused?: string;
     isDisabled?: string;
+    isFocusedOrHovered?: string;
   };
 }
 
@@ -95,9 +96,11 @@ const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
         ref={ref}
         {...mergeProps(linkProps, hoverProps, focusProps)}
         className={clsx(className.base, {
+          [className.isPressed || ""]: isPressed,
           [className.isHovered || ""]: isHovered,
           [className.isFocused || ""]: isFocused && isFocusVisible,
-          [className.isPressed || ""]: isPressed,
+          [className.isFocusedOrHovered || ""]:
+            (isFocused && isFocusVisible) || isHovered,
           [className.isDisabled || ""]: isDisabled,
         })}>
         {children}
