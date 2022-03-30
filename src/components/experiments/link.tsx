@@ -1,14 +1,28 @@
 import * as React from "react";
 import clsx from "clsx";
 import NextLink from "next/link";
-import { mergeProps, useLink } from "react-aria";
+import { mergeProps, useFocusRing, useHover, useLink } from "react-aria";
 import { useSound } from "use-sound";
 
 import type { AriaLinkOptions } from ".pnpm/@react-aria+link@3.2.3_react@17.0.2/node_modules/@react-aria/link";
+import type { HoverProps } from ".pnpm/@react-aria+interactions@3.8.2_react@17.0.2/node_modules/@react-aria/interactions";
+import type { FocusRingProps } from ".pnpm/@react-aria+focus@3.5.3_react@17.0.2/node_modules/@react-aria/focus";
 
-export interface AnchorLinkProps extends Omit<AriaLinkOptions, "elementType"> {
+export interface AnchorLinkProps
+  extends Omit<AriaLinkOptions, "elementType">,
+    HoverProps,
+    FocusRingProps {
   href: string;
   children?: React.ReactNode;
+  /**
+   * @default {}
+   */
+  className?: {
+    isHovered?: string;
+    isPressed?: string;
+    isFocused?: string;
+    isDisabled?: string;
+  };
 }
 
 export const AnchorLink: React.FunctionComponent<AnchorLinkProps> = ({
@@ -31,7 +45,7 @@ export interface UILinkProps extends Partial<AnchorLinkProps> {
 }
 
 const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
-  ({ onClick, onPress, ...props }, forwardedRef) => {
+  ({ onClick, onPress, className = {}, ...props }, forwardedRef) => {
     const ref = React.useRef<HTMLSpanElement>(null);
     const [blob] = useSound("/audio/blob-compressed.mp3");
 
@@ -62,14 +76,22 @@ const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
       ref,
     );
 
+    const { hoverProps, isHovered } = useHover(props);
+    const { focusProps, isFocusVisible, isFocused } = useFocusRing({
+      isTextInput: false,
+    });
+
     props.href = undefined;
 
     return (
       <span
         ref={ref}
-        {...mergeProps(props, linkProps)}
+        {...mergeProps(props, linkProps, hoverProps, focusProps)}
         className={clsx({
-          "text-red-500": isPressed,
+          [className.isHovered || ""]: isHovered,
+          [className.isFocused || ""]: isFocused && isFocusVisible,
+          [className.isPressed || ""]: isPressed,
+          [className.isDisabled || ""]: props.isDisabled,
         })}
       />
     );
