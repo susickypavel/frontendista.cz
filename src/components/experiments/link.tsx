@@ -1,40 +1,77 @@
 import * as React from "react";
-
-import { useLink } from "react-aria";
-import { useRouter } from "next/router";
+import clsx from "clsx";
+import NextLink from "next/link";
+import { mergeProps, useLink } from "react-aria";
 import { useSound } from "use-sound";
 
 import type { AriaLinkOptions } from ".pnpm/@react-aria+link@3.2.3_react@17.0.2/node_modules/@react-aria/link";
 
 export interface AnchorLinkProps extends Omit<AriaLinkOptions, "elementType"> {
   href: string;
+  children?: React.ReactNode;
 }
 
 export const AnchorLink: React.FunctionComponent<AnchorLinkProps> = ({
   href,
   children,
-  onPress,
   ...props
 }) => {
-  const linkRef = React.useRef<HTMLAnchorElement>(null);
-  const { push } = useRouter();
-  const [blob] = useSound("/audio/blob-compressed.mp3");
-
-  const { linkProps } = useLink(
-    {
-      onPress: e => {
-        if (onPress) {
-          onPress(e);
-        }
-
-        blob();
-        push(href);
-      },
-      elementType: "span",
-      ...props,
-    },
-    linkRef,
+  return (
+    <NextLink href={href} passHref>
+      <UILink {...props}>{children}</UILink>
+    </NextLink>
   );
-
-  return <span {...linkProps}>{children}</span>;
 };
+
+AnchorLink.displayName = "AnchorLink";
+
+export interface UILinkProps extends Partial<AnchorLinkProps> {
+  onClick?: any;
+  onMouseEnter?: any;
+}
+
+const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
+  ({ onClick, onPress, ...props }, forwardedRef) => {
+    const ref = React.useRef<HTMLSpanElement>(null);
+    const [blob] = useSound("/audio/blob-compressed.mp3");
+
+    React.useImperativeHandle(forwardedRef, () => ref.current!);
+
+    const { linkProps, isPressed } = useLink(
+      {
+        onPress: e => {
+          if (onPress) {
+            onPress(e);
+          }
+
+          blob();
+
+          if (onClick) {
+            onClick({
+              ...e,
+              currentTarget: e.target,
+              preventDefault: () => {},
+            });
+          }
+        },
+        elementType: "span",
+        ...props,
+      },
+      ref,
+    );
+
+    props.href = undefined;
+
+    return (
+      <span
+        ref={ref}
+        {...mergeProps(props, linkProps)}
+        className={clsx({
+          "text-red-500": isPressed,
+        })}
+      />
+    );
+  },
+);
+
+UILink.displayName = "UILink";
