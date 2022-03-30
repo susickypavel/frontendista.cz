@@ -25,19 +25,20 @@ export interface IAnchorLinkProps
     isDisabled?: string;
     isFocusedOrHovered?: string;
   };
+  domProps?: any;
 }
 
-export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
-  href,
-  children,
-  ...props
-}) => {
-  return (
-    <NextLink href={href} passHref>
-      <UILink {...props}>{children}</UILink>
-    </NextLink>
-  );
-};
+export const AnchorLink = React.forwardRef<HTMLAnchorElement, IAnchorLinkProps>(
+  ({ href, children, ...props }, forwardedRef) => {
+    return (
+      <NextLink href={href} passHref>
+        <UILink {...props} ref={forwardedRef}>
+          {children}
+        </UILink>
+      </NextLink>
+    );
+  },
+);
 
 AnchorLink.displayName = "AnchorLink";
 
@@ -48,7 +49,7 @@ interface ILinkProps extends Partial<IAnchorLinkProps> {
 
 const UILink = React.forwardRef<HTMLSpanElement, ILinkProps>(
   (
-    { onClick, children, onPress, classNames = {}, isDisabled, ...props },
+    { onClick, children, onPress, classNames = {}, isDisabled, domProps, ...props },
     forwardedRef,
   ) => {
     const ref = React.useRef<HTMLSpanElement>(null);
@@ -94,7 +95,7 @@ const UILink = React.forwardRef<HTMLSpanElement, ILinkProps>(
     return (
       <span
         ref={ref}
-        {...mergeProps(linkProps, hoverProps, focusProps)}
+        {...mergeProps(domProps, linkProps, hoverProps, focusProps)}
         className={clsx(classNames.base, {
           [classNames.isPressed || ""]: isPressed,
           [classNames.isHovered || ""]: isHovered,
