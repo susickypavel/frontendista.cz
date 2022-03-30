@@ -47,6 +47,8 @@ const UILink = React.forwardRef<HTMLSpanElement, UILinkProps>(
           blob();
 
           if (onClick) {
+            // This seems a little bit hacky, but it should be safe, as stated here:
+            // https://github.com/adobe/react-spectrum/issues/1314#issuecomment-943405133
             onClick({
               ...e,
               currentTarget: e.target,
