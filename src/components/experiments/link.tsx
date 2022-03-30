@@ -20,7 +20,7 @@ export const AnchorLink: React.FunctionComponent<AnchorLinkProps> = ({
   const { push } = useRouter();
   const [blob] = useSound("/audio/blob-compressed.mp3");
 
-  const { linkProps, isPressed } = useLink(
+  const { linkProps } = useLink(
     {
       onPress: e => {
         if (onPress) {
