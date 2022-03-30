@@ -1,6 +1,8 @@
 import * as React from "react";
 import { format } from "date-fns";
 
+import styles from "@stylesheets/pages/blog/index.module.scss";
+
 import { GET_ALL_POST } from "@queries/post";
 import { GRAPHQL_CLIENT } from "@utils/graphql-client";
 import { BlogImage } from "@components/blog-image/blog-image.component";
@@ -13,7 +15,7 @@ interface BlogIndexPageProps extends InferGetStaticPropsType<typeof getStaticPro
 
 const BlogIndex: NextPage<BlogIndexPageProps> = ({ allPost }) => {
   return (
-    <main>
+    <main className={styles.main}>
       {allPost.map(({ title, slug, publishedAt, thumbnail }) => {
         const { url, metadata } = (thumbnail as any).asset;
 
