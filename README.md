@@ -40,6 +40,8 @@ Add line below to your `hosts` file.
 
 ### 1.2 Environment variables
 
+#### 1.2.1 Functionality variables
+
 | Name                            | Value                                                              | Required |
 | ------------------------------- | ------------------------------------------------------------------ | -------- |
 | SANITY_GRAPHQL_ENDPOINT         | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
@@ -47,6 +49,13 @@ Add line below to your `hosts` file.
 | SANITY_PROJECT_ID               | _hidden_                                                           | ✅       |
 | SANITY_DATASET_ID               | development or production                                          | ✅       |
 | DISCORD_CONTACT_MESSAGE_WEBHOOK | _hidden_                                                           |          |
+
+#### 1.2.2 Debugging variables
+
+| Name                   | Value | Description                          |
+| ---------------------- | ----- | ------------------------------------ |
+| ANALYZE                | true  | Run webpack bundle analyzer on build |
+| PRODUCTION_SOURCE_MAPS | true  | Emit source maps on production build |
 
 ### 1.3 Development
 
