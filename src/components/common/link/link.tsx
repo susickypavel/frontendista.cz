@@ -25,19 +25,20 @@ export interface IAnchorLinkProps
     isDisabled?: string;
     isFocusedOrHovered?: string;
   };
+  domProps?: any;
 }
 
-export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
-  href,
-  children,
-  ...props
-}) => {
-  return (
-    <NextLink href={href} passHref>
-      <Link {...props}>{children}</Link>
-    </NextLink>
-  );
-};
+export const AnchorLink = React.forwardRef<HTMLSpanElement, IAnchorLinkProps>(
+  ({ href, children, domProps, ...props }, forwardedRef) => {
+    return (
+      <NextLink href={href} passHref>
+        <Link {...props} domProps={domProps} ref={forwardedRef}>
+          {children}
+        </Link>
+      </NextLink>
+    );
+  },
+);
 
 AnchorLink.displayName = "AnchorLink";
 
@@ -48,7 +49,7 @@ interface ILinkProps extends Partial<IAnchorLinkProps> {
 
 const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
   (
-    { onClick, children, onPress, classNames = {}, isDisabled, ...props },
+    { onClick, children, onPress, classNames = {}, isDisabled, domProps, ...props },
     forwardedRef,
   ) => {
     const ref = React.useRef<HTMLSpanElement>(null);
@@ -103,7 +104,7 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
       <span
         ref={ref}
         className={className}
-        {...mergeProps(linkProps, hoverProps, focusProps)}>
+        {...mergeProps(linkProps, hoverProps, focusProps, domProps)}>
         {children}
       </span>
     );

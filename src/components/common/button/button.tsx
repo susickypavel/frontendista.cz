@@ -5,7 +5,7 @@ import { useHover, useFocusRing, mergeProps } from "react-aria";
 import type { HoverProps } from ".pnpm/@react-aria+interactions@3.8.2_react@17.0.2/node_modules/@react-aria/interactions";
 import type { FocusRingProps } from ".pnpm/@react-aria+focus@3.5.3_react@17.0.2/node_modules/@react-aria/focus";
 
-export interface IButtonProps extends HoverProps, Omit<FocusRingProps, "isTextInput"> {
+export interface IButtonProps extends Omit<FocusRingProps, "isTextInput"> {
   isPressed: boolean;
   children?: React.ReactNode;
   /**
@@ -19,11 +19,19 @@ export interface IButtonProps extends HoverProps, Omit<FocusRingProps, "isTextIn
     isDisabled?: string;
     isFocusedOrHovered?: string;
   };
+  _hoverProps: Omit<HoverProps, "isDisabled">;
+  isDisabled?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
-  ({ children, isDisabled, classNames = {}, isPressed, ...props }, forwardedRef) => {
-    const { hoverProps, isHovered } = useHover(props);
+  (
+    { children, isDisabled, classNames = {}, isPressed, _hoverProps, ...props },
+    forwardedRef,
+  ) => {
+    const { hoverProps, isHovered } = useHover({
+      isDisabled,
+      ..._hoverProps,
+    });
     const { focusProps, isFocused, isFocusVisible } = useFocusRing({
       isTextInput: false,
       ...props,
