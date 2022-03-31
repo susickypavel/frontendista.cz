@@ -16,6 +16,13 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
+
+  & > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 }
 
 .navigationItem {
@@ -50,4 +57,11 @@
   &::after {
     background: theme("textColor.blue.700");
   }
+}
+
+.navigationMenu {
+  position: absolute;
+  top: 5rem;
+  background: #fff;
+  z-index: theme("zIndex.50");
 }

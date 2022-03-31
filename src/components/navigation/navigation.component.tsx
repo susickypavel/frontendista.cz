@@ -67,6 +67,10 @@ const MySpecialButton: React.FC<{
   return (
     <li role="none" onMouseLeave={state.close}>
       <Button
+        classNames={{
+          base: styles.navigationItem,
+          isFocusedOrHovered: styles.navigationItemIsFocusedOrHovered,
+        }}
         ref={ref}
         _hoverProps={{
           onHoverStart: state.open,
@@ -115,7 +119,7 @@ const NavigationMenu: React.FC<{
 
   return (
     <FocusScope restoreFocus>
-      <div ref={overlayRef} {...overlayProps}>
+      <div className={styles.navigationMenu} ref={overlayRef} {...overlayProps}>
         <ul ref={menuRef} {...mergeProps(menuProps, domProps)}>
           {/* @ts-ignore */}
           {[...state.collection].map(item => (
@@ -153,7 +157,7 @@ const MenuItem: React.FC<{
 function MenuSection({ section, state }: any) {
   let { itemProps, headingProps, groupProps } = useMenuSection({
     heading: section.rendered,
-    "aria-label": section["aria-label"],
+    "aria-label": section.rendered,
   });
 
   let { separatorProps } = useSeparator({
@@ -324,6 +328,7 @@ export const Navigation: React.FunctionComponent = () => {
             {item.section.map(({ title, items }) => (
               <Section title={title} items={items} key={title}>
                 {({ label, href }) => (
+                  // @ts-ignore
                   <Item<any> key={label} href={href}>
                     {label}
                   </Item>
