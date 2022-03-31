@@ -1,6 +1,7 @@
 import "@stylesheets/global.scss";
 
 import * as React from "react";
+import { SSRProvider } from "react-aria";
 
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
@@ -15,7 +16,7 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
 
   return (
-    <React.Fragment>
+    <SSRProvider>
       <DefaultSeo
         defaultTitle="Pavel Susicky - Software engineer"
         description="Front-end developer, aspiring software engineer."
@@ -27,7 +28,7 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
       <Navigation />
       <Component {...pageProps} />
       <Footer />
-    </React.Fragment>
+    </SSRProvider>
   );
 };
 
