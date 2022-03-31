@@ -11,9 +11,9 @@ import { AnchorLink } from "@components/common/link";
 import type { GetAllPost } from "@queries/__generated__";
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 
-interface BlogIndexPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
+interface IBlogIndexPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-const BlogIndex: NextPage<BlogIndexPageProps> = ({ allPost }) => {
+const BlogIndex: NextPage<IBlogIndexPageProps> = ({ allPost }) => {
   return (
     <main className={styles.main}>
       {allPost.map(({ title, slug, publishedAt, thumbnail }) => {

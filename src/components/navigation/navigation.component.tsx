@@ -4,11 +4,11 @@ import styles from "./navigation.module.scss";
 
 import { AnchorLink } from "@components/common/link";
 
-interface NavigationItemProps {
+interface INavigationItemProps {
   href: string;
 }
 
-const NavigationItem: React.FC<NavigationItemProps> = ({ children, href }) => {
+const NavigationItem: React.FC<INavigationItemProps> = ({ children, href }) => {
   return (
     <AnchorLink
       href={href}

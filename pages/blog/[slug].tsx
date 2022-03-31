@@ -30,13 +30,13 @@ const YoutubeEmbed = dynamic(
   () => import("@components/youtube-embed/youtube-embed.component"),
 );
 
-interface BlogPostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
+interface IBlogPostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
-interface Params extends ParsedUrlQuery {
+interface IParams extends ParsedUrlQuery {
   slug: string;
 }
 
-const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, body }) => {
+const BlogPostPage: NextPage<IBlogPostPageProps> = ({ title, body }) => {
   return (
     <div style={{ maxWidth: 640 }}>
       <h1>{title}</h1>
@@ -53,7 +53,7 @@ const BlogPostPage: NextPage<BlogPostPageProps> = ({ title, body }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
+export const getStaticPaths: GetStaticPaths<IParams> = async () => {
   const { allPost } = await GRAPHQL_CLIENT.request<GetAllPostSlug>(GET_ALL_POST_SLUG);
 
   // NOTE: This isn't really necessary as slug should never be null because it's required and validated in CMS.
@@ -74,7 +74,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 
 export const getStaticProps: GetStaticProps<
   GetPostBySlug_allPost & { body: any[] },
-  Params
+  IParams
 > = async ({ params }) => {
   const { allPost } = await GRAPHQL_CLIENT.request<GetPostBySlug, GetPostBySlugVariables>(
     GET_POST_BY_SLUG,
