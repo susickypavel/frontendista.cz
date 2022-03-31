@@ -2,7 +2,7 @@ import * as React from "react";
 
 import styles from "./navigation.module.scss";
 
-import { AnchorLink } from "@components/experiments/link";
+import { AnchorLink } from "@components/common/link";
 
 interface NavigationItemProps {
   href: string;
