@@ -10,6 +10,7 @@
     "build:clean": "rimraf .next && next build",
     "build:no:lint": "next build --no-lint",
     "build:analyze": "cross-env ANALYZE=true next build",
+    "build:source:maps": "cross-env PRODUCTION_SOURCE_MAPS=true next build",
     "start": "next start -p 80 -H local.frontendista.cz",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -18,7 +19,8 @@
     "lint:format": "prettier --check .",
     "lint:style": "stylelint src/**/*.scss",
     "prepare": "husky install",
-    "codegen": "apollo codegen:generate ./src/queries/__generated__/index.d.ts -c apollo.config.js --target=typescript --outputFlat"
+    "codegen": "apollo codegen:generate ./src/queries/__generated__/index.d.ts -c apollo.config.js --target=typescript --outputFlat",
+    "cleanup": "rimraf .next"
   },
   "dependencies": {
     "@portabletext/react": "^1.0.3",

@@ -13,6 +13,7 @@ const withBundleAnalyzer = analyzer({
  * @type {import("next").NextConfig}
  */
 const config = {
+  productionBrowserSourceMaps: process.env.PRODUCTION_SOURCE_MAPS === "true",
   reactStrictMode: true,
   images: {
     deviceSizes: [360, 480, 720, 1280, 1440],
