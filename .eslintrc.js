@@ -15,6 +15,20 @@ const tailwindRules = {
   "tailwindcss/no-custom-classname": "off",
 };
 
+const typescriptRules = {
+  "@typescript-eslint/naming-convention": [
+    "error",
+    {
+      selector: "interface",
+      format: ["PascalCase"],
+      custom: {
+        regex: "^I[A-Z]",
+        match: true,
+      },
+    },
+  ],
+};
+
 /**
  * @type {import("eslint").Linter.Config}
  */
@@ -28,6 +42,8 @@ module.exports = {
     worker: false,
     serviceworker: false,
   },
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
   extends: [
     "eslint:recommended",
     "next/core-web-vitals",
@@ -43,5 +59,6 @@ module.exports = {
     ...codeStyleRules,
     ...a11yRules,
     ...tailwindRules,
+    ...typescriptRules,
   },
 };

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 
-export interface BlogImageProps {
+export interface IBlogImageProps {
   height: string | number;
   width: string | number;
   src: string;
@@ -9,7 +9,7 @@ export interface BlogImageProps {
   aspectRatio?: number;
 }
 
-export const BlogImage: React.FunctionComponent<BlogImageProps> = ({
+export const BlogImage: React.FunctionComponent<IBlogImageProps> = ({
   lqip,
   // eslint-disable-next-line no-unused-vars
   aspectRatio,
