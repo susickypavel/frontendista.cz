@@ -5,7 +5,7 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
-import { Navigation } from "@components/navigation/navigation.component";
+import { Navigation } from "@components/navigation/navigation";
 import { Footer } from "@components/footer/footer";
 
 import type { NextPage } from "next";
