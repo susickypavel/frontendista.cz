@@ -4,9 +4,10 @@ import NextLink from "next/link";
 import { mergeProps, useFocusRing, useHover, useLink } from "react-aria";
 import { useSound } from "use-sound";
 
-import type { AriaLinkOptions } from ".pnpm/@react-aria+link@3.2.3_react@17.0.2/node_modules/@react-aria/link";
-import type { HoverProps } from ".pnpm/@react-aria+interactions@3.8.2_react@17.0.2/node_modules/@react-aria/interactions";
-import type { FocusRingProps } from ".pnpm/@react-aria+focus@3.5.3_react@17.0.2/node_modules/@react-aria/focus";
+// TODO: Add proper typing
+type AriaLinkOptions = any;
+type HoverProps = any;
+type FocusRingProps = any;
 
 export interface IAnchorLinkProps
   extends Omit<AriaLinkOptions, "elementType">,
