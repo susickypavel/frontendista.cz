@@ -1,183 +1,10 @@
 import * as React from "react";
-import { Item, Section, useMenuTriggerState, useTreeState } from "react-stately";
-import {
-  FocusScope,
-  mergeProps,
-  useButton,
-  useMenu,
-  useMenuItem,
-  useMenuSection,
-  useMenuTrigger,
-  useOverlay,
-  useSeparator,
-} from "react-aria";
-import { useRouter } from "next/router";
+import { Item, Section } from "react-stately";
 
 import styles from "./navigation.module.scss";
 
-import { AnchorLink } from "@components/common/link";
-import { Button } from "@components/common/button";
-
-interface INavigationItemProps {
-  href: string;
-}
-
-const NavigationItem: React.FC<INavigationItemProps> = ({ children, href }) => {
-  return (
-    <AnchorLink
-      href={href}
-      classNames={{
-        base: styles.navigationItem,
-        isPressed: styles.navigationItemIsPressed,
-        isFocusedOrHovered: styles.navigationItemIsFocusedOrHovered,
-      }}>
-      {children}
-    </AnchorLink>
-  );
-};
-
-NavigationItem.displayName = "NavigationItem";
-
-const MySpecialButton: React.FC<{
-  domProps?: any;
-  title: string;
-  menuLabel: string;
-  children: any;
-}> = ({ children, domProps, title, menuLabel }) => {
-  const router = useRouter();
-
-  let state = useMenuTriggerState({
-    closeOnSelect: false,
-  });
-
-  React.useEffect(() => {
-    router.events.on("routeChangeStart", state.close);
-    router.events.on("hashChangeStart", state.close);
-
-    return () => {
-      router.events.off("routeChangeStart", state.close);
-      router.events.off("hashChangeStart", state.close);
-    };
-  }, []);
-
-  let ref = React.useRef<HTMLButtonElement>(null);
-  let { menuTriggerProps, menuProps } = useMenuTrigger({}, state, ref);
-  let { buttonProps } = useButton(menuTriggerProps, ref);
-
-  return (
-    <li role="none" onMouseLeave={state.close}>
-      <Button
-        classNames={{
-          base: styles.navigationItem,
-          isFocusedOrHovered: styles.navigationItemIsFocusedOrHovered,
-        }}
-        ref={ref}
-        _hoverProps={{
-          onHoverStart: state.open,
-        }}
-        {...mergeProps(domProps, buttonProps)}>
-        {title}
-      </Button>
-      {state.isOpen && (
-        <NavigationMenu
-          aria-label={menuLabel}
-          domProps={menuProps}
-          autoFocus={state.focusStrategy}
-          onClose={state.close}>
-          {children}
-        </NavigationMenu>
-      )}
-    </li>
-  );
-};
-
-const NavigationMenu: React.FC<{
-  domProps?: any;
-  autoFocus: any;
-  onClose: () => void;
-  children: any;
-}> = ({ domProps, ...props }) => {
-  const state = useTreeState({
-    ...props,
-    selectionMode: "none",
-  });
-
-  const menuRef = React.useRef<HTMLUListElement>(null);
-  const overlayRef = React.useRef<HTMLDivElement>(null);
-
-  const { menuProps } = useMenu(props, state, menuRef);
-
-  let { overlayProps } = useOverlay(
-    {
-      onClose: props.onClose,
-      shouldCloseOnBlur: true,
-      isOpen: true,
-      isDismissable: true,
-    },
-    overlayRef,
-  );
-
-  return (
-    <FocusScope restoreFocus>
-      <div className={styles.navigationMenu} ref={overlayRef} {...overlayProps}>
-        <ul ref={menuRef} {...mergeProps(menuProps, domProps)}>
-          {/* @ts-ignore */}
-          {[...state.collection].map(item => (
-            <MenuSection key={item.key} section={item} state={state} />
-          ))}
-        </ul>
-      </div>
-    </FocusScope>
-  );
-};
-
-const MenuItem: React.FC<{
-  item: any;
-  state: any;
-}> = ({ item, state }) => {
-  const ref = React.useRef<HTMLSpanElement>(null);
-  let { menuItemProps } = useMenuItem(
-    {
-      key: item.key,
-      isDisabled: item.isDisabled,
-    },
-    state,
-    ref,
-  );
-
-  return (
-    <li role="none">
-      <AnchorLink ref={ref} href={item.props.href} domProps={menuItemProps}>
-        {item.rendered}
-      </AnchorLink>
-    </li>
-  );
-};
-
-function MenuSection({ section, state }: any) {
-  let { itemProps, headingProps, groupProps } = useMenuSection({
-    heading: section.rendered,
-    "aria-label": section.rendered,
-  });
-
-  let { separatorProps } = useSeparator({
-    elementType: "li",
-  });
-
-  return (
-    <React.Fragment>
-      {section.key !== state.collection.getFirstKey() && <li {...separatorProps} />}
-      <li {...itemProps}>
-        {section.rendered && <span {...headingProps}>{section.rendered}</span>}
-        <ul {...groupProps}>
-          {[...section.childNodes].map(node => (
-            <MenuItem key={node.key} item={node} state={state} />
-          ))}
-        </ul>
-      </li>
-    </React.Fragment>
-  );
-}
+import { NavigationButton } from "./navigation-button";
+import { NavigationItem } from "./navigation-item";
 
 const data = [
   {
@@ -324,7 +151,7 @@ export const Navigation: React.FunctionComponent = () => {
           <NavigationItem href="/">Home</NavigationItem>
         </li>
         {data.map(item => (
-          <MySpecialButton title={item.title} menuLabel={item.label} key={item.label}>
+          <NavigationButton title={item.title} menuLabel={item.label} key={item.label}>
             {item.section.map(({ title, items }) => (
               <Section title={title} items={items} key={title}>
                 {({ label, href }) => (
@@ -335,7 +162,7 @@ export const Navigation: React.FunctionComponent = () => {
                 )}
               </Section>
             ))}
-          </MySpecialButton>
+          </NavigationButton>
         ))}
       </ul>
     </nav>
