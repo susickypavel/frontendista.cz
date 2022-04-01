@@ -1,3 +1,5 @@
+$container-padding: 2rem;
+
 .navigation {
   position: fixed;
   top: 0;
@@ -8,6 +10,16 @@
   z-index: theme("zIndex.50");
 }
 
+.sectionList {
+  color: #fff;
+
+  & > li {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+}
+
 .navigationList {
   display: flex;
   justify-content: space-between;
@@ -16,6 +28,14 @@
   width: 100%;
   height: 100%;
   margin: 0 auto;
+
+  & > li:first-of-type {
+    flex-grow: 1;
+  }
+
+  & > li:last-of-type {
+    flex-grow: 2;
+  }
 }
 
 .navigationItem {
@@ -49,5 +69,61 @@
 
   &::after {
     background: theme("textColor.blue.700");
+  }
+}
+
+.navigationButtonsGroup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigationDropdown {
+  display: flex;
+  position: absolute;
+  margin-top: 2rem;
+  max-width: 48rem;
+  width: 100%;
+  transform: translate(-50%, 0);
+  left: 50%;
+  background: #000;
+  border-radius: 1rem;
+  height: 18.75rem;
+  padding: $container-padding;
+  box-shadow: 0 1.25rem 1.5625rem rgb(0 0 0 / 10%), 0 0.625rem 0.625rem rgb(0 0 0 / 4%);
+}
+
+.sectionHeader {
+  color: theme("textColor.blue.200");
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.sectionContainer {
+  display: flex;
+  justify-content: space-between;
+  flex: 1 0 auto;
+}
+
+.memojiContainer {
+  width: calc(18.75rem - $container-padding * 2);
+  margin-left: 2rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+
+  & svg {
+    opacity: 0.15;
+    position: absolute;
+    z-index: theme("zIndex.10");
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    box-shadow: inset 0 0 2rem #000;
+    height: 100%;
+    width: 100%;
+    z-index: theme("zIndex.50");
   }
 }
