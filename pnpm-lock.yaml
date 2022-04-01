@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@headlessui/react': ^1.5.0
   '@next/bundle-analyzer': ^12.1.0
   '@portabletext/react': ^1.0.3
   '@sanity/client': ^3.2.0
@@ -66,6 +67,7 @@ specifiers:
   zod: ^3.14.3
 
 dependencies:
+  '@headlessui/react': 1.5.0_react-dom@17.0.2+react@17.0.2
   '@portabletext/react': 1.0.4_react@17.0.2
   '@sanity/client': 3.2.2
   clsx: 1.1.1
@@ -731,6 +733,17 @@ packages:
     resolution: {integrity: sha512-K/HRGo6EMnCbhpth/y3u4rW4aXkmQNqRe1L2G+Y5jNr3v0gYhvaucV8WixNju/INAMbPBlbsRBRo/nfjnoOnxQ==}
     dependencies:
       tslib: 2.3.1
+    dev: false
+
+  /@headlessui/react/1.5.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-aaRnYxBb3MU2FNJf3Ut9RMTUqqU3as0aI1lQhgo2n9Fa67wRu14iOGqx93xB+uMNVfNwZ5B3y/Ndm7qZGuFeMQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /@humanwhocodes/config-array/0.9.5:
