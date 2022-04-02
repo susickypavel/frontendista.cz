@@ -20,7 +20,7 @@ export const Footer: React.FunctionComponent = () => {
           </ul>
         </section>
         <section>
-          <h1>Build with</h1>
+          <h1>Built with</h1>
           <ul>
             <li>Vercel</li>
             <li>Sanity</li>
