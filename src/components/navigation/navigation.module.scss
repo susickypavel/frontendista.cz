@@ -56,11 +56,24 @@ $container-padding: 2rem;
     background: #000;
     transition: width 0.2s ease-in-out;
   }
+
+  &[data-icon="two"]::after {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
 }
 
 .navigationItemIsFocusedOrHovered {
   &::after {
-    width: 100%;
+    width: calc(100%);
+  }
+
+  &[data-icon="one"]::after {
+    width: calc(100% - 0.75rem - 20px);
+  }
+
+  &[data-icon="two"]::after {
+    width: calc(100% - 0.75rem - 40px);
   }
 }
 

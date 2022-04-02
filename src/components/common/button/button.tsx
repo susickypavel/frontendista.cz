@@ -2,6 +2,11 @@ import * as React from "react";
 import clsx from "clsx";
 import { useHover, useFocusRing, mergeProps } from "react-aria";
 
+import { useContent } from "./useContent";
+import styles from "./button.module.scss";
+
+import type { IconType } from "react-icons";
+
 // TODO: Add proper typing
 type FocusRingProps = any;
 type HoverProps = any;
@@ -20,13 +25,30 @@ export interface IButtonProps extends Omit<FocusRingProps, "isTextInput"> {
     isDisabled?: string;
     isFocusedOrHovered?: string;
   };
-  _hoverProps: Omit<HoverProps, "isDisabled">;
+  hoverProps?: Omit<HoverProps, "isDisabled">;
   isDisabled?: boolean;
+  icon?: IconType;
+  /**
+   * @default {}
+   */
+  icons?: {
+    left?: IconType;
+    right?: IconType;
+  };
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
   (
-    { children, isDisabled, classNames = {}, isPressed, _hoverProps, ...props },
+    {
+      children,
+      isDisabled,
+      classNames = {},
+      isPressed,
+      hoverProps: _hoverProps,
+      icon,
+      icons = {},
+      ...props
+    },
     forwardedRef,
   ) => {
     const { hoverProps, isHovered } = useHover({
@@ -38,7 +60,7 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       ...props,
     });
 
-    const className = clsx(classNames.base, {
+    const className = clsx(styles.base, classNames.base, {
       [classNames.isPressed || ""]: isPressed,
       [classNames.isHovered || ""]: isHovered,
       [classNames.isFocused || ""]: isFocused && isFocusVisible,
@@ -46,12 +68,15 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       [classNames.isDisabled || ""]: isDisabled,
     });
 
+    const { content, iconAttribute } = useContent({ children, icon, icons });
+
     return (
       <button
+        data-icon={iconAttribute}
         ref={forwardedRef}
         className={className}
         {...mergeProps(props, hoverProps, focusProps)}>
-        {children}
+        {content}
       </button>
     );
   },
