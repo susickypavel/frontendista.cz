@@ -1,6 +1,8 @@
 import * as React from "react";
+
 import type { IconType } from "react-icons";
 
+// TODO: Add accessibility label (or visually hidden text) for icon only buttons.
 interface IContentProps {
   icon?: IconType;
   /**
