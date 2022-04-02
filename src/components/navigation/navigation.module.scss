@@ -130,3 +130,34 @@ $container-padding: 2rem;
 .memojiImage {
   z-index: theme("zIndex.30");
 }
+
+.dropdownLink {
+  position: relative;
+  outline: none;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    width: 0;
+    height: 0.125rem;
+    background: #fff;
+    transition: width 0.2s ease-in-out;
+  }
+}
+
+.dropdownLinkIsPressed {
+  color: theme("textColor.blue.200");
+
+  &::after {
+    background: theme("textColor.blue.200");
+  }
+}
+
+.dropdownLinkIsFocusedOrHovered {
+  &::after {
+    width: 100%;
+  }
+}
