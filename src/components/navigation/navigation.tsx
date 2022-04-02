@@ -1,10 +1,15 @@
 import * as React from "react";
 import { Popover, Transition } from "@headlessui/react";
+import Image from "next/image";
 
 import styles from "./navigation.module.scss";
 
 import { AnchorLink } from "@components/common/link";
 import { Button } from "@components/common/button";
+
+import memojiAbout from "@assets/memoji-about.png";
+import memojiBlog from "@assets/memoji-blog.png";
+import memojiContact from "@assets/memoji-contact.png";
 
 interface INavigationItemProps {
   href: string;
@@ -29,6 +34,7 @@ NavigationItem.displayName = "NavigationItem";
 const data = [
   {
     title: "About",
+    memoji: memojiAbout,
     section: [
       {
         sectionTitle: "Free time",
@@ -89,6 +95,7 @@ const data = [
   },
   {
     title: "Blog",
+    memoji: memojiBlog,
     section: [
       {
         sectionTitle: "Hobby",
@@ -120,6 +127,7 @@ const data = [
   },
   {
     title: "Contact",
+    memoji: memojiContact,
     section: [
       {
         sectionTitle: "Hobby",
@@ -169,7 +177,7 @@ export const Navigation: React.FunctionComponent = () => {
         </li>
         <li>
           <Popover.Group as="ul" className={styles.navigationButtonsGroup}>
-            {data.map(({ title, section }) => {
+            {data.map(({ title, memoji, section }) => {
               return (
                 <Popover as="li" key={title}>
                   <Popover.Button
@@ -220,12 +228,12 @@ export const Navigation: React.FunctionComponent = () => {
                                 fill="#2563EB"
                               />
                             </svg>
-                            {/* <Image
-                        src={memoji.src}
-                        className="z-30"
-                        alt={memoji.alt}
-                        placeholder="blur"
-                      /> */}
+                            <Image
+                              src={memoji}
+                              className={styles.memojiImage}
+                              alt=""
+                              placeholder="blur"
+                            />
                           </div>
                         </div>
                       )}

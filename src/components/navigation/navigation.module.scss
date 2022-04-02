@@ -126,3 +126,7 @@ $container-padding: 2rem;
     z-index: theme("zIndex.50");
   }
 }
+
+.memojiImage {
+  z-index: theme("zIndex.30");
+}
