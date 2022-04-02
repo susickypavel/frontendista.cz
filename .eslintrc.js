@@ -56,6 +56,7 @@ module.exports = {
     "plugin:tailwindcss/recommended",
   ],
   rules: {
+    "no-undef": "off",
     ...codeStyleRules,
     ...a11yRules,
     ...tailwindRules,
