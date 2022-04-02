@@ -238,6 +238,7 @@ export const Navigation: React.FunctionComponent = () => {
                             </svg>
                             <Image
                               src={memoji}
+                              layout="fill"
                               className={styles.memojiImage}
                               alt=""
                               placeholder="blur"
