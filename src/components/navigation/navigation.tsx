@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Popover, Transition } from "@headlessui/react";
 import Image from "next/image";
+import { HiChevronDown } from "react-icons/hi";
 
 import styles from "./navigation.module.scss";
 
@@ -181,8 +182,11 @@ export const Navigation: React.FunctionComponent = () => {
               return (
                 <Popover as="li" key={title}>
                   <Popover.Button
+                    aria-haspopup="true"
                     isPressed={false}
-                    _hoverProps={{}}
+                    icons={{
+                      right: HiChevronDown,
+                    }}
                     as={Button}
                     classNames={{
                       base: styles.navigationItem,
