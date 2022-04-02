@@ -210,7 +210,15 @@ export const Navigation: React.FunctionComponent = () => {
                                   {items.map(({ href, label }) => {
                                     return (
                                       <li key={label}>
-                                        <AnchorLink onPress={() => close()} href={href}>
+                                        <AnchorLink
+                                          classNames={{
+                                            base: styles.dropdownLink,
+                                            isFocusedOrHovered:
+                                              styles.dropdownLinkIsFocusedOrHovered,
+                                            isPressed: styles.dropdownLinkIsPressed,
+                                          }}
+                                          onPress={() => close()}
+                                          href={href}>
                                           {label}
                                         </AnchorLink>
                                       </li>
