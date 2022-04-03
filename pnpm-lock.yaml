@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@headlessui/react': ^1.5.0
+  '@hookform/resolvers': ^2.8.8
   '@next/bundle-analyzer': ^12.1.0
   '@portabletext/react': ^1.0.3
   '@sanity/client': ^3.2.0
@@ -39,6 +40,7 @@ specifiers:
   lint-staged: ^12.3.4
   next: ^12.1.0
   next-seo: ^5.1.0
+  nope-validator: ^1.0.2
   postcss-flexbugs-fixes: ^5.0.2
   postcss-preset-env: ^7.4.2
   preact: ^10.6.6
@@ -69,6 +71,7 @@ specifiers:
 
 dependencies:
   '@headlessui/react': 1.5.0_react-dom@17.0.2+react@17.0.2
+  '@hookform/resolvers': 2.8.8_react-hook-form@7.29.0
   '@portabletext/react': 1.0.4_react@17.0.2
   '@sanity/client': 3.2.2
   clsx: 1.1.1
@@ -78,6 +81,7 @@ dependencies:
   graphql-request: 4.1.0_graphql@15.8.0
   next: 12.1.0_770cdee6eac9f5b17619eec686780a53
   next-seo: 5.1.0_caa633a00319350dbda42996613fe26c
+  nope-validator: 1.0.2
   preact: 10.6.6
   react: 17.0.2
   react-aria: 3.14.1_react-dom@17.0.2+react@17.0.2
@@ -746,6 +750,14 @@ packages:
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
+    dev: false
+
+  /@hookform/resolvers/2.8.8_react-hook-form@7.29.0:
+    resolution: {integrity: sha512-meAEDur1IJBfKyTo9yPYAuzjIfrxA7m9Ov+1nxaW/YupsqMeseWifoUjWK03+hz/RJizsVQAaUjVxFEkyu0GWg==}
+    peerDependencies:
+      react-hook-form: ^7.0.0
+    dependencies:
+      react-hook-form: 7.29.0_react@17.0.2
     dev: false
 
   /@humanwhocodes/config-array/0.9.5:
@@ -7957,6 +7969,10 @@ packages:
   /node-releases/2.0.2:
     resolution: {integrity: sha512-XxYDdcQ6eKqp/YjI+tb2C5WM2LgjnZrfYg4vgQt49EK268b6gYCHsBLrK2qvJo4FmCtqmKezb0WZFK4fkrZNsg==}
     dev: true
+
+  /nope-validator/1.0.2:
+    resolution: {integrity: sha512-wmRULNJg4kkzQBJk8WsW2HVMPYUioXDUcIRDIjzS+LnPwKlA9fK79s5bqW3h4H6c2DiGS+2a06xGDaqf+5+3xw==}
+    dev: false
 
   /normalize-package-data/2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
