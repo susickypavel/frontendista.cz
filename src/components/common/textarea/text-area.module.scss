@@ -1,3 +1,17 @@
 .textarea {
   margin-top: 1rem;
+  background: none;
+  outline: none;
+  height: 100%;
+  font-size: 1rem;
+  color: theme("textColor.zinc.700");
+}
+
+.label {
+  height: 32rem;
+}
+
+.charactersLeft {
+  color: theme("textColor.zinc.500");
+  font-weight: 500;
 }

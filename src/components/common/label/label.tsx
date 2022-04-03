@@ -24,10 +24,28 @@ export interface ILabelProps {
    * Children render prop
    */
   children: (props: { focusProps: React.HTMLAttributes<HTMLElement> }) => JSX.Element;
+  /**
+   * classNames to be applied to the label
+   */
+  classNames?: {
+    override?: string;
+  };
+  headerWidget?: any;
 }
 
 export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
-  ({ errors, label, children, required = false, ...props }, forwardedRef) => {
+  (
+    {
+      errors,
+      label,
+      children,
+      required = false,
+      classNames = {},
+      headerWidget,
+      ...props
+    },
+    forwardedRef,
+  ) => {
     const [isFocused, setFocused] = React.useState(false);
     const { focusProps } = useFocus({
       onFocusChange: setFocused,
@@ -36,10 +54,14 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
     return (
       <label
         ref={forwardedRef}
-        className={clsx(styles.label, {
-          [styles.formError]: errors,
-          [styles.focused]: isFocused,
-        })}
+        className={clsx(
+          styles.label,
+          {
+            [styles.formError]: errors,
+            [styles.focused]: isFocused,
+          },
+          classNames.override,
+        )}
         {...props}>
         <span className={styles.topBar}>
           <span
@@ -54,6 +76,7 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
               {errors.message}
             </p>
           )}
+          {headerWidget}
         </span>
         {children({ focusProps })}
       </label>
