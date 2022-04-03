@@ -34,7 +34,13 @@ const ContactPage: NextPage = () => {
   });
 
   const onSubmit = (data: IFormInputs) => {
-    console.log(data);
+    fetch("/api/discord", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
   };
 
   return (
@@ -42,18 +48,15 @@ const ContactPage: NextPage = () => {
       <div className={styles.sideContent}>
         <h1>Good old contact form</h1>
         <div className={styles.subHeading}>Leave a message or love/hate letter!</div>
-
         <p>
           This form sends a message to my Discord Server, where I almost immediately see
           it. Say goodbye to email and embrace zoomer generation alternatives.
         </p>
-
         <p>
           You are probably asking: &ldquo;Why would you implement something like
           this?&rdquo; It was fun to implement something like that, and it&apos;s better
           than a blank page, right?
         </p>
-
         <p>
           If you incline to more casual forms of communication, you can send me a
           mail&nbsp;
