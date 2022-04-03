@@ -8,6 +8,7 @@ import styles from "@stylesheets/pages/contact-page.module.scss";
 
 import { Input } from "@components/common/input";
 import { Button } from "@components/common/button";
+import { AnchorLink } from "@components/common/link";
 import { TextArea } from "@components/common/textarea";
 
 import type { NextPage } from "next";
@@ -38,6 +39,34 @@ const ContactPage: NextPage = () => {
 
   return (
     <main className={styles.main}>
+      <div className={styles.sideContent}>
+        <h1>Good old contact form</h1>
+        <div className={styles.subHeading}>Leave a message or love/hate letter!</div>
+
+        <p>
+          This form sends a message to my Discord Server, where I almost immediately see
+          it. Say goodbye to email and embrace zoomer generation alternatives.
+        </p>
+
+        <p>
+          You are probably asking: &ldquo;Why would you implement something like
+          this?&rdquo; It was fun to implement something like that, and it&apos;s better
+          than a blank page, right?
+        </p>
+
+        <p>
+          If you incline to more casual forms of communication, you can send me a
+          mail&nbsp;
+          <AnchorLink
+            classNames={{
+              base: styles.mailLink,
+            }}
+            href="mailto:susicky.pavel@outlook.cz">
+            here
+          </AnchorLink>{" "}
+          or follow me on socials below.
+        </p>
+      </div>
       <form className={styles.contactForm} onSubmit={handleSubmit(onSubmit)} noValidate>
         <Input
           label="YOUR NAME"
