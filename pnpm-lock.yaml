@@ -46,6 +46,7 @@ specifiers:
   react: ^17.0.2
   react-aria: ^3.14.1
   react-dom: ^17.0.2
+  react-hook-form: ^7.29.0
   react-icons: ^4.3.1
   react-lazyload: ^3.2.0
   react-stately: ^3.12.2
@@ -81,6 +82,7 @@ dependencies:
   react: 17.0.2
   react-aria: 3.14.1_react-dom@17.0.2+react@17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-hook-form: 7.29.0_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
   react-lazyload: 3.2.0_react-dom@17.0.2+react@17.0.2
   react-stately: 3.12.2_react@17.0.2
@@ -9029,6 +9031,15 @@ packages:
       object-assign: 4.1.1
       react: 17.0.2
       scheduler: 0.20.2
+    dev: false
+
+  /react-hook-form/7.29.0_react@17.0.2:
+    resolution: {integrity: sha512-NcJqWRF6el5HMW30fqZRt27s+lorvlCCDbTpAyHoodQeYWXgQCvZJJQLC1kRMKdrJknVH0NIg3At6TUzlZJFOQ==}
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17 || ^18
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /react-icons/4.3.1_react@17.0.2:
