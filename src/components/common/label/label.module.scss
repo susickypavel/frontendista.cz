@@ -8,6 +8,12 @@
   font-size: 0.75rem;
   font-weight: 700;
 
+  & textarea::selection,
+  input::selection {
+    color: theme("textColor.white");
+    background-color: theme("backgroundColor.black");
+  }
+
   & > input {
     background: theme("backgroundColor.zinc.50");
     margin-top: 0.5rem;
