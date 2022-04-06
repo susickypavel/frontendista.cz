@@ -42,13 +42,13 @@ Add line below to your `hosts` file.
 
 #### 1.2.1 Functionality variables
 
-| Name                            | Value                                                              | Required |
-| ------------------------------- | ------------------------------------------------------------------ | -------- |
-| SANITY_GRAPHQL_ENDPOINT         | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
-| SANITY_CLIENT_TOKEN             | _hidden_                                                           | ✅       |
-| SANITY_PROJECT_ID               | _hidden_                                                           | ✅       |
-| SANITY_DATASET_ID               | development or production                                          | ✅       |
-| DISCORD_CONTACT_MESSAGE_WEBHOOK | _hidden_                                                           |          |
+| Name                                   | Value                                                              | Required |
+| -------------------------------------- | ------------------------------------------------------------------ | -------- |
+| SANITY_GRAPHQL_ENDPOINT                | https://<PROJECT_ID>.api.sanity.io/v1/graphql/<DATASET_ID>/default | ✅       |
+| SANITY_CLIENT_TOKEN                    | _hidden_                                                           | ✅       |
+| SANITY_PROJECT_ID                      | _hidden_                                                           | ✅       |
+| SANITY_DATASET_ID                      | development or production                                          | ✅       |
+| NEXT_PUBLIC_DISCORD_CONTACT_WORKER_URL | _hidden_                                                           |          |
 
 #### 1.2.2 Debugging variables
 

@@ -34,7 +34,7 @@ const ContactPage: NextPage = () => {
   });
 
   const onSubmit = (data: IFormInputs) => {
-    fetch("/api/discord", {
+    fetch(process.env.NEXT_PUBLIC_DISCORD_CONTACT_WORKER_URL!, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
