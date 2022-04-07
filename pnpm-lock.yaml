@@ -46,7 +46,7 @@ specifiers:
   preact: ^10.6.6
   prettier: ^2.5.1
   react: ^17.0.2
-  react-aria: ^3.14.1
+  react-aria: 3.14.1
   react-dom: ^17.0.2
   react-hook-form: ^7.29.0
   react-icons: ^4.3.1
@@ -784,12 +784,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.17.7
       intl-messageformat: 9.11.4
-    dev: false
-
-  /@internationalized/number/3.0.5:
-    resolution: {integrity: sha512-NDplomyqMnwEWaD/53yYNTbksLaEGc1tvVLEy/RnLKsJW2aMrDCMNjX84FnPU9i6+CoiTKmv89J9ihKihxuVUg==}
-    dependencies:
-      '@babel/runtime': 7.17.7
     dev: false
 
   /@internationalized/number/3.0.6:
@@ -1573,19 +1567,6 @@ packages:
       react: 17.0.2
     dev: false
 
-  /@react-aria/live-announcer/3.0.4_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha512-GFkHb5cixRk213rLEmG1uXvIN8Q1W8+ErDcQ/WBD/aEcemY5SWAbRgLm/wEc50aqkXPhGWIttCGHQ2g8+fhmAg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1
-      react-dom: ^16.8.0 || ^17.0.0-rc.1
-    dependencies:
-      '@babel/runtime': 7.17.7
-      '@react-aria/utils': 3.11.3_react@17.0.2
-      '@react-aria/visually-hidden': 3.2.7_react@17.0.2
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
-    dev: false
-
   /@react-aria/live-announcer/3.0.5_react-dom@17.0.2+react@17.0.2:
     resolution: {integrity: sha512-soIfCI8koNu3ZFlXzeYFnw3nzYqXt/yMDq9lhGXe/XbJ7Zq8m5Q4f+JhMhnAMN2OmazysJafXuq7rLp8wCv/TA==}
     peerDependencies:
@@ -1745,22 +1726,6 @@ packages:
       react-dom: 17.0.2_react@17.0.2
     dev: false
 
-  /@react-aria/selection/3.8.0_react@17.0.2:
-    resolution: {integrity: sha512-FHdS1RFRM9yBbIbzYzcI3+AZA3jDZ5O2yL8yVmnwehLX9/1U60dU6yafVfSSs9hxHY0MGBZStyExMLbOvKTsRg==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1
-    dependencies:
-      '@babel/runtime': 7.17.7
-      '@react-aria/focus': 3.5.4_react@17.0.2
-      '@react-aria/i18n': 3.3.8_react@17.0.2
-      '@react-aria/interactions': 3.8.3_react@17.0.2
-      '@react-aria/utils': 3.11.3_react@17.0.2
-      '@react-stately/collections': 3.3.7_react@17.0.2
-      '@react-stately/selection': 3.9.3_react@17.0.2
-      '@react-types/shared': 3.11.2_react@17.0.2
-      react: 17.0.2
-    dev: false
-
   /@react-aria/selection/3.8.1_react@17.0.2:
     resolution: {integrity: sha512-Nt6CtP+fZw4/oj/x9Ql+y41uaRGCA8qtyLIthFWorj+zniP4j0EPgT3iWuePgjk5mBxW5rQPdIJbg1pFFuEU8w==}
     peerDependencies:
@@ -1854,8 +1819,8 @@ packages:
       '@react-aria/grid': 3.2.4_react-dom@17.0.2+react@17.0.2
       '@react-aria/i18n': 3.3.8_react@17.0.2
       '@react-aria/interactions': 3.8.3_react@17.0.2
-      '@react-aria/live-announcer': 3.0.4_react-dom@17.0.2+react@17.0.2
-      '@react-aria/selection': 3.8.0_react@17.0.2
+      '@react-aria/live-announcer': 3.0.5_react-dom@17.0.2+react@17.0.2
+      '@react-aria/selection': 3.8.1_react@17.0.2
       '@react-aria/utils': 3.11.3_react@17.0.2
       '@react-stately/table': 3.1.3_react@17.0.2
       '@react-stately/virtualizer': 3.1.8_react@17.0.2
@@ -2059,7 +2024,7 @@ packages:
       react: ^16.8.0 || ^17.0.0-rc.1
     dependencies:
       '@babel/runtime': 7.17.7
-      '@internationalized/number': 3.0.5
+      '@internationalized/number': 3.0.6
       '@react-stately/utils': 3.4.1_react@17.0.2
       '@react-types/numberfield': 3.1.3_react@17.0.2
       '@react-types/shared': 3.11.2_react@17.0.2

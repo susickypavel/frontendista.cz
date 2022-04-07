@@ -21,7 +21,7 @@ export function useContent({ children, icon: Icon, icons: Icons = {} }: IContent
 
   if (Icon) {
     content = <Icon />;
-    iconAttribute = "one";
+    iconAttribute = "solo";
   } else {
     if (!Icons.left !== !Icons.right) {
       iconAttribute = "one";

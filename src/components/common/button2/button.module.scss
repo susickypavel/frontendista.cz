@@ -1,0 +1,49 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8em;
+  font-weight: 600;
+  padding: 0.75em 1.5em;
+  border-radius: 0.8em;
+  background-color: red;
+  outline: none;
+
+  & svg {
+    height: 1.5em;
+    width: auto;
+  }
+
+  &[data-icon="solo"] {
+    padding: 0.75em;
+  }
+}
+
+.isHovered {
+  color: yellow;
+}
+
+.isFocused {
+  color: blue;
+}
+
+.isPressed {
+  color: orange;
+}
+
+.isDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.md {
+  font-size: 1.25rem;
+}
+
+.lg {
+  font-size: 1.5rem;
+}
