@@ -3,7 +3,7 @@ import * as React from "react";
 import styles from "@stylesheets/pages/contact-page.module.scss";
 
 import { AnchorLink } from "@components/common/link";
-import { ContactForm } from "@components/contact-form/contact-form";
+import { ContactForm } from "src/modules/contact-form/contact-form";
 
 import type { NextPage } from "next";
 
