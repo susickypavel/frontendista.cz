@@ -12,7 +12,7 @@ import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 
 const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
-  const router = useRouter();
+  const { asPath } = useRouter();
 
   return (
     <React.Fragment>
@@ -22,7 +22,7 @@ const Application: NextPage<AppProps> = ({ Component, pageProps }) => {
         // NOTE: This strips all query params from the URL which might not be desired.
         // Imagine that you have a page with query param that changes the content of the page.
         // This may result in confusion for a web crawler.
-        canonical={"https://frontendista.cz" + router.asPath.split("?")[0]}
+        canonical={"https://frontendista.cz" + asPath.split("?")[0]}
       />
       <Navigation />
       <Component {...pageProps} />
