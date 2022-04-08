@@ -4,6 +4,8 @@ import NextLink from "next/link";
 import { mergeProps, useFocusRing, useHover, useLink } from "react-aria";
 import { useSound } from "use-sound";
 
+import styles from "./link.module.scss";
+
 // TODO: Add proper typing
 type AriaLinkOptions = any;
 type HoverProps = any;
@@ -92,7 +94,7 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
       isTextInput: false,
     });
 
-    const className = clsx(classNames.base, {
+    const className = clsx(styles.base, classNames.base, {
       [classNames.isPressed || ""]: isPressed,
       [classNames.isHovered || ""]: isHovered,
       [classNames.isFocused || ""]: isFocused && isFocusVisible,
