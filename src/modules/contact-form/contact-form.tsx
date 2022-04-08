@@ -6,7 +6,7 @@ import { SiDiscord } from "react-icons/si";
 import styles from "./contact-form.module.scss";
 
 import { Input } from "@components/common/input";
-import { Button } from "@components/common/button";
+import { Button } from "@components/common/button2";
 import { TextArea } from "@components/common/textarea";
 import { contactFormSchema } from "@utils/validation/contact-form-validation";
 
@@ -62,10 +62,12 @@ export const ContactForm: React.FunctionComponent = () => {
         {...register("message")}
       />
       <Button
+        isLoading={formState.isSubmitting}
         classNames={{
-          base: styles.submitButton,
+          override: styles.submitButton,
           isHovered: styles.submitButtonHovered,
           isFocused: styles.submitButtonFocused,
+          isPressed: styles.submitButtonPressed,
         }}
         icons={{
           right: SiDiscord,

@@ -1,4 +1,7 @@
 import * as React from "react";
+import { CgSpinner } from "react-icons/cg";
+
+import styles from "../button2/button.module.scss";
 
 import type { IconType } from "react-icons";
 
@@ -13,9 +16,18 @@ interface IContentProps {
     right?: IconType;
   };
   children: React.ReactNode;
+  /**
+   * @default false
+   */
+  isLoading?: boolean;
 }
 
-export function useContent({ children, icon: Icon, icons: Icons = {} }: IContentProps) {
+export function useContent({
+  children,
+  icon: Icon,
+  icons: Icons = {},
+  isLoading,
+}: IContentProps) {
   let content: JSX.Element;
   let iconAttribute: string = "none";
 
@@ -33,7 +45,11 @@ export function useContent({ children, icon: Icon, icons: Icons = {} }: IContent
 
     content = (
       <React.Fragment>
-        {Icons.left && <Icons.left aria-hidden="true" />}
+        {isLoading ? (
+          <CgSpinner aria-hidden="true" className={styles.isLoadingIcon} />
+        ) : (
+          Icons.left && <Icons.left aria-hidden="true" />
+        )}
         {children}
         {Icons.right && <Icons.right aria-hidden="true" />}
       </React.Fragment>

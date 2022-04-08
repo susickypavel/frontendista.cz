@@ -18,13 +18,15 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
       children,
       icon,
       icons = {},
-      isDisabled = false,
-      size = "md",
+      isDisabled: _isDisabled = false,
+      isLoading = false,
+      size = "md" as const,
       classNames = {},
       ...props
     },
     forwardedRef,
   ) => {
+    let isDisabled = _isDisabled || isLoading;
     let ref = useInternalRef(forwardedRef);
 
     let { hoverProps, isHovered } = useHover({
@@ -39,7 +41,7 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 
     let { buttonProps, isPressed } = useButton({ isDisabled, ...ariaButtonProps }, ref);
 
-    let { content, iconAttribute } = useContent({ children, icon, icons });
+    let { content, iconAttribute } = useContent({ children, icon, icons, isLoading });
 
     let classes = clsx(
       styles.base,
@@ -48,7 +50,7 @@ export const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
         [classNames.isHovered || styles.isHovered]: isHovered,
         [classNames.isFocused || styles.isFocused]: isFocused && isFocusVisible,
         [classNames.isPressed || styles.isPressed]: isPressed,
-        [classNames.isDisabled || styles.isDisabled]: isDisabled,
+        [classNames.isDisabled || styles.isDisabled]: isDisabled || isLoading,
       },
       classNames.override,
     );

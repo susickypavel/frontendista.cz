@@ -1,6 +1,6 @@
 import { useFocusRing, useHover, useButton } from "react-aria";
 
-import type { PropsWithChildren, HTMLAttributes } from "react";
+import type { PropsWithChildren, ButtonHTMLAttributes } from "react";
 
 export type ButtonSize = "sm" | "md" | "lg";
 
@@ -43,5 +43,9 @@ export type IButtonProps = PropsWithChildren<{
     isPressed?: string;
     override?: string;
   };
+  /**
+   * @default false
+   */
+  isLoading?: boolean;
 }> &
-  HTMLAttributes<HTMLButtonElement>;
+  ButtonHTMLAttributes<HTMLButtonElement>;
