@@ -1,7 +1,7 @@
 import * as React from "react";
 import { CgSpinner } from "react-icons/cg";
 
-import styles from "../button2/button.module.scss";
+import styles from "../button.module.scss";
 
 import type { IconType } from "react-icons";
 

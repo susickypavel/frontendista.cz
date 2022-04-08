@@ -5,7 +5,7 @@ import { mergeProps, useButton, useFocusRing, useHover } from "react-aria";
 import styles from "./button.module.scss";
 
 import { useInternalRef } from "@utils/hooks/useInternalRef";
-import { useContent } from "../button/useContent";
+import { useContent } from "./hooks/useContent";
 
 import type { IButtonProps } from "./button.d";
 

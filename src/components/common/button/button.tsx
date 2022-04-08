@@ -2,7 +2,7 @@ import * as React from "react";
 import clsx from "clsx";
 import { useHover, useFocusRing, mergeProps } from "react-aria";
 
-import { useContent } from "./useContent";
+import { useContent } from "../button2/hooks/useContent";
 import styles from "./button.module.scss";
 
 import type { IconType } from "react-icons";
