@@ -1,0 +1,46 @@
+.navigationItem {
+  font-weight: 600;
+  font-size: theme("fontSize.xl");
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  transition: color 0.15s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -0.625rem;
+    left: 0;
+    width: 0;
+    height: 0.125rem;
+    background: #000;
+    transition: width 0.2s ease-in-out;
+  }
+
+  &[data-icon="two"]::after {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+.navigationItemIsFocusedOrHovered {
+  &::after {
+    width: calc(100%);
+  }
+
+  &[data-icon="one"]::after {
+    width: calc(100% - 0.75rem - 20px);
+  }
+
+  &[data-icon="two"]::after {
+    width: calc(100% - 0.75rem - 40px);
+  }
+}
+
+.navigationItemIsPressed {
+  color: theme("textColor.blue.700");
+
+  &::after {
+    background: theme("textColor.blue.700");
+  }
+}

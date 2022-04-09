@@ -4,7 +4,7 @@
     "body": [
       "import * as React from \"react\";",
       "",
-      "export const ${1:Component}: React.FunctionComponent = () => {",
+      "export const ${1:Component}: React.FC = () => {",
       "  return <div>${1:Component}</div>;",
       "};",
       ""
