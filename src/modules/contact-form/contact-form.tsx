@@ -27,7 +27,11 @@ export const ContactForm: React.FunctionComponent = () => {
         body: JSON.stringify(data),
       });
 
-      console.log(await result.text());
+      if (result.ok) {
+        console.log(await result.text());
+      } else {
+        console.error("Something went wrong.");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -63,6 +67,7 @@ export const ContactForm: React.FunctionComponent = () => {
       />
       <Button
         isLoading={formState.isSubmitting}
+        isDisabled={!formState.isValid && formState.isSubmitted}
         classNames={{
           override: styles.submitButton,
           isHovered: styles.submitButtonHovered,
