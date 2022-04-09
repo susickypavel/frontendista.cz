@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { nopeResolver } from "@hookform/resolvers/nope";
 import { SiDiscord } from "react-icons/si";
+import { HiExclamationCircle } from "react-icons/hi";
 
 import styles from "./contact-form.module.scss";
 
@@ -14,6 +15,7 @@ import { contactFormSchema } from "@utils/validation/contact-form-validation";
 import type { IFormInputs } from "./contact-form.d";
 
 export const ContactForm: React.FunctionComponent = () => {
+  const [formError, setFormError] = React.useState<string>("");
   const { register, handleSubmit, formState } = useForm<IFormInputs>({
     resolver: nopeResolver(contactFormSchema),
   });
@@ -36,15 +38,34 @@ export const ContactForm: React.FunctionComponent = () => {
           query: data as {},
         });
       } else {
-        console.error("Something went wrong.");
+        switch (result.status) {
+          case 400:
+            setFormError("Blocked by server validation (400)");
+            break;
+          case 429:
+            setFormError("Request limit exceeded (429)");
+            break;
+          case 500:
+            setFormError("Something went wrong (500)");
+            break;
+          default:
+            setFormError("Something went wrong");
+            break;
+        }
       }
     } catch (error) {
-      console.log(error);
+      setFormError(error instanceof Error ? error.message : "Something went wrong");
     }
   };
 
   return (
     <form className={styles.contactForm} onSubmit={handleSubmit(onSubmit)} noValidate>
+      {formError && (
+        <div className={styles.errorAlert}>
+          <HiExclamationCircle />
+          {formError}
+        </div>
+      )}
       <Input
         label="YOUR NAME"
         placeholder="Optional, but don’t mind me when I call you PinkLord39!"

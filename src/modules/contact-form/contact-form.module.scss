@@ -27,3 +27,16 @@
 .submitButtonPressed {
   background: color.scale(#5865f2, $lightness: -15%);
 }
+
+.errorAlert {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background: theme("backgroundColor.red.600");
+  border: 0.1875rem solid theme("borderColor.red.500");
+  color: theme("textColor.white");
+  font-weight: 700;
+  border-radius: 1rem;
+  font-size: 1.25rem;
+  padding: 0.8em 1.2em;
+}
