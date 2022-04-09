@@ -1,8 +1,8 @@
 .main {
   max-width: 48rem;
   margin: 0 auto;
-  min-height: 100vh;
-  margin-top: -5rem;
+  min-height: calc(100vh - theme("height.navigationHeight"));
+  padding: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;

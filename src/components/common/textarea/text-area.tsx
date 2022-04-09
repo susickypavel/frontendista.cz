@@ -4,18 +4,7 @@ import { mergeProps } from "react-aria";
 import styles from "./text-area.module.scss";
 import { Label } from "../label/label";
 
-import type { ILabelProps } from "../label/label";
-
-interface ITextAreaProps extends Omit<ILabelProps, "required" | "children"> {
-  /**
-   * Placeholder value for the textarea
-   */
-  placeholder?: string;
-  /**
-   * @default {}
-   */
-  domProps?: React.InputHTMLAttributes<HTMLTextAreaElement>;
-}
+import type { ITextAreaProps } from "./text-area.d";
 
 export const TextArea = React.forwardRef<HTMLTextAreaElement, ITextAreaProps>(
   ({ errors, label, placeholder, domProps = {}, ...props }, forwardedRef) => {

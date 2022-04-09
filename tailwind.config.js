@@ -17,6 +17,9 @@ module.exports = {
       fontFamily: {
         sans: ["PP", ...fontFamily.sans],
       },
+      height: {
+        navigationHeight: "5rem",
+      },
     },
   },
   plugins: [],

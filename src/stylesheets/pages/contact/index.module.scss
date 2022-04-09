@@ -1,9 +1,16 @@
 .main {
   display: flex;
   justify-content: center;
-  gap: 4rem;
+  align-items: center;
   padding: 4rem;
-  width: 100%;
+  min-height: calc(100vh - theme("height.navigationHeight"));
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex: 1 0 100%;
 }
 
 .sideContent {

@@ -6,29 +6,7 @@ import { useSound } from "use-sound";
 
 import styles from "./link.module.scss";
 
-// TODO: Add proper typing
-type AriaLinkOptions = any;
-type HoverProps = any;
-type FocusRingProps = any;
-
-export interface IAnchorLinkProps
-  extends Omit<AriaLinkOptions, "elementType">,
-    HoverProps,
-    Omit<FocusRingProps, "isTextInput"> {
-  href: string;
-  children?: React.ReactNode;
-  /**
-   * @default {}
-   */
-  classNames?: {
-    base?: string;
-    isHovered?: string;
-    isPressed?: string;
-    isFocused?: string;
-    isDisabled?: string;
-    isFocusedOrHovered?: string;
-  };
-}
+import type { IAnchorLinkProps, ILinkProps } from "./link.d";
 
 export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
   href,
@@ -43,11 +21,6 @@ export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
 };
 
 AnchorLink.displayName = "AnchorLink";
-
-interface ILinkProps extends Partial<IAnchorLinkProps> {
-  onClick?: any;
-  onMouseEnter?: any;
-}
 
 const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
   (
