@@ -1,0 +1,66 @@
+.main {
+  max-width: 48rem;
+  margin: 0 auto;
+  min-height: 100vh;
+  margin-top: -5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  color: theme("textColor.white");
+  font-weight: 600;
+  background: theme("backgroundColor.green.700");
+  border: 0.1875rem solid theme("borderColor.green.600");
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.recapitulation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  border: 0.1875rem solid #f4f4f5;
+  background: #fafafa;
+  border-radius: 1rem;
+
+  & > div {
+    & span {
+      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 0 0.0469rem rgb(0 0 0 / 25%);
+    }
+
+    & p {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      text-align: justify;
+    }
+  }
+}
+
+.link {
+  display: inline-flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  width: 100%;
+  padding: 0.8em;
+  border-radius: 0.8em;
+}
+
+.linkCta {
+  color: theme("textColor.white");
+  background: theme("backgroundColor.blue.700");
+}

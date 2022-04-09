@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { nopeResolver } from "@hookform/resolvers/nope";
 import { SiDiscord } from "react-icons/si";
@@ -17,6 +18,8 @@ export const ContactForm: React.FunctionComponent = () => {
     resolver: nopeResolver(contactFormSchema),
   });
 
+  const { push } = useRouter();
+
   const onSubmit = async (data: IFormInputs) => {
     try {
       const result = await fetch(process.env.NEXT_PUBLIC_DISCORD_CONTACT_WORKER_URL!, {
@@ -28,7 +31,10 @@ export const ContactForm: React.FunctionComponent = () => {
       });
 
       if (result.ok) {
-        console.log(await result.text());
+        push({
+          pathname: "/contact/success",
+          query: data as {},
+        });
       } else {
         console.error("Something went wrong.");
       }
