@@ -25,7 +25,8 @@
       "@utils/*": ["src/utils/*"],
       "@stylesheets/*": ["src/stylesheets/*"],
       "@queries/*": ["src/queries/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@modules/*": ["src/modules/*"]
     },
     "types": ["cypress", "@testing-library/cypress"]
   },
