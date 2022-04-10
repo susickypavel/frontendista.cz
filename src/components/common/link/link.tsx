@@ -8,11 +8,7 @@ import styles from "./link.module.scss";
 
 import type { IAnchorLinkProps, ILinkProps } from "./link.d";
 
-export const AnchorLink: React.FunctionComponent<IAnchorLinkProps> = ({
-  href,
-  children,
-  ...props
-}) => {
+export const AnchorLink: React.FC<IAnchorLinkProps> = ({ href, children, ...props }) => {
   return (
     <NextLink href={href} passHref>
       <Link {...props}>{children}</Link>
@@ -24,7 +20,15 @@ AnchorLink.displayName = "AnchorLink";
 
 const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
   (
-    { onClick, children, onPress, classNames = {}, isDisabled, ...props },
+    {
+      onClick,
+      children,
+      onPress,
+      classNames = {},
+      isDisabled,
+      withUnderline = true,
+      ...props
+    },
     forwardedRef,
   ) => {
     const ref = React.useRef<HTMLSpanElement>(null);
@@ -71,16 +75,25 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
       [classNames.isPressed || ""]: isPressed,
       [classNames.isHovered || ""]: isHovered,
       [classNames.isFocused || ""]: isFocused && isFocusVisible,
-      [classNames.isFocusedOrHovered || ""]: (isFocused && isFocusVisible) || isHovered,
+      [classNames.isFocusedOrHovered || styles.isFocusedOrHovered]:
+        (isFocused && isFocusVisible) || isHovered,
       [classNames.isDisabled || ""]: isDisabled,
     });
+
+    const isExternal = props.href && props.href.startsWith("http");
 
     return (
       <span
         ref={ref}
         className={className}
         {...mergeProps(linkProps, hoverProps, focusProps)}>
-        {children}
+        {isExternal && <img src={`/api/favicon?url=${props.href}`} alt="" />}
+        <span
+          className={clsx({
+            [styles.underline]: withUnderline,
+          })}>
+          {children}
+        </span>
       </span>
     );
   },
