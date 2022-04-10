@@ -1,5 +1,5 @@
-import { AnchorLink } from "@components/common/link";
 import * as React from "react";
+import { AnchorLink } from "@components/common/link";
 
 import styles from "./footer.module.scss";
 
