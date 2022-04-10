@@ -29,6 +29,7 @@ const ContactSuccessPage: NextPage = () => {
       </div>
       <div className="flex gap-4 w-full">
         <AnchorLink
+          withUnderline={false}
           href="/contact"
           classNames={{
             base: styles.link,
@@ -36,6 +37,7 @@ const ContactSuccessPage: NextPage = () => {
           Send another
         </AnchorLink>
         <AnchorLink
+          withUnderline={false}
           href="/"
           classNames={{
             base: clsx(styles.link, styles.linkCta),

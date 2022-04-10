@@ -7,6 +7,7 @@ import type { INavigationItemProps } from "./navigation-item.d";
 export const NavigationItem: React.FC<INavigationItemProps> = ({ children, href }) => {
   return (
     <AnchorLink
+      withUnderline={false}
       href={href}
       classNames={{
         base: styles.navigationItem,
