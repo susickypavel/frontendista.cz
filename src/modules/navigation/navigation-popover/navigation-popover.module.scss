@@ -129,3 +129,23 @@ $container-padding: 2rem;
   flex-direction: column;
   gap: 1rem;
 }
+
+.sectionLink {
+  background-image: none;
+}
+
+.sectionLinkIsPressed {
+  color: theme("textColor.zinc.300");
+}
+
+.sectionLinkIsFocusedOrHovered {
+  background-image: linear-gradient(to right, #fff, #fff);
+}
+
+.sectionLinkIsPressedUnderline {
+  background-image: linear-gradient(
+    to right,
+    theme("textColor.zinc.300"),
+    theme("textColor.zinc.300")
+  );
+}

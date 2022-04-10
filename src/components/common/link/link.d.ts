@@ -19,6 +19,11 @@ export interface IAnchorLinkProps
     isFocused?: string;
     isDisabled?: string;
     isFocusedOrHovered?: string;
+    underline?: {
+      override?: string;
+      isFocusedOrHovered?: string;
+      isPressed?: string;
+    };
   };
   /**
    * @default true

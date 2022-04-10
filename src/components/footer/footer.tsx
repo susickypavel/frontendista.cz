@@ -44,10 +44,18 @@ export const Footer: React.FunctionComponent = () => {
         <section>
           <h1>Sitemap</h1>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Blog</li>
-            <li>Contact</li>
+            <li>
+              <AnchorLink href="/">Home</AnchorLink>
+            </li>
+            <li>
+              <AnchorLink href="/about">About</AnchorLink>
+            </li>
+            <li>
+              <AnchorLink href="/blog">Blog</AnchorLink>
+            </li>
+            <li>
+              <AnchorLink href="/contact">Contact</AnchorLink>
+            </li>
           </ul>
         </section>
       </div>

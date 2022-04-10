@@ -6,6 +6,8 @@
   outline: none;
   line-height: 1;
   gap: 1rem;
+  transition: color theme("transitionDuration.200")
+    theme("transitionTimingFunction.DEFAULT");
 }
 
 .underline {
@@ -16,12 +18,14 @@
   background-size: 0.4em 0.15em;
 }
 
-.isFocusedOrHovered {
-  & .underline {
-    background-image: linear-gradient(
-      to right,
-      rgb(29 78 216 / 100%),
-      rgb(29 78 216 / 100%)
-    );
-  }
+.underlineFocusedOrHovered {
+  background-image: linear-gradient(
+    to right,
+    rgb(29 78 216 / 100%),
+    rgb(29 78 216 / 100%)
+  );
+}
+
+.isPressed {
+  color: theme("textColor.blue.700");
 }
