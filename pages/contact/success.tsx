@@ -32,7 +32,7 @@ const ContactSuccessPage: NextPage = () => {
           withUnderline={false}
           href="/contact"
           classNames={{
-            base: styles.link,
+            override: styles.link,
           }}>
           Send another
         </AnchorLink>
@@ -40,7 +40,7 @@ const ContactSuccessPage: NextPage = () => {
           withUnderline={false}
           href="/"
           classNames={{
-            base: clsx(styles.link, styles.linkCta),
+            override: clsx(styles.link, styles.linkCta),
           }}>
           Go home
         </AnchorLink>

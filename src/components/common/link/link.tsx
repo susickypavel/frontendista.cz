@@ -71,14 +71,18 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
       isTextInput: false,
     });
 
-    const className = clsx(styles.base, classNames.base, {
-      [classNames.isPressed || ""]: isPressed,
-      [classNames.isHovered || ""]: isHovered,
-      [classNames.isFocused || ""]: isFocused && isFocusVisible,
-      [classNames.isFocusedOrHovered || styles.isFocusedOrHovered]:
-        (isFocused && isFocusVisible) || isHovered,
-      [classNames.isDisabled || ""]: isDisabled,
-    });
+    const className = clsx(
+      styles.base,
+      {
+        [classNames.isPressed || ""]: isPressed,
+        [classNames.isHovered || ""]: isHovered,
+        [classNames.isFocused || ""]: isFocused && isFocusVisible,
+        [classNames.isFocusedOrHovered || styles.isFocusedOrHovered]:
+          (isFocused && isFocusVisible) || isHovered,
+        [classNames.isDisabled || ""]: isDisabled,
+      },
+      classNames.override,
+    );
 
     const isExternal = props.href && props.href.startsWith("http");
 

@@ -84,7 +84,7 @@ export const NavigationPopover: React.FC<INavigationPopoverProps> = ({
                   href={ctaLink.href}
                   onPress={() => close()}
                   classNames={{
-                    base: styles.ctaLink,
+                    override: styles.ctaLink,
                     isHovered: styles.ctaLinkHovered,
                     isFocused: styles.ctaLinkFocused,
                     isPressed: styles.ctaLinkPressed,

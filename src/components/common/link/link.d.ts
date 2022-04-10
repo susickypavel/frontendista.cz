@@ -13,7 +13,7 @@ export interface IAnchorLinkProps
    * @default {}
    */
   classNames?: {
-    base?: string;
+    override?: string;
     isHovered?: string;
     isPressed?: string;
     isFocused?: string;
