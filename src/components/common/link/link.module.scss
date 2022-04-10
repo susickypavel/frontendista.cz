@@ -1,5 +1,27 @@
 .base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   outline: none;
   line-height: 1;
+  gap: 1rem;
+}
+
+.underline {
+  background-image: linear-gradient(to right, rgb(29 78 216 / 10%), rgb(29 78 216 / 10%));
+  background-position: 0 0.9em;
+  background-repeat: repeat-x;
+  padding-bottom: 0.1em;
+  background-size: 0.4em 0.15em;
+}
+
+.isFocusedOrHovered {
+  & .underline {
+    background-image: linear-gradient(
+      to right,
+      rgb(29 78 216 / 100%),
+      rgb(29 78 216 / 100%)
+    );
+  }
 }

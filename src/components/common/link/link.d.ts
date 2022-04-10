@@ -20,6 +20,10 @@ export interface IAnchorLinkProps
     isDisabled?: string;
     isFocusedOrHovered?: string;
   };
+  /**
+   * @default true
+   */
+  withUnderline?: boolean;
 }
 
 export interface ILinkProps extends Partial<IAnchorLinkProps> {
