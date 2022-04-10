@@ -9,6 +9,7 @@ import { useSound } from "use-sound";
 import styles from "./link.module.scss";
 
 import type { IAnchorLinkProps, ILinkProps } from "./link.d";
+import { HiExternalLink } from "react-icons/hi";
 
 export const AnchorLink: React.FC<IAnchorLinkProps> = ({ href, children, ...props }) => {
   return (
@@ -73,29 +74,27 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
       isTextInput: false,
     });
 
+    const isFocusedOrHovered = (isFocused && isFocusVisible) || isHovered;
+
     const className = clsx(
       styles.base,
       {
         [classNames.isPressed || styles.isPressed]: isPressed,
         [classNames.isHovered || ""]: isHovered,
         [classNames.isFocused || ""]: isFocused && isFocusVisible,
-        [classNames.isFocusedOrHovered || ""]: (isFocused && isFocusVisible) || isHovered,
+        [classNames.isFocusedOrHovered || ""]: isFocusedOrHovered,
         [classNames.isDisabled || ""]: isDisabled,
       },
       classNames.override,
     );
-
-    const isExternal = props.href && props.href.startsWith("http");
 
     return (
       <span
         ref={ref}
         className={className}
         {...mergeProps(linkProps, hoverProps, focusProps)}>
-        {isExternal && (
-          <span>
-            <img src={`/api/favicon?url=${props.href}`} height={16} width={16} alt="" />
-          </span>
+        {props.href && props.href.startsWith("http") && (
+          <ExternalIcon href={props.href} isVisible={isFocusedOrHovered} />
         )}
         <span
           className={
@@ -104,8 +103,7 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
                   styles.underline,
                   {
                     [classNames.underline?.isFocusedOrHovered ||
-                    styles.underlineFocusedOrHovered]:
-                      (isFocused && isFocusVisible) || isHovered,
+                    styles.underlineFocusedOrHovered]: isFocusedOrHovered,
                     [classNames.underline?.isPressed || ""]: isPressed,
                   },
                   classNames.underline?.override,
@@ -120,3 +118,23 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
 );
 
 Link.displayName = "Link";
+
+const ExternalIcon: React.FC<{ href: string; isVisible: boolean }> = ({
+  href,
+  isVisible,
+}) => {
+  return (
+    <span className={styles.externalIcon}>
+      <img
+        className={clsx(styles.externalIconFavicon, {
+          [styles.externalIconFaviconHidden]: isVisible,
+        })}
+        src={`/api/favicon?url=${href}`}
+        alt=""
+      />
+      {isVisible && (
+        <HiExternalLink className={styles.externalIconSVG} aria-hidden="true" />
+      )}
+    </span>
+  );
+};
