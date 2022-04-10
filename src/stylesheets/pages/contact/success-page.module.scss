@@ -63,6 +63,14 @@
   }
 }
 
+.linkWrapper {
+  display: flex;
+
+  gap: 1rem;
+
+  width: 100%;
+}
+
 .link {
   display: inline-flex;
 

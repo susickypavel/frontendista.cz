@@ -27,7 +27,7 @@ const ContactSuccessPage: NextPage = () => {
             </div>
           ))}
       </div>
-      <div className="flex gap-4 w-full">
+      <div className={styles.linkWrapper}>
         <AnchorLink
           withUnderline={false}
           href="/contact"
