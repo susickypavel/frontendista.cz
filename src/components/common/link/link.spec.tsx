@@ -6,7 +6,7 @@ describe("AnchorLink", () => {
   it("should render", () => {
     render(<AnchorLink href="/">AnchorLink</AnchorLink>);
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     expect(anchorLink).toBeInTheDocument();
   });
@@ -20,7 +20,7 @@ describe("AnchorLink", () => {
       </AnchorLink>,
     );
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     fireEvent.click(anchorLink);
 
@@ -35,7 +35,7 @@ describe("AnchorLink", () => {
       </AnchorLink>,
     );
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     expect(anchorLink).toHaveFocus();
   });
@@ -47,7 +47,7 @@ describe("AnchorLink", () => {
       </AnchorLink>,
     );
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     expect(anchorLink).not.toHaveFocus();
   });
@@ -67,7 +67,7 @@ describe("AnchorLink", () => {
       </AnchorLink>,
     );
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     fireEvent.mouseEnter(anchorLink);
     fireEvent.mouseLeave(anchorLink);
@@ -93,7 +93,7 @@ describe("AnchorLink", () => {
       </AnchorLink>,
     );
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     fireEvent.mouseEnter(anchorLink);
     fireEvent.mouseLeave(anchorLink);
@@ -113,7 +113,7 @@ describe("AnchorLink", () => {
       </AnchorLink>,
     );
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     fireEvent.focus(anchorLink);
     fireEvent.focusOut(anchorLink);
@@ -132,7 +132,7 @@ describe("AnchorLink", () => {
       </AnchorLink>,
     );
 
-    const anchorLink = screen.getByText("AnchorLink");
+    const anchorLink = screen.getByRole("link");
 
     fireEvent.focus(anchorLink);
     fireEvent.focusOut(anchorLink);
