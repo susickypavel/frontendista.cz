@@ -153,7 +153,11 @@ $container-padding: 2rem;
   gap: 1rem;
 }
 
-.sectionLink {
+.sectionLinkUnderline {
+  text-shadow: -0.1875rem 0 #000, 0.1875rem 0 #000, -0.1875rem 0.0625rem #000,
+    0.1875rem 0.0625rem #000, -0.125rem 0.0625rem #000, 0.125rem 0.0625rem #000,
+    -0.0625rem 0.0625rem #000, 0.0625rem 0.0625rem #000, 0 0.0625rem #000;
+
   background-image: none;
 }
 

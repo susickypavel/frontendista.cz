@@ -20,18 +20,22 @@
   padding-bottom: 0.1em;
   margin-top: 0.1em;
 
-  background-image: linear-gradient(to right, rgb(29 78 216 / 10%), rgb(29 78 216 / 10%));
+  text-shadow: -0.1875rem 0 #fff, 0.1875rem 0 #fff, -0.1875rem 0.0625rem #fff,
+    0.1875rem 0.0625rem #fff, -0.125rem 0.0625rem #fff, 0.125rem 0.0625rem #fff,
+    -0.0625rem 0.0625rem #fff, 0.0625rem 0.0625rem #fff, 0 0.0625rem #fff;
+
+  background-image: linear-gradient(
+    to right,
+    rgb(29 78 216 / 25%),
+    rgb(59 130 246 / 25%)
+  );
   background-repeat: repeat-x;
-  background-position: 0 0.9em;
-  background-size: 0.4em 0.15em;
+  background-position: 0 100%;
+  background-size: 100% 0.15em;
 }
 
 .underlineFocusedOrHovered {
-  background-image: linear-gradient(
-    to right,
-    rgb(29 78 216 / 100%),
-    rgb(29 78 216 / 100%)
-  );
+  background-image: linear-gradient(to right, #1d4ed8, #3b82f6);
 }
 
 .isPressed {
@@ -63,4 +67,17 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  opacity: 0;
+
+  transform: translateX(100%);
+}
+
+.externalIconSVGVisible {
+  opacity: 1;
+
+  transition: transform 0.3s theme("transitionTimingFunction.DEFAULT"),
+    opacity 0.25s linear 0.05s;
+
+  transform: translateX(0);
 }

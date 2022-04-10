@@ -56,7 +56,7 @@ export const NavigationPopover: React.FC<INavigationPopoverProps> = ({
                               classNames={{
                                 isPressed: styles.sectionLinkIsPressed,
                                 underline: {
-                                  override: styles.sectionLink,
+                                  override: styles.sectionLinkUnderline,
                                   isFocusedOrHovered:
                                     styles.sectionLinkIsFocusedOrHovered,
                                   isPressed: styles.sectionLinkIsPressedUnderline,

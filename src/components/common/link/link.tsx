@@ -132,9 +132,12 @@ const ExternalIcon: React.FC<{ href: string; isVisible: boolean }> = ({
         src={`/api/favicon?url=${href}`}
         alt=""
       />
-      {isVisible && (
-        <HiExternalLink className={styles.externalIconSVG} aria-hidden="true" />
-      )}
+      <HiExternalLink
+        className={clsx(styles.externalIconSVG, {
+          [styles.externalIconSVGVisible]: isVisible,
+        })}
+        aria-hidden="true"
+      />
     </span>
   );
 };
