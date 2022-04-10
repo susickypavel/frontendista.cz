@@ -27,6 +27,7 @@ import type {
   InferGetStaticPropsType,
   NextPage,
 } from "next";
+import { AnchorLink } from "@components/common/link";
 
 const YoutubeEmbed = dynamic(() => import("@components/youtube-embed"));
 
@@ -46,6 +47,11 @@ const BlogPostPage: NextPage<IBlogPostPageProps> = ({ title, body }) => {
           types: {
             youtube: ({ value }) => <YoutubeEmbed videoId={value.videoId} />,
             image: ({ value }) => <BlogImage {...value.asset} />,
+          },
+          marks: {
+            link: ({ children, value }) => (
+              <AnchorLink href={value!.href}>{children}</AnchorLink>
+            ),
           },
         }}
       />
