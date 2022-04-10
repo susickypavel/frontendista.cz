@@ -2,14 +2,16 @@ import * as React from "react";
 import YouTube from "react-youtube";
 import LazyLoad from "react-lazyload";
 
-export const YoutubeEmbed: React.FunctionComponent<{ videoId: string }> = ({
-  videoId,
-}) => {
+import styles from "./youtube-embed.module.scss";
+
+import type { IYoutubeEmbedProps } from "./youtube-embed.d";
+
+export const YoutubeEmbed: React.FC<IYoutubeEmbedProps> = ({ videoId }) => {
   return (
-    <LazyLoad once placeholder={<div className="TODO: Placeholder" />}>
+    <LazyLoad classNamePrefix={styles.placeholder} once>
       <YouTube
-        className="TODO: Iframe"
-        containerClassName="TODO: Container"
+        className={styles.iframe}
+        containerClassName={styles.placeholder}
         videoId={videoId}
       />
     </LazyLoad>

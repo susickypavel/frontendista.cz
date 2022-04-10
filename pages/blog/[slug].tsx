@@ -28,9 +28,7 @@ import type {
   NextPage,
 } from "next";
 
-const YoutubeEmbed = dynamic(
-  () => import("@components/youtube-embed/youtube-embed.component"),
-);
+const YoutubeEmbed = dynamic(() => import("@components/youtube-embed"));
 
 interface IBlogPostPageProps extends InferGetStaticPropsType<typeof getStaticProps> {}
 
