@@ -2,18 +2,22 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: theme("zIndex.50");
+
   width: 100%;
   height: theme("height.navigationHeight");
+
   background: #fff;
-  z-index: theme("zIndex.50");
 }
 
 .navigationList {
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  max-width: 48rem;
+  justify-content: space-between;
+
   width: 100%;
+  max-width: 48rem;
   height: 100%;
   margin: 0 auto;
 
@@ -28,5 +32,6 @@
 
 .navigationButtonsGroup {
   display: flex;
+
   justify-content: space-between;
 }

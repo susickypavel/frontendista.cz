@@ -1,18 +1,22 @@
 @use "sass:color";
 
 .contactForm {
-  flex: 1 0 100%;
   display: flex;
+
+  flex: 1 0 100%;
   flex-flow: column;
+
   gap: 1rem;
+
   max-width: 32rem;
 }
 
 .submitButton {
-  background: #5865f2;
-  color: theme("textColor.white");
   font-weight: 700;
+  color: theme("textColor.white");
   text-shadow: 0 0 0.0469rem rgb(255 255 255 / 25%);
+
+  background: #5865f2;
   box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 6%), 0 0.25rem 0.375rem rgb(0 0 0 / 10%);
 }
 
@@ -30,13 +34,18 @@
 
 .errorAlert {
   display: inline-flex;
-  align-items: center;
+
   gap: 1rem;
+
+  align-items: center;
+
+  padding: 0.8em 1.2em;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: theme("textColor.white");
+
   background: theme("backgroundColor.red.600");
   border: 0.1875rem solid theme("borderColor.red.500");
-  color: theme("textColor.white");
-  font-weight: 700;
   border-radius: 1rem;
-  font-size: 1.25rem;
-  padding: 0.8em 1.2em;
 }

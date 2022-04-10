@@ -1,18 +1,23 @@
 .base {
   display: inline-flex;
+
+  gap: 0.8em;
+
   align-items: center;
   justify-content: center;
-  gap: 0.8em;
+
+  padding: 1em 1.5em;
+
   font-weight: 600;
   line-height: 1;
-  padding: 1em 1.5em;
-  border-radius: 0.8em;
+
   background-color: red;
+  border-radius: 0.8em;
   outline: none;
 
   & svg {
-    height: 1em;
     width: auto;
+    height: 1em;
   }
 
   &[data-icon="solo"] {
@@ -34,6 +39,7 @@
 
 .isDisabled {
   cursor: not-allowed;
+
   opacity: 0.5;
 }
 

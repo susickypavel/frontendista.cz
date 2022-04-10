@@ -1,21 +1,28 @@
 .base {
   display: inline-flex;
+
+  gap: 0.8em;
+
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  outline: none;
+
   line-height: 1;
-  gap: 0.8em;
+
+  cursor: pointer;
+
+  outline: none;
+
   transition: color theme("transitionDuration.200")
     theme("transitionTimingFunction.DEFAULT");
 }
 
 .underline {
-  background-image: linear-gradient(to right, rgb(29 78 216 / 10%), rgb(29 78 216 / 10%));
-  background-position: 0 0.9em;
-  background-repeat: repeat-x;
   padding-bottom: 0.1em;
   margin-top: 0.1em;
+
+  background-image: linear-gradient(to right, rgb(29 78 216 / 10%), rgb(29 78 216 / 10%));
+  background-repeat: repeat-x;
+  background-position: 0 0.9em;
   background-size: 0.4em 0.15em;
 }
 
@@ -32,10 +39,13 @@
 }
 
 .externalIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
   width: 1em;
   height: 1em;
 }
