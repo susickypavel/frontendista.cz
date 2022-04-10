@@ -8,7 +8,7 @@ import type { IYoutubeEmbedProps } from "./youtube-embed.d";
 
 export const YoutubeEmbed: React.FC<IYoutubeEmbedProps> = ({ videoId }) => {
   return (
-    <LazyLoad classNamePrefix={styles.placeholder} once>
+    <LazyLoad once>
       <YouTube
         className={styles.iframe}
         containerClassName={styles.placeholder}
