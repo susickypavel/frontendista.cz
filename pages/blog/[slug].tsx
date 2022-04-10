@@ -2,6 +2,8 @@ import * as React from "react";
 import { PortableText } from "@portabletext/react";
 import dynamic from "next/dynamic";
 
+import styles from "@stylesheets/pages/blog/[slug].module.scss";
+
 import { BlogImage } from "@components/blog-image/blog-image.component";
 
 import {
@@ -38,7 +40,7 @@ interface IParams extends ParsedUrlQuery {
 
 const BlogPostPage: NextPage<IBlogPostPageProps> = ({ title, body }) => {
   return (
-    <div style={{ maxWidth: 640 }}>
+    <main className={styles.main}>
       <h1>{title}</h1>
       <PortableText
         value={body}
@@ -49,7 +51,7 @@ const BlogPostPage: NextPage<IBlogPostPageProps> = ({ title, body }) => {
           },
         }}
       />
-    </div>
+    </main>
   );
 };
 
