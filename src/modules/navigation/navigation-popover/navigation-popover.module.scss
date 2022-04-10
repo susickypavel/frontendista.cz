@@ -5,58 +5,71 @@ $container-padding: 2rem;
 
   & > li {
     margin-bottom: 0.5rem;
+
     font-weight: 600;
     line-height: 1.5;
   }
 }
 
 .navigationDropdown {
-  display: flex;
   position: absolute;
-  margin-top: 2rem;
-  max-width: 48rem;
-  width: 100%;
   left: calc(50% - 24rem);
-  background: #000;
-  border-radius: 1rem;
+
+  display: flex;
+
+  width: 100%;
+  max-width: 48rem;
   min-height: 18.75rem;
   padding: $container-padding;
+  margin-top: 2rem;
+
+  background: #000;
+  border-radius: 1rem;
   box-shadow: 0 1.25rem 1.5625rem rgb(0 0 0 / 10%), 0 0.625rem 0.625rem rgb(0 0 0 / 4%);
 }
 
 .sectionHeader {
-  color: theme("textColor.blue.200");
-  font-weight: 700;
-  font-size: 1.125rem;
   margin-bottom: 2rem;
+
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: theme("textColor.blue.200");
 }
 
 .sectionContainer {
   display: flex;
-  justify-content: space-between;
+
   flex: 1 0 auto;
+
+  justify-content: space-between;
 }
 
 .memojiContainer {
-  width: calc(18.75rem - $container-padding * 2);
-  height: calc(18.75rem - $container-padding * 2);
-  border-radius: 1rem;
-  overflow: hidden;
   position: relative;
 
+  width: calc(18.75rem - $container-padding * 2);
+  height: calc(18.75rem - $container-padding * 2);
+  overflow: hidden;
+
+  border-radius: 1rem;
+
   & svg {
-    opacity: 0.15;
     position: absolute;
     z-index: theme("zIndex.10");
+
+    opacity: 0.15;
   }
 
   &::before {
-    content: "";
     position: absolute;
-    box-shadow: inset 0 0 2rem #000;
-    height: 100%;
-    width: 100%;
     z-index: theme("zIndex.50");
+
+    width: 100%;
+    height: 100%;
+
+    content: "";
+
+    box-shadow: inset 0 0 2rem #000;
   }
 }
 
@@ -66,17 +79,23 @@ $container-padding: 2rem;
 
 .dropdownLink {
   position: relative;
-  outline: none;
+
   cursor: pointer;
 
+  outline: none;
+
   &::after {
-    content: "";
     position: absolute;
     bottom: -0.25rem;
     left: 0;
+
     width: 0;
     height: 0.125rem;
+
+    content: "";
+
     background: #fff;
+
     transition: width 0.2s ease-in-out;
   }
 }
@@ -96,19 +115,21 @@ $container-padding: 2rem;
 }
 
 .ctaLink {
-  font-weight: 700;
-  font-size: 1rem;
-  color: theme("colors.white");
-  padding: 1em 0;
   width: 100%;
+  padding: 1em 0;
+
+  font-size: 1rem;
+  font-weight: 700;
+  color: theme("colors.white");
   text-align: center;
+
   background: linear-gradient(
     267.77deg,
     theme("gradientColorStops.blue.700") 0%,
     theme("gradientColorStops.blue.500") 100%
   );
-  box-shadow: inset 0 0 0.5em theme("boxShadowColor.black");
   border-radius: 1em;
+  box-shadow: inset 0 0 0.5em theme("boxShadowColor.black");
 }
 
 .ctaLinkHovered {
@@ -126,7 +147,9 @@ $container-padding: 2rem;
 
 .sideContent {
   display: flex;
+
   flex-direction: column;
+
   gap: 1rem;
 }
 
