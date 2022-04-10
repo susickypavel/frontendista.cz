@@ -71,7 +71,14 @@ pnpm install
 pnpm dev
 ```
 
-### 1.4 Bonus
+### 1.4 Other relevant repositories to set up
+
+| Name                                                                    | Description         |
+| ----------------------------------------------------------------------- | ------------------- |
+| [cms.frontendista.cz](https://github.com/Thesoreon/cms.frontendista.cz) | Sanity.io based CMS |
+| [api.frontendista.cz](https://github.com/Thesoreon/api.frontendista.cz) | Cloudflare workers  |
+
+### 1.5 Bonus
 
 - Install recommended extensions for VSCode (listed in `.vscode/extensions.json`)
 
