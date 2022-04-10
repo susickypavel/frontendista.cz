@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 
 import { Navigation } from "@modules/navigation";
-import { Footer } from "@components/footer";
+import { Footer } from "@modules/footer";
 
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";

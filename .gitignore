@@ -33,3 +33,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Random stuff that has appeared once
+tsconfig.tsbuildinfo
