@@ -39,11 +39,11 @@
   }
 
   &[data-icon="one"]::after {
-    width: calc(100% - 0.75rem - 20px);
+    width: calc(100% - 0.75rem - 1.25rem);
   }
 
   &[data-icon="two"]::after {
-    width: calc(100% - 0.75rem - 40px);
+    width: calc(100% - 0.75rem - 2.5rem);
   }
 }
 

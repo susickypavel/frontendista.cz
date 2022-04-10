@@ -35,6 +35,7 @@ const config = {
   rules: {
     // CamelCase pattern
     "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "unit-disallowed-list": ["px"],
     "plugin/no-unsupported-browser-features": [
       true,
       {
