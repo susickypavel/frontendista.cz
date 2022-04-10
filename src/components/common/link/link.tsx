@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import * as React from "react";
 import clsx from "clsx";
 import NextLink from "next/link";
@@ -74,11 +76,10 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
     const className = clsx(
       styles.base,
       {
-        [classNames.isPressed || ""]: isPressed,
+        [classNames.isPressed || styles.isPressed]: isPressed,
         [classNames.isHovered || ""]: isHovered,
         [classNames.isFocused || ""]: isFocused && isFocusVisible,
-        [classNames.isFocusedOrHovered || styles.isFocusedOrHovered]:
-          (isFocused && isFocusVisible) || isHovered,
+        [classNames.isFocusedOrHovered || ""]: (isFocused && isFocusVisible) || isHovered,
         [classNames.isDisabled || ""]: isDisabled,
       },
       classNames.override,
@@ -91,11 +92,26 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
         ref={ref}
         className={className}
         {...mergeProps(linkProps, hoverProps, focusProps)}>
-        {isExternal && <img src={`/api/favicon?url=${props.href}`} alt="" />}
+        {isExternal && (
+          <span>
+            <img src={`/api/favicon?url=${props.href}`} height={16} width={16} alt="" />
+          </span>
+        )}
         <span
-          className={clsx({
-            [styles.underline]: withUnderline,
-          })}>
+          className={
+            withUnderline
+              ? clsx(
+                  styles.underline,
+                  {
+                    [classNames.underline?.isFocusedOrHovered ||
+                    styles.underlineFocusedOrHovered]:
+                      (isFocused && isFocusVisible) || isHovered,
+                    [classNames.underline?.isPressed || ""]: isPressed,
+                  },
+                  classNames.underline?.override,
+                )
+              : undefined
+          }>
           {children}
         </span>
       </span>

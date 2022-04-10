@@ -118,11 +118,11 @@ export const navigationData: INavigationData[] = [
         sectionTitle: "Hobby",
         items: [
           {
-            href: "/contact#todo",
+            href: "https://steamcommunity.com/id/thesoreon",
             label: "Steam",
           },
           {
-            href: "/contact#todo",
+            href: "https://open.spotify.com/user/thesoreon",
             label: "Spotify",
           },
         ],
@@ -131,7 +131,7 @@ export const navigationData: INavigationData[] = [
         sectionTitle: "Development",
         items: [
           {
-            href: "/contact#todo",
+            href: "http://github.com/thesoreon",
             label: "GitHub",
           },
         ],
@@ -140,11 +140,11 @@ export const navigationData: INavigationData[] = [
         sectionTitle: "Socials",
         items: [
           {
-            href: "/contact#todo",
+            href: "https://twitter.com/thesoreon",
             label: "Twitter",
           },
           {
-            href: "/contact#todo",
+            href: "https://linkedin.com/in/pavel-susicky",
             label: "LinkedIn",
           },
         ],

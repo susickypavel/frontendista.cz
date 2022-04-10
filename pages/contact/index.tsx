@@ -26,14 +26,8 @@ const ContactPage: NextPage = () => {
           <p>
             If you incline to more casual forms of communication, you can send me a
             mail&nbsp;
-            <AnchorLink
-              classNames={{
-                override: styles.mailLink,
-              }}
-              href="mailto:susicky.pavel@outlook.cz">
-              here
-            </AnchorLink>{" "}
-            or follow me on socials below.
+            <AnchorLink href="mailto:susicky.pavel@outlook.cz">here</AnchorLink> or follow
+            me on socials below.
           </p>
         </div>
         <ContactForm />
