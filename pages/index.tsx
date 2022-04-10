@@ -7,7 +7,7 @@ import type { NextPage } from "next";
 const IndexPage: NextPage = () => {
   return (
     <header className={styles.hero}>
-      <h1 className={styles.heroTitle}>Pavel Susicky</h1>
+      <h1 className={styles.heroTitle}>PAVEL SUSICKY</h1>
       <p className={styles.heroSubtitle}>Software Engineer</p>
       <p className={styles.heroSubtitle}>Front-end developer</p>
       <p className={styles.heroSubtitle}>Prague, Czech Republic</p>
