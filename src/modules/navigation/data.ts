@@ -1,6 +1,6 @@
-import memojiAbout from "@assets/memoji-about.png";
-import memojiBlog from "@assets/memoji-blog.png";
-import memojiContact from "@assets/memoji-contact.png";
+import memojiAbout from "@assets/images/memoji-about.png";
+import memojiBlog from "@assets/images/memoji-blog.png";
+import memojiContact from "@assets/images/memoji-contact.png";
 
 import type { INavigationData } from "./navigation.d";
 

@@ -35,7 +35,7 @@ const Link = React.forwardRef<HTMLSpanElement, ILinkProps>(
     forwardedRef,
   ) => {
     const ref = React.useRef<HTMLSpanElement>(null);
-    const [blob] = useSound("/audio/blob-compressed.mp3");
+    const [blob] = useSound("/audio/blob.mp3");
 
     React.useImperativeHandle(forwardedRef, () => ref.current!);
 
