@@ -28,7 +28,7 @@ const ContactPage: NextPage = () => {
             mail&nbsp;
             <AnchorLink
               classNames={{
-                base: styles.mailLink,
+                override: styles.mailLink,
               }}
               href="mailto:susicky.pavel@outlook.cz">
               here

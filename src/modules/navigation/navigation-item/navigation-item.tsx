@@ -10,7 +10,7 @@ export const NavigationItem: React.FC<INavigationItemProps> = ({ children, href 
       withUnderline={false}
       href={href}
       classNames={{
-        base: styles.navigationItem,
+        override: styles.navigationItem,
         isPressed: styles.navigationItemIsPressed,
         isFocusedOrHovered: styles.navigationItemIsFocusedOrHovered,
       }}>
