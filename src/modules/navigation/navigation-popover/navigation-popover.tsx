@@ -52,14 +52,7 @@ export const NavigationPopover: React.FC<INavigationPopoverProps> = ({
                       {items.map(({ href, label }) => {
                         return (
                           <li key={label}>
-                            <AnchorLink
-                              classNames={{
-                                base: styles.dropdownLink,
-                                isFocusedOrHovered: styles.dropdownLinkIsFocusedOrHovered,
-                                isPressed: styles.dropdownLinkIsPressed,
-                              }}
-                              onPress={() => close()}
-                              href={href}>
+                            <AnchorLink onPress={() => close()} href={href}>
                               {label}
                             </AnchorLink>
                           </li>
@@ -87,6 +80,7 @@ export const NavigationPopover: React.FC<INavigationPopoverProps> = ({
                   />
                 </div>
                 <AnchorLink
+                  withUnderline={false}
                   href={ctaLink.href}
                   onPress={() => close()}
                   classNames={{
