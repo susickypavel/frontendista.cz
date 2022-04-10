@@ -1,3 +1,14 @@
+const recessConfig = require("stylelint-config-recess-order");
+
+const recessConfigWithEmptyLine = recessConfig.rules["order/properties-order"].map(
+  group => {
+    return {
+      ...group,
+      emptyLineBefore: "always",
+    };
+  },
+);
+
 const scssRules = {
   "scss/at-rule-no-unknown": [
     null,
@@ -7,14 +18,18 @@ const scssRules = {
   ],
 };
 
+const orderRules = {
+  "order/properties-order": recessConfigWithEmptyLine,
+};
+
 /**
  * @type {import("stylelint").Config}
  */
 const config = {
   extends: [
-    "stylelint-config-standard-scss",
     "stylelint-config-prettier-scss",
     "stylelint-config-recommended-scss",
+    "stylelint-config-recess-order",
   ],
   plugins: ["stylelint-order", "stylelint-no-unsupported-browser-features"],
   rules: {
@@ -27,6 +42,7 @@ const config = {
       },
     ],
     ...scssRules,
+    ...orderRules,
   },
 };
 
