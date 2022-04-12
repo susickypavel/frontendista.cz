@@ -28,6 +28,7 @@ import type {
   NextPage,
 } from "next";
 import { AnchorLink } from "@components/common/link";
+import { CodeSandboxEmbed } from "@components/codesandbox-embed";
 
 const YoutubeEmbed = dynamic(() => import("@components/youtube-embed"));
 
@@ -47,6 +48,9 @@ const BlogPostPage: NextPage<IBlogPostPageProps> = ({ title, body }) => {
           types: {
             youtube: ({ value }) => <YoutubeEmbed videoId={value.videoId} />,
             image: ({ value }) => <BlogImage {...value.asset} />,
+            codesandbox: ({ value }) => (
+              <CodeSandboxEmbed title={value.title} sandboxId={value.sandboxId} />
+            ),
           },
           marks: {
             link: ({ children, value }) => (
