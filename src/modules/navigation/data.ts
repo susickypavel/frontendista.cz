@@ -135,7 +135,7 @@ export const navigationData: INavigationData[] = [
             label: "GitHub",
           },
           {
-            href: "https://www.npmjs.com/~pavelsusicky",
+            href: "https://npmjs.com/~pavelsusicky",
             label: "npmjs",
           },
         ],

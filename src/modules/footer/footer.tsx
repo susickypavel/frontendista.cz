@@ -34,10 +34,10 @@ export const Footer: React.FunctionComponent = () => {
               <AnchorLink href="https://sanity.io">Sanity</AnchorLink>
             </li>
             <li>
-              <AnchorLink href="https://www.cloudflare.com">Cloudflare</AnchorLink>
+              <AnchorLink href="https://cloudflare.com">Cloudflare</AnchorLink>
             </li>
             <li>
-              <AnchorLink href="https://www.wedos.cz">Wedos</AnchorLink>
+              <AnchorLink href="https://wedos.cz">Wedos</AnchorLink>
             </li>
           </ul>
         </section>
