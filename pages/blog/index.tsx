@@ -27,6 +27,8 @@ const BlogIndex: NextPage<IBlogIndexPageProps> = ({ allPost }) => {
                 lqip={metadata.lqip}
                 width={metadata.dimensions.width}
                 height={metadata.dimensions.height}
+                // TODO: Probably should contain some text
+                alt=""
               />
               <h1>{title}</h1>
               <time dateTime={publishedAt}>
