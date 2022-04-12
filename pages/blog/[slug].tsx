@@ -50,7 +50,13 @@ const BlogPostPage: NextPage<IBlogPostPageProps> = ({ title, body }) => {
           },
           marks: {
             link: ({ children, value }) => (
-              <AnchorLink href={value!.href}>{children}</AnchorLink>
+              <AnchorLink
+                href={value!.href}
+                classNames={{
+                  override: styles.blockContentLink,
+                }}>
+                {children}
+              </AnchorLink>
             ),
           },
         }}
