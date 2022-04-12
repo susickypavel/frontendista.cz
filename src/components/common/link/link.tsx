@@ -124,14 +124,13 @@ const ExternalIcon: React.FC<{ href: string; isVisible: boolean }> = ({
   isVisible,
 }) => {
   return (
-    <span className={styles.externalIcon}>
-      <img
-        className={clsx(styles.externalIconFavicon, {
-          [styles.externalIconFaviconHidden]: isVisible,
-        })}
-        src={`/api/favicon?url=${href}`}
-        alt=""
-      />
+    <span
+      className={clsx(styles.externalIcon, {
+        [styles.externalIconFaviconHidden]: isVisible,
+      })}
+      style={{
+        backgroundImage: `url(/api/favicon?url=${href})`,
+      }}>
       <HiExternalLink
         className={clsx(styles.externalIconSVG, {
           [styles.externalIconSVGVisible]: isVisible,

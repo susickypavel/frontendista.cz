@@ -52,14 +52,12 @@
 
   width: 1em;
   height: 1em;
-}
 
-.externalIconFavicon {
-  width: 1rem;
-  height: 1rem;
+  background-repeat: no-repeat;
+  background-position: center center;
 
-  &Hidden {
-    opacity: 0;
+  &FaviconHidden {
+    background-image: none !important;
   }
 }
 
