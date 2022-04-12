@@ -1,17 +1,9 @@
 import * as React from "react";
 import Image from "next/image";
 
-export interface IBlogImageProps {
-  height: string | number;
-  width: string | number;
-  src: string;
-  lqip: string;
-  aspectRatio?: number;
-  alt: string;
-  caption?: string;
-}
+import type { IBlogImageProps } from "./blog-image.d";
 
-export const BlogImage: React.FunctionComponent<IBlogImageProps> = ({
+export const BlogImage: React.FC<IBlogImageProps> = ({
   lqip,
   // eslint-disable-next-line no-unused-vars
   aspectRatio,
