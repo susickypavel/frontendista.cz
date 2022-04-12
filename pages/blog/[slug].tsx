@@ -51,6 +51,9 @@ const BlogPostPage: NextPage<IBlogPostPageProps> = ({ title, body }) => {
             codesandbox: ({ value }) => (
               <CodeSandboxEmbed title={value.title} sandboxId={value.sandboxId} />
             ),
+            imageWithCaption: ({ value }) => (
+              <BlogImage caption={value.caption} alt={value.alt} {...value.asset} />
+            ),
           },
           marks: {
             link: ({ children, value }) => (
