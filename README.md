@@ -1,3 +1,5 @@
+> ⚠️ This project is archived as it was moved to [frontendista.cz](https://github.com/frontendista/frontendista.cz) monorepo. ⚠️
+
 <p align="center">
   <a href="https://frontendista.cz">
     <h1 align="center">frontendista.cz</h1>
